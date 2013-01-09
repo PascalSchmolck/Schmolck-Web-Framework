@@ -19,7 +19,7 @@ $strTemplatePath = Schmolck_Framework_Host::getCurrentPath().'/template';
 	<?php $this->registerViewStyles("{$strTemplatePath}/styles.css"); ?>
 	<?php $this->renderViewStyles(); ?>
 
-	<?php $this->registerViewScripts('libraries/js/jquery/jquery-1.7.1.min.js') ?>
+	<?php $this->registerViewScripts('lib/js/jquery/jquery-1.7.1.min.js') ?>
 	<?php $this->registerViewScripts("{$strTemplatePath}/scripts.js") ?>
 	<?php $this->renderViewScripts(); ?>
 </head>

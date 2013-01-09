@@ -45,7 +45,7 @@ class Schmolck_Gui {
 	}
 
 	protected function _getLibraryDir() {
-		return "libraries/php";
+		return "lib/php";
 	}
 
 	protected function _renderHtml()
