@@ -22,35 +22,40 @@ class Schmolck_Framework_Core {
 
 	protected $_strViewOutput;
 
-	public function __construct($strModule, $strController, $strAction) {
-		//-------------
-		// PREPARATION
-		//-------------
+	public function __construct($strModule, $strController, $strAction) 
+	{
+		/*
+		 * PREPARATION
+		 */
 		$this->_bLayoutRendering = true;
 
-		//-----------
-		// PARAMETER
-		//-----------
+		/*
+		 * PARAMETER
+		 */
 		$this->_strModule = ($strModule != '')? $strModule : 'index';
 		$this->_strController = ($strController != '')? $strController : 'index';
 		$this->_strAction = ($strAction != '')? $strAction : 'index';
 	}
 
-	public function setExceptionModule($strModule) {
+	public function setExceptionModule($strModule) 
+	{
 		$this->_strExceptionModule = $strModule;
 	}
 
-	public function registerStyles($file) {
+	public function registerViewStyles($file) 
+	{
 		$this->_arrViewStyles[] = $file;
 		$this->_arrViewStyles = array_unique($this->_arrViewStyles);
 	}
 
-	public function registerScripts($file) {
+	public function registerViewScripts($file) 
+	{
 		$this->_arrViewScripts[] = $file;
 		$this->_arrViewScripts = array_unique($this->_arrViewScripts);
 	}
 
-	public function run() {
+	public function run() 
+	{
 		try {
 			$this->_RunApplicationInit();
 			$this->_RunModuleInit();
@@ -67,15 +72,18 @@ class Schmolck_Framework_Core {
 		}
 	}
 
-	protected function _runApplicationInit() {
+	protected function _runApplicationInit() 
+	{
 		require("application/_init.php");
 	}
 
-	protected function _runApplicationExit() {
+	protected function _runApplicationExit() 
+	{
 		require("application/_exit.php");
 	}
 
-	protected function _runModuleInit() {
+	protected function _runModuleInit() 
+	{
 		$strFile = "application/modules/{$this->_strModule}/_init.php";
 		if (file_exists($strFile)) {
 			require($strFile);
@@ -84,7 +92,8 @@ class Schmolck_Framework_Core {
 		}
 	}
 
-	protected function _runModuleExit() {
+	protected function _runModuleExit() 
+	{
 		$strFile = "application/modules/{$this->_strModule}/_exit.php";
 		if (file_exists($strFile)) {
 			require($strFile);
@@ -93,7 +102,8 @@ class Schmolck_Framework_Core {
 		}
 	}
 
-	protected function _runControllerInit() {
+	protected function _runControllerInit() 
+	{
 		$strFile = "application/modules/{$this->_strModule}/controllers/{$this->_strController}/_init.php";
 		if (file_exists($strFile)) {
 			require($strFile);
@@ -124,18 +134,19 @@ class Schmolck_Framework_Core {
 
 	protected function _runLayout() {
 		if ($this->_bLayoutRendering) {
-			$strFile = "application/layouts/desktop/layout.html.php";
+			$strFile = Schmolck_Framework_Host::getCurrentPath()."/template/html.php";
 			if (file_exists($strFile)) {
 				require($strFile);
 			} else {
-				throw new Exception("Layout file for 'desktop' not found");
+				throw new Exception("Layout file not found");
 			}
 		} else {
 			$this->_RenderView();
 		}
 	}
 
-	protected function _runView() {
+	protected function _runView() 
+	{
 		ob_start();
 			$strFile = "application/modules/{$this->_strModule}/views/{$this->_strController}/{$this->_strAction}.phtml";
 			if (file_exists($strFile)) {
@@ -148,11 +159,19 @@ class Schmolck_Framework_Core {
 		ob_end_clean();
 	}
 
-	protected function _renderViewHtml() {
+	/**
+	 * Render view html
+	 */
+	public function renderViewHtml() 
+	{
 		echo $this->_strViewOutput;
 	}
 
-	protected function _renderViewStyles() {
+	/**
+	 * Render <styles> tags
+	 */
+	public function renderViewStyles() 
+	{
 		if (count($this->_arrViewStyles) > 0) {
 			foreach ($this->_arrViewStyles as $file) {
 				if (filesize($file) > 0) {
@@ -162,7 +181,11 @@ class Schmolck_Framework_Core {
 		}
 	}
 
-	protected function _renderViewScripts() {
+	/**
+	 * Render <script> tags
+	 */
+	public function renderViewScripts() 
+	{
 		if (count($this->_arrViewScripts) > 0) {
 			foreach ($this->_arrViewScripts as $file) {
 				if (filesize($file) > 0) {
@@ -171,8 +194,23 @@ class Schmolck_Framework_Core {
 			}
 		}
 	}
+	
+	/**
+	 * Render <base> tag
+	 */
+	public function renderViewBase()
+	{
+		$strBaseUrl = Schmolck_Framework_Host::getBaseUrl();
+		echo "<base href=\"{$strBaseUrl}\" />\n";
+	}
 
-	protected function _setLayoutRendering($bFlag) {
+	/**
+	 * Set layout rendering true or false
+	 * 
+	 * @param boolean $bFlag
+	 */
+	protected function setLayoutRendering($bFlag) 
+	{
 		$this->_bLayoutRendering = $bFlag;
 	}
 

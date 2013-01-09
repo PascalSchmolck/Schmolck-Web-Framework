@@ -67,7 +67,7 @@ class Schmolck_Gui {
 		foreach ($classes as $class) {
 			$file = "{$this->_GetLibraryDir()}/{$this->_GetClassDir($class)}/{$this->_GetClassFileName($class)}.css";
 			if (file_exists($file)) {
-				$this->_objCore->RegisterStyles($file);
+				$this->_objCore->registerViewStyles($file);
 			}
 		}
 	}
@@ -78,7 +78,7 @@ class Schmolck_Gui {
 		foreach ($classes as $class) {
 			$file = "{$this->_GetLibraryDir()}/{$this->_GetClassDir($class)}/{$this->_GetClassFileName($class)}.js";
 			if (file_exists($file)) {
-				$this->_objCore->RegisterScripts($file);
+				$this->_objCore->registerViewScripts($file);
 			}
 		}
 	}
