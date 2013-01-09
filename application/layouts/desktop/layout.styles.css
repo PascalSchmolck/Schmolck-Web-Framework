@@ -1,0 +1,401 @@
+@media print {
+.print{
+	visibility:visible;
+}
+.screen{
+	visibility:hidden;
+	display: none;
+}
+}
+
+@media screen, handheld{
+.screen{
+	visibility:visible;
+}
+.print{
+	visibility:hidden;
+	display: none;
+}
+}
+
+body{
+	background-repeat: repeat-x;
+	background-color: #ffffff;
+	font-size: 9pt;
+	font-family: sans-serif;
+	min-width: 750px;
+	color: #333333;
+}
+
+img{
+	border: 0px;
+}
+
+a{
+	text-decoration: none;
+}
+a:link, a:visited{
+	color: #003E84;
+}
+a:hover{
+	color: #888888;
+}
+
+h1, h2, h3{
+	font-weight: normal;
+	color: #333333;
+}
+
+hr{
+	margin: 20px 0px;
+	border: 0px;
+	border-top: solid 1px #e1e1e1;
+}
+
+input{
+	max-width: 75%;
+}
+
+form ul{
+	list-style-type: none;
+}
+
+table{
+	padding: 10px 0px;
+	width: 100%;
+}
+
+table td{
+	text-align: center;
+	padding: 5px;
+}
+
+table th{
+	border-bottom: 1px dotted #888888;
+	text-align: center;
+	color: #333333;
+	padding: 5px;
+}
+
+li{
+	padding: 2px 0px;
+}
+
+#top{
+	background-image: url("../images/background/top.png");
+	background-repeat: no-repeat;
+	background-position: top;
+	height: 30px;
+}
+
+#frame{
+	-webkit-box-shadow: 10px 10px 10px #e1e1e1;
+	-moz-box-shadow: 10px 10px 10px #e1e1e1;
+	box-shadow: 10px 10px 10px #e1e1e1;
+
+	background-color: #ffffff;
+	border: 1px solid #d1d1d1;
+	text-align: left;
+	min-width: 700px;
+	max-width: 950px;
+	margin: 30px auto;
+}
+
+#header{
+	padding: 20px 40px;
+}
+#topmenu{
+	padding: 20px 2px;
+	float: right;
+	color: #555555;
+}
+#topmenu a:link, #topmenu a:visited{
+	color: #555555;
+}
+#topmenu a:hover{
+	color: #888888;
+}
+#identity a{
+	padding: 5px;
+	font-weight: bold;
+}
+#identity a:link, #identity a:visited{
+	color: #003E84;
+}
+#identity a:hover{
+	color: #888888;
+}
+
+#logo{
+	font-size: 30pt;
+	padding: 10px 0px;
+}
+#logo #environment{
+	font-style: italic;
+	font-size: 10pt;
+	color: #888888;
+}
+#logo a:link{
+	color: #000000;
+}
+
+#navigation{
+	border-bottom: 2px solid #fec400;
+	padding: 8px 0px;
+	margin: 0px 40px;
+}
+#navigation a{
+	padding: 8px;
+}
+#navigation a:link, #navigation a:visited{
+	color: #333333;
+}
+#navigation a:hover{
+	color: #888888;
+}
+#helpmenu{
+	float: right;
+	text-align: right;
+}
+#helpmenu a{
+	padding: 2px;
+}
+#mainmenu .menu ul, #mainmenu .menu ul li{
+	display: inline;
+	padding: 0px;
+}
+#mainmenu .menu ul li a.current{
+	background-image: url("../images/background/mainmenu.png");
+	background-repeat: repeat-x;
+	background-position: top;
+	background-color: #fec400;
+}
+
+#usermenu{
+	margin: 5px 40px;
+}
+#usermenu a{
+	font-size: 9pt;
+	padding: 5px;
+}
+#usermenu a:link, #usermenu a:visited{
+	color: #555555;
+}
+#usermenu a:hover{
+	color: #888888;
+}
+#usermenu .menu ul, #usermenu .menu ul li{
+	display: inline;
+	padding: 0px;
+}
+#usermenu .menu ul li a.current{
+	background-image: url("../images/background/usermenu.png");
+	background-repeat: repeat-x;
+	background-position: bottom;
+	background-color: #e1e1e1;
+}
+
+#messages{
+	background-image: url("../images/background/messages.png");
+	background-repeat: repeat-x;
+	background-position: bottom;
+	background-color: #D4E7FF;
+	color: #333333;
+	padding: 5px 10px;
+	margin: 0px 40px;
+}
+
+#container{
+	background-color: #ffffff;
+	text-align: justify;
+	padding: 10px 0px;
+	margin: 10px 40px;
+}
+#container #symbol{
+	float: right;
+}
+#container .menu{
+	padding: 10px 0px;
+}
+#container .menu ul, #container .menu ul li{
+	display: inline;
+	padding: 0px;
+}
+#container .menu ul li{
+	padding: 5px;
+	border-bottom: 2px solid #e1e1e1;
+}
+#container .menu ul li a{
+	padding: 5px;
+}
+#container .menu ul li a:link, #container .menu ul li a:visited{
+	color: #555555;
+}
+#container .menu ul li a:hover{
+	color: #888888;
+}
+#container .menu ul li a.current{
+	background-image: url("../images/background/menu.png");
+	background-repeat: repeat-x;
+	background-position: bottom;
+	background-color: #e1e1e1;
+}
+
+#footer{
+	clear: both;
+	padding: 20px 40px;
+}
+#footermenu{
+	float: right;
+}
+#footermenu a{
+	padding: 5px;
+}
+#footermenu a:link, #footermenu a:visited{
+	color: #555555;
+}
+#footermenu a:hover{
+	color: #888888;
+}
+
+#bottom{
+	background-image: url("../images/background/bottom.png");
+	background-repeat: no-repeat;
+	background-position: bottom;
+	height: 50px;
+}
+
+.title .heading1{
+	font-size: 18pt;
+}
+.title .heading2{
+	font-size: 16pt;
+}
+.title .heading3{
+	font-size: 14pt;
+}
+
+.reviews .product td{
+	padding-top: 20px;
+	font-weight: bold;
+	border-bottom: 1px solid #888888;
+}
+
+.comment a{
+	color: #888888;
+}
+
+.tagcloud{
+	padding: 20px 0;
+	clear: both;
+}
+.tagcloud .one{
+	font-size: 7pt;
+	margin: 2px;
+}
+.tagcloud .two{
+	font-size: 8pt;
+	font-style: italic;
+	margin: 4px;
+}
+.tagcloud .three{
+	font-size: 10pt;
+	font-weight: bold;
+	margin: 6px;
+}
+.tagcloud .four{
+	font-size: 12pt;
+	font-style: italic;
+	margin: 8px;
+}
+.tagcloud .five{
+	font-size: 14pt;
+	margin: 10px;
+}
+.tagcloud .six{
+	font-size: 16pt;
+	font-style: italic;
+	font-weight: bold;
+	margin: 10px;
+}
+.tagcloud .seven{
+	font-size: 18pt;
+	margin: 10px;
+}
+.tagcloud .eight{
+	font-size: 20pt;
+	font-style: italic;
+	font-weight: bold;
+	margin: 10px;
+}
+.tagcloud .nine{
+	font-size: 22pt;
+	margin: 10px;
+}
+.tagcloud .ten{
+	font-size: 24pt;
+	margin: 10px;
+}
+.details .tagcloud, .right .tagcloud{
+	margin: 5px;
+	float: right;
+	width: 45%;
+}
+
+.favicons{
+	float: right;
+	clear: both;
+}
+.favicons a{
+	padding: 5px;
+}
+
+.quicks{
+	padding: 5px;
+	margin-top: 10px;
+	float: right;
+	clear: both;
+}
+.quicks ul{
+	display: block;
+	margin: 0px;
+	padding: 0px;
+}
+.quicks ul li{
+	display: block;
+	padding: 5px;
+}
+
+.infos{
+	background-image: url("../images/background/infos.png");
+	background-repeat: repeat-x;
+	background-position: top;
+	border: 1px solid #e1e1e1;
+	font-size: 7pt;
+	padding: 5px 10px;
+	color: #333333;
+}
+
+.notes{
+	background: #CCDFFF;
+	color: #000000;
+	padding: 5px;
+}
+.warnings{
+	background: #FFF3CC;
+	color: #000000;
+	padding: 5px;
+}
+.errors{
+	background-color: #FFCCD1;
+	color: #000000;
+	padding: 5px;
+}
+.critical{
+	background-color: #FF8C97;
+	color: #000000;
+	padding: 5px;
+}
+.back{
+	background-color: #f1f1f1;
+}

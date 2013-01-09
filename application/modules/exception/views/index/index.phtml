@@ -1,0 +1,16 @@
+<h1>
+	Ups, sorry...
+</h1>
+<h2>
+	...an error occurred!
+</h2>
+<div class="errors">
+	<strong>Message:</strong> <?=$Exception->getMessage();?>
+</div>
+<br>
+<div style="font-style: italic;">
+	<?=$Exception->getLine();?>: <?=$Exception->getFile();?>
+</div>
+<pre class="infos">
+<?=$Exception->getTraceAsString()?>
+</pre>

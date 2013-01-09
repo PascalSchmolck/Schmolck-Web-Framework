@@ -1,0 +1,8 @@
+#***************************************************************************
+# wwwGUI - WordWideWeb GUI
+# Copyright (C) 2011 Pascal Schmolck
+#***************************************************************************
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .* index.php

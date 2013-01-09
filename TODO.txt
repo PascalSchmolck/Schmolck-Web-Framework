@@ -1,0 +1,29 @@
+2012.02.29
+**********
+[x] [PROJECT] re-naming into php.framework.schmolck
+[ ] [PERFORMANCE] implement compiled JavaScript loading instead of single files
+[ ] [SECURITY] move front controller into public folder
+
+2012.02.29
+**********
+[x] [PROJECT] creating data/ folder for images, files, etc.
+
+2012.02.25
+**********
+[x] [PROJECT] changing naming convention ("name.php", "name.phtml", "name.css", "name.js")
+[x] [SAFETY] handling / redirection for exception
+[x] [PROJECT] inclusion of layout styles
+[x] [PROJECT] simplify attribute retrieval for gui objects with magic __get() method
+[x] [PROJECT] PHPdoc comments on every class, method, ...
+[ ] [USABILITY] browser detection to use proper layout
+
+2012.02.02
+**********
+[x] [PROJECT] changing naming convention ("name.class.php") for better usability
+
+2012.01.24
+**********
+[x] [TESTING] testing of layout switch (JavaScript) for mobile / tablet / desktop browser
+[x] [PROJECT] method to switch of the layout rendering for AJAX requests
+[x] [PROJECT] handling for missing action / controller / module within URL
+[x] [PROJECT] layout subfolders for different browser (desktop, mobile, tablet, ...)

@@ -1,0 +1,1 @@
+DEBUG... Here should no echo be possible => we are in an action!
