@@ -7,7 +7,7 @@
  * @copyright 2013
  * @version 1.0.0
  */
-require('framework/config.php');
-require('framework/classes.php');
-require('framework/parameters.php');
-require('framework/core.php');
+require('init/settings.php');
+require('init/classes.php');
+require('init/parameters.php');
+require('init/core.php');

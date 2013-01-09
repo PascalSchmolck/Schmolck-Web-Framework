@@ -36,21 +36,21 @@ class Schmolck_Framework_Core {
 		$this->_strAction = ($strAction != '')? $strAction : 'index';
 	}
 
-	public function SetExceptionModule($strModule) {
+	public function setExceptionModule($strModule) {
 		$this->_strExceptionModule = $strModule;
 	}
 
-	public function RegisterStyles($file) {
+	public function registerStyles($file) {
 		$this->_arrViewStyles[] = $file;
 		$this->_arrViewStyles = array_unique($this->_arrViewStyles);
 	}
 
-	public function RegisterScripts($file) {
+	public function registerScripts($file) {
 		$this->_arrViewScripts[] = $file;
 		$this->_arrViewScripts = array_unique($this->_arrViewScripts);
 	}
 
-	public function Run() {
+	public function run() {
 		try {
 			$this->_RunApplicationInit();
 			$this->_RunModuleInit();
@@ -67,15 +67,15 @@ class Schmolck_Framework_Core {
 		}
 	}
 
-	protected function _RunApplicationInit() {
+	protected function _runApplicationInit() {
 		require("application/_init.php");
 	}
 
-	protected function _RunApplicationExit() {
+	protected function _runApplicationExit() {
 		require("application/_exit.php");
 	}
 
-	protected function _RunModuleInit() {
+	protected function _runModuleInit() {
 		$strFile = "application/modules/{$this->_strModule}/_init.php";
 		if (file_exists($strFile)) {
 			require($strFile);
@@ -84,7 +84,7 @@ class Schmolck_Framework_Core {
 		}
 	}
 
-	protected function _RunModuleExit() {
+	protected function _runModuleExit() {
 		$strFile = "application/modules/{$this->_strModule}/_exit.php";
 		if (file_exists($strFile)) {
 			require($strFile);
@@ -93,7 +93,7 @@ class Schmolck_Framework_Core {
 		}
 	}
 
-	protected function _RunControllerInit() {
+	protected function _runControllerInit() {
 		$strFile = "application/modules/{$this->_strModule}/controllers/{$this->_strController}/_init.php";
 		if (file_exists($strFile)) {
 			require($strFile);
@@ -102,7 +102,7 @@ class Schmolck_Framework_Core {
 		}
 	}
 
-	protected function _RunControllerExit() {
+	protected function _runControllerExit() {
 		$strFile = "application/modules/{$this->_strModule}/controllers/{$this->_strController}/_exit.php";
 		if (file_exists($strFile)) {
 			require($strFile);
@@ -111,7 +111,7 @@ class Schmolck_Framework_Core {
 		}
 	}
 
-	protected function _RunAction() {
+	protected function _runAction() {
 		ob_start();
 			$strFile = "application/modules/{$this->_strModule}/controllers/{$this->_strController}/{$this->_strAction}.php";
 			if (file_exists($strFile)) {
@@ -122,7 +122,7 @@ class Schmolck_Framework_Core {
 		ob_end_clean();
 	}
 
-	protected function _RunLayout() {
+	protected function _runLayout() {
 		if ($this->_bLayoutRendering) {
 			$strFile = "application/layouts/desktop/layout.html.php";
 			if (file_exists($strFile)) {
@@ -135,7 +135,7 @@ class Schmolck_Framework_Core {
 		}
 	}
 
-	protected function _RunView() {
+	protected function _runView() {
 		ob_start();
 			$strFile = "application/modules/{$this->_strModule}/views/{$this->_strController}/{$this->_strAction}.phtml";
 			if (file_exists($strFile)) {
@@ -148,11 +148,11 @@ class Schmolck_Framework_Core {
 		ob_end_clean();
 	}
 
-	protected function _RenderViewHtml() {
+	protected function _renderViewHtml() {
 		echo $this->_strViewOutput;
 	}
 
-	protected function _RenderViewStyles() {
+	protected function _renderViewStyles() {
 		if (count($this->_arrViewStyles) > 0) {
 			foreach ($this->_arrViewStyles as $file) {
 				if (filesize($file) > 0) {
@@ -162,7 +162,7 @@ class Schmolck_Framework_Core {
 		}
 	}
 
-	protected function _RenderViewScripts() {
+	protected function _renderViewScripts() {
 		if (count($this->_arrViewScripts) > 0) {
 			foreach ($this->_arrViewScripts as $file) {
 				if (filesize($file) > 0) {
@@ -172,11 +172,11 @@ class Schmolck_Framework_Core {
 		}
 	}
 
-	protected function _SetLayoutRendering($bFlag) {
+	protected function _setLayoutRendering($bFlag) {
 		$this->_bLayoutRendering = $bFlag;
 	}
 
-	protected function _RunExceptionHandling(Exception &$Exception) {
+	protected function _runExceptionHandling(Exception &$Exception) {
 		try {
 			$this->_RunExceptionModuleInit($Exception);
 			$this->_RunExceptionControllerInit($Exception);
@@ -190,36 +190,36 @@ class Schmolck_Framework_Core {
 		}
 	}
 
-	protected function _RunExceptionModuleInit(Exception $Exception) {
+	protected function _runExceptionModuleInit(Exception $Exception) {
 		require("application/modules/{$this->_strExceptionModule}/_init.php");
 	}
 
-	protected function _RunExceptionModuleExit(Exception $Exception) {
+	protected function _runExceptionModuleExit(Exception $Exception) {
 		require("application/modules/{$this->_strExceptionModule}/_exit.php");
 	}
 
-	protected function _RunExceptionControllerInit(Exception $Exception) {
+	protected function _runExceptionControllerInit(Exception $Exception) {
 		require("application/modules/{$this->_strExceptionModule}/controllers/index/_init.php");
 	}
 
-	protected function _RunExceptionControllerExit(Exception $Exception) {
+	protected function _runExceptionControllerExit(Exception $Exception) {
 		require("application/modules/{$this->_strExceptionModule}/controllers/index/_exit.php");
 	}
 
-	protected function _RunExceptionAction(Exception $Exception) {
+	protected function _runExceptionAction(Exception $Exception) {
 		ob_start();
 		require("application/modules/{$this->_strExceptionModule}/controllers/index/index.php");
 		ob_end_clean();
 	}
 
-	protected function _RunExceptionView(Exception $Exception) {
+	protected function _runExceptionView(Exception $Exception) {
 		ob_start();
 		require("application/modules/{$this->_strExceptionModule}/views/index/index.phtml");
 		$this->_strViewOutput = ob_get_contents();
 		ob_end_clean();
 	}
 
-	protected function _RunExceptionLayout(Exception $Exception) {
+	protected function _runExceptionLayout(Exception $Exception) {
 		if ($this->_bLayoutRendering) {
 			$this->_RunLayout();
 		} else {
@@ -227,7 +227,7 @@ class Schmolck_Framework_Core {
 		}
 	}
 
-	protected function _RenderExceptionView(Exception $Exception) {
+	protected function _renderExceptionView(Exception $Exception) {
 		$this->_RenderView();
 	}
 }
