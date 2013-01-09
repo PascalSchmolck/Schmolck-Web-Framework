@@ -22,19 +22,18 @@ class Schmolck_Framework_Core {
 
 	protected $_strViewOutput;
 
-	public function __construct($strModule, $strController, $strAction) 
+	public function __construct() 
 	{
 		/*
 		 * PREPARATION
 		 */
-		$this->_bLayoutRendering = true;
+		$this->setLayoutRendering(true);
+		$this->setExceptionModule('exception');
 
 		/*
-		 * PARAMETER
+		 * PARAMETERS
 		 */
-		$this->_strModule = ($strModule != '')? $strModule : 'index';
-		$this->_strController = ($strController != '')? $strController : 'index';
-		$this->_strAction = ($strAction != '')? $strAction : 'index';
+		$this->_loadHostParameters();
 	}
 
 	public function setExceptionModule($strModule) 
@@ -71,20 +70,28 @@ class Schmolck_Framework_Core {
 			$this->_RunExceptionHandling($Exception);
 		}
 	}
+	
+	protected function _loadHostParameters()
+	{
+		require(Schmolck_Framework_Host::getCurrentPath().'/parameters.php');
+		$this->_strModule = ($strModule != '')? $strModule : 'index';
+		$this->_strController = ($strController != '')? $strController : 'index';
+		$this->_strAction = ($strAction != '')? $strAction : 'index';
+	}
 
 	protected function _runApplicationInit() 
 	{
-		require("application/_init.php");
+		require("modules/_init.php");
 	}
 
 	protected function _runApplicationExit() 
 	{
-		require("application/_exit.php");
+		require("modules/_exit.php");
 	}
 
 	protected function _runModuleInit() 
 	{
-		$strFile = "application/modules/{$this->_strModule}/_init.php";
+		$strFile = "modules/{$this->_strModule}/_init.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
@@ -94,7 +101,7 @@ class Schmolck_Framework_Core {
 
 	protected function _runModuleExit() 
 	{
-		$strFile = "application/modules/{$this->_strModule}/_exit.php";
+		$strFile = "modules/{$this->_strModule}/_exit.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
@@ -104,7 +111,7 @@ class Schmolck_Framework_Core {
 
 	protected function _runControllerInit() 
 	{
-		$strFile = "application/modules/{$this->_strModule}/controllers/{$this->_strController}/_init.php";
+		$strFile = "modules/{$this->_strModule}/controllers/{$this->_strController}/_init.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
@@ -113,7 +120,7 @@ class Schmolck_Framework_Core {
 	}
 
 	protected function _runControllerExit() {
-		$strFile = "application/modules/{$this->_strModule}/controllers/{$this->_strController}/_exit.php";
+		$strFile = "modules/{$this->_strModule}/controllers/{$this->_strController}/_exit.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
@@ -123,7 +130,7 @@ class Schmolck_Framework_Core {
 
 	protected function _runAction() {
 		ob_start();
-			$strFile = "application/modules/{$this->_strModule}/controllers/{$this->_strController}/{$this->_strAction}.php";
+			$strFile = "modules/{$this->_strModule}/controllers/{$this->_strController}/{$this->_strAction}.php";
 			if (file_exists($strFile)) {
 				require($strFile);
 			} else {
@@ -148,7 +155,7 @@ class Schmolck_Framework_Core {
 	protected function _runView() 
 	{
 		ob_start();
-			$strFile = "application/modules/{$this->_strModule}/views/{$this->_strController}/{$this->_strAction}.phtml";
+			$strFile = "modules/{$this->_strModule}/views/{$this->_strController}/{$this->_strAction}.phtml";
 			if (file_exists($strFile)) {
 				require($strFile);
 			} else {
@@ -229,30 +236,30 @@ class Schmolck_Framework_Core {
 	}
 
 	protected function _runExceptionModuleInit(Exception $Exception) {
-		require("application/modules/{$this->_strExceptionModule}/_init.php");
+		require("modules/{$this->_strExceptionModule}/_init.php");
 	}
 
 	protected function _runExceptionModuleExit(Exception $Exception) {
-		require("application/modules/{$this->_strExceptionModule}/_exit.php");
+		require("modules/{$this->_strExceptionModule}/_exit.php");
 	}
 
 	protected function _runExceptionControllerInit(Exception $Exception) {
-		require("application/modules/{$this->_strExceptionModule}/controllers/index/_init.php");
+		require("modules/{$this->_strExceptionModule}/controllers/index/_init.php");
 	}
 
 	protected function _runExceptionControllerExit(Exception $Exception) {
-		require("application/modules/{$this->_strExceptionModule}/controllers/index/_exit.php");
+		require("modules/{$this->_strExceptionModule}/controllers/index/_exit.php");
 	}
 
 	protected function _runExceptionAction(Exception $Exception) {
 		ob_start();
-		require("application/modules/{$this->_strExceptionModule}/controllers/index/index.php");
+		require("modules/{$this->_strExceptionModule}/controllers/index/index.php");
 		ob_end_clean();
 	}
 
 	protected function _runExceptionView(Exception $Exception) {
 		ob_start();
-		require("application/modules/{$this->_strExceptionModule}/views/index/index.phtml");
+		require("modules/{$this->_strExceptionModule}/views/index/index.phtml");
 		$this->_strViewOutput = ob_get_contents();
 		ob_end_clean();
 	}

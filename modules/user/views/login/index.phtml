@@ -1,12 +1,12 @@
 <?php
 
-$GUI_Box1 = new Schmolck_Gui_Box("testbox1");
-$GUI_Box1->SetCore($this);
-$GUI_Box1->SetAttributes(array(
+$objBox1 = new Schmolck_Gui_Box("testbox1");
+$objBox1->setCore($this);
+$objBox1->setAttributes(array(
 	'data' => "<img src=\"data/images/test.jpg\" width=\"200\"/>\n",
-	'style' => "border: 10px;",
+	'style' => "border: 30px;",
 ));
-$GUI_Box1->Render();
+$objBox1->render();
 
 ?>
 <!--

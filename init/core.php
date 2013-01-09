@@ -7,6 +7,5 @@
  * @copyright 2013
  * @version 1.0.0
  */
-$core = new Schmolck_Framework_Core($strModule, $strController, $strAction);
-$core->setExceptionModule('exception');
+$core = new Schmolck_Framework_Core();
 $core->run();

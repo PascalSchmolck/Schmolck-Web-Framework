@@ -9,5 +9,4 @@
  */
 require('init/settings.php');
 require('init/classes.php');
-require('init/parameters.php');
 require('init/core.php');

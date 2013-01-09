@@ -1,6 +1,6 @@
 <?php
 /**
- * Schmolck GUI Box Class
+ * Schmolck_Gui_Box
  * 
  * @package Schmolck Framework
  * @author Pascal Schmolck
