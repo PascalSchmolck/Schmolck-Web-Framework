@@ -2,9 +2,9 @@
 /**
  * Schmolck_Framework_Core
  * 
- * @package php.framework.schmolck
+ * @package Schmolck PHP Framework (S-PHP-F)
  * @author Pascal Schmolck
- * @copyright 2012
+ * @copyright 2013
  * @version 1.0.0
  */
 class Schmolck_Framework_Core {
