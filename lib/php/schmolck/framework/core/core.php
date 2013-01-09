@@ -5,7 +5,6 @@
  * @package Schmolck Framework
  * @author Pascal Schmolck
  * @copyright 2013
- * @version 1.0.0
  */
 class Schmolck_Framework_Core {
 
@@ -29,11 +28,22 @@ class Schmolck_Framework_Core {
 		 */
 		$this->setLayoutRendering(true);
 		$this->setExceptionModule('exception');
-
+	}
+	
+	public function initHost()
+	{
+		/*
+		 * SETTINGS
+		 */
+		require(Schmolck_Framework_Host::getCurrentPath().'/settings.php');
+		
 		/*
 		 * PARAMETERS
 		 */
-		$this->_loadHostParameters();
+		require(Schmolck_Framework_Host::getCurrentPath().'/parameters.php');
+		$this->_strModule = ($strModule != '')? $strModule : 'index';
+		$this->_strController = ($strController != '')? $strController : 'index';
+		$this->_strAction = ($strAction != '')? $strAction : 'index';
 	}
 
 	public function setExceptionModule($strModule) 
@@ -69,14 +79,6 @@ class Schmolck_Framework_Core {
 			ob_end_clean();
 			$this->_RunExceptionHandling($Exception);
 		}
-	}
-	
-	protected function _loadHostParameters()
-	{
-		require(Schmolck_Framework_Host::getCurrentPath().'/parameters.php');
-		$this->_strModule = ($strModule != '')? $strModule : 'index';
-		$this->_strController = ($strController != '')? $strController : 'index';
-		$this->_strAction = ($strAction != '')? $strAction : 'index';
 	}
 
 	protected function _runApplicationInit() 
