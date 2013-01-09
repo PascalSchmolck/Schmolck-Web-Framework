@@ -29,5 +29,4 @@ function __autoload($strClass){
  * CORE
  */
 $core = new Schmolck_Framework_Core();
-$core->initHost();
 $core->run();

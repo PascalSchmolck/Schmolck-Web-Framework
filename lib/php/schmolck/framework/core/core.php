@@ -30,6 +30,7 @@ class Schmolck_Framework_Core
 		 */
 		$this->setLayoutRendering(true);
 		$this->setExceptionModule('exception');
+		$this->initHost();
 	}
 	
 	public function initHost()
