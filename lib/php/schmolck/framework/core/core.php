@@ -6,7 +6,9 @@
  * @author Pascal Schmolck
  * @copyright 2013
  */
-class Schmolck_Framework_Core {
+class Schmolck_Framework_Core 
+{
+	const MOD_PATH = 'mod';
 
 	protected $_strExceptionModule;
 
@@ -83,17 +85,17 @@ class Schmolck_Framework_Core {
 
 	protected function _runApplicationInit() 
 	{
-		require("modules/_init.php");
+		require(self::MOD_PATH . "/_init.php");
 	}
 
 	protected function _runApplicationExit() 
 	{
-		require("modules/_exit.php");
+		require(self::MOD_PATH . "/_exit.php");
 	}
 
 	protected function _runModuleInit() 
 	{
-		$strFile = "modules/{$this->_strModule}/_init.php";
+		$strFile = self::MOD_PATH . "/{$this->_strModule}/_init.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
@@ -103,7 +105,7 @@ class Schmolck_Framework_Core {
 
 	protected function _runModuleExit() 
 	{
-		$strFile = "modules/{$this->_strModule}/_exit.php";
+		$strFile = self::MOD_PATH . "/{$this->_strModule}/_exit.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
@@ -113,7 +115,7 @@ class Schmolck_Framework_Core {
 
 	protected function _runControllerInit() 
 	{
-		$strFile = "modules/{$this->_strModule}/controllers/{$this->_strController}/_init.php";
+		$strFile = self::MOD_PATH . "/{$this->_strModule}/controllers/{$this->_strController}/_init.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
@@ -122,7 +124,7 @@ class Schmolck_Framework_Core {
 	}
 
 	protected function _runControllerExit() {
-		$strFile = "modules/{$this->_strModule}/controllers/{$this->_strController}/_exit.php";
+		$strFile = self::MOD_PATH . "/{$this->_strModule}/controllers/{$this->_strController}/_exit.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
@@ -132,7 +134,7 @@ class Schmolck_Framework_Core {
 
 	protected function _runAction() {
 		ob_start();
-			$strFile = "modules/{$this->_strModule}/controllers/{$this->_strController}/{$this->_strAction}.php";
+			$strFile = self::MOD_PATH . "/{$this->_strModule}/controllers/{$this->_strController}/{$this->_strAction}.php";
 			if (file_exists($strFile)) {
 				require($strFile);
 			} else {
@@ -157,7 +159,7 @@ class Schmolck_Framework_Core {
 	protected function _runView() 
 	{
 		ob_start();
-			$strFile = "modules/{$this->_strModule}/views/{$this->_strController}/{$this->_strAction}.phtml";
+			$strFile = self::MOD_PATH . "/{$this->_strModule}/views/{$this->_strController}/{$this->_strAction}.phtml";
 			if (file_exists($strFile)) {
 				require($strFile);
 			} else {
@@ -285,30 +287,30 @@ class Schmolck_Framework_Core {
 	}
 
 	protected function _runExceptionModuleInit(Exception $Exception) {
-		require("modules/{$this->_strExceptionModule}/_init.php");
+		require(self::MOD_PATH . "/{$this->_strExceptionModule}/_init.php");
 	}
 
 	protected function _runExceptionModuleExit(Exception $Exception) {
-		require("modules/{$this->_strExceptionModule}/_exit.php");
+		require(self::MOD_PATH . "/{$this->_strExceptionModule}/_exit.php");
 	}
 
 	protected function _runExceptionControllerInit(Exception $Exception) {
-		require("modules/{$this->_strExceptionModule}/controllers/index/_init.php");
+		require(self::MOD_PATH . "/{$this->_strExceptionModule}/controllers/index/_init.php");
 	}
 
 	protected function _runExceptionControllerExit(Exception $Exception) {
-		require("modules/{$this->_strExceptionModule}/controllers/index/_exit.php");
+		require(self::MOD_PATH . "/{$this->_strExceptionModule}/controllers/index/_exit.php");
 	}
 
 	protected function _runExceptionAction(Exception $Exception) {
 		ob_start();
-		require("modules/{$this->_strExceptionModule}/controllers/index/index.php");
+		require(self::MOD_PATH . "/{$this->_strExceptionModule}/controllers/index/index.php");
 		ob_end_clean();
 	}
 
 	protected function _runExceptionView(Exception $Exception) {
 		ob_start();
-		require("modules/{$this->_strExceptionModule}/views/index/index.phtml");
+		require(self::MOD_PATH . "/{$this->_strExceptionModule}/views/index/index.phtml");
 		$this->_strViewOutput = ob_get_contents();
 		ob_end_clean();
 	}
