@@ -19,12 +19,11 @@
 }
 
 body{
-	background-repeat: repeat-x;
-	background-color: #ffffff;
+	background-color: #fff;
 	font-size: 9pt;
 	font-family: sans-serif;
 	min-width: 750px;
-	color: #333333;
+	color: #333;
 	padding: 20px;
 	margin: 20px;
 }
@@ -84,22 +83,19 @@ li{
 }
 
 .infos{
-	background-image: url("../images/background/infos.png");
-	background-repeat: repeat-x;
-	background-position: top;
-	border: 1px solid #e1e1e1;
-	font-size: 7pt;
+	background-color: #f1f1f1;
+	font-size: 8pt;
 	padding: 5px 10px;
-	color: #333333;
+	color: #333;
 }
 
 .notes{
-	background: #CCDFFF;
+	background-color: #CCDFFF;
 	color: #000000;
 	padding: 5px;
 }
 .warnings{
-	background: #FFF3CC;
+	background-color: #FFF3CC;
 	color: #000000;
 	padding: 5px;
 }

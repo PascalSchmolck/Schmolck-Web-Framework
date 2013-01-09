@@ -1,8 +1,15 @@
+2013.01.09
+**********
+[ ] [PERFORMANCE] enable gzip compression for JS output
+[ ] [PERFORMANCE] enable gzip compression for CSS output
+[ ] [PROJECT] add a license to the project
+[ ] [PROJECT] add translation capability
+[ ] [PERFORMANCE] remove obsolete tmp files (e.g. older than 1 day)
+
 2012.02.29
 **********
 [x] [PROJECT] re-naming into php.framework.schmolck
-[ ] [PERFORMANCE] implement compiled JavaScript loading instead of single files
-[ ] [SECURITY] move front controller into public folder
+[x] [PERFORMANCE] implement compiled JS & CSS loading instead of single files
 
 2012.02.29
 **********
@@ -15,7 +22,6 @@
 [x] [PROJECT] inclusion of layout styles
 [x] [PROJECT] simplify attribute retrieval for gui objects with magic __get() method
 [x] [PROJECT] PHPdoc comments on every class, method, ...
-[ ] [USABILITY] browser detection to use proper layout
 
 2012.02.02
 **********

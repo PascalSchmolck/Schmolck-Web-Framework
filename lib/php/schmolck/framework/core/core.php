@@ -181,13 +181,37 @@ class Schmolck_Framework_Core {
 	 */
 	public function renderViewStyles() 
 	{
-		if (count($this->_arrViewStyles) > 0) {
-			foreach ($this->_arrViewStyles as $file) {
-				if (filesize($file) > 0) {
-					echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"{$file}\" />\n";
+		/*
+		 * CHECK
+		 */
+		// - nothing to do if no styles registered
+		if (count($this->_arrViewStyles) < 1) {
+			return;
+		}
+		
+		/*
+		 * PROCESSING
+		 */
+		// - optimize all styles into one string
+		foreach ($this->_arrViewStyles as $strFile) {
+			if (file_exists($strFile)) {
+				// - do not minify on development environment
+				if (APPLICATION_ENVIRONMENT == 'development') {
+					$strCombinedCSS .= "\n\n/* {$strFile} */\n\n".file_get_contents($strFile);
+				} else {
+					$strCombinedCSS .= Schmolck_Framework_Optimizer::getOptimizedCssString(file_get_contents($strFile));
 				}
 			}
 		}
+		// - get md5 hash of optimized styles and create tmp file
+		$strTempFile = Schmolck_Framework_Tmp::getFilePath(md5($strCombinedCSS).'.css');
+		// - fill tmp file with optimized styles
+		file_put_contents($strTempFile, $strCombinedCSS);
+		
+		/*
+		 * OUTPUT
+		 */
+		echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"{$strTempFile}\" />\n";
 	}
 
 	/**
@@ -195,13 +219,36 @@ class Schmolck_Framework_Core {
 	 */
 	public function renderViewScripts() 
 	{
-		if (count($this->_arrViewScripts) > 0) {
-			foreach ($this->_arrViewScripts as $file) {
-				if (filesize($file) > 0) {
-					echo "<script type=\"text/javascript\" src=\"{$file}\"></script>\n";
+		/*
+		 * CHECK
+		 */
+		// - nothing to do if no scripts registered
+		if (count($this->_arrViewScripts) < 1) {
+			return;
+		}
+		
+		/*
+		 * PROCESSING
+		 */
+		// - optimize all scripts into one string
+		foreach ($this->_arrViewScripts as $strFile) {
+			if (file_exists($strFile)) {
+				if (APPLICATION_ENVIRONMENT == 'development') {
+					$strCombinedJs .= "\n\n/* {$strFile} */\n\n".file_get_contents($strFile);
+				} else {				
+					$strCombinedJs .= Schmolck_Framework_Optimizer::getOptimizedJsString(file_get_contents($strFile));
 				}
 			}
 		}
+		// - get md5 hash of optimized scripts and create tmp file
+		$strTempFile = Schmolck_Framework_Tmp::getFilePath(md5($strCombinedJs).'.js');
+		// - fill tmp file with optimized scripts
+		file_put_contents($strTempFile, $strCombinedJs);
+		
+		/*
+		 * OUTPUT
+		 */
+		echo "<script type=\"text/javascript\" src=\"{$strTempFile}\"></script>\n";
 	}
 	
 	/**
