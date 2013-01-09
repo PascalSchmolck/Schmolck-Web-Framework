@@ -1,16 +1,26 @@
+<?
+/*
+ * PREPARATION
+ */
+$strTemplatePath = Schmolck_Framework_Host::getCurrentPath().'/template';
+
+/*
+ * HTML
+ */
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	<?php $this->renderViewBase(); ?>
 	<title>
-		Schmolck Framework - Demo
+		Schmolck Framework
 	</title>
 	
-	<?php $this->registerViewStyles('host/localhost/template/styles.css'); ?>
+	<?php $this->registerViewStyles("{$strTemplatePath}/styles.css"); ?>
 	<?php $this->renderViewStyles(); ?>
 
 	<?php $this->registerViewScripts('libraries/js/jquery/jquery-1.7.1.min.js') ?>
-	<?php $this->registerViewScripts('host/localhost/template/scripts.js') ?>
+	<?php $this->registerViewScripts("{$strTemplatePath}/scripts.js") ?>
 	<?php $this->renderViewScripts(); ?>
 </head>
 <body>
