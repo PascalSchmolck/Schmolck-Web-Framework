@@ -2,7 +2,7 @@
 /**
  * Parameter Parsing
  * 
- * @package Schmolck PHP Framework (S-PHP-F)
+ * @package Schmolck Framework
  * @author Pascal Schmolck
  * @copyright 2013
  * @version 1.0.0
