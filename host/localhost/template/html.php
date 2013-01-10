@@ -3,6 +3,7 @@
  * PREPARATION
  */
 $strTemplatePath = Schmolck_Framework_Host::getCurrentPath().'/template';
+
 // - navigation bar
 $objNavbar = new Schmolck_Gui_Navbar('mainnav');
 $objNavbar->setCore($this);
@@ -11,10 +12,18 @@ $objNavbar->setEntries(array(
 		'href' => '#',
 		'label' => 'Home'
 	),
+	'link2'	=>	array(
+		'href' => '#',
+		'label' => 'Link2'
+	),
+	'link3'	=>	array(
+		'href' => '#',
+		'label' => 'Link3'
+	),
 	'imprint'	=>	array(
 		'href' => '#',
 		'label' => 'Imprint'
-	)
+	),	
 ));
 $htmlNavbar = $objNavbar->getHtml();
 
@@ -35,32 +44,22 @@ $htmlNavbar = $objNavbar->getHtml();
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
-	<?php 
-	/*
-	 * STYLES
-	 */
-	
-	$this->registerViewStyles(array(
-		"lib/css/cssgrid/1140.css",
-//		"{$strTemplatePath}/styles.css",
-	));
-	$this->renderViewStyles();
-	?>	
+	<link rel="stylesheet" type="text/css" href="lib/css/cssgrid/1140.css"/>
 	<!--[if lte IE 9]><link rel="stylesheet" href="lib/css/cssgrid/ie.css" type="text/css" media="screen" /><![endif]-->
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700|Droid+Sans:700"/>
-	
-	<link rel="stylesheet/less" type="text/css" href="<?php echo $strTemplatePath; ?>/styles.less">
+	<?php $this->renderViewCSS(); ?>		
+	<?php $this->renderViewLESS(); ?>		
 	
 	<?php
 	/*
 	 * SCRIPTS
 	 */
-	$this->registerViewScripts(array(
+	$this->registerViewJSs(array(
 		'lib/js/less/less-1.3.0.min.js',
 		'lib/js/jquery/jquery-1.7.1.min.js',
 		"{$strTemplatePath}/scripts.js",
 	));
-	$this->renderViewScripts();
+	$this->renderViewJS();
 	?>	
 </head>
 <body>

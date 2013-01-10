@@ -19,6 +19,7 @@ class Schmolck_Framework_Core
 	protected $_bLayoutRendering;
 
 	protected $_arrViewStyles;
+	protected $_arrViewLESS;
 	protected $_arrViewScripts;
 
 	protected $_strViewOutput;
@@ -73,7 +74,7 @@ class Schmolck_Framework_Core
 	 * @param string $file
 	 * @throws Exception
 	 */
-	public function registerViewStyle($file) 
+	public function registerViewCSS($file) 
 	{
 		if (file_exists($file)) {
 			$this->_arrViewStyles[] = $file;
@@ -88,14 +89,44 @@ class Schmolck_Framework_Core
 	 * 
 	 * @param array $arrFiles
 	 */
-	public function registerViewStyles($arrFiles)
+	public function registerViewCSSs($arrFiles)
 	{
 		if (count($arrFiles) > 0) {
 			foreach ($arrFiles as $strFile) {
-				$this->registerViewStyle($strFile);
+				$this->registerViewCSS($strFile);
 			}
 		}		
 	}
+	
+	/**
+	 * Register single LESS file
+	 * 
+	 * @param string $file
+	 * @throws Exception
+	 */
+	public function registerViewLESS($file) 
+	{
+		if (file_exists($file)) {
+			$this->_arrViewLESS[] = $file;
+			$this->_arrViewLESS = array_unique($this->_arrViewLESS);
+		} else {
+			throw new Exception("Registration of LESS file '{$file}' failed in {$this->_strTrace}");
+		}
+	}	
+	
+	/**
+	 * Register multiple LESS files
+	 * 
+	 * @param array $arrFiles
+	 */
+	public function registerViewLESSs($arrFiles)
+	{
+		if (count($arrFiles) > 0) {
+			foreach ($arrFiles as $strFile) {
+				$this->registerViewLESS($strFile);
+			}
+		}		
+	}	
 
 	/**
 	 * Register single JS file
@@ -103,7 +134,7 @@ class Schmolck_Framework_Core
 	 * @param string $file
 	 * @throws Exception
 	 */
-	public function registerViewScript($file) 
+	public function registerViewJS($file) 
 	{
 		if (file_exists($file)) {
 			$this->_arrViewScripts[] = $file;
@@ -118,11 +149,11 @@ class Schmolck_Framework_Core
 	 * 
 	 * @param array $arrFiles
 	 */
-	public function registerViewScripts($arrFiles) 
+	public function registerViewJSs($arrFiles) 
 	{
 		if (count($arrFiles) > 0) {
 			foreach ($arrFiles as $strFile) {
-				$this->registerViewScript($strFile);
+				$this->registerViewJS($strFile);
 			}
 		}
 	}	
@@ -227,8 +258,12 @@ class Schmolck_Framework_Core
 
 	protected function _runLayout() {
 		if ($this->_bLayoutRendering) {
-			$strFile = Schmolck_Framework_Host::getCurrentPath()."/template/html.php";
+			$strTemplatePath = Schmolck_Framework_Host::getCurrentPath().'/template';
+			$strFile = "{$strTemplatePath}/html.php";
 			if (file_exists($strFile)) {
+				// - include styles
+				$this->registerViewLESS("{$strTemplatePath}/styles.less");
+				// - include layout
 				require($strFile);
 			} else {
 				throw new Exception("Layout file not found");
@@ -261,9 +296,9 @@ class Schmolck_Framework_Core
 	}
 
 	/**
-	 * Render <styles> tags
+	 * Render CSS inclusion tag
 	 */
-	public function renderViewStyles() 
+	public function renderViewCSS() 
 	{
 		/*
 		 * CHECK
@@ -297,11 +332,50 @@ class Schmolck_Framework_Core
 		 */
 		echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"{$strTempFile}\" />\n";
 	}
+	
+	/**
+	 * Render LESS inclusion tag
+	 */
+	public function renderViewLESS() 
+	{
+		/*
+		 * CHECK
+		 */
+		// - nothing to do if no styles registered
+		if (count($this->_arrViewLESS) < 1) {
+			return;
+		}
+		
+		/*
+		 * PROCESSING
+		 */
+		// - optimize all styles into one string
+		foreach ($this->_arrViewLESS as $strFile) {
+			if (file_exists($strFile)) {
+				// - do not minify on development environment
+				if (APPLICATION_ENVIRONMENT == 'development') {
+					$strCombinedCSS .= "\n\n/* {$strFile} */\n\n".file_get_contents($strFile);
+				} else {
+					// - no optimizer for LESS found yet
+					$strCombinedCSS .= "\n\n/* {$strFile} */\n\n".file_get_contents($strFile);
+				}
+			}
+		}
+		// - get md5 hash of optimized styles and create tmp file
+		$strTempFile = Schmolck_Framework_Tmp::getFilePath(md5($strCombinedCSS).'.less');
+		// - fill tmp file with optimized styles
+		file_put_contents($strTempFile, $strCombinedCSS);
+		
+		/*
+		 * OUTPUT
+		 */
+		echo "<link rel=\"stylesheet/less\" type=\"text/css\" href=\"{$strTempFile}\" />\n";
+	}	
 
 	/**
-	 * Render <script> tags
+	 * Render JS inclusion tag
 	 */
-	public function renderViewScripts() 
+	public function renderViewJS() 
 	{
 		/*
 		 * CHECK

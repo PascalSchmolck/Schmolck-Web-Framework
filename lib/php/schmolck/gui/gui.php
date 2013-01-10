@@ -57,8 +57,9 @@ abstract class Schmolck_Gui {
 	 */
 	public function render()
 	{
-		$this->_registerStyles();
-		$this->_registerScripts();
+		$this->_registerCSS();
+		$this->_registerLESS();
+		$this->_registerJS();
 		$this->_renderHtml();
 	}
 
@@ -66,24 +67,35 @@ abstract class Schmolck_Gui {
 		return "lib/php";
 	}
 
-	protected function _registerStyles()
+	protected function _registerCSS()
 	{
 		$classes = $this->_getClassesAscending();
 		foreach ($classes as $class) {
 			$file = "{$this->_getLibraryDir()}/{$this->_GetClassDir($class)}/{$this->_GetClassFileName($class)}.css";
 			if (file_exists($file)) {
-				$this->_objCore->registerViewStyle($file);
+				$this->_objCore->registerViewCSS($file);
 			}
 		}
 	}
+	
+	protected function _registerLESS()
+	{
+		$classes = $this->_getClassesAscending();
+		foreach ($classes as $class) {
+			$file = "{$this->_getLibraryDir()}/{$this->_GetClassDir($class)}/{$this->_GetClassFileName($class)}.less";
+			if (file_exists($file)) {
+				$this->_objCore->registerViewLESS($file);
+			}
+		}
+	}	
 
-	protected function _registerScripts()
+	protected function _registerJS()
 	{
 		$classes = $this->_getClassesAscending();
 		foreach ($classes as $class) {
 			$file = "{$this->_getLibraryDir()}/{$this->_GetClassDir($class)}/{$this->_GetClassFileName($class)}.js";
 			if (file_exists($file)) {
-				$this->_objCore->registerViewScript($file);
+				$this->_objCore->registerViewJS($file);
 			}
 		}
 	}

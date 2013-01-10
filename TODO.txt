@@ -3,7 +3,8 @@
 [x] [FRAMEWORK] optimize mod folder structure for better maintainability
 [x] [FRAMEWORK] throw an exception if CSS or JS registration fails
 [x] [FRAMEWORK] include LESS for better maintainability of CSS code
-[ ] [FRAMEWORK] optimize library structure (integrate view output into PHP file)
+[x] [FRAMEWORK] optimize library structure (integrate view output into PHP file)
+[ ] [FRAMEWORK] integrate LESS functionality into library framework
 
 2013.01.09
 **********

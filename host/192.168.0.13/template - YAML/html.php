@@ -27,14 +27,14 @@ $strTemplatePath = Schmolck_Framework_Host::getCurrentPath().'/template';
 	 * STYLES
 	 */
 	// - YAML styles
-	$this->registerViewStyles("lib/css/yaml/core/base.css");
-	$this->registerViewStyles("lib/css/yaml/navigation/hlist.css");
-	$this->registerViewStyles("lib/css/yaml/forms/gray-theme.css");
-	$this->registerViewStyles("lib/css/yaml/screen/typography.css");
-	$this->registerViewStyles("lib/css/yaml/screen/screen-FULLPAGE-layout.css");
-	$this->registerViewStyles("lib/css/yaml/print/print.css");
+	$this->registerViewCSSs("lib/css/yaml/core/base.css");
+	$this->registerViewCSSs("lib/css/yaml/navigation/hlist.css");
+	$this->registerViewCSSs("lib/css/yaml/forms/gray-theme.css");
+	$this->registerViewCSSs("lib/css/yaml/screen/typography.css");
+	$this->registerViewCSSs("lib/css/yaml/screen/screen-FULLPAGE-layout.css");
+	$this->registerViewCSSs("lib/css/yaml/print/print.css");
 	// - application styles
-  	$this->registerViewStyles("{$strTemplatePath}/styles.css");
+  	$this->registerViewCSSs("{$strTemplatePath}/styles.css");
 	$this->renderViewStyles();
 	?>	
 	<!--[if lte IE 7]>
