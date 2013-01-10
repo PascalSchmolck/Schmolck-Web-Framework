@@ -27,14 +27,14 @@ $strTemplatePath = Schmolck_Framework_Host::getCurrentPath().'/template';
 	 * STYLES
 	 */
 	// - YAML styles
-	$this->registerViewStyles("lib/css/yaml/core/base.css");
-	$this->registerViewStyles("lib/css/yaml/navigation/hlist.css");
-	$this->registerViewStyles("lib/css/yaml/forms/gray-theme.css");
-	$this->registerViewStyles("lib/css/yaml/screen/typography.css");
-	$this->registerViewStyles("lib/css/yaml/screen/screen-FULLPAGE-layout.css");
-	$this->registerViewStyles("lib/css/yaml/print/print.css");
+	$this->registerViewStyle("lib/css/yaml/core/base.css");
+	$this->registerViewStyle("lib/css/yaml/navigation/hlist.css");
+	$this->registerViewStyle("lib/css/yaml/forms/gray-theme.css");
+	$this->registerViewStyle("lib/css/yaml/screen/typography.css");
+	$this->registerViewStyle("lib/css/yaml/screen/screen-FULLPAGE-layout.css");
+	$this->registerViewStyle("lib/css/yaml/print/print.css");
 	// - application styles
-  	$this->registerViewStyles("{$strTemplatePath}/styles.css");
+  	$this->registerViewStyle("{$strTemplatePath}/styles.css");
 	$this->renderViewStyles();
 	?>	
 	<!--[if lte IE 7]>
@@ -46,8 +46,8 @@ $strTemplatePath = Schmolck_Framework_Host::getCurrentPath().'/template';
 	/*
 	 * SCRIPTS
 	 */
-	$this->registerViewScripts('lib/js/jquery/jquery-1.7.1.min.js');
-	$this->registerViewScripts("{$strTemplatePath}/scripts.js");
+	$this->registerViewScript('lib/js/jquery/jquery-1.7.1.min.js');
+	$this->registerViewScript("{$strTemplatePath}/scripts.js");
 	$this->renderViewScripts();
 	?>	
 	<!--[if lt IE 9]>

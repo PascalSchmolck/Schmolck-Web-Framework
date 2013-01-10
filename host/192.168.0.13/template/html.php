@@ -26,9 +26,9 @@ $strTemplatePath = Schmolck_Framework_Host::getCurrentPath().'/template';
 	 * STYLES
 	 */
 	// - cssgrid styles
-	$this->registerViewStyles("lib/css/cssgrid/1140.css");
+	$this->registerViewStyle("lib/css/cssgrid/1140.css");
 	// - application styles
-  	$this->registerViewStyles("{$strTemplatePath}/styles.css");
+  	$this->registerViewStyle("{$strTemplatePath}/styles.css");
 	$this->renderViewStyles();
 	?>	
 	<!--[if lte IE 9]><link rel="stylesheet" href="lib/css/cssgrid/ie.css" type="text/css" media="screen" /><![endif]-->
@@ -37,8 +37,8 @@ $strTemplatePath = Schmolck_Framework_Host::getCurrentPath().'/template';
 	/*
 	 * SCRIPTS
 	 */
-	$this->registerViewScripts('lib/js/jquery/jquery-1.7.1.min.js');
-	$this->registerViewScripts("{$strTemplatePath}/scripts.js");
+	$this->registerViewScript('lib/js/jquery/jquery-1.7.1.min.js');
+	$this->registerViewScript("{$strTemplatePath}/scripts.js");
 	$this->renderViewScripts();
 	?>	
 	<!--[if lt IE 9]>
