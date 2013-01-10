@@ -135,31 +135,31 @@ class Schmolck_Framework_Core
 	{
 		try {
 			$this->_strTrace = 'ApplicationInit';
-			$this->_RunApplicationInit();
+			$this->_runApplicationInit();
 			
 			$this->_strTrace = 'ModuleInit';
-			$this->_RunModuleInit();
+			$this->_runModuleInit();
 			
 			$this->_strTrace = 'ControllerInit';
-			$this->_RunControllerInit();
+			$this->_runControllerInit();
 			
 			$this->_strTrace = 'Action';
-			$this->_RunAction();
+			$this->_runAction();
 			
 			$this->_strTrace = 'ControllerExit';
-			$this->_RunControllerExit();
+			$this->_runControllerExit();
 			
 			$this->_strTrace = 'ModuleExit';
-			$this->_RunModuleExit();
+			$this->_runModuleExit();
 			
 			$this->_strTrace = 'View';
-			$this->_RunView();
+			$this->_runView();
 			
 			$this->_strTrace = 'Layout';
-			$this->_RunLayout();
+			$this->_runLayout();
 			
 			$this->_strTrace = 'AppllicationExit';
-			$this->_RunApplicationExit();
+			$this->_runApplicationExit();
 		} catch (Exception $Exception) {
 			ob_end_clean();
 			$this->_RunExceptionHandling($Exception);
@@ -226,23 +226,58 @@ class Schmolck_Framework_Core
 		ob_end_clean();
 	}
 
+	protected function _runLayoutInit() {
+		$strPath = Schmolck_Framework_Host::getCurrentPath().'/template/'.APPLICATION_TEMPLATE;
+		$strFile = "{$strPath}/_init.php";
+		if (file_exists($strFile)) {
+			require($strFile);
+		} else {
+			throw new Exception("Layout init file '{$strFile}' not found");
+		}
+	}
+	
 	protected function _runLayout() {
-		if ($this->_bLayoutRendering) {
-			$strTemplatePath = Schmolck_Framework_Host::getCurrentPath().'/template/'.APPLICATION_TEMPLATE;
-			$strFile = "{$strTemplatePath}/html.php";
+		if ($this->_bLayoutRendering) {			
+			/*
+			 * INIT
+			 */
+			$strPath = Schmolck_Framework_Host::getCurrentPath().'/template/'.APPLICATION_TEMPLATE;
+			$strFile = "{$strPath}/_init.php";
+			if (file_exists($strFile)) {
+				require($strFile);
+			} else {
+				throw new Exception("Layout init file '{$strFile}' not found");
+			}
+			
+			/*
+			 * RUN
+			 */
+			$strPath = Schmolck_Framework_Host::getCurrentPath().'/template/'.APPLICATION_TEMPLATE;
+			$strFile = "{$strPath}/html.phtml";
 			
 			if (file_exists($strFile)) {
 				// - include styles
-				$this->registerViewLESS("{$strTemplatePath}/styles.less");
+				$this->registerViewLESS("{$strPath}/styles.less");
 				// - include scripts
-				$this->registerViewJS("{$strTemplatePath}/scripts.js");
+				$this->registerViewJS("{$strPath}/scripts.js");
 				// - include layout
 				require($strFile);
 			} else {
 				throw new Exception("Layout file '{$strFile}' not found");
 			}
+			
+			/*
+			 * EXIT
+			 */
+			$strPath = Schmolck_Framework_Host::getCurrentPath().'/template/'.APPLICATION_TEMPLATE;
+			$strFile = "{$strPath}/_exit.php";
+			if (file_exists($strFile)) {
+				require($strFile);
+			} else {
+				throw new Exception("Layout exit file '{$strFile}' not found");
+			}			
 		} else {
-			$this->_RenderView();
+			$this->_renderView();
 		}
 	}
 

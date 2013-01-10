@@ -7,11 +7,11 @@
 [x] [FRAMEWORK] integrate LESS functionality into library framework
 [x] [FRAMEWORK] cleanup integration of LESS and JS into template
 [x] [FRAMEWORK] implement multiple templates per host by adding to settings
-[ ] [FRAMEWORK] cleanup integration of PHP code into template by separate init/exit files
+[x] [FRAMEWORK] cleanup integration of PHP code into template by separate init/exit files
+[ ] [FRAMEWORK] replace <?php by <?= within template phtml file
 
 2013.01.09
 **********
-[ ] [FRAMEWORK] enable correct rendering order of gui and template styles / scripts
 [ ] [PERFORMANCE] enable gzip compression for JS output
 [ ] [PERFORMANCE] enable gzip compression for CSS output
 [x] [PROJECT] add a license to the project
