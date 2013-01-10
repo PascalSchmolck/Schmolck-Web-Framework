@@ -83,25 +83,11 @@ $htmlNavbar = $objNavbar->getHtml();
 	
 	<div id="nav" class="container">
 		<div class="row">
-			<div class="ninecol">
+			<div class="eightcol">
 				<?php echo $htmlNavbar; ?>
-				<ul>
-					<li class="active">
-						<a href="#">Link</a>
-					</li>
-					<li>
-						<a href="#">Link</a>
-					</li>
-					<li>
-						<a href="#">Link</a>
-					</li>
-					<li>
-						<a href="#">Link</a>
-					</li>
-					<li>
-						<a href="#">Link</a>
-					</li>
-				</ul>
+			</div>
+			<div class="onecol">
+				
 			</div>
 			<div class="twocol last">
 				<p>One</p>

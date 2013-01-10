@@ -8,6 +8,8 @@
 
 @color-nav-background: #004176; 
 @color-nav-text: #fff; 
+@color-nav-link: #fff;
+@color-nav-link-background-hover: rgba(255, 255, 255, .3);
 
 @color-footer-background: #e1e1e1;
 @color-footer-text: #333;
@@ -56,6 +58,21 @@ a:hover {
 #nav {
 	background-color: @color-nav-background;
 	color: @color-nav-text;
+
+	ul {
+		padding: 0;
+		li {
+			padding: 15px;
+
+			a {
+				color: @color-nav-link;
+				
+			}
+		}
+		li:hover {
+			background-color: @color-nav-link-background-hover;
+		}
+	}
 }
 
 #main {

@@ -6,10 +6,12 @@
  * @author Pascal Schmolck
  * @copyright 2013
  */
-class Schmolck_Gui {
+abstract class Schmolck_Gui {
 
 	protected $_objCore;
 	protected $_arrAttributes;
+	
+	abstract protected function _renderHtml();
 
 	public function __construct($strId) {
 		$this->SetAttribute('id', $strId);
@@ -62,19 +64,6 @@ class Schmolck_Gui {
 
 	protected function _getLibraryDir() {
 		return "lib/php";
-	}
-
-	protected function _renderHtml()
-	{
-		$classes = $this->_GetClassesDescending();
-		foreach ($classes as $class) {
-			$file = "{$this->_getLibraryDir()}/{$this->_GetClassDir($class)}/{$this->_GetClassFileName($class)}.phtml";
-			if (file_exists($file)) {
-				require($file);
-				echo "\n";
-				return;
-			}
-		}
 	}
 
 	protected function _registerStyles()
