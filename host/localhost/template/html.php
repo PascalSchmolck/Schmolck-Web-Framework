@@ -106,13 +106,40 @@ $strTemplatePath = Schmolck_Framework_Host::getCurrentPath().'/template';
 
 	<div id="main" class="container">
 		<div class="row">
-			<div class="twelvecol">
-				<p>
+			<div class="ninecol">
+				<div id="content">
 					<?php $this->renderViewHtml(); ?>
-				</p>
+				</div>
+			</div>
+			<div class="threecol last">
+				<div id="sidebar">
+					<h1>
+						Sidebar
+					</h1>
+					<h2>
+						Subtitle
+					</h2>
+					<p>
+						Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+					</p>
+				</div>
 			</div>
 		</div>
 	</div>
 	
+	<div id="footer" class="container">
+		<div class="row">
+			<div class="threecol">
+				Copyright
+			</div>
+			<div class="ninecol last">
+				<div id="footerlinks">
+					<a href="#">Contact</a>
+					<a href="#">Disclaimer</a>
+					<a href="#">Imprint</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
