@@ -31,8 +31,20 @@ class Schmolck_Framework_Core
 		$this->setLayoutRendering(true);
 		$this->setExceptionModule('exception');
 		$this->initHost();
+		$this->cleanTmp();
 	}
 	
+	/**
+	 * Clean obsolete tmp files
+	 */
+	public function cleanTmp()
+	{
+		Schmolck_Framework_Tmp::clean();
+	}
+	
+	/**
+	 * Initialise host settings and parameters
+	 */
 	public function initHost()
 	{
 		/*

@@ -9,7 +9,7 @@
 [ ] [PERFORMANCE] enable gzip compression for CSS output
 [x] [PROJECT] add a license to the project
 [ ] [PROJECT] add translation capability
-[ ] [PERFORMANCE] remove obsolete tmp files (e.g. older than 1 day)
+[x] [PERFORMANCE] remove obsolete tmp files (e.g. older than 1 hour)
 
 2012.02.29
 **********
