@@ -67,36 +67,6 @@ class Schmolck_Framework_Core
 	{
 		$this->_strExceptionModule = $strModule;
 	}
-
-	/**
-	 * Register single CSS file
-	 * 
-	 * @param string $file
-	 * @throws Exception
-	 */
-	public function registerViewCSS($file) 
-	{
-		if (file_exists($file)) {
-			$this->_arrViewStyles[] = $file;
-			$this->_arrViewStyles = array_unique($this->_arrViewStyles);
-		} else {
-			throw new Exception("Registration of styles file '{$file}' failed in {$this->_strTrace}");
-		}
-	}
-	
-	/**
-	 * Register multiple CSS files
-	 * 
-	 * @param array $arrFiles
-	 */
-	public function registerViewCSSs($arrFiles)
-	{
-		if (count($arrFiles) > 0) {
-			foreach ($arrFiles as $strFile) {
-				$this->registerViewCSS($strFile);
-			}
-		}		
-	}
 	
 	/**
 	 * Register single LESS file
@@ -258,15 +228,18 @@ class Schmolck_Framework_Core
 
 	protected function _runLayout() {
 		if ($this->_bLayoutRendering) {
-			$strTemplatePath = Schmolck_Framework_Host::getCurrentPath().'/template';
+			$strTemplatePath = Schmolck_Framework_Host::getCurrentPath().'/template/'.APPLICATION_TEMPLATE;
 			$strFile = "{$strTemplatePath}/html.php";
+			
 			if (file_exists($strFile)) {
 				// - include styles
 				$this->registerViewLESS("{$strTemplatePath}/styles.less");
+				// - include scripts
+				$this->registerViewJS("{$strTemplatePath}/scripts.js");
 				// - include layout
 				require($strFile);
 			} else {
-				throw new Exception("Layout file not found");
+				throw new Exception("Layout file '{$strFile}' not found");
 			}
 		} else {
 			$this->_RenderView();
@@ -294,49 +267,11 @@ class Schmolck_Framework_Core
 	{
 		echo $this->_strViewOutput;
 	}
-
-	/**
-	 * Render CSS inclusion tag
-	 */
-	public function renderViewCSS() 
-	{
-		/*
-		 * CHECK
-		 */
-		// - nothing to do if no styles registered
-		if (count($this->_arrViewStyles) < 1) {
-			return;
-		}
-		
-		/*
-		 * PROCESSING
-		 */
-		// - optimize all styles into one string
-		foreach ($this->_arrViewStyles as $strFile) {
-			if (file_exists($strFile)) {
-				// - do not minify on development environment
-				if (APPLICATION_ENVIRONMENT == 'development') {
-					$strCombinedCSS .= "\n\n/* {$strFile} */\n\n".file_get_contents($strFile);
-				} else {
-					$strCombinedCSS .= Schmolck_Framework_Optimizer::getOptimizedCssString(file_get_contents($strFile));
-				}
-			}
-		}
-		// - get md5 hash of optimized styles and create tmp file
-		$strTempFile = Schmolck_Framework_Tmp::getFilePath(md5($strCombinedCSS).'.css');
-		// - fill tmp file with optimized styles
-		file_put_contents($strTempFile, $strCombinedCSS);
-		
-		/*
-		 * OUTPUT
-		 */
-		echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"{$strTempFile}\" />\n";
-	}
 	
 	/**
-	 * Render LESS inclusion tag
+	 * Get core LESS file
 	 */
-	public function renderViewLESS() 
+	public function getCoreLESSFile() 
 	{
 		/*
 		 * CHECK
@@ -354,28 +289,29 @@ class Schmolck_Framework_Core
 			if (file_exists($strFile)) {
 				// - do not minify on development environment
 				if (APPLICATION_ENVIRONMENT == 'development') {
-					$strCombinedCSS .= "\n\n/* {$strFile} */\n\n".file_get_contents($strFile);
+					$strCombinedLESS .= "\n\n/* {$strFile} */\n\n".file_get_contents($strFile);
 				} else {
 					// - no optimizer for LESS found yet
-					$strCombinedCSS .= "\n\n/* {$strFile} */\n\n".file_get_contents($strFile);
+					//$strCombinedLESS .= Schmolck_Framework_Optimizer::getOptimizedCssString(file_get_contents($strFile));
+					$strCombinedLESS .= "\n\n/* {$strFile} */\n\n".file_get_contents($strFile);
 				}
 			}
 		}
 		// - get md5 hash of optimized styles and create tmp file
-		$strTempFile = Schmolck_Framework_Tmp::getFilePath(md5($strCombinedCSS).'.less');
+		$strTempFile = Schmolck_Framework_Tmp::getFilePath(md5($strCombinedLESS).'.less');
 		// - fill tmp file with optimized styles
-		file_put_contents($strTempFile, $strCombinedCSS);
+		file_put_contents($strTempFile, $strCombinedLESS);
 		
 		/*
 		 * OUTPUT
 		 */
-		echo "<link rel=\"stylesheet/less\" type=\"text/css\" href=\"{$strTempFile}\" />\n";
+		return $strTempFile;
 	}	
 
 	/**
-	 * Render JS inclusion tag
+	 * Get core JS file
 	 */
-	public function renderViewJS() 
+	public function getCoreJSFile() 
 	{
 		/*
 		 * CHECK
@@ -406,16 +342,15 @@ class Schmolck_Framework_Core
 		/*
 		 * OUTPUT
 		 */
-		echo "<script type=\"text/javascript\" src=\"{$strTempFile}\"></script>\n";
+		return $strTempFile;
 	}
 	
 	/**
-	 * Render <base> tag
+	 * Get base URL
 	 */
-	public function renderViewBase()
+	public function getBaseUrl()
 	{
-		$strBaseUrl = Schmolck_Framework_Host::getBaseUrl();
-		echo "<base href=\"{$strBaseUrl}\" />\n";
+		return Schmolck_Framework_Host::getBaseUrl();
 	}
 
 	/**

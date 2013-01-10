@@ -33,4 +33,12 @@ define('DEBUG_LEVEL', 7);
  * testing: on testing environment
  * production: on production server
  */
-define('APPLICATION_ENVIRONMENT', 'development');
+define('APPLICATION_ENVIRONMENT', 'production');
+
+/*
+ * APPLICATION TEMPLATE
+ * 
+ * Here you can define what template should be used. 
+ * Depends on what template folders you have installed and running.
+ */
+define('APPLICATION_TEMPLATE', '2013-01-cssgrid');

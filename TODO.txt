@@ -4,7 +4,10 @@
 [x] [FRAMEWORK] throw an exception if CSS or JS registration fails
 [x] [FRAMEWORK] include LESS for better maintainability of CSS code
 [x] [FRAMEWORK] optimize library structure (integrate view output into PHP file)
-[ ] [FRAMEWORK] integrate LESS functionality into library framework
+[x] [FRAMEWORK] integrate LESS functionality into library framework
+[x] [FRAMEWORK] cleanup integration of LESS and JS into template
+[x] [FRAMEWORK] implement multiple templates per host by adding to settings
+[ ] [FRAMEWORK] cleanup integration of PHP code into template by separate init/exit files
 
 2013.01.09
 **********
