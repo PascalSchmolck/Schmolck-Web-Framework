@@ -1,42 +1,38 @@
-body {
+body 
+{
 	font-family: sans-serif, arial;
-	padding: 5px 0;
-	margin: 5px 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-family: "Droid Sans", Arial, Helvetica, sans-serif;
-	font-weight: 400;
+header  
+{
+	background-color: #fff;
 }
 
-a {
-	color: #2C8DDB;
-	text-decoration: none;
-}
-
-#header {
-	padding: 20px 0;
-}
-#header h1 {
+header h1
+{
 	color: #004176;
-	font-size: 325%;
-	line-height: 0.8em;	
 }
-#header h1 div {
+
+header h1 div
+{
 	color: black;
 }
 
-#nav {
+nav
+{
 	background-color: #004176;
-	color: #fff;
-	height: 35px;
 }
 
-#main {
-	padding: 20px 0;
-	font-size: 0.9em;
-	line-height: 1.5em;
+.ym-hlist
+{
+	background-color: #004176;
 }
+
+.ym-hlist ul li a, .ym-hlist ul li strong
+{
+		color: #e1e1e1;
+}
+
 
 
 

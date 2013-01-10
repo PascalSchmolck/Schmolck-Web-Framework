@@ -19,27 +19,19 @@ $strTemplatePath = Schmolck_Framework_Host::getCurrentPath().'/template';
 		Schmolck Framework
 	</title>
 	
-	<!-- mobile viewport optimisation -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
 	<?php 
 	/*
 	 * STYLES
 	 */
-	// - YAML styles
-	$this->registerViewStyles("lib/css/yaml/core/base.css");
-	$this->registerViewStyles("lib/css/yaml/navigation/hlist.css");
-	$this->registerViewStyles("lib/css/yaml/forms/gray-theme.css");
-	$this->registerViewStyles("lib/css/yaml/screen/typography.css");
-	$this->registerViewStyles("lib/css/yaml/screen/screen-FULLPAGE-layout.css");
-	$this->registerViewStyles("lib/css/yaml/print/print.css");
+	// - cssgrid styles
+	$this->registerViewStyles("lib/css/cssgrid/1140.css");
 	// - application styles
   	$this->registerViewStyles("{$strTemplatePath}/styles.css");
 	$this->renderViewStyles();
 	?>	
-	<!--[if lte IE 7]>
-	<link rel="stylesheet" href="lib/css/yaml/core/iehacks.min.css" type="text/css"/>
-	<![endif]-->
+	<!--[if lte IE 9]><link rel="stylesheet" href="lib/css/cssgrid/ie.css" type="text/css" media="screen" /><![endif]-->
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700|Droid+Sans:700"/>
 	
 	<?php
@@ -50,74 +42,77 @@ $strTemplatePath = Schmolck_Framework_Host::getCurrentPath().'/template';
 	$this->registerViewScripts("{$strTemplatePath}/scripts.js");
 	$this->renderViewScripts();
 	?>	
-	<!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
 </head>
 <body>
-	<ul class="ym-skiplinks">
-		<li><a class="ym-skip" href="#nav">Skip to navigation (Press Enter)</a></li>
-		<li><a class="ym-skip" href="#main">Skip to main content (Press Enter)</a></li>
-	</ul>
-
-	<header>
-		<div class="ym-wrapper">
-			<div class="ym-wbox">
+	<div id="header" class="container">
+		<div class="row">
+			<div class="ninecol">
 				<h1>
-					Schmolck <div>news</div>
+					Schmolck					
+					<div>
+						news
+					</div>
 				</h1>
 			</div>
-		</div>
-	</header>
-	
-	<nav id="nav">
-		<div class="ym-wrapper">
-			<div class="ym-hlist">
-				<ul>
-					<li class="active"><strong>Active</strong></li>
-					<li><a href="#">Link</a></li>
-					<li><a href="#">Link</a></li>
-					<li><a href="#">Link</a></li>
-					<li><a href="#">Link</a></li>
-				</ul>
-				<form class="ym-searchform">
-					<input class="ym-searchfield" type="search" placeholder="Search..." />
-					<input class="ym-searchbutton" type="submit" value="Search" />
-				</form>
-			</div>
-		</div>
-	</nav>
-	<div id="main">
-		<div class="ym-wrapper">
-			<div class="ym-wbox">
+			<div class="threecol last">
 				
-
-				<section class="ym-grid linearize-level-1">
-					<article class="ym-g66 ym-gl content">
-						<div class="ym-gbox-left ym-clearfix">
-
-							<?php $this->renderViewHtml(); ?>
-							
-						</div>
-					</article>
-					<aside class="ym-g33 ym-gr">
-						<div class="ym-gbox-right ym-clearfix">
-							<h3>A Simple Sidebar </h3>
-							<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices  posuere cubilia Curae; Cras ornare mattis nunc. Mauris venenatis, pede  sed aliquet vehicula, lectus tellus pulvinar neque, non cursus sem nisi vel augue.</p>
-							<p>Mauris a lectus. Aliquam erat volutpat. Phasellus ultrices mi a sapien. Nunc rutrum egestas lorem. Duis ac sem sagittis elit tincidunt gravida. Mauris a lectus. Aliquam erat volutpat. Phasellus ultrices mi a sapien. Nunc rutrum egestas lorem. Duis ac sem sagittis elit tincidunt gravida.</p>
-							<p class="box info">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras ornare mattis nunc. Mauris venenatis, pede sed aliquet  vehicula, lectus tellus pulvinar neque, non cursus sem nisi vel augue.</p>
-						</div>
-					</aside>
-				</section>
 			</div>
 		</div>
 	</div>
-	<footer>
-		<div class="ym-wrapper">
-			<div class="ym-wbox">
-				<p>© Schmolck <?php echo date('Y'); ?> &ndash; <a href="http://www.yaml.de" target="_blank">YAML</a></p>
+	
+	<div id="nav" class="container">
+		<div class="row">
+			<div class="onecol">
+				<p>One</p>
+			</div>
+			<div class="onecol">
+				<p>One</p>
+			</div>
+			<div class="onecol">
+				<p>One</p>
+			</div>
+			<div class="onecol">
+				<p>One</p>
+			</div>
+			<div class="onecol">
+				<p>One</p>
+			</div>
+			<div class="onecol">
+				<p>One</p>
+			</div>
+			<div class="onecol">
+				<p>One</p>
+			</div>
+			<div class="onecol">
+				<p>One</p>
+			</div>
+			<div class="onecol">
+				<p>One</p>
+			</div>
+			<div class="onecol">
+				<p>One</p>
+			</div>
+			<div class="onecol">
+				<p>One</p>
+			</div>
+			<div class="onecol last">
+				<p>One</p>
 			</div>
 		</div>
-	</footer>
+	</div>
+
+	<div id="main" class="container">
+		<div class="row">
+			<div class="twelvecol">
+				<p>
+					<?php $this->renderViewHtml(); ?>
+				</p>
+				<p>
+					Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+				</p>
+			</div>
+		</div>
+	</div>
+	
 </body>
 </html>
