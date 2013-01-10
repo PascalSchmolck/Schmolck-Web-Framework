@@ -20,7 +20,7 @@ class Schmolck_Gui {
 		if (array_key_exists($strKey, $this->_arrAttributes)) {
 			return $this->_arrAttributes[$strKey];
 		}else{
-			throw new Exception("Parameter '{$strKey}' not defined!");
+			Schmolck_Framework_Debug::warning("Attirbute '{$strKey}' not defined!");
 		}
 	}
 
@@ -36,6 +36,23 @@ class Schmolck_Gui {
 		$this->_arrAttributes = array_merge($this->_arrAttributes, $arrAttributes);
 	}
 
+	/**
+	 * Get HTML string output
+	 * 
+	 * @return string HTML output
+	 */
+	public function getHtml()
+	{
+		ob_start();
+			$this->render();
+			$html = ob_get_contents();
+		ob_end_clean();
+		return $html;
+	}
+	
+	/**
+	 * Render HTML output
+	 */
 	public function render()
 	{
 		$this->_registerStyles();
@@ -66,7 +83,7 @@ class Schmolck_Gui {
 		foreach ($classes as $class) {
 			$file = "{$this->_getLibraryDir()}/{$this->_GetClassDir($class)}/{$this->_GetClassFileName($class)}.css";
 			if (file_exists($file)) {
-				$this->_objCore->registerViewStyles($file);
+				$this->_objCore->registerViewStyle($file);
 			}
 		}
 	}
@@ -77,7 +94,7 @@ class Schmolck_Gui {
 		foreach ($classes as $class) {
 			$file = "{$this->_getLibraryDir()}/{$this->_GetClassDir($class)}/{$this->_GetClassFileName($class)}.js";
 			if (file_exists($file)) {
-				$this->_objCore->registerViewScripts($file);
+				$this->_objCore->registerViewScript($file);
 			}
 		}
 	}

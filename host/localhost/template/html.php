@@ -3,6 +3,20 @@
  * PREPARATION
  */
 $strTemplatePath = Schmolck_Framework_Host::getCurrentPath().'/template';
+// - navigation bar
+$objNavbar = new Schmolck_Gui_Navbar('mainnav');
+$objNavbar->setCore($this);
+$objNavbar->setEntries(array(
+	'home'	=>	array(
+		'href' => '#',
+		'label' => 'Home'
+	),
+	'imprint'	=>	array(
+		'href' => '#',
+		'label' => 'Imprint'
+	)
+));
+$htmlNavbar = $objNavbar->getHtml();
 
 /*
  * HTML
@@ -70,6 +84,7 @@ $strTemplatePath = Schmolck_Framework_Host::getCurrentPath().'/template';
 	<div id="nav" class="container">
 		<div class="row">
 			<div class="ninecol">
+				<?php echo $htmlNavbar; ?>
 				<ul>
 					<li class="active">
 						<a href="#">Link</a>

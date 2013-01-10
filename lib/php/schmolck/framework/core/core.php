@@ -355,7 +355,7 @@ class Schmolck_Framework_Core
 	}
 
 	protected function _runExceptionHandling(Exception &$Exception) {
-		try {
+//		try {
 			$this->_RunExceptionModuleInit($Exception);
 			$this->_RunExceptionControllerInit($Exception);
 			$this->_RunExceptionAction($Exception);
@@ -363,9 +363,9 @@ class Schmolck_Framework_Core
 			$this->_RunExceptionModuleExit($Exception);
 			$this->_RunExceptionView($Exception);
 			$this->_RunExceptionLayout($Exception);
-		} catch (Exception $Exception) {
-			die($Exception->getMessage());
-		}
+//		} catch (Exception $Exception) {
+//			die($Exception->getMessage());
+//		}
 	}
 
 	protected function _runExceptionModuleInit(Exception $Exception) {
