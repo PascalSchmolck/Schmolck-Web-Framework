@@ -22,6 +22,7 @@ class Schmolck_Framework_Core
 	protected $_arrViewScripts;
 
 	protected $_strViewOutput;
+	protected $_strTrace;
 
 	public function __construct() 
 	{
@@ -68,27 +69,52 @@ class Schmolck_Framework_Core
 
 	public function registerViewStyles($file) 
 	{
-		$this->_arrViewStyles[] = $file;
-		$this->_arrViewStyles = array_unique($this->_arrViewStyles);
+		if (file_exists($file)) {
+			$this->_arrViewStyles[] = $file;
+			$this->_arrViewStyles = array_unique($this->_arrViewStyles);
+		} else {
+			throw new Exception("Registration of styles file '{$file}' failed in {$this->_strTrace}");
+		}
 	}
 
 	public function registerViewScripts($file) 
 	{
-		$this->_arrViewScripts[] = $file;
-		$this->_arrViewScripts = array_unique($this->_arrViewScripts);
+		if (file_exists($file)) {
+			$this->_arrViewScripts[] = $file;
+			$this->_arrViewScripts = array_unique($this->_arrViewScripts);
+		} else {
+			throw new Exception("Registration of scripts file '{$file}' failed in {$this->_strTrace}");
+		}
 	}
 
 	public function run() 
 	{
 		try {
+			$this->_strTrace = 'ApplicationInit';
 			$this->_RunApplicationInit();
+			
+			$this->_strTrace = 'ModuleInit';
 			$this->_RunModuleInit();
+			
+			$this->_strTrace = 'ControllerInit';
 			$this->_RunControllerInit();
+			
+			$this->_strTrace = 'Action';
 			$this->_RunAction();
+			
+			$this->_strTrace = 'ControllerExit';
 			$this->_RunControllerExit();
+			
+			$this->_strTrace = 'ModuleExit';
 			$this->_RunModuleExit();
+			
+			$this->_strTrace = 'View';
 			$this->_RunView();
+			
+			$this->_strTrace = 'Layout';
 			$this->_RunLayout();
+			
+			$this->_strTrace = 'AppllicationExit';
 			$this->_RunApplicationExit();
 		} catch (Exception $Exception) {
 			ob_end_clean();

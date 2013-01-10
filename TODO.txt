@@ -1,6 +1,7 @@
 2013.01.10
 **********
 [x] [FRAMEWORK] optimize mod folder structure for better maintainability
+[x] [FRAMEWORK] throw an exception if CSS or JS registration fails
 
 2013.01.09
 **********
