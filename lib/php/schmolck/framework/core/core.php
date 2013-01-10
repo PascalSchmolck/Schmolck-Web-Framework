@@ -67,7 +67,13 @@ class Schmolck_Framework_Core
 		$this->_strExceptionModule = $strModule;
 	}
 
-	public function registerViewStyles($file) 
+	/**
+	 * Register single CSS file
+	 * 
+	 * @param string $file
+	 * @throws Exception
+	 */
+	public function registerViewStyle($file) 
 	{
 		if (file_exists($file)) {
 			$this->_arrViewStyles[] = $file;
@@ -76,8 +82,28 @@ class Schmolck_Framework_Core
 			throw new Exception("Registration of styles file '{$file}' failed in {$this->_strTrace}");
 		}
 	}
+	
+	/**
+	 * Register multiple CSS files
+	 * 
+	 * @param array $arrFiles
+	 */
+	public function registerViewStyles($arrFiles)
+	{
+		if (count($arrFiles) > 0) {
+			foreach ($arrFiles as $strFile) {
+				$this->registerViewStyle($strFile);
+			}
+		}		
+	}
 
-	public function registerViewScripts($file) 
+	/**
+	 * Register single JS file
+	 * 
+	 * @param string $file
+	 * @throws Exception
+	 */
+	public function registerViewScript($file) 
 	{
 		if (file_exists($file)) {
 			$this->_arrViewScripts[] = $file;
@@ -86,7 +112,24 @@ class Schmolck_Framework_Core
 			throw new Exception("Registration of scripts file '{$file}' failed in {$this->_strTrace}");
 		}
 	}
+	
+	/**
+	 * Register multiple JS files
+	 * 
+	 * @param array $arrFiles
+	 */
+	public function registerViewScripts($arrFiles) 
+	{
+		if (count($arrFiles) > 0) {
+			foreach ($arrFiles as $strFile) {
+				$this->registerViewScript($strFile);
+			}
+		}
+	}	
 
+	/**
+	 * Run through whole MVC process
+	 */
 	public function run() 
 	{
 		try {
