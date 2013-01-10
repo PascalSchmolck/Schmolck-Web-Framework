@@ -2,7 +2,7 @@
 /**
  * Schmolck_Framework_Tmp
  * 
- * @package Schmolck Framework
+ * @package Schmolck framework
  * @author Pascal Schmolck
  * @copyright 2013
  */

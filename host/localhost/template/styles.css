@@ -20,7 +20,7 @@ a {
 }
 #header h1 {
 	color: #004176;
-	font-size: 325%;
+	font-size: 275%;
 	line-height: 0.8em;	
 }
 #header h1 div {
@@ -32,7 +32,6 @@ a {
 #nav {
 	background-color: #004176;
 	color: #fff;
-	height: 35px;
 }
 
 #main {

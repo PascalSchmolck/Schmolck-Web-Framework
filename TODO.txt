@@ -1,13 +1,13 @@
 2013.01.10
 **********
-[ ] [FRAMEWORK] optimize mod folder structure for better maintainability
+[x] [FRAMEWORK] optimize mod folder structure for better maintainability
 
 2013.01.09
 **********
 [ ] [FRAMEWORK] enable correct rendering order of gui and template styles / scripts
 [ ] [PERFORMANCE] enable gzip compression for JS output
 [ ] [PERFORMANCE] enable gzip compression for CSS output
-[ ] [PROJECT] add a license to the project
+[x] [PROJECT] add a license to the project
 [ ] [PROJECT] add translation capability
 [ ] [PERFORMANCE] remove obsolete tmp files (e.g. older than 1 day)
 

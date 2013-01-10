@@ -2,7 +2,7 @@
 /**
  * Schmolck_Framework_Optimizer
  * 
- * @package Schmolck Framework
+ * @package Schmolck framework
  * @author Pascal Schmolck
  * @copyright 2013
  */
