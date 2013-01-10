@@ -1,91 +1,49 @@
-@media print {
-	.print{
-		visibility:visible;
-	}
-	.screen{
-		visibility:hidden;
-		display: none;
-	}
+body 
+{
+	font-family: sans-serif, arial;
 }
 
-@media screen, handheld{
-	.screen{
-		visibility:visible;
-	}
-	.print{
-		visibility:hidden;
-		display: none;
-	}
-}
-
-body{
+header  
+{
 	background-color: #fff;
-	font-size: 9pt;
-	font-family: sans-serif;
-	min-width: 750px;
-	color: #333;
-	padding: 20px;
-	margin: 20px;
 }
 
-img{
-	border: 0px;
+header h1
+{
+	color: #004176;
 }
 
-a{
-	text-decoration: none;
-}
-a:link, a:visited{
-	color: #003E84;
-}
-a:hover{
-	color: #888888;
+header h1 div
+{
+	color: black;
 }
 
-h1, h2, h3{
-	font-weight: normal;
-	color: #333333;
+nav
+{
+	background-color: #004176;
 }
 
-hr{
-	margin: 20px 0px;
-	border: 0px;
-	border-top: solid 1px #e1e1e1;
+.ym-hlist
+{
+	background-color: #004176;
 }
 
-input{
-	max-width: 75%;
+.ym-hlist ul li a, .ym-hlist ul li strong
+{
+		color: #e1e1e1;
 }
 
-form ul{
-	list-style-type: none;
-}
 
-table{
-	padding: 10px 0px;
-	width: 100%;
-}
 
-table td{
-	text-align: center;
-	padding: 5px;
-}
 
-table th{
-	border-bottom: 1px dotted #888888;
-	text-align: center;
-	color: #333333;
-	padding: 5px;
-}
 
-li{
-	padding: 2px 0px;
-}
+
 
 .infos{
 	background-color: #f1f1f1;
 	font-size: 8pt;
-	padding: 5px 10px;
+	padding: 10px;
+	margin: 5px 0;
 	color: #333;
 }
 
@@ -102,7 +60,8 @@ li{
 .errors{
 	background-color: #FFCCD1;
 	color: #000000;
-	padding: 5px;
+	padding: 10px;
+	margin: 5px 0;
 }
 .critical{
 	background-color: #FF8C97;

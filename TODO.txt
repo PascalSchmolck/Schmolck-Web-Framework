@@ -1,5 +1,6 @@
 2013.01.09
 **********
+[ ] [FRAMEWORK] enable correct rendering order of gui and template styles / scripts
 [ ] [PERFORMANCE] enable gzip compression for JS output
 [ ] [PERFORMANCE] enable gzip compression for CSS output
 [ ] [PROJECT] add a license to the project
