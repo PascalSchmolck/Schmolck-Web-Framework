@@ -116,7 +116,7 @@ class Schmolck_Framework_Core
 
 	protected function _runControllerInit() 
 	{
-		$strFile = self::MOD_PATH . "/{$this->_strModule}/controllers/{$this->_strController}/_init.php";
+		$strFile = self::MOD_PATH . "/{$this->_strModule}/{$this->_strController}/_init.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
@@ -125,7 +125,7 @@ class Schmolck_Framework_Core
 	}
 
 	protected function _runControllerExit() {
-		$strFile = self::MOD_PATH . "/{$this->_strModule}/controllers/{$this->_strController}/_exit.php";
+		$strFile = self::MOD_PATH . "/{$this->_strModule}/{$this->_strController}/_exit.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
@@ -135,11 +135,11 @@ class Schmolck_Framework_Core
 
 	protected function _runAction() {
 		ob_start();
-			$strFile = self::MOD_PATH . "/{$this->_strModule}/controllers/{$this->_strController}/{$this->_strAction}.php";
+			$strFile = self::MOD_PATH . "/{$this->_strModule}/{$this->_strController}/{$this->_strAction}.action.php";
 			if (file_exists($strFile)) {
 				require($strFile);
 			} else {
-				throw new Exception("Action file '{$this->_strAction}' for module '{$this->_strModule}' and controller '{$this->_strController}' not found");
+				throw new Exception("Action file '{$this->_strAction}.action.php' for module '{$this->_strModule}' and controller '{$this->_strController}' not found");
 			}
 		ob_end_clean();
 	}
@@ -160,11 +160,11 @@ class Schmolck_Framework_Core
 	protected function _runView() 
 	{
 		ob_start();
-			$strFile = self::MOD_PATH . "/{$this->_strModule}/views/{$this->_strController}/{$this->_strAction}.phtml";
+			$strFile = self::MOD_PATH . "/{$this->_strModule}/{$this->_strController}/{$this->_strAction}.view.phtml";
 			if (file_exists($strFile)) {
 				require($strFile);
 			} else {
-				throw new Exception("View file '{$this->_strAction}' for module '{$this->_strModule}' and controller '{$this->_strController}' not found");
+				throw new Exception("View file '{$this->_strAction}.view.phtml' for module '{$this->_strModule}' and controller '{$this->_strController}' not found");
 			}
 
 			$this->_strViewOutput = ob_get_contents();
@@ -296,22 +296,22 @@ class Schmolck_Framework_Core
 	}
 
 	protected function _runExceptionControllerInit(Exception $Exception) {
-		require(self::MOD_PATH . "/{$this->_strExceptionModule}/controllers/index/_init.php");
+		require(self::MOD_PATH . "/{$this->_strExceptionModule}/index/_init.php");
 	}
 
 	protected function _runExceptionControllerExit(Exception $Exception) {
-		require(self::MOD_PATH . "/{$this->_strExceptionModule}/controllers/index/_exit.php");
+		require(self::MOD_PATH . "/{$this->_strExceptionModule}/index/_exit.php");
 	}
 
 	protected function _runExceptionAction(Exception $Exception) {
 		ob_start();
-		require(self::MOD_PATH . "/{$this->_strExceptionModule}/controllers/index/index.php");
+		require(self::MOD_PATH . "/{$this->_strExceptionModule}/index/index.action.php");
 		ob_end_clean();
 	}
 
 	protected function _runExceptionView(Exception $Exception) {
 		ob_start();
-		require(self::MOD_PATH . "/{$this->_strExceptionModule}/views/index/index.phtml");
+		require(self::MOD_PATH . "/{$this->_strExceptionModule}/index/index.view.phtml");
 		$this->_strViewOutput = ob_get_contents();
 		ob_end_clean();
 	}

@@ -1,3 +1,7 @@
+2013.01.10
+**********
+[ ] [FRAMEWORK] optimize mod folder structure for better maintainability
+
 2013.01.09
 **********
 [ ] [FRAMEWORK] enable correct rendering order of gui and template styles / scripts
