@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<base href="<?php $this->getBaseUrl(); ?>">
+	<base href="<?=$this->getBaseUrl()?>">
 	<meta charset="utf-8"/>
 	<title>
 		Schmolck Framework
@@ -38,7 +38,7 @@
 	<div id="nav" class="container">
 		<div class="row">
 			<div class="eightcol">
-				<?php echo $htmlNavbar; ?>
+				<?=$htmlNavbar?>
 			</div>
 			<div class="onecol">
 				
@@ -53,7 +53,7 @@
 		<div class="row">
 			<div class="eightcol">
 				<div id="content">
-					<?php $this->renderViewHtml(); ?>
+					<?=$this->renderViewHtml()?>
 				</div>
 			</div>
 			<div class="fourcol last">
