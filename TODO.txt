@@ -1,3 +1,8 @@
+2013.02.22
+**********
+[ ] [FRAMEWORK] add translation capability
+[x] [FRAMEWORK] create html demo page for easier styling
+
 2013.01.10
 **********
 [x] [FRAMEWORK] optimize mod folder structure for better maintainability
@@ -12,10 +17,9 @@
 
 2013.01.09
 **********
-[ ] [PERFORMANCE] enable gzip compression for JS output
-[ ] [PERFORMANCE] enable gzip compression for CSS output
+[?] [PERFORMANCE] enable gzip compression for JS output
+[?] [PERFORMANCE] enable gzip compression for CSS output
 [x] [PROJECT] add a license to the project
-[ ] [PROJECT] add translation capability
 [x] [PERFORMANCE] remove obsolete tmp files (e.g. older than 1 hour)
 
 2012.02.29
