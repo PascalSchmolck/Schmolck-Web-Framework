@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Host Settings
  * 
@@ -6,8 +7,7 @@
  * @author Pascal Schmolck
  * @copyright 2013
  */
-
-/* 
+/*
  * ERROR REPORTING
  */
 error_reporting(E_ALL ^ E_NOTICE);
@@ -42,3 +42,10 @@ define('APPLICATION_ENVIRONMENT', 'development');
  * Depends on what template folders you have installed and running.
  */
 define('APPLICATION_TEMPLATE', '2013');
+
+/*
+ * MODULE EXCEPTION
+ * 
+ * Here you can define what module should be used in case of an exception. 
+ */
+define('MODULE_EXCEPTION', 'exception');

@@ -11,7 +11,6 @@ class Schmolck_Framework_Core {
 
 	const MOD_PATH = 'mod';
 
-	protected $_strExceptionModule;
 	protected $_strModule;
 	protected $_strController;
 	protected $_strAction;
@@ -28,7 +27,6 @@ class Schmolck_Framework_Core {
 		 * PREPARATION
 		 */
 		$this->setLayoutRendering(true);
-		$this->setExceptionModule('exception');
 		$this->initHelpers();
 		$this->initApplication();
 	}
@@ -73,10 +71,6 @@ class Schmolck_Framework_Core {
 		$this->_strModule = ($strModule != '') ? $strModule : 'index';
 		$this->_strController = ($strController != '') ? $strController : 'index';
 		$this->_strAction = ($strAction != '') ? $strAction : 'index';
-	}
-
-	public function setExceptionModule($strModule) {
-		$this->_strExceptionModule = $strModule;
 	}
 
 	/**
@@ -406,30 +400,30 @@ class Schmolck_Framework_Core {
 	}
 
 	protected function _runExceptionModuleInit(Exception $Exception) {
-		require(self::MOD_PATH . "/{$this->_strExceptionModule}/_init.php");
+		require(self::MOD_PATH . '/' . MODULE_EXCEPTION . '/_init.php');
 	}
 
 	protected function _runExceptionModuleExit(Exception $Exception) {
-		require(self::MOD_PATH . "/{$this->_strExceptionModule}/_exit.php");
+		require(self::MOD_PATH . '/' . MODULE_EXCEPTION . '/_exit.php');
 	}
 
 	protected function _runExceptionControllerInit(Exception $Exception) {
-		require(self::MOD_PATH . "/{$this->_strExceptionModule}/index/_init.php");
+		require(self::MOD_PATH . '/' . MODULE_EXCEPTION . '/index/_init.php');		
 	}
 
 	protected function _runExceptionControllerExit(Exception $Exception) {
-		require(self::MOD_PATH . "/{$this->_strExceptionModule}/index/_exit.php");
+		require(self::MOD_PATH . '/' . MODULE_EXCEPTION . '/index/_exit.php');		
 	}
 
 	protected function _runExceptionAction(Exception $Exception) {
 		ob_start();
-		require(self::MOD_PATH . "/{$this->_strExceptionModule}/index/index.action.php");
+		require(self::MOD_PATH . '/' . MODULE_EXCEPTION . '/index/index.action.php');		
 		ob_end_clean();
 	}
 
 	protected function _runExceptionView(Exception $Exception) {
 		ob_start();
-		require(self::MOD_PATH . "/{$this->_strExceptionModule}/index/index.view.phtml");
+		require(self::MOD_PATH . '/' . MODULE_EXCEPTION . '/index/index.view.phtml');				
 		$this->_strViewOutput = ob_get_contents();
 		ob_end_clean();
 	}
