@@ -14,15 +14,15 @@ abstract class Schmolck_Gui {
 	abstract protected function _renderHtml();
 
 	public function __construct($strId) {
-		$this->SetAttribute('id', $strId);
-		$this->SetAttribute('class', implode(" ", $this->_GetClassesAscending()));
+		$this->setAttribute('id', $strId);
+		$this->setAttribute('class', implode(" ", $this->_GetClassesAscending()));
 	}
 
 	public function __get($strKey) {
 		if (array_key_exists($strKey, $this->_arrAttributes)) {
 			return $this->_arrAttributes[$strKey];
 		}else{
-			Schmolck_Framework_Debug::warning("Attirbute '{$strKey}' not defined!");
+			Schmolck_Framework_Debug::warning("Attribute '{$strKey}' not defined!");
 		}
 	}
 

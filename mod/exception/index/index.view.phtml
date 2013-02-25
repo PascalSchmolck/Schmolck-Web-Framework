@@ -1,15 +1,15 @@
 <h1>
-	Ups, sorry...
+	<?=$this->getHelper('translator')->_("Ups, sorry...");?>
 </h1>
 <h2>
-	...an error occurred!
+	<?=$this->getHelper('translator')->_("...an error occured!");?>
 </h2>
 <div class="errors">
 	<strong>Message:</strong> <?=$Exception->getMessage();?>
 </div>
 <br>
 <div style="font-style: italic;">
-	<?=$Exception->getLine();?>: <?=$Exception->getFile();?>
+<?=$Exception->getLine();?>: <?=$Exception->getFile();?>
 </div>
 <pre class="infos">
 <?=$Exception->getTraceAsString()?>

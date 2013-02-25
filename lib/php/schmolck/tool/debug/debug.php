@@ -1,12 +1,12 @@
 <?php
 /**
- * Schmolck_Framework_Debug
+ * Schmolck_Tool_Debug
  * 
- * @package Schmolck framework
+ * @package Schmolck
  * @author Pascal Schmolck
  * @copyright 2013
  */
-class Schmolck_Framework_Debug
+class Schmolck_Tool_Debug
 {
 	const nDebugLevel = DEBUG_LEVEL;
 

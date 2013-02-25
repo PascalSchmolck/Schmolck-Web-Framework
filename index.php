@@ -1,7 +1,7 @@
 <?php
 /**
  * Schmolck framework - PHP Framework
- * Copyright (C) 2013 Pascal Schmolck <piccolino81@gmail.com>
+ * Copyright (C) 2013 Pascal Schmolck
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
