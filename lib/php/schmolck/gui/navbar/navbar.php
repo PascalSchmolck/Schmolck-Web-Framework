@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Schmolck_Gui_Navbar
  * 
@@ -6,19 +7,17 @@
  * @author Pascal Schmolck
  * @copyright 2013
  */
-class Schmolck_Gui_Navbar extends Schmolck_Gui{
-	
+class Schmolck_Gui_Navbar extends Schmolck_Gui {
+
 	protected $_arrEntries = array();
-	
-	public function setEntries($arrEntries)
-	{
+
+	public function setEntries($arrEntries) {
 		$this->_arrEntries = $arrEntries;
 	}
-	
-	protected function _renderHtml()
-	{
+
+	protected function _renderHtml() {
 		?>
-		<div id="<?=$this->id?>" class="<?=$this->class?>">
+		<div id="<?= $this->id ?>" class="<?= $this->class ?>">
 			<div class="hlist">
 				<ul>
 					<?php
@@ -36,10 +35,11 @@ class Schmolck_Gui_Navbar extends Schmolck_Gui{
 			</div>
 		</div>
 		<script>
-		$(document).ready(function() {
-			obj<?=$this->id?> = new <?=get_class()?>('<?=$this->id?>');
-		});
+			$(document).ready(function() {
+				obj<?= $this->id ?> = new <?= get_class() ?>('<?= $this->id ?>');
+			});
 		</script>
 		<?php
-	}	
+	}
+
 }

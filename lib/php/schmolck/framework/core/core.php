@@ -30,15 +30,14 @@ class Schmolck_Framework_Core {
 		$this->setLayoutRendering(true);
 		$this->setExceptionModule('exception');
 		$this->initHelpers();
-
-		$this->initHost();
+		$this->initApplication();
 	}
 
 	/**
 	 * Initialise all required helpers
 	 */
 	public function initHelpers() {
-		$this->_arrHelpers['host'] = new Schmolck_Framework_Helper_Host();
+		$this->_arrHelpers['application'] = new Schmolck_Framework_Helper_Application();
 		$this->_arrHelpers['optimizer'] = new Schmolck_Framework_Helper_Optimizer();
 		$this->_arrHelpers['translator'] = new Schmolck_Framework_Helper_Translator();
 		$this->_arrHelpers['cache'] = new Schmolck_Framework_Helper_Cache();
@@ -59,18 +58,18 @@ class Schmolck_Framework_Core {
 	}
 
 	/**
-	 * Initialise host settings and parameters
+	 * Initialise application settings and parameters
 	 */
-	public function initHost() {
+	public function initApplication() {
 		/*
 		 * SETTINGS
 		 */
-		require($this->getHelper('host')->getCurrentPath() . '/settings.php');
+		require($this->getHelper('application')->getCurrentPath() . '/settings.php');
 
 		/*
 		 * PARAMETERS
 		 */
-		require($this->getHelper('host')->getCurrentPath() . '/parameters.php');
+		require($this->getHelper('application')->getCurrentPath() . '/parameters.php');
 		$this->_strModule = ($strModule != '') ? $strModule : 'index';
 		$this->_strController = ($strController != '') ? $strController : 'index';
 		$this->_strAction = ($strAction != '') ? $strAction : 'index';
@@ -229,7 +228,7 @@ class Schmolck_Framework_Core {
 	}
 
 	protected function _runLayoutInit() {
-		$strPath = $this->getHelper('host')->getCurrentPath() . '/template/' . APPLICATION_TEMPLATE;
+		$strPath = $this->getHelper('application')->getCurrentPath() . '/template/' . APPLICATION_TEMPLATE;
 		$strFile = "{$strPath}/_init.php";
 		if (file_exists($strFile)) {
 			require($strFile);
@@ -243,7 +242,7 @@ class Schmolck_Framework_Core {
 			/*
 			 * INIT
 			 */
-			$strPath = $this->getHelper('host')->getCurrentPath() . '/template/' . APPLICATION_TEMPLATE;
+			$strPath = $this->getHelper('application')->getCurrentPath() . '/template/' . APPLICATION_TEMPLATE;
 			$strFile = "{$strPath}/_init.php";
 			if (file_exists($strFile)) {
 				require($strFile);
@@ -254,7 +253,7 @@ class Schmolck_Framework_Core {
 			/*
 			 * RUN
 			 */
-			$strPath = $this->getHelper('host')->getCurrentPath() . '/template/' . APPLICATION_TEMPLATE;
+			$strPath = $this->getHelper('application')->getCurrentPath() . '/template/' . APPLICATION_TEMPLATE;
 			$strFile = "{$strPath}/html.phtml";
 
 			if (file_exists($strFile)) {
@@ -271,7 +270,7 @@ class Schmolck_Framework_Core {
 			/*
 			 * EXIT
 			 */
-			$strPath = $this->getHelper('host')->getCurrentPath() . '/template/' . APPLICATION_TEMPLATE;
+			$strPath = $this->getHelper('application')->getCurrentPath() . '/template/' . APPLICATION_TEMPLATE;
 			$strFile = "{$strPath}/_exit.php";
 			if (file_exists($strFile)) {
 				require($strFile);
@@ -380,7 +379,7 @@ class Schmolck_Framework_Core {
 	 * Get base URL
 	 */
 	public function getBaseUrl() {
-		return $this->getHelper('host')->getBaseUrl();
+		return $this->getHelper('application')->getBaseUrl();
 	}
 
 	/**

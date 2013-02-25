@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Schmolck_Gui
  * 
@@ -10,7 +11,7 @@ abstract class Schmolck_Gui {
 
 	protected $_objCore;
 	protected $_arrAttributes;
-	
+
 	abstract protected function _renderHtml();
 
 	public function __construct($strId) {
@@ -21,7 +22,7 @@ abstract class Schmolck_Gui {
 	public function __get($strKey) {
 		if (array_key_exists($strKey, $this->_arrAttributes)) {
 			return $this->_arrAttributes[$strKey];
-		}else{
+		} else {
 			Schmolck_Framework_Debug::warning("Attribute '{$strKey}' not defined!");
 		}
 	}
@@ -43,20 +44,18 @@ abstract class Schmolck_Gui {
 	 * 
 	 * @return string HTML output
 	 */
-	public function getHtml()
-	{
+	public function getHtml() {
 		ob_start();
-			$this->render();
-			$html = ob_get_contents();
+		$this->render();
+		$html = ob_get_contents();
 		ob_end_clean();
 		return $html;
 	}
-	
+
 	/**
 	 * Render HTML output
 	 */
-	public function render()
-	{
+	public function render() {
 		$this->_registerCSS();
 		$this->_registerLESS();
 		$this->_registerJS();
@@ -67,8 +66,7 @@ abstract class Schmolck_Gui {
 		return "lib/php";
 	}
 
-	protected function _registerCSS()
-	{
+	protected function _registerCSS() {
 		$classes = $this->_getClassesAscending();
 		foreach ($classes as $class) {
 			$file = "{$this->_getLibraryDir()}/{$this->_GetClassDir($class)}/{$this->_GetClassFileName($class)}.css";
@@ -77,9 +75,8 @@ abstract class Schmolck_Gui {
 			}
 		}
 	}
-	
-	protected function _registerLESS()
-	{
+
+	protected function _registerLESS() {
 		$classes = $this->_getClassesAscending();
 		foreach ($classes as $class) {
 			$file = "{$this->_getLibraryDir()}/{$this->_GetClassDir($class)}/{$this->_GetClassFileName($class)}.less";
@@ -87,10 +84,9 @@ abstract class Schmolck_Gui {
 				$this->_objCore->registerViewLESS($file);
 			}
 		}
-	}	
+	}
 
-	protected function _registerJS()
-	{
+	protected function _registerJS() {
 		$classes = $this->_getClassesAscending();
 		foreach ($classes as $class) {
 			$file = "{$this->_getLibraryDir()}/{$this->_GetClassDir($class)}/{$this->_GetClassFileName($class)}.js";
@@ -100,16 +96,13 @@ abstract class Schmolck_Gui {
 		}
 	}
 
-	protected function _getClassesDescending()
-	{
+	protected function _getClassesDescending() {
 		$object = $this;
 		$parents = array();
 		$parents[] = get_class($object);
-		for($i=1; $i<20; $i++)
-		{
+		for ($i = 1; $i < 20; $i++) {
 			$parent = get_parent_class($this);
-			if (!empty($parent))
-			{
+			if (!empty($parent)) {
 				$parents[] = $parent;
 				$object = $parent;
 			}
@@ -120,21 +113,19 @@ abstract class Schmolck_Gui {
 		return array_unique($parents);
 	}
 
-	protected function _getClassesAscending()
-	{
+	protected function _getClassesAscending() {
 		$classes = $this->_getClassesDescending();
 		krsort($classes);
 		return $classes;
 	}
 
-	protected function _GetClassDir($strClass)
-	{
+	protected function _GetClassDir($strClass) {
 		return strtolower(str_replace('_', '/', $strClass));
 	}
 
-	protected function _getClassFileName($strClass)
-	{
+	protected function _getClassFileName($strClass) {
 		$arrNameParts = explode('_', $strClass);
-		return strtolower($arrNameParts[count($arrNameParts)-1]);
+		return strtolower($arrNameParts[count($arrNameParts) - 1]);
 	}
+
 }
