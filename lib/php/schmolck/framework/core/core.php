@@ -9,8 +9,6 @@
  */
 class Schmolck_Framework_Core {
 
-	const MOD_PATH = 'mod';
-
 	protected $_strModule;
 	protected $_strController;
 	protected $_strAction;
@@ -62,12 +60,12 @@ class Schmolck_Framework_Core {
 		/*
 		 * SETTINGS
 		 */
-		require($this->getHelper('application')->getCurrentPath() . '/settings.php');
+		require($this->getHelper('application')->getPath() . '/settings.php');
 
 		/*
 		 * PARAMETERS
 		 */
-		require($this->getHelper('application')->getCurrentPath() . '/parameters.php');
+		require($this->getHelper('application')->getPath() . '/parameters.php');
 		$this->_strModule = ($strModule != '') ? $strModule : 'index';
 		$this->_strController = ($strController != '') ? $strController : 'index';
 		$this->_strAction = ($strAction != '') ? $strAction : 'index';
@@ -167,15 +165,15 @@ class Schmolck_Framework_Core {
 	}
 
 	protected function _runApplicationInit() {
-		require(self::MOD_PATH . "/_init.php");
+		require($this->getHelper('application')->getModulePath() . "/_init.php");
 	}
 
 	protected function _runApplicationExit() {
-		require(self::MOD_PATH . "/_exit.php");
+		require($this->getHelper('application')->getModulePath() . "/_exit.php");
 	}
 
 	protected function _runModuleInit() {
-		$strFile = self::MOD_PATH . "/{$this->_strModule}/_init.php";
+		$strFile = $this->getHelper('application')->getModulePath() . "/{$this->_strModule}/_init.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
@@ -184,7 +182,7 @@ class Schmolck_Framework_Core {
 	}
 
 	protected function _runModuleExit() {
-		$strFile = self::MOD_PATH . "/{$this->_strModule}/_exit.php";
+		$strFile = $this->getHelper('application')->getModulePath() . "/{$this->_strModule}/_exit.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
@@ -193,7 +191,7 @@ class Schmolck_Framework_Core {
 	}
 
 	protected function _runControllerInit() {
-		$strFile = self::MOD_PATH . "/{$this->_strModule}/{$this->_strController}/_init.php";
+		$strFile = $this->getHelper('application')->getModulePath() . "/{$this->_strModule}/{$this->_strController}/_init.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
@@ -202,7 +200,7 @@ class Schmolck_Framework_Core {
 	}
 
 	protected function _runControllerExit() {
-		$strFile = self::MOD_PATH . "/{$this->_strModule}/{$this->_strController}/_exit.php";
+		$strFile = $this->getHelper('application')->getModulePath() . "/{$this->_strModule}/{$this->_strController}/_exit.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
@@ -212,7 +210,7 @@ class Schmolck_Framework_Core {
 
 	protected function _runAction() {
 		ob_start();
-		$strFile = self::MOD_PATH . "/{$this->_strModule}/{$this->_strController}/{$this->_strAction}.action.php";
+		$strFile = $this->getHelper('application')->getModulePath() . "/{$this->_strModule}/{$this->_strController}/{$this->_strAction}.action.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
@@ -222,7 +220,7 @@ class Schmolck_Framework_Core {
 	}
 
 	protected function _runLayoutInit() {
-		$strPath = $this->getHelper('application')->getCurrentPath() . '/template/' . APPLICATION_TEMPLATE;
+		$strPath = $this->getHelper('application')->getTemplatePath();
 		$strFile = "{$strPath}/_init.php";
 		if (file_exists($strFile)) {
 			require($strFile);
@@ -236,7 +234,7 @@ class Schmolck_Framework_Core {
 			/*
 			 * INIT
 			 */
-			$strPath = $this->getHelper('application')->getCurrentPath() . '/template/' . APPLICATION_TEMPLATE;
+			$strPath = $this->getHelper('application')->getTemplatePath();
 			$strFile = "{$strPath}/_init.php";
 			if (file_exists($strFile)) {
 				require($strFile);
@@ -247,7 +245,7 @@ class Schmolck_Framework_Core {
 			/*
 			 * RUN
 			 */
-			$strPath = $this->getHelper('application')->getCurrentPath() . '/template/' . APPLICATION_TEMPLATE;
+			$strPath = $this->getHelper('application')->getTemplatePath();
 			$strFile = "{$strPath}/html.phtml";
 
 			if (file_exists($strFile)) {
@@ -264,7 +262,7 @@ class Schmolck_Framework_Core {
 			/*
 			 * EXIT
 			 */
-			$strPath = $this->getHelper('application')->getCurrentPath() . '/template/' . APPLICATION_TEMPLATE;
+			$strPath = $this->getHelper('application')->getTemplatePath();
 			$strFile = "{$strPath}/_exit.php";
 			if (file_exists($strFile)) {
 				require($strFile);
@@ -278,7 +276,7 @@ class Schmolck_Framework_Core {
 
 	protected function _runView() {
 		ob_start();
-		$strFile = self::MOD_PATH . "/{$this->_strModule}/{$this->_strController}/{$this->_strAction}.view.phtml";
+		$strFile = $this->getHelper('application')->getModulePath() . "/{$this->_strModule}/{$this->_strController}/{$this->_strAction}.view.phtml";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
@@ -400,30 +398,30 @@ class Schmolck_Framework_Core {
 	}
 
 	protected function _runExceptionModuleInit(Exception $Exception) {
-		require(self::MOD_PATH . '/' . MODULE_EXCEPTION . '/_init.php');
+		require($this->getHelper('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/_init.php');
 	}
 
 	protected function _runExceptionModuleExit(Exception $Exception) {
-		require(self::MOD_PATH . '/' . MODULE_EXCEPTION . '/_exit.php');
+		require($this->getHelper('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/_exit.php');
 	}
 
 	protected function _runExceptionControllerInit(Exception $Exception) {
-		require(self::MOD_PATH . '/' . MODULE_EXCEPTION . '/index/_init.php');		
+		require($this->getHelper('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/index/_init.php');
 	}
 
 	protected function _runExceptionControllerExit(Exception $Exception) {
-		require(self::MOD_PATH . '/' . MODULE_EXCEPTION . '/index/_exit.php');		
+		require($this->getHelper('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/index/_exit.php');
 	}
 
 	protected function _runExceptionAction(Exception $Exception) {
 		ob_start();
-		require(self::MOD_PATH . '/' . MODULE_EXCEPTION . '/index/index.action.php');		
+		require($this->getHelper('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/index/index.action.php');
 		ob_end_clean();
 	}
 
 	protected function _runExceptionView(Exception $Exception) {
 		ob_start();
-		require(self::MOD_PATH . '/' . MODULE_EXCEPTION . '/index/index.view.phtml');				
+		require($this->getHelper('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/index/index.view.phtml');
 		$this->_strViewOutput = ob_get_contents();
 		ob_end_clean();
 	}
