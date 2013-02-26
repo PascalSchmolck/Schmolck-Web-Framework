@@ -1,6 +1,11 @@
+2013.02.26
+**********
+[x] [FRAMEWORK] cleanup and improve core init process
+[ ] [FRAMEWORK] add database helper class and settings
+
 2013.02.22
 **********
-[ ] [FRAMEWORK] add translation capability
+[x] [FRAMEWORK] add translation capability
 [x] [FRAMEWORK] create html demo page for easier styling
 
 2013.01.10

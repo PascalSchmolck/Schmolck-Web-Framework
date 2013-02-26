@@ -132,11 +132,20 @@ class Schmolck_Framework_Core {
 	 */
 	public function run() {
 		try {
+			$this->_strTrace = 'ApplicationCheck';
+			$this->_runApplicationCheck();
+			
 			$this->_strTrace = 'ApplicationInit';
 			$this->_runApplicationInit();
 
+			$this->_strTrace = 'ModuleCheck';
+			$this->_runModuleCheck();			
+			
 			$this->_strTrace = 'ModuleInit';
 			$this->_runModuleInit();
+			
+			$this->_strTrace = 'ControllerCheck';
+			$this->_runControllerCheck();
 
 			$this->_strTrace = 'ControllerInit';
 			$this->_runControllerInit();
@@ -163,21 +172,39 @@ class Schmolck_Framework_Core {
 			$this->_RunExceptionHandling($Exception);
 		}
 	}
+	
+	protected function _runApplicationCheck() {		
+		$strPath = $this->get('application')->getPath();
+		if (!file_exists($strPath)) {
+			throw new Exception("Application path '{$strPath}' not found");
+		}
+	}	
 
-	protected function _runApplicationInit() {
-		require($this->get('application')->getModulePath() . "/_init.php");
+	protected function _runApplicationInit() {		
+		$strFile = $this->get('application')->getModulePath() . "/_init.php";
+		if (file_exists($strFile)) {
+			require($strFile);
+		}
 	}
 
 	protected function _runApplicationExit() {
-		require($this->get('application')->getModulePath() . "/_exit.php");
+		$strFile = $this->get('application')->getModulePath() . "/_exit.php";
+		if (file_exists($strFile)) {
+			require($strFile);
+		}
 	}
+	
+	protected function _runModuleCheck() {		
+		$strPath = $this->get('application')->getModulePath() . "/{$this->_strModule}";
+		if (!file_exists($strPath)) {
+			throw new Exception("Module '{$this->_strModule}' not found");
+		}
+	}		
 
 	protected function _runModuleInit() {
 		$strFile = $this->get('application')->getModulePath() . "/{$this->_strModule}/_init.php";
 		if (file_exists($strFile)) {
 			require($strFile);
-		} else {
-			throw new Exception("Init file for module '{$this->_strModule}' not found");
 		}
 	}
 
@@ -185,17 +212,20 @@ class Schmolck_Framework_Core {
 		$strFile = $this->get('application')->getModulePath() . "/{$this->_strModule}/_exit.php";
 		if (file_exists($strFile)) {
 			require($strFile);
-		} else {
-			throw new Exception("Exit file for module '{$this->_strModule}' not found");
 		}
 	}
+	
+	protected function _runControllerCheck() {		
+		$strPath = $this->get('application')->getModulePath() . "/{$this->_strModule}/{$this->_strController}";
+		if (!file_exists($strPath)) {
+			throw new Exception("Controller '{$this->_strController}' not found");
+		}
+	}			
 
 	protected function _runControllerInit() {
 		$strFile = $this->get('application')->getModulePath() . "/{$this->_strModule}/{$this->_strController}/_init.php";
 		if (file_exists($strFile)) {
 			require($strFile);
-		} else {
-			throw new Exception("Controller init file for module '{$this->_strModule}' and controller '{$this->_strController}' not found");
 		}
 	}
 
@@ -203,8 +233,6 @@ class Schmolck_Framework_Core {
 		$strFile = $this->get('application')->getModulePath() . "/{$this->_strModule}/{$this->_strController}/_exit.php";
 		if (file_exists($strFile)) {
 			require($strFile);
-		} else {
-			throw new Exception("Controller exit file for module '{$this->_strModule}' and controller '{$this->_strController}' not found");
 		}
 	}
 
@@ -224,8 +252,6 @@ class Schmolck_Framework_Core {
 		$strFile = "{$strPath}/_init.php";
 		if (file_exists($strFile)) {
 			require($strFile);
-		} else {
-			throw new Exception("Layout init file '{$strFile}' not found");
 		}
 	}
 
@@ -398,19 +424,31 @@ class Schmolck_Framework_Core {
 	}
 
 	protected function _runExceptionModuleInit(Exception $Exception) {
-		require($this->get('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/_init.php');
+		$strFile = $this->get('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/_init.php';
+		if (file_exists($strFile)) {
+			require($strFile);
+		}
 	}
 
 	protected function _runExceptionModuleExit(Exception $Exception) {
-		require($this->get('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/_exit.php');
+		$strFile = $this->get('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/_exit.php';
+		if (file_exists($strFile)) {
+			require($strFile);
+		}
 	}
 
 	protected function _runExceptionControllerInit(Exception $Exception) {
-		require($this->get('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/index/_init.php');
+		$strFile = $this->get('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/index/_init.php';
+		if (file_exists($strFile)) {
+			require($strFile);
+		}
 	}
 
 	protected function _runExceptionControllerExit(Exception $Exception) {
-		require($this->get('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/index/_exit.php');
+		$strFile = $this->get('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/index/_exit.php';
+		if (file_exists($strFile)) {
+			require($strFile);
+		}
 	}
 
 	protected function _runExceptionAction(Exception $Exception) {
