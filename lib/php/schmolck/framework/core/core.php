@@ -134,16 +134,16 @@ class Schmolck_Framework_Core {
 		try {
 			$this->_strTrace = 'ApplicationCheck';
 			$this->_runApplicationCheck();
-			
+
 			$this->_strTrace = 'ApplicationInit';
 			$this->_runApplicationInit();
 
 			$this->_strTrace = 'ModuleCheck';
-			$this->_runModuleCheck();			
-			
+			$this->_runModuleCheck();
+
 			$this->_strTrace = 'ModuleInit';
 			$this->_runModuleInit();
-			
+
 			$this->_strTrace = 'ControllerCheck';
 			$this->_runControllerCheck();
 
@@ -172,15 +172,15 @@ class Schmolck_Framework_Core {
 			$this->_RunExceptionHandling($Exception);
 		}
 	}
-	
-	protected function _runApplicationCheck() {		
+
+	protected function _runApplicationCheck() {
 		$strPath = $this->get('application')->getPath();
 		if (!file_exists($strPath)) {
 			throw new Exception("Application path '{$strPath}' not found");
 		}
-	}	
+	}
 
-	protected function _runApplicationInit() {		
+	protected function _runApplicationInit() {
 		$strFile = $this->get('application')->getModulePath() . "/_init.php";
 		if (file_exists($strFile)) {
 			require($strFile);
@@ -193,13 +193,13 @@ class Schmolck_Framework_Core {
 			require($strFile);
 		}
 	}
-	
-	protected function _runModuleCheck() {		
+
+	protected function _runModuleCheck() {
 		$strPath = $this->get('application')->getModulePath() . "/{$this->_strModule}";
 		if (!file_exists($strPath)) {
 			throw new Exception("Module '{$this->_strModule}' not found");
 		}
-	}		
+	}
 
 	protected function _runModuleInit() {
 		$strFile = $this->get('application')->getModulePath() . "/{$this->_strModule}/_init.php";
@@ -214,13 +214,13 @@ class Schmolck_Framework_Core {
 			require($strFile);
 		}
 	}
-	
-	protected function _runControllerCheck() {		
+
+	protected function _runControllerCheck() {
 		$strPath = $this->get('application')->getModulePath() . "/{$this->_strModule}/{$this->_strController}";
 		if (!file_exists($strPath)) {
 			throw new Exception("Controller '{$this->_strController}' not found");
 		}
-	}			
+	}
 
 	protected function _runControllerInit() {
 		$strFile = $this->get('application')->getModulePath() . "/{$this->_strModule}/{$this->_strController}/_init.php";
@@ -247,14 +247,6 @@ class Schmolck_Framework_Core {
 		ob_end_clean();
 	}
 
-	protected function _runLayoutInit() {
-		$strPath = $this->get('application')->getTemplatePath();
-		$strFile = "{$strPath}/_init.php";
-		if (file_exists($strFile)) {
-			require($strFile);
-		}
-	}
-
 	protected function _runLayout() {
 		if ($this->_bLayoutRendering) {
 			/*
@@ -264,8 +256,6 @@ class Schmolck_Framework_Core {
 			$strFile = "{$strPath}/_init.php";
 			if (file_exists($strFile)) {
 				require($strFile);
-			} else {
-				throw new Exception("Layout init file '{$strFile}' not found");
 			}
 
 			/*
@@ -292,8 +282,6 @@ class Schmolck_Framework_Core {
 			$strFile = "{$strPath}/_exit.php";
 			if (file_exists($strFile)) {
 				require($strFile);
-			} else {
-				throw new Exception("Layout exit file '{$strFile}' not found");
 			}
 		} else {
 			$this->_renderView();
