@@ -3,7 +3,7 @@
 /**
  * Schmolck_Gui
  * 
- * @package Schmolck framework
+ * @package Schmolck
  * @author Pascal Schmolck
  * @copyright 2013
  */
@@ -23,7 +23,7 @@ abstract class Schmolck_Gui {
 		if (array_key_exists($strKey, $this->_arrAttributes)) {
 			return $this->_arrAttributes[$strKey];
 		} else {
-			Schmolck_Framework_Debug::warning("Attribute '{$strKey}' not defined!");
+			Schmolck_Tool_Debug::warning("Attribute '{$strKey}' not defined!");
 		}
 	}
 

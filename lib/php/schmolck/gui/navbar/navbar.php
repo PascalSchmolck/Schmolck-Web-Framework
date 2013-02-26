@@ -3,7 +3,7 @@
 /**
  * Schmolck_Gui_Navbar
  * 
- * @package Schmolck framework
+ * @package Schmolck
  * @author Pascal Schmolck
  * @copyright 2013
  */
@@ -34,11 +34,6 @@ class Schmolck_Gui_Navbar extends Schmolck_Gui {
 				</ul>
 			</div>
 		</div>
-		<script>
-			$(document).ready(function() {
-				obj<?= $this->id ?> = new <?= get_class() ?>('<?= $this->id ?>');
-			});
-		</script>
 		<?php
 	}
 
