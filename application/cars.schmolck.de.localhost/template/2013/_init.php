@@ -1,5 +1,10 @@
 <?
 /*
+ * PREPARATION
+ */
+$strBaseUrl = $this->get('application')->getBaseUrl();
+
+/*
  * NAVIGATION
  */
 $objNavbar = new Schmolck_Gui_Navbar('mainnav');
@@ -24,4 +29,7 @@ $objNavbar->setEntries(array(
 ));
 $htmlNavbar = $objNavbar->getHtml();
 
-$htmlLanguageSwitcher = file_get_contents('http://cars.schmolck.de.localhost/project/schmolck/framework/framework/api/getLanguageSwitcher');
+/*
+ * LANGUAGE
+ */
+$htmlLanguageSwitcher = file_get_contents($strBaseUrl . 'api/element/languageswitcher');

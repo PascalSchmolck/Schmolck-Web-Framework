@@ -268,11 +268,11 @@ class Schmolck_Framework_Core {
 
 	protected function _runAction() {
 		ob_start();
-		$strFile = $this->get('application')->getModulePath() . "/{$this->_strModule}/{$this->_strController}/{$this->_strAction}.action.php";
+		$strFile = $this->get('application')->getModulePath() . "/{$this->_strModule}/{$this->_strController}/{$this->_strAction}/action.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
-			throw new Exception("Action file '{$this->_strAction}.action.php' for module '{$this->_strModule}' and controller '{$this->_strController}' not found");
+			throw new Exception("Action file '{$this->_strAction}/action.php' for module '{$this->_strModule}' and controller '{$this->_strController}' not found");
 		}
 		ob_end_clean();
 	}
@@ -321,13 +321,28 @@ class Schmolck_Framework_Core {
 
 	protected function _runView() {
 		ob_start();
-		$strFile = $this->get('application')->getModulePath() . "/{$this->_strModule}/{$this->_strController}/{$this->_strAction}.view.phtml";
+		/*
+		 * LOADING
+		 */
+		// - Html
+		$strFile = $this->get('application')->getModulePath() . "/{$this->_strModule}/{$this->_strController}/{$this->_strAction}/view.phtml";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
-			throw new Exception("View file '{$this->_strAction}.view.phtml' for module '{$this->_strModule}' and controller '{$this->_strController}' not found");
+			throw new Exception("View file '{$this->_strAction}/view.phtml' for module '{$this->_strModule}' and controller '{$this->_strController}' not found");
 		}
+		// - JavaScript
+		$strFile = $this->get('application')->getModulePath() . "/{$this->_strModule}/{$this->_strController}/{$this->_strAction}/scripts.js";
+		if (file_exists($strFile)) {
+			$strJavaScript = file_get_contents($strFile);
+			if (!empty($strJavaScript)) {
+				echo '<script>' . $strJavaScript . '</script>';
+			}
+		} 
 
+		/*
+		 * OUTPUT
+		 */
 		$this->_strViewOutput = ob_get_contents();
 		ob_end_clean();
 	}
@@ -472,13 +487,13 @@ class Schmolck_Framework_Core {
 
 	protected function _runExceptionAction(Exception $Exception) {
 		ob_start();
-		require($this->get('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/index/index.action.php');
+		require($this->get('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/index/index/action.php');
 		ob_end_clean();
 	}
 
 	protected function _runExceptionView(Exception $Exception) {
 		ob_start();
-		require($this->get('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/index/index.view.phtml');
+		require($this->get('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/index/index/view.phtml');
 		$this->_strViewOutput = ob_get_contents();
 		ob_end_clean();
 	}
