@@ -7,23 +7,19 @@ $objNavbar->setCore($this);
 $objNavbar->setEntries(array(
 	'home'	=>	array(
 		'href' => '#',
-		'label' => 'Startseite'
+		'label' => $this->get('translator')->_("Home")
 	),
 	'link2'	=>	array(
 		'href' => '#',
-		'label' => 'Mercedes-Benz'
+		'label' => $this->get('translator')->_("Mercedes-Benz")
 	),
 	'link3'	=>	array(
 		'href' => '#',
-		'label' => 'smart'
-	),
-	'link4'	=>	array(
-		'href' => '#',
-		'label' => 'Link4'
+		'label' => $this->get('translator')->_("smart")
 	),
 	'imprint'	=>	array(
-		'href' => '#',
-		'label' => 'Imprint'
+		'href' => 'content/static/imprint',
+		'label' => $this->get('translator')->_("Imprint")
 	),	
 ));
 $htmlNavbar = $objNavbar->getHtml();

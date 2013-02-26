@@ -33,10 +33,10 @@ class Schmolck_Framework_Core {
 	 * Initialise all required helpers
 	 */
 	public function initHelpers() {
-		$this->_arrHelpers['application'] = new Schmolck_Framework_Helper_Application();
-		$this->_arrHelpers['optimizer'] = new Schmolck_Framework_Helper_Optimizer();
-		$this->_arrHelpers['translator'] = new Schmolck_Framework_Helper_Translator();
-		$this->_arrHelpers['cache'] = new Schmolck_Framework_Helper_Cache();
+		$this->_arrHelpers['application'] = new Schmolck_Framework_Helper_Application($this);
+		$this->_arrHelpers['optimizer'] = new Schmolck_Framework_Helper_Optimizer($this);
+		$this->_arrHelpers['translator'] = new Schmolck_Framework_Helper_Translator($this);
+		$this->_arrHelpers['cache'] = new Schmolck_Framework_Helper_Cache($this);
 	}
 
 	/**
@@ -45,7 +45,7 @@ class Schmolck_Framework_Core {
 	 * @param string $strKey helper name
 	 * @return object helper instance
 	 */
-	public function getHelper($strKey) {
+	public function get($strKey) {
 		if (array_key_exists($strKey, $this->_arrHelpers)) {
 			return $this->_arrHelpers[$strKey];
 		} else {
@@ -60,12 +60,12 @@ class Schmolck_Framework_Core {
 		/*
 		 * SETTINGS
 		 */
-		require($this->getHelper('application')->getPath() . '/settings.php');
+		require($this->get('application')->getPath() . '/settings.php');
 
 		/*
 		 * PARAMETERS
 		 */
-		require($this->getHelper('application')->getPath() . '/parameters.php');
+		require($this->get('application')->getPath() . '/parameters.php');
 		$this->_strModule = ($strModule != '') ? $strModule : 'index';
 		$this->_strController = ($strController != '') ? $strController : 'index';
 		$this->_strAction = ($strAction != '') ? $strAction : 'index';
@@ -165,15 +165,15 @@ class Schmolck_Framework_Core {
 	}
 
 	protected function _runApplicationInit() {
-		require($this->getHelper('application')->getModulePath() . "/_init.php");
+		require($this->get('application')->getModulePath() . "/_init.php");
 	}
 
 	protected function _runApplicationExit() {
-		require($this->getHelper('application')->getModulePath() . "/_exit.php");
+		require($this->get('application')->getModulePath() . "/_exit.php");
 	}
 
 	protected function _runModuleInit() {
-		$strFile = $this->getHelper('application')->getModulePath() . "/{$this->_strModule}/_init.php";
+		$strFile = $this->get('application')->getModulePath() . "/{$this->_strModule}/_init.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
@@ -182,7 +182,7 @@ class Schmolck_Framework_Core {
 	}
 
 	protected function _runModuleExit() {
-		$strFile = $this->getHelper('application')->getModulePath() . "/{$this->_strModule}/_exit.php";
+		$strFile = $this->get('application')->getModulePath() . "/{$this->_strModule}/_exit.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
@@ -191,7 +191,7 @@ class Schmolck_Framework_Core {
 	}
 
 	protected function _runControllerInit() {
-		$strFile = $this->getHelper('application')->getModulePath() . "/{$this->_strModule}/{$this->_strController}/_init.php";
+		$strFile = $this->get('application')->getModulePath() . "/{$this->_strModule}/{$this->_strController}/_init.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
@@ -200,7 +200,7 @@ class Schmolck_Framework_Core {
 	}
 
 	protected function _runControllerExit() {
-		$strFile = $this->getHelper('application')->getModulePath() . "/{$this->_strModule}/{$this->_strController}/_exit.php";
+		$strFile = $this->get('application')->getModulePath() . "/{$this->_strModule}/{$this->_strController}/_exit.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
@@ -210,7 +210,7 @@ class Schmolck_Framework_Core {
 
 	protected function _runAction() {
 		ob_start();
-		$strFile = $this->getHelper('application')->getModulePath() . "/{$this->_strModule}/{$this->_strController}/{$this->_strAction}.action.php";
+		$strFile = $this->get('application')->getModulePath() . "/{$this->_strModule}/{$this->_strController}/{$this->_strAction}.action.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
@@ -220,7 +220,7 @@ class Schmolck_Framework_Core {
 	}
 
 	protected function _runLayoutInit() {
-		$strPath = $this->getHelper('application')->getTemplatePath();
+		$strPath = $this->get('application')->getTemplatePath();
 		$strFile = "{$strPath}/_init.php";
 		if (file_exists($strFile)) {
 			require($strFile);
@@ -234,7 +234,7 @@ class Schmolck_Framework_Core {
 			/*
 			 * INIT
 			 */
-			$strPath = $this->getHelper('application')->getTemplatePath();
+			$strPath = $this->get('application')->getTemplatePath();
 			$strFile = "{$strPath}/_init.php";
 			if (file_exists($strFile)) {
 				require($strFile);
@@ -245,7 +245,7 @@ class Schmolck_Framework_Core {
 			/*
 			 * RUN
 			 */
-			$strPath = $this->getHelper('application')->getTemplatePath();
+			$strPath = $this->get('application')->getTemplatePath();
 			$strFile = "{$strPath}/html.phtml";
 
 			if (file_exists($strFile)) {
@@ -262,7 +262,7 @@ class Schmolck_Framework_Core {
 			/*
 			 * EXIT
 			 */
-			$strPath = $this->getHelper('application')->getTemplatePath();
+			$strPath = $this->get('application')->getTemplatePath();
 			$strFile = "{$strPath}/_exit.php";
 			if (file_exists($strFile)) {
 				require($strFile);
@@ -276,7 +276,7 @@ class Schmolck_Framework_Core {
 
 	protected function _runView() {
 		ob_start();
-		$strFile = $this->getHelper('application')->getModulePath() . "/{$this->_strModule}/{$this->_strController}/{$this->_strAction}.view.phtml";
+		$strFile = $this->get('application')->getModulePath() . "/{$this->_strModule}/{$this->_strController}/{$this->_strAction}.view.phtml";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
@@ -316,12 +316,12 @@ class Schmolck_Framework_Core {
 				if (APPLICATION_ENVIRONMENT == 'development') {
 					$strCombinedLESS .= "\n\n/* {$strFile} */\n\n" . file_get_contents($strFile);
 				} else {
-					$strCombinedLESS .= $this->getHelper('optimizer')->getOptimizedCssString(file_get_contents($strFile));
+					$strCombinedLESS .= $this->get('optimizer')->getOptimizedCssString(file_get_contents($strFile));
 				}
 			}
 		}
 		// - get md5 hash of optimized styles and create tmp file
-		$strTempFile = $this->getHelper('cache')->getFilePath(md5($strCombinedLESS) . '.less');
+		$strTempFile = $this->get('cache')->getFilePath(md5($strCombinedLESS) . '.less');
 		// - fill tmp file with optimized styles
 		file_put_contents($strTempFile, $strCombinedLESS);
 
@@ -352,12 +352,12 @@ class Schmolck_Framework_Core {
 				if (APPLICATION_ENVIRONMENT == 'development') {
 					$strCombinedJs .= "\n\n/* {$strFile} */\n\n" . file_get_contents($strFile);
 				} else {
-					$strCombinedJs .= $this->getHelper('optimizer')->getOptimizedJsString(file_get_contents($strFile));
+					$strCombinedJs .= $this->get('optimizer')->getOptimizedJsString(file_get_contents($strFile));
 				}
 			}
 		}
 		// - get md5 hash of optimized scripts and create tmp file
-		$strTempFile = $this->getHelper('cache')->getFilePath(md5($strCombinedJs) . '.js');
+		$strTempFile = $this->get('cache')->getFilePath(md5($strCombinedJs) . '.js');
 		// - fill tmp file with optimized scripts
 		file_put_contents($strTempFile, $strCombinedJs);
 
@@ -371,7 +371,7 @@ class Schmolck_Framework_Core {
 	 * Get base URL
 	 */
 	public function getBaseUrl() {
-		return $this->getHelper('application')->getBaseUrl();
+		return $this->get('application')->getBaseUrl();
 	}
 
 	/**
@@ -398,30 +398,30 @@ class Schmolck_Framework_Core {
 	}
 
 	protected function _runExceptionModuleInit(Exception $Exception) {
-		require($this->getHelper('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/_init.php');
+		require($this->get('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/_init.php');
 	}
 
 	protected function _runExceptionModuleExit(Exception $Exception) {
-		require($this->getHelper('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/_exit.php');
+		require($this->get('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/_exit.php');
 	}
 
 	protected function _runExceptionControllerInit(Exception $Exception) {
-		require($this->getHelper('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/index/_init.php');
+		require($this->get('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/index/_init.php');
 	}
 
 	protected function _runExceptionControllerExit(Exception $Exception) {
-		require($this->getHelper('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/index/_exit.php');
+		require($this->get('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/index/_exit.php');
 	}
 
 	protected function _runExceptionAction(Exception $Exception) {
 		ob_start();
-		require($this->getHelper('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/index/index.action.php');
+		require($this->get('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/index/index.action.php');
 		ob_end_clean();
 	}
 
 	protected function _runExceptionView(Exception $Exception) {
 		ob_start();
-		require($this->getHelper('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/index/index.view.phtml');
+		require($this->get('application')->getModulePath() . '/' . MODULE_EXCEPTION . '/index/index.view.phtml');
 		$this->_strViewOutput = ob_get_contents();
 		ob_end_clean();
 	}

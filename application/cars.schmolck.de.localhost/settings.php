@@ -36,9 +36,16 @@ define('DEBUG_LEVEL', 7);
 define('APPLICATION_ENVIRONMENT', 'development');
 
 /*
+ * APPLICATION LANGUAGE
+ * 
+ * Define the default language for the application.
+ */
+define('APPLICATION_LANGUAGE', 'de');
+
+/*
  * APPLICATION TEMPLATE
  * 
- * Here you can define what template should be used. 
+ * Define what template should be used. 
  * Depends on what template folders you have installed and running.
  */
 define('APPLICATION_TEMPLATE', '2013');
@@ -46,6 +53,6 @@ define('APPLICATION_TEMPLATE', '2013');
 /*
  * MODULE EXCEPTION
  * 
- * Here you can define what module should be used in case of an exception. 
+ * Define what module should be used in case of an exception. 
  */
 define('MODULE_EXCEPTION', 'exception');
