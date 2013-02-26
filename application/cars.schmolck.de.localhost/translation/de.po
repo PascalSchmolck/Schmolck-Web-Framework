@@ -1,0 +1,35 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Pascal Schmolck <mail@pascalschmolck.de>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+
+#: ../application/cars.schmolck.de.localhost/module/exception/index/index.view.phtml:2
+msgid "Ups, sorry..."
+msgstr "Verzeihung..."
+
+#: ../application/cars.schmolck.de.localhost/module/exception/index/index.view.phtml:5
+msgid "...an error occured!"
+msgstr "...es hat sich ein Fehler eingeschlichen!"
+
+#: ../application/cars.schmolck.de.localhost/template/2013/_init.php:10
+msgid "Home"
+msgstr "Startseite"
+
+#: ../application/cars.schmolck.de.localhost/template/2013/_init.php:14
+msgid "Mercedes-Benz"
+msgstr "Mercedes-Benz"
+
+#: ../application/cars.schmolck.de.localhost/template/2013/_init.php:18
+msgid "smart"
+msgstr "smart"
+
+#: ../application/cars.schmolck.de.localhost/template/2013/_init.php:22
+msgid "Imprint"
+msgstr "Impressum"

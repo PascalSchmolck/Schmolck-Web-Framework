@@ -1,0 +1,24 @@
+#: ../application/cars.schmolck.de.localhost/module/exception/index/index.view.phtml:2 
+msgid "Ups, sorry..." 
+msgstr "" 
+
+#: ../application/cars.schmolck.de.localhost/module/exception/index/index.view.phtml:5 
+msgid "...an error occured!" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de.localhost/template/2013/_init.php:10 
+msgid "Home" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de.localhost/template/2013/_init.php:14 
+msgid "Mercedes-Benz" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de.localhost/template/2013/_init.php:18 
+msgid "smart" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de.localhost/template/2013/_init.php:22 
+msgid "Imprint" 
+msgstr "" 
+
