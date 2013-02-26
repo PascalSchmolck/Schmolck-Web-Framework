@@ -9,16 +9,17 @@
  */
 class Schmolck_Framework_Core {
 
+	protected $_bLayoutRendering;
+	protected $_arrViewStyles = array();
+	protected $_arrViewLESS = array();
+	protected $_arrViewScripts = array();
+	protected $_arrHelpers = array();
+	protected $_arrActionValues = array();
 	protected $_strModule;
 	protected $_strController;
 	protected $_strAction;
-	protected $_bLayoutRendering;
-	protected $_arrViewStyles;
-	protected $_arrViewLESS;
-	protected $_arrViewScripts;
 	protected $_strViewOutput;
 	protected $_strTrace;
-	protected $_arrHelpers;
 
 	public function __construct() {
 		/*
@@ -27,6 +28,34 @@ class Schmolck_Framework_Core {
 		$this->setLayoutRendering(true);
 		$this->initHelpers();
 		$this->initApplication();
+	}
+
+	/**
+	 * Set action value
+	 * 
+	 * Used for saving values within the action for upcoming use in the view.
+	 * 
+	 * @param string $strKey
+	 * @param mixed $mixedValue
+	 */
+	public function __set($strKey, $mixedValue) {
+		$this->_arrActionValues[$strKey] = $mixedValue;
+	}
+
+	/**
+	 * Get action value
+	 * 
+	 * Used for accessing action values from within the view.
+	 * 
+	 * @param mixed $strKey
+	 * @return mixed
+	 */
+	public function __get($strKey) {
+		if (array_key_exists($strKey, $this->_arrActionValues)) {
+			return $this->_arrActionValues[$strKey];
+		} else {
+			Schmolck_Tool_Debug::warning("Action value '{$strKey}' not defined!");
+		}
 	}
 
 	/**
@@ -167,6 +196,7 @@ class Schmolck_Framework_Core {
 
 			$this->_strTrace = 'AppllicationExit';
 			$this->_runApplicationExit();
+			exit();
 		} catch (Exception $Exception) {
 			ob_end_clean();
 			$this->_RunExceptionHandling($Exception);
@@ -284,7 +314,8 @@ class Schmolck_Framework_Core {
 				require($strFile);
 			}
 		} else {
-			$this->_renderView();
+			$this->_runView();
+			$this->renderViewHtml();
 		}
 	}
 
@@ -461,7 +492,7 @@ class Schmolck_Framework_Core {
 	}
 
 	protected function _renderExceptionView(Exception $Exception) {
-		$this->_RenderView();
+		$this->_runView();
 	}
 
 }
