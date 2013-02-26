@@ -26,6 +26,48 @@ class Schmolck_Framework_Helper_Translator extends Schmolck_Framework_Helper {
 			return $this->_arrDictionary[$string];
 		}
 	}
+	
+	/**
+	 * Get current language
+	 * 
+	 * @return string language
+	 */
+	public function getLanguage()
+	{
+		return APPLICATION_LANGUAGE;
+	}
+
+	/**
+	 * Get all available languages
+	 * 
+	 * return array languages
+	 */
+	public function getLanguages() {
+		/*
+		 * PREPARATION
+		 */
+		$arrLanguages = array();
+
+		/*
+		 * READING
+		 */
+		$objDir = new Schmolck_Tool_Dir();
+		$objDir->directory = $this->objCore->get('application')->getPath() . '/translation';
+		$objDir->includePatterns = array('.po');
+		$objDir->excludePatterns = array('.pot');
+		$arrFiles = $objDir->getFiles();
+		if (count($arrFiles) > 0) {
+			foreach ($arrFiles as $strFile) {
+				$arrLanguages[] = basename($strFile, '.po');
+			}
+		}
+
+		/*
+		 * RETURN
+		 */
+		sort($arrLanguages);
+		return array_unique($arrLanguages);
+	}
 
 	/**
 	 * Read language file into dictionary

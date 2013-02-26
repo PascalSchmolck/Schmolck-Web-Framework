@@ -23,3 +23,5 @@ $objNavbar->setEntries(array(
 	),	
 ));
 $htmlNavbar = $objNavbar->getHtml();
+
+$htmlLanguageSwitcher = file_get_contents('http://cars.schmolck.de.localhost/project/schmolck/framework/framework/api/getLanguageSwitcher');

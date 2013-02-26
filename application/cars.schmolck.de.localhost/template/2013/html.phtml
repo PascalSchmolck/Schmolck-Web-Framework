@@ -1,74 +1,76 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<base href="<?=$this->getBaseUrl()?>">
-	<meta charset="utf-8"/>
-	<title>
-		Schmolck Framework
-	</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="lib/css/cssgrid/1140.css"/>
-	<!--[if lte IE 9]><link rel="stylesheet" href="lib/css/cssgrid/ie.css" type="text/css" media="screen" /><![endif]-->
-	<link rel="stylesheet/less" type="text/css" href="<?=$this->getCoreLESSFile()?>"/>
-	
-	<script type="text/javascript" src="lib/js/less/less-1.3.0.min.js"></script>
-	<script type="text/javascript" src="lib/js/jquery/jquery-1.7.1.min.js"></script>
-	<script type="text/javascript" src="<?=$this->getCoreJSFile()?>"></script>
-</head>
-<body>
-	<div id="header" class="container">
-		<div class="row">
-			<div class="tencol">
-				<img class="logo" src="data/images/logo.png"/>
-				<div class="description">
-					cars
-				</div>
-			</div>
-			<div class="twocol last">
-				
-			</div>
-		</div>
-	</div>
+	<head>
+		<base href="<?= $this->getBaseUrl() ?>">
+		<meta charset="utf-8"/>
+		<title>
+			Schmolck Framework
+		</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<div id="navigation" class="container">
-		<div class="row">
-			<div class="twelvecol last">
-				<?=$htmlNavbar?>
-			</div>
-		</div>
-	</div>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="lib/css/cssgrid/1140.css"/>
+		<!--[if lte IE 9]><link rel="stylesheet" href="lib/css/cssgrid/ie.css" type="text/css" media="screen" /><![endif]-->
+		<link rel="stylesheet/less" type="text/css" href="<?= $this->getCoreLESSFile() ?>"/>
 
-	<div id="main" class="container">
-		<div class="row">
-			<div class="ninecol">
-				<div id="content">
-					<?=$this->renderViewHtml()?>
+		<script type="text/javascript" src="lib/js/less/less-1.3.0.min.js"></script>
+		<script type="text/javascript" src="lib/js/jquery/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="<?= $this->getCoreJSFile() ?>"></script>
+	</head>
+	<body>
+		<div id="header" class="container">
+			<div class="row">
+				<div class="tencol">
+					<img class="logo" src="data/images/logo.png"/>
+					<div class="description">
+						cars
+					</div>
 				</div>
-			</div>
-			<div class="threecol last">
-				<div id="sidebar">
-					<h1>
-						Sidebar
-					</h1>
-					<h2>
-						Subtitle
-					</h2>
-					<p>
-						Lorem ipsum dolor sit <a href="#">amet</a>, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet <a href="#">amet</a> kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit <a href="#">amet</a>.   
-					</p>
+				<div class="twocol last">
+					<div class="language">
+						<?= $htmlLanguageSwitcher ?>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<div id="footer" class="container">
-		<div class="row">
-			<div class="threecol">
-				Copyright &copy; <?=date('Y')?>
+		<div id="navigation" class="container">
+			<div class="row">
+				<div class="twelvecol last">
+					<?= $htmlNavbar ?>
+				</div>
 			</div>
 		</div>
-	</div>
-</body>
+
+		<div id="main" class="container">
+			<div class="row">
+				<div class="ninecol">
+					<div id="content">
+						<?= $this->renderViewHtml() ?>
+					</div>
+				</div>
+				<div class="threecol last">
+					<div id="sidebar">
+						<h1>
+							Sidebar
+						</h1>
+						<h2>
+							Subtitle
+						</h2>
+						<p>
+							Lorem ipsum dolor sit <a href="#">amet</a>, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet <a href="#">amet</a> kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit <a href="#">amet</a>.   
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="footer" class="container">
+			<div class="row">
+				<div class="threecol">
+					Copyright &copy; <?= date('Y') ?>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
