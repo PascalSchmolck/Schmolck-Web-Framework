@@ -1,9 +1,9 @@
 <?
-/*
- * JAVASCRIPT
- */
-$this->registerViewJS('lib/js/schmolck/framework/api/element.js');
 
+/*
+ * PREPARATION
+ */
+$strTemplatePath = $this->get('application')->getTemplatePath();
 
 /*
  * NAVIGATION
@@ -28,13 +28,3 @@ $objNavbar->setEntries(array(
 	),
 ));
 $htmlNavbar = $objNavbar->getHtml();
-
-/*
- * LANGUAGE
- */
-//$objLangSwitcher = new Schmolck_Framework_Gui_Dropdown_Langswitcher($this, 'langswitcher');
-////$objLangSwitcher->setEntries($this->get('translator')->getLanguages());
-//$htmlLangSwitcher = $objLangSwitcher->getHtml();
-
-$strBaseUrl = $this->get('application')->getBaseUrl();
-$htmlLangSwitcher = file_get_contents($strBaseUrl . 'api/element/langswitcher');

@@ -1,21 +1,18 @@
-$(document).ready(function() {	
-	/*
-	 * LANGSWITCHER
-	 */	
-//	$.ajax({
-//		type: "POST",
-//		url: 'api/element/langswitcher',
-//		data: 'parameter=test',
-//		success: function (data) {
-//			$('#langswitcher').fadeOut('slow', function () {
-//				$('#langswitcher').replaceWith(data);
-//			});			
-//		}
-//	});	
-	Schmolck_Framework_Api_Element({
+/*
+ * CONFIGURATION
+ */
+requirejs.config({
+	baseUrl: 'lib/js'
+});
+
+
+/*
+ * MAIN
+ */
+requirejs(['schmolck/framework/api/element'], function(element) {
+	element({
 		id: 'langswitcher',		
 		name: 'langswitcher',
 		data: ''
 	});
 });
-
