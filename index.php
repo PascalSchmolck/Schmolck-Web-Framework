@@ -26,9 +26,9 @@ function __autoload($strClass) {
 
 	// - parse
 	$arrParts = explode('_', $strClass);
-	$strFileName = "code.php";
 	foreach ($arrParts as $strPart) {
 		$strFilePath .= "/{$strPart}";
+		$strFileName = "{$strPart}.php";
 	}
 
 	// - include
