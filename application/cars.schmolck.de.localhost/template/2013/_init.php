@@ -1,4 +1,9 @@
 <?
+/*
+ * JAVASCRIPT
+ */
+$this->registerViewJS('lib/js/schmolck/framework/api/element.js');
+
 
 /*
  * NAVIGATION
