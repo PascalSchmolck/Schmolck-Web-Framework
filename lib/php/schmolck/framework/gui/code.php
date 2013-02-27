@@ -72,7 +72,7 @@ abstract class Schmolck_Framework_Gui {
 	protected function _registerCSS() {
 		$classes = $this->_getClassesAscending();
 		foreach ($classes as $class) {
-			$file = "{$this->_getLibraryDir()}/{$this->_GetClassDir($class)}/{$this->_GetClassFileName($class)}.css";
+			$file = "{$this->_getLibraryDir()}/{$this->_GetClassDir($class)}/styles.css";
 			if (file_exists($file)) {
 				$this->_objCore->registerViewCSS($file);
 			}
@@ -82,7 +82,7 @@ abstract class Schmolck_Framework_Gui {
 	protected function _registerLESS() {
 		$classes = $this->_getClassesAscending();
 		foreach ($classes as $class) {
-			$file = "{$this->_getLibraryDir()}/{$this->_GetClassDir($class)}/{$this->_GetClassFileName($class)}.less";
+			$file = "{$this->_getLibraryDir()}/{$this->_GetClassDir($class)}/styles.less";
 			if (file_exists($file)) {
 				$this->_objCore->registerViewLESS($file);
 			}
@@ -92,7 +92,7 @@ abstract class Schmolck_Framework_Gui {
 	protected function _registerJS() {
 		$classes = $this->_getClassesAscending();
 		foreach ($classes as $class) {
-			$file = "{$this->_getLibraryDir()}/{$this->_GetClassDir($class)}/{$this->_GetClassFileName($class)}.js";
+			$file = "{$this->_getLibraryDir()}/{$this->_GetClassDir($class)}/scripts.php";
 			if (file_exists($file)) {
 				$this->_objCore->registerViewJS($file);
 			}

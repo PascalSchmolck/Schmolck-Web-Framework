@@ -17,7 +17,7 @@ class Schmolck_Framework_Gui_Dropdown_Langswitcher extends Schmolck_Framework_Gu
 		 * PREPARATION
 		 */
 		$this->setEntries($this->_objCore->get('translator')->getLanguages());
-
+		
 		/*
 		 * OUTPUT
 		 */
@@ -28,20 +28,15 @@ class Schmolck_Framework_Gui_Dropdown_Langswitcher extends Schmolck_Framework_Gu
 	 * Render JavaScript
 	 */
 	protected function _renderJs() {
+		parent::_renderJs();
 		?>
 		<script>
 			$(document).ready(function() {
+				
 				$('#<?= $this->id ?>').change(function () {
-					$.ajax({
-						type: "POST",
-						url: 'api/data/setLanguage',
-						data: 'language=test',
-						success: function (data) {
-							var json = $.parseJSON(data);
-							alert('Status: ' + json.status + ' Data: ' + json.data);
-						}
-					});
-				});	
+					Schmolck_Framework_Ajax('#<?= $this->id ?>', '', 'test=value');
+				});
+				
 			});								
 		</script>
 		<?php

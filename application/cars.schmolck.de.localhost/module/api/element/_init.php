@@ -3,4 +3,6 @@
 /*
  * INITIALISATION
  */
-$this->setLayoutRendering(false);
+if (isset($_POST['ajax'])) {
+	$this->setLayoutRendering(false);
+}

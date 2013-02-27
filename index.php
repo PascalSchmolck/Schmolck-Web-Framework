@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Schmolck framework - PHP Framework
  * Copyright (C) 2013 Pascal Schmolck
@@ -16,23 +17,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 /*
  * AUTOLOADER
  */
-function __autoload($strClass){
-	// - prepare path
+function __autoload($strClass) {
+	// - prepare
 	$strFilePath = 'lib/php';
-	
-	// - parse class parts
+
+	// - parse
 	$arrParts = explode('_', $strClass);
+	$strFileName = "code.php";
 	foreach ($arrParts as $strPart) {
 		$strFilePath .= "/{$strPart}";
-		$strFileName = "{$strPart}.php";
 	}
-	
+
 	// - include
-	require_once($strFilePath.'/'.$strFileName);
+	require_once($strFilePath . '/' . $strFileName);
 }
 
 /*

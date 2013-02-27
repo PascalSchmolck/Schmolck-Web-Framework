@@ -4,7 +4,8 @@
  * PREPARATION
  */
 $strTemplatePath = $this->get('application')->getTemplatePath();
-
+$this->registerViewJS('lib/js/schmolck/framework/ajax/ajax.js');
+		
 /*
  * NAVIGATION
  */
@@ -28,3 +29,7 @@ $objNavbar->setEntries(array(
 	),
 ));
 $htmlNavbar = $objNavbar->getHtml();
+
+
+$objLangSwitcher = new Schmolck_Framework_Gui_Dropdown_Langswitcher($this, 'langswitcher');
+$htmlLangSwitcher = $objLangSwitcher->getHtml();
