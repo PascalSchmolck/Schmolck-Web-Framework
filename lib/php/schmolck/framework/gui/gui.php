@@ -1,20 +1,22 @@
 <?php
 
 /**
- * Schmolck_Gui
+ * Schmolck_Framework_Gui
  * 
- * @package Schmolck
+ * @package Schmolck framework
  * @author Pascal Schmolck
  * @copyright 2013
  */
-abstract class Schmolck_Gui {
+abstract class Schmolck_Framework_Gui {
 
 	protected $_objCore;
 	protected $_arrAttributes;
 
 	abstract protected function _renderHtml();
+	abstract protected function _renderJs();
 
-	public function __construct($strId) {
+	public function __construct($objCore, $strId) {
+		$this->_objCore = $objCore;
 		$this->setAttribute('id', $strId);
 		$this->setAttribute('class', implode(" ", $this->_GetClassesAscending()));
 	}
@@ -60,6 +62,7 @@ abstract class Schmolck_Gui {
 		$this->_registerLESS();
 		$this->_registerJS();
 		$this->_renderHtml();
+		$this->_renderJs();
 	}
 
 	protected function _getLibraryDir() {

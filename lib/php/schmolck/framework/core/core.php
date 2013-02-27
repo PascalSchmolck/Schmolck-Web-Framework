@@ -334,11 +334,13 @@ class Schmolck_Framework_Core {
 		// - JavaScript
 		$strFile = $this->get('application')->getModulePath() . "/{$this->_strModule}/{$this->_strController}/{$this->_strAction}/scripts.js";
 		if (file_exists($strFile)) {
-			$strJavaScript = file_get_contents($strFile);
-			if (!empty($strJavaScript)) {
-				echo '<script>' . $strJavaScript . '</script>';
+			if (APPLICATION_ENVIRONMENT == 'development') {
+				$strJavaScript = file_get_contents($strFile);
+			} else {
+				$strJavaScript = $this->get('optimizer')->getOptimizedJsString(file_get_contents($strFile));
 			}
-		} 
+			echo '<script>' . $strJavaScript . '</script>';
+		}
 
 		/*
 		 * OUTPUT

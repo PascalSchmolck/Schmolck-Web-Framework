@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Schmolck_Gui_Navbar
+ * Schmolck_Framework_Gui_Navbar
  * 
- * @package Schmolck
+ * @package Schmolck framework
  * @author Pascal Schmolck
  * @copyright 2013
  */
-class Schmolck_Gui_Navbar extends Schmolck_Gui {
+class Schmolck_Framework_Gui_Navbar extends Schmolck_Framework_Gui {
 
 	protected $_arrEntries = array();
 
@@ -35,6 +35,10 @@ class Schmolck_Gui_Navbar extends Schmolck_Gui {
 			</div>
 		</div>
 		<?php
+	}
+	
+	protected function _renderJs() {
+		
 	}
 
 }
