@@ -17,7 +17,7 @@ class Schmolck_Framework_Gui_Dropdown extends Schmolck_Framework_Gui {
 
 	protected function _renderHtml() {
 		?>
-		<select id="<?= $this->id ?>" class="<?= $this->class ?>">
+		<select>
 			<?php
 			foreach ($this->_arrEntries as $strName => $strLabel) {
 				echo "

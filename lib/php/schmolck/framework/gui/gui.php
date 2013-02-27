@@ -13,6 +13,7 @@ abstract class Schmolck_Framework_Gui {
 	protected $_arrAttributes;
 
 	abstract protected function _renderHtml();
+
 	abstract protected function _renderJs();
 
 	public function __construct($objCore, $strId) {
@@ -48,21 +49,23 @@ abstract class Schmolck_Framework_Gui {
 	 */
 	public function getHtml() {
 		ob_start();
-		$this->render();
+		$this->_render();
 		$html = ob_get_contents();
 		ob_end_clean();
 		return $html;
 	}
 
 	/**
-	 * Render HTML output
+	 * Render entire output
 	 */
-	public function render() {
+	private function _render() {
 		$this->_registerCSS();
 		$this->_registerLESS();
 		$this->_registerJS();
+		$this->_renderWrapperStart();
 		$this->_renderHtml();
 		$this->_renderJs();
+		$this->_renderWrapperStop();		
 	}
 
 	protected function _getLibraryDir() {
@@ -129,6 +132,30 @@ abstract class Schmolck_Framework_Gui {
 	protected function _getClassFileName($strClass) {
 		$arrNameParts = explode('_', $strClass);
 		return strtolower($arrNameParts[count($arrNameParts) - 1]);
+	}
+
+	/**
+	 * Render wrapper start
+	 * 
+	 * Used for special AJAX calls
+	 */
+	protected function _renderWrapperStart() {
+		if ($this->_objCore->checkAjaxCall($this->id)) {
+			echo "<!--{$this->id}-->";
+		}
+		echo "<div id=\"{$this->id}\" class=\"{$this->class}\">";
+	}
+	
+	/**
+	 * Render wrapper stop
+	 * 
+	 * Used for special AJAX calls
+	 */
+	protected function _renderWrapperStop() {
+		echo "</div>";
+		if ($this->_objCore->checkAjaxCall($this->id)) {
+			echo "<!--/{$this->id}-->";
+		}
 	}
 
 }
