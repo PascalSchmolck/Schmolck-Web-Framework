@@ -161,6 +161,14 @@ class Schmolck_Framework_Core {
 	 */
 	public function run() {
 		try {
+			/*
+			 * BUFFERING
+			 */
+			ob_start();
+			
+			/*
+			 * PROCESSING
+			 */
 			$this->_strTrace = 'ApplicationCheck';
 			$this->_runApplicationCheck();
 
@@ -196,6 +204,17 @@ class Schmolck_Framework_Core {
 
 			$this->_strTrace = 'AppllicationExit';
 			$this->_runApplicationExit();
+			
+			/*
+			 * OUTPUT
+			 */
+			$strOutput = ob_get_contents();
+			ob_end_clean();
+			$this->_renderParsedOutput($strOutput);
+			
+			/*
+			 * EXIT
+			 */
 			exit();
 		} catch (Exception $Exception) {
 			ob_end_clean();
@@ -279,6 +298,7 @@ class Schmolck_Framework_Core {
 
 	protected function _runLayout() {
 		if ($this->_bLayoutRendering) {
+
 			/*
 			 * INIT
 			 */
@@ -510,6 +530,21 @@ class Schmolck_Framework_Core {
 
 	protected function _renderExceptionView(Exception $Exception) {
 		$this->_runView();
+	}
+
+	protected function _renderParsedOutput($strOutput) {
+		/*
+		 * CHECK
+		 */
+		// - parse output if AJAX call detected
+		if (isset($_POST['ajax']) && !empty($_POST['name'])) {
+			$arrResult = array();
+			$strName = $_POST['name'];
+			preg_match("|<\!--{$strName}-->(.*)<\!--/{$strName}-->|si", $strOutput, $arrResult);
+			echo trim($arrResult[1]);
+		} else {
+			echo $strOutput;
+		}
 	}
 
 }

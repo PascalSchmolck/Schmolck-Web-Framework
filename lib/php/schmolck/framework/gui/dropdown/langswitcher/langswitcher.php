@@ -21,7 +21,9 @@ class Schmolck_Framework_Gui_Dropdown_Langswitcher extends Schmolck_Framework_Gu
 		/*
 		 * OUTPUT
 		 */
+		echo "<!--{$this->id}-->";
 		parent::_renderHtml();
+		echo "<!--/{$this->id}-->";
 	}
 
 	/**
@@ -34,7 +36,7 @@ class Schmolck_Framework_Gui_Dropdown_Langswitcher extends Schmolck_Framework_Gu
 			$(document).ready(function() {
 				
 				$('#<?= $this->id ?>').change(function () {
-					Schmolck_Framework_Ajax('#<?= $this->id ?>', '', 'test=value');
+					Schmolck_Framework_Ajax('<?= $this->id ?>', '', 'test=value');
 				});
 				
 			});								

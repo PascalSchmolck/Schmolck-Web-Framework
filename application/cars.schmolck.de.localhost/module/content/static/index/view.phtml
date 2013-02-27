@@ -1,0 +1,13 @@
+<?php
+
+//$strTest = file_get_contents('http://cars.schmolck.de.localhost/project/schmolck/framework/');
+//
+//preg_match("|<\!langswitcher-->(.*)<\!/langswitcher-->|si", $strTest, $results);
+//
+//echo "<code>";
+//echo htmlspecialchars($results[1]);
+//echo "</code>";
+
+
+$objLangSwitcher = new Schmolck_Framework_Gui_Dropdown_Langswitcher($this, 'langswitcher2');
+echo $objLangSwitcher->getHtml();
