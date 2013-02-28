@@ -1,5 +1,6 @@
 2013.02.28
 **********
+[ ] [FRAMEWORK] extend core helper by class memory feature
 [x] [FRAMEWORK] implement AJAX helper and move corresponding core code
 [x] [FRAMEWORK] implement fully working GUI language switcher 
 [x] [FRAMEWORK] implement core memory functionality
