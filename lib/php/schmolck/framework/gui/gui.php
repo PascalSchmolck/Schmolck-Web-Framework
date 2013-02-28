@@ -16,7 +16,7 @@ abstract class Schmolck_Framework_Gui {
 
 	abstract protected function _renderJs();
 
-	public function __construct($objCore, $strId) {
+	public function __construct(Schmolck_Framework_Core $objCore, $strId) {
 		$this->_objCore = $objCore;
 		$this->setAttribute('id', $strId);
 		$this->setAttribute('class', implode(" ", $this->_GetClassesAscending()));
@@ -107,7 +107,7 @@ abstract class Schmolck_Framework_Gui {
 		$parents = array();
 		$parents[] = get_class($object);
 		for ($i = 1; $i < 20; $i++) {
-			$parent = get_parent_class($this);
+			$parent = get_parent_class($object);
 			if (!empty($parent)) {
 				$parents[] = $parent;
 				$object = $parent;

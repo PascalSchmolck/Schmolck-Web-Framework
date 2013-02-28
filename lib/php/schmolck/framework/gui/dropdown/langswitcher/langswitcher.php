@@ -17,7 +17,7 @@ class Schmolck_Framework_Gui_Dropdown_Langswitcher extends Schmolck_Framework_Gu
 		 * PREPARATION
 		 */
 		$this->setEntries($this->_objCore->get('translator')->getLanguages());
-	
+
 		/*
 		 * OUTPUT
 		 */
@@ -29,22 +29,15 @@ class Schmolck_Framework_Gui_Dropdown_Langswitcher extends Schmolck_Framework_Gu
 	 */
 	protected function _renderJs() {
 		parent::_renderJs();
-		
-		if (!$this->_objCore->checkAjaxCall($this->id)) {
-			?>
-			<script>
-				$(document).ready(function() {
-
-					$('#<?= $this->id ?>').change(function () {
-						Schmolck_Framework_Ajax('<?= $this->id ?>', '', 'test=value');
-					});
-
-					//window.location.href = 'http://www.schmolck.de';
-
-				});								
-			</script>
-			<?php
-		}
+		?>
+		<script>
+			$(document).ready(function() {
+				$('#<?= $this->id ?>').change(function () {
+					Schmolck_Framework_Ajax('<?= $this->id ?>', '', 'test=value');
+				});
+			});								
+		</script>
+		<?php
 	}
 
 }

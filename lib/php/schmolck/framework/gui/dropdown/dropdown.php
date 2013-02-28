@@ -30,7 +30,7 @@ class Schmolck_Framework_Gui_Dropdown extends Schmolck_Framework_Gui {
 		</select>
 		<?php
 	}
-	
+
 	protected function _renderJs() {
 		
 	}
