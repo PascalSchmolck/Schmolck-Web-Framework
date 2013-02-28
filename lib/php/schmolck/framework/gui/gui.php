@@ -100,7 +100,7 @@ abstract class Schmolck_Framework_Gui {
 	protected function _registerJS() {
 		$classes = $this->_getClassesAscending();
 		foreach ($classes as $class) {
-			$file = "{$this->_getLibraryDir()}/{$this->_GetClassDir($class)}/scripts.php";
+			$file = "{$this->_getLibraryDir()}/{$this->_GetClassDir($class)}/scripts.js";
 			if (file_exists($file)) {
 				$this->_objCore->registerViewJS($file);
 			}
