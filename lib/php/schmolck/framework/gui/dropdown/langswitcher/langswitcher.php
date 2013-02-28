@@ -60,7 +60,8 @@ class Schmolck_Framework_Gui_Dropdown_Langswitcher extends Schmolck_Framework_Gu
 						id: '<?= $this->id ?>',
 						data: 'value='+strValue,
 						success: function () {
-							window.location.reload();
+							//window.location.reload();
+							window.location.href = window.location;
 						}
 					});
 				});
