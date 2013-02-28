@@ -1,3 +1,7 @@
+2013.02.27
+**********
+[x] [FRAMEWORK] add special AJAX functionality to GUI class
+
 2013.02.26
 **********
 [x] [FRAMEWORK] cleanup and improve core init process
