@@ -10,7 +10,7 @@
 /*
  * ERROR REPORTING
  */
-error_reporting(E_ALL ^ E_NOTICE);
+//error_reporting(E_ALL ^ E_NOTICE);
 
 /*
  * DEBUG_LEVEL

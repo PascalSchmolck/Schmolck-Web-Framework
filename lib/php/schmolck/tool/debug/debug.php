@@ -8,8 +8,6 @@
  */
 class Schmolck_Tool_Debug
 {
-	const nDebugLevel = DEBUG_LEVEL;
-
 	/**
 	 * Log alert message
 	 *
@@ -124,7 +122,7 @@ class Schmolck_Tool_Debug
 		// CHECK
 		//-------
 		// - only write log if level is of importance
-		if (self::nDebugLevel < $nLevel) {
+		if (DEBUG_LEVEL < $nLevel) {
 			return;
 		}
 

@@ -20,6 +20,7 @@ abstract class Schmolck_Framework_Gui {
 		$this->_objCore = $objCore;
 		$this->setAttribute('id', $strId);
 		$this->setAttribute('class', implode(" ", $this->_GetClassesAscending()));
+		$this->init();
 	}
 
 	public function __get($strKey) {
@@ -28,6 +29,10 @@ abstract class Schmolck_Framework_Gui {
 		} else {
 			Schmolck_Tool_Debug::warning("Attribute '{$strKey}' not defined!");
 		}
+	}
+	
+	public function init() {
+		
 	}
 
 	public function setCore($_objCore) {

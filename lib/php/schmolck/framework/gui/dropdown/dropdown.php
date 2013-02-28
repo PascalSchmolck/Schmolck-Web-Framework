@@ -10,9 +10,14 @@
 class Schmolck_Framework_Gui_Dropdown extends Schmolck_Framework_Gui {
 
 	protected $_arrEntries = array();
+	protected $_strSelected;
 
 	public function setEntries($arrEntries) {
 		$this->_arrEntries = $arrEntries;
+	}
+	
+	public function setSelected($strSelected) {
+		$this->_strSelected = $strSelected;
 	}
 
 	protected function _renderHtml() {
@@ -20,8 +25,9 @@ class Schmolck_Framework_Gui_Dropdown extends Schmolck_Framework_Gui {
 		<select>
 			<?php
 			foreach ($this->_arrEntries as $strName => $strLabel) {
+				($strName == $this->_strSelected) ? $strSelected = 'selected': $strSelected = '';
 				echo "
-					<option value=\"{$strName}\">
+					<option value=\"{$strName}\" {$strSelected}>
 						{$strLabel}
 					</option>
 				";

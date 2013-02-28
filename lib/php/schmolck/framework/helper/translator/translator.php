@@ -10,6 +10,15 @@
 class Schmolck_Framework_Helper_Translator extends Schmolck_Framework_Helper {
 
 	protected $_arrDictionary;
+	
+	public function init() {
+		/*
+		 * LANGUAGE
+		 */
+		if (!in_array($this->getLanguage(), $this->getLanguages())) {
+			$this->store('language', APPLICATION_LANGUAGE);
+		}		
+	}
 
 	/**
 	 * Translate given string
@@ -32,9 +41,20 @@ class Schmolck_Framework_Helper_Translator extends Schmolck_Framework_Helper {
 	 * 
 	 * @return string language
 	 */
-	public function getLanguage()
-	{
-		return APPLICATION_LANGUAGE;
+	public function getLanguage() {
+		return $this->restore('language');
+	}
+	
+	public function setLanguage($strLanguage) {
+		/*
+		 * CHECK
+		 */
+		if (in_array($strLanguage, $this->getLanguages())) {
+			$this->store('language', $strLanguage);
+			Schmolck_Tool_Debug::notice("Language has been changed to '{$strLanguage}'");
+		} else {
+			throw new Exception("Non existing language '{$strLanguage}' could not be set");
+		}
 	}
 
 	/**
@@ -52,7 +72,7 @@ class Schmolck_Framework_Helper_Translator extends Schmolck_Framework_Helper {
 		 * READING
 		 */
 		$objDir = new Schmolck_Tool_Dir();
-		$objDir->directory = $this->objCore->get('application')->getPath() . '/translation';
+		$objDir->directory = $this->_objCore->get('application')->getPath() . '/translation';
 		$objDir->includePatterns = array('.po');
 		$objDir->excludePatterns = array('.pot');
 		$arrFiles = $objDir->getFiles();
@@ -89,8 +109,8 @@ class Schmolck_Framework_Helper_Translator extends Schmolck_Framework_Helper {
 	 * @return string file location
 	 */
 	protected function _getLanguageFile() {
-		$strPath = $this->objCore->get('application')->getPath() . '/translation';
-		$strFileName = APPLICATION_LANGUAGE . '.po';
+		$strPath = $this->_objCore->get('application')->getPath() . '/translation';
+		$strFileName = $this->getLanguage() . '.po';
 		return $strPath . '/' . $strFileName;
 	}
 

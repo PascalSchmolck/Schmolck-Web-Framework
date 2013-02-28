@@ -10,13 +10,36 @@
 class Schmolck_Framework_Gui_Dropdown_Langswitcher extends Schmolck_Framework_Gui_Dropdown {
 
 	/**
+	 * Initialization
+	 */
+	public function init() {
+		/*
+		 * AJAX HANDLING
+		 */
+		if ($this->_objCore->checkAjaxCall($this->id)) {
+			$this->_objCore->get('translator')->setLanguage(strip_tags($_POST['value']));
+		}
+	}
+	
+	
+	/**
 	 * Render HTML
 	 */
 	public function _renderHtml() {
 		/*
 		 * PREPARATION
 		 */
-		$this->setEntries($this->_objCore->get('translator')->getLanguages());
+		// - selected
+		$this->setSelected($this->_objCore->get('translator')->getLanguage());
+		// - entries
+		$arrLanguages = $this->_objCore->get('translator')->getLanguages();
+		if (count ($arrLanguages) > 0) {
+			foreach ($arrLanguages as $strLanguage) {
+				$arrEntries[$strLanguage] = $strLanguage;
+			}
+			$this->setEntries($arrEntries);		
+		}
+		
 
 		/*
 		 * OUTPUT
@@ -33,7 +56,14 @@ class Schmolck_Framework_Gui_Dropdown_Langswitcher extends Schmolck_Framework_Gu
 		<script>
 			$(document).ready(function() {
 				$('#<?= $this->id ?>').change(function () {
-					Schmolck_Framework_Ajax('<?= $this->id ?>', '', 'test=value');
+					var strValue = $('#<?= $this->id ?> select').val();					
+					Schmolck_Framework_Ajax({
+						id: '<?= $this->id ?>',
+						data: 'value='+strValue,
+						success: function () {
+							window.location.reload();
+						}
+					});
 				});
 			});								
 		</script>

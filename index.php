@@ -36,6 +36,11 @@ function __autoload($strClass) {
 }
 
 /*
+ * SESSION
+ */
+session_start();
+
+/*
  * CORE
  */
 $core = new Schmolck_Framework_Core();

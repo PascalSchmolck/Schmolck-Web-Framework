@@ -9,7 +9,7 @@
  */
 class Schmolck_Framework_Core {
 
-	protected $_bLayoutRendering;
+	protected $_bLayoutRendering = true;
 	protected $_arrViewStyles = array();
 	protected $_arrViewLESS = array();
 	protected $_arrViewScripts = array();
@@ -25,9 +25,9 @@ class Schmolck_Framework_Core {
 		/*
 		 * PREPARATION
 		 */
-		$this->setLayoutRendering(true);
-		$this->initHelpers();
-		$this->initApplication();
+		$this->_initSettings();
+		$this->_initHelpers();
+		$this->_initApplication();
 	}
 
 	/**
@@ -59,9 +59,9 @@ class Schmolck_Framework_Core {
 	}
 
 	/**
-	 * Initialise all required helpers
+	 * Initialize all required helpers
 	 */
-	public function initHelpers() {
+	protected function _initHelpers() {
 		$this->_arrHelpers['application'] = new Schmolck_Framework_Helper_Application($this);
 		$this->_arrHelpers['optimizer'] = new Schmolck_Framework_Helper_Optimizer($this);
 		$this->_arrHelpers['translator'] = new Schmolck_Framework_Helper_Translator($this);
@@ -83,14 +83,16 @@ class Schmolck_Framework_Core {
 	}
 
 	/**
-	 * Initialise application settings and parameters
+	 * Initialize application settings
 	 */
-	public function initApplication() {
-		/*
-		 * SETTINGS
-		 */
-		require($this->get('application')->getPath() . '/settings.php');
+	protected function _initSettings() {
+		require(Schmolck_Framework_Helper_Application::getSettings());
+	}
 
+	/**
+	 * Initialize application
+	 */
+	protected function _initApplication() {
 		/*
 		 * PARAMETERS
 		 */
@@ -464,7 +466,7 @@ class Schmolck_Framework_Core {
 	 * @param string $strId gui id
 	 * @return boolean
 	 */
-	public function checkAjaxCall($strId='') {
+	public function checkAjaxCall($strId = '') {
 		if (empty($strId)) {
 			return ( isset($_POST['ajax']) and !empty($_POST['name']) );
 		} else {
