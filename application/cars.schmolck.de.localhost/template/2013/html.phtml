@@ -20,15 +20,12 @@
 	<body>
 		<div id="header" class="container">
 			<div class="row">
-				<div class="tencol">
-					<img class="logo" src="data/images/logo.png"/>
+				<div class="sixcol">
+					<a href="">
+						<img class="logo" src="data/images/logo.png" />
+					</a>
 					<div class="description">
 						cars
-					</div>
-				</div>
-				<div class="twocol last">
-					<div class="language">
-						<?= $htmlLangSwitcher ?>
 					</div>
 				</div>
 			</div>
@@ -45,12 +42,12 @@
 		<div id="main" class="container">
 			<div class="row">
 				<div class="ninecol">
-					<div id="content">
+					<div class="content">
 						<?= $this->renderViewHtml() ?>
 					</div>
 				</div>
-				<div class="threecol last">
-					<div id="sidebar">
+				<div class="threecol last sidebar">
+					<div class="sidebar">
 						<h1>
 							Sidebar
 						</h1>
@@ -67,8 +64,27 @@
 
 		<div id="footer" class="container">
 			<div class="row">
-				<div class="threecol">
-					Copyright &copy; <?= date('Y') ?>
+				<div class="ninecol">
+					<div class="language" title="<?= $htmlLangSwitcherTitle ?>">
+						<?= $htmlLangSwitcher ?>
+					</div>										
+				</div>
+				<div class="threecol last">
+					<div class="logo">
+						<a href="">
+							<img class="logo" src="data/images/logo.png" />
+						</a>						
+					</div>					
+				</div>
+			</div>
+			<div class="row">
+				<div class="ninecol">
+
+				</div>
+				<div class="threecol last">
+					<div class="copyright">
+						&copy; <?= date('Y') ?> Schmolck
+					</div>					
 				</div>
 			</div>
 		</div>

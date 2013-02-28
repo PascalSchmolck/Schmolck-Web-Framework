@@ -6,23 +6,23 @@
 $objCore = Schmolck_Framework_Core::getInstance($this);
 $strTemplatePath = $objCore->getHelperApplication()->getTemplatePath();
 $this->registerViewJS('lib/js/schmolck/framework/ajax/ajax.js');
-		
+
 /*
  * NAVIGATION
  */
 $objNavbar = new Schmolck_Framework_Gui_Navbar($this, 'mainnav');
 $objNavbar->setEntries(array(
 	'home' => array(
-		'href' => '#',
+		'href' => '',
 		'label' => $objCore->getHelperTranslator()->_("Home")
 	),
-	'link2' => array(
-		'href' => '#',
-		'label' => $objCore->getHelperTranslator()->_("Mercedes-Benz")
+	'location' => array(
+		'href' => 'content/static/location',
+		'label' => $objCore->getHelperTranslator()->_("Location")
 	),
-	'link3' => array(
-		'href' => '#',
-		'label' => $objCore->getHelperTranslator()->_("smart")
+	'contact' => array(
+		'href' => 'content/static/contact',
+		'label' => $objCore->getHelperTranslator()->_("Contact")
 	),
 	'imprint' => array(
 		'href' => 'content/static/imprint',
@@ -34,3 +34,4 @@ $htmlNavbar = $objNavbar->getHtml();
 
 $objLangSwitcher = new Schmolck_Framework_Gui_Dropdown_Langswitcher($this, 'langswitcher');
 $htmlLangSwitcher = $objLangSwitcher->getHtml();
+$htmlLangSwitcherTitle = $objCore->getHelperTranslator()->_("Language");

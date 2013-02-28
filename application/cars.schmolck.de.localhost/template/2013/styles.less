@@ -177,15 +177,11 @@ ul {
 //------------------------------------------------------------------------------
 // Page Layout
 //------------------------------------------------------------------------------
-#wrapper {
-	.border {
-		@media only print {
-			border: 0;
-		}
-		@media only screen and (min-width : 769px) { 
-			border: 1px solid @color-border;
-			border-bottom-width: 0px;
-			border-top-width: 0px;
+body {
+	a:hover {
+		img {
+			opacity: 0.90;
+			filter:alpha(opacity=90)
 		}
 	}
 }
@@ -196,9 +192,6 @@ ul {
 		font-family: arial, sans-serif;
 		font-size: 180%;
 		font-weight: bold;
-	}
-	.language {
-		float: right;
 	}
 }
 
@@ -230,14 +223,13 @@ ul {
 	h1, h2 {
 		padding: 5px 0;
 	}
-}
+	.content {
+		text-align: justify;
+	}
 
-#content {
-	text-align: justify;
-}
-
-#sidebar {
-	text-align: justify;
+	.sidebar {
+		text-align: justify;
+	}
 }
 
 #footer {
@@ -245,6 +237,18 @@ ul {
 	padding: 20px 0;
 	font-size: 0.8em;
 	color: @color-footer-text;
+	
+	.logo {
+		float: right;
+		img {
+			padding: 10px 0;
+			height: 16px;
+		}
+	}
+
+	.copyright {
+		float: right;
+	}
 }
 //------------------------------------------------------------------------------
 // Classes
