@@ -16,8 +16,8 @@ class Schmolck_Framework_Gui_Dropdown_Langswitcher extends Schmolck_Framework_Gu
 		/*
 		 * AJAX HANDLING
 		 */
-		if ($this->_objCore->get('ajax')->checkCall($this->id)) {
-			$this->_objCore->get('translator')->setLanguage(strip_tags($_POST['value']));
+		if ($this->_objCore->getHelperAjax()->checkCall($this->id)) {
+			$this->_objCore->getHelperTranslator()->setLanguage(strip_tags($_POST['value']));
 		}
 	}
 
@@ -29,9 +29,9 @@ class Schmolck_Framework_Gui_Dropdown_Langswitcher extends Schmolck_Framework_Gu
 		 * PREPARATION
 		 */
 		// - selected
-		$this->setSelected($this->_objCore->get('translator')->getLanguage());
+		$this->setSelected($this->_objCore->getHelperTranslator()->getLanguage());
 		// - entries
-		$arrLanguages = $this->_objCore->get('translator')->getLanguages();
+		$arrLanguages = $this->_objCore->getHelperTranslator()->getLanguages();
 		if (count($arrLanguages) > 0) {
 			foreach ($arrLanguages as $strLanguage) {
 				$arrEntries[$strLanguage] = $strLanguage;

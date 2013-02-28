@@ -76,7 +76,7 @@ class Schmolck_Framework_Helper_Translator extends Schmolck_Framework_Helper {
 		 * READING
 		 */
 		$objDir = new Schmolck_Tool_Dir();
-		$objDir->directory = $this->_objCore->get('application')->getPath() . '/translation';
+		$objDir->directory = $this->_objCore->getHelperApplication()->getPath() . '/translation';
 		$objDir->includePatterns = array('.po');
 		$objDir->excludePatterns = array('.pot');
 		$arrFiles = $objDir->getFiles();
@@ -113,7 +113,7 @@ class Schmolck_Framework_Helper_Translator extends Schmolck_Framework_Helper {
 	 * @return string file location
 	 */
 	protected function _getLanguageFile() {
-		$strPath = $this->_objCore->get('application')->getPath() . '/translation';
+		$strPath = $this->_objCore->getHelperApplication()->getPath() . '/translation';
 		$strFileName = $this->getLanguage() . '.po';
 		return $strPath . '/' . $strFileName;
 	}

@@ -145,7 +145,7 @@ abstract class Schmolck_Framework_Gui {
 	 * Used for special AJAX calls
 	 */
 	protected function _renderWrapperStart() {
-		if ($this->_objCore->get('ajax')->checkCall($this->id)) {
+		if ($this->_objCore->getHelperAjax()->checkCall($this->id)) {
 			echo "<!--{$this->id}-->";
 		}
 		echo "<div id=\"{$this->id}\" class=\"{$this->class}\">";
@@ -158,7 +158,7 @@ abstract class Schmolck_Framework_Gui {
 	 */
 	protected function _renderWrapperStop() {
 		echo "</div>";
-		if ($this->_objCore->get('ajax')->checkCall($this->id)) {
+		if ($this->_objCore->getHelperAjax()->checkCall($this->id)) {
 			echo "<!--/{$this->id}-->";
 		}
 	}

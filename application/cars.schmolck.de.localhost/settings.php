@@ -10,7 +10,7 @@
 /*
  * ERROR REPORTING
  */
-//error_reporting(E_ALL ^ E_NOTICE);
+error_reporting(E_ALL ^ E_NOTICE);
 
 /*
  * DEBUG_LEVEL
@@ -56,3 +56,13 @@ define('APPLICATION_TEMPLATE', '2013');
  * Define what module should be used in case of an exception. 
  */
 define('MODULE_EXCEPTION', 'exception');
+
+/*
+ * DATABASE CONNECTION
+ * 
+ * Define the database connection settings here.
+ */
+define('DATABASE_HOST', 'localhost');
+define('DATABASE_NAME', 'pascal_cars.schmolck.de');
+define('DATABASE_USERNAME', 'pascal');
+define('DATABASE_PASSWORD', '');

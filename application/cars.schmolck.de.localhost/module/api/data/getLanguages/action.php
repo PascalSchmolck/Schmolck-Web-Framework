@@ -1,3 +1,4 @@
 <?php
 
-$this->arrLanguages = $this->get('translator')->getLanguages();
+$objCore = Schmolck_Framework_Core::getInstance($this);
+$this->arrLanguages = $objCore->getHelperTranslator()->getLanguages();

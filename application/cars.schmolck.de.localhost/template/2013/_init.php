@@ -3,7 +3,8 @@
 /*
  * PREPARATION
  */
-$strTemplatePath = $this->get('application')->getTemplatePath();
+$objCore = Schmolck_Framework_Core::getInstance($this);
+$strTemplatePath = $objCore->getHelperApplication()->getTemplatePath();
 $this->registerViewJS('lib/js/schmolck/framework/ajax/ajax.js');
 		
 /*
@@ -13,19 +14,19 @@ $objNavbar = new Schmolck_Framework_Gui_Navbar($this, 'mainnav');
 $objNavbar->setEntries(array(
 	'home' => array(
 		'href' => '#',
-		'label' => $this->get('translator')->_("Home")
+		'label' => $objCore->getHelperTranslator()->_("Home")
 	),
 	'link2' => array(
 		'href' => '#',
-		'label' => $this->get('translator')->_("Mercedes-Benz")
+		'label' => $objCore->getHelperTranslator()->_("Mercedes-Benz")
 	),
 	'link3' => array(
 		'href' => '#',
-		'label' => $this->get('translator')->_("smart")
+		'label' => $objCore->getHelperTranslator()->_("smart")
 	),
 	'imprint' => array(
 		'href' => 'content/static/imprint',
-		'label' => $this->get('translator')->_("Imprint")
+		'label' => $objCore->getHelperTranslator()->_("Imprint")
 	),
 ));
 $htmlNavbar = $objNavbar->getHtml();

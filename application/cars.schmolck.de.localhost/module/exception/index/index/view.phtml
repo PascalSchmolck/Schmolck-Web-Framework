@@ -1,8 +1,11 @@
+<?php
+$objCore = Schmolck_Framework_Core::getInstance($this);
+?>
 <h1>
-	<?=$this->get('translator')->_("Ups, sorry...");?>
+	<?=$objCore->getHelperTranslator()->_("Ups, sorry...");?>
 </h1>
 <h2>
-	<?=$this->get('translator')->_("...an error occured!");?>
+	<?=$objCore->getHelperTranslator()->_("...an error occured!");?>
 </h2>
 <div class="errors">
 	<strong>Message:</strong> <?=$Exception->getMessage();?>
