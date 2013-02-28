@@ -66,6 +66,7 @@ class Schmolck_Framework_Core {
 		$this->_arrHelpers['optimizer'] = new Schmolck_Framework_Helper_Optimizer($this);
 		$this->_arrHelpers['translator'] = new Schmolck_Framework_Helper_Translator($this);
 		$this->_arrHelpers['cache'] = new Schmolck_Framework_Helper_Cache($this);
+		$this->_arrHelpers['ajax'] = new Schmolck_Framework_Helper_Ajax($this);
 	}
 
 	/**
@@ -459,22 +460,6 @@ class Schmolck_Framework_Core {
 	}
 
 	/**
-	 * Check if currently in AJAX call
-	 * 
-	 * Provide $strId when checking for specified gui object call
-	 * 
-	 * @param string $strId gui id
-	 * @return boolean
-	 */
-	public function checkAjaxCall($strId = '') {
-		if (empty($strId)) {
-			return ( isset($_POST['ajax']) and !empty($_POST['name']) );
-		} else {
-			return ( isset($_POST['ajax']) and $_POST['name'] == $strId );
-		}
-	}
-
-	/**
 	 * Set layout rendering true or false
 	 * 
 	 * @param boolean $bFlag
@@ -555,7 +540,7 @@ class Schmolck_Framework_Core {
 		 * CHECK
 		 */
 		// - parse output if AJAX call detected
-		if ($this->checkAjaxCall()) {
+		if ($this->get('ajax')->checkCall()) {
 			$arrResult = array();
 			$strName = $_POST['name'];
 			preg_match("|<\!--{$strName}-->(.*)<\!--/{$strName}-->|si", $strOutput, $arrResult);

@@ -51,7 +51,7 @@ class Schmolck_Framework_Helper_Translator extends Schmolck_Framework_Helper {
 		 */
 		if (in_array($strLanguage, $this->getLanguages())) {
 			$this->store('language', $strLanguage);
-			Schmolck_Tool_Debug::notice("Language has been changed to '{$strLanguage}'");
+			Schmolck_Tool_Debug::info("Language has been changed to '{$strLanguage}'");
 		} else {
 			throw new Exception("Non existing language '{$strLanguage}' could not be set");
 		}

@@ -30,7 +30,7 @@ abstract class Schmolck_Framework_Gui {
 			Schmolck_Tool_Debug::warning("Attribute '{$strKey}' not defined!");
 		}
 	}
-	
+
 	public function init() {
 		
 	}
@@ -70,7 +70,7 @@ abstract class Schmolck_Framework_Gui {
 		$this->_renderWrapperStart();
 		$this->_renderHtml();
 		$this->_renderJs();
-		$this->_renderWrapperStop();		
+		$this->_renderWrapperStop();
 	}
 
 	protected function _getLibraryDir() {
@@ -145,12 +145,12 @@ abstract class Schmolck_Framework_Gui {
 	 * Used for special AJAX calls
 	 */
 	protected function _renderWrapperStart() {
-		if ($this->_objCore->checkAjaxCall($this->id)) {
+		if ($this->_objCore->get('ajax')->checkCall($this->id)) {
 			echo "<!--{$this->id}-->";
 		}
 		echo "<div id=\"{$this->id}\" class=\"{$this->class}\">";
 	}
-	
+
 	/**
 	 * Render wrapper stop
 	 * 
@@ -158,7 +158,7 @@ abstract class Schmolck_Framework_Gui {
 	 */
 	protected function _renderWrapperStop() {
 		echo "</div>";
-		if ($this->_objCore->checkAjaxCall($this->id)) {
+		if ($this->_objCore->get('ajax')->checkCall($this->id)) {
 			echo "<!--/{$this->id}-->";
 		}
 	}
