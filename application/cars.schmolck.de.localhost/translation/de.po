@@ -10,6 +10,50 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.5\n"
 
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:10
+msgid "Contact"
+msgstr "Kontakt"
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:32
+msgid "Tel +49 7641 / 4602-0"
+msgstr "Tel +49 7641 / 4602-0"
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:34
+msgid "Fax +49 7641 / 4602-80"
+msgstr "Fax +49 7641 / 4602-80"
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:36
+msgid "Mail"
+msgstr "Mail"
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:47
+msgid "You can post your questions to our team in the following languages​​"
+msgstr "Sie können Ihre Fragen an unser Team in folgenden Sprachen stellen"
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/location/view.phtml:10
+msgid "Location"
+msgstr "Anfahrt"
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/location/view.phtml:14
+msgid "Route Planner"
+msgstr "Routenplaner"
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/location/view.phtml:19
+msgid "Enter your address here"
+msgstr "Geben Sie hier Ihre Adresse ein"
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/location/view.phtml:20
+msgid "Search"
+msgstr "Suche"
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/location/view.phtml:28
+msgid "Schmolck Group"
+msgstr "Unternehmensgruppe Schmolck"
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/location/view.phtml:31
+msgid "open in a larger map"
+msgstr "in großer Ansicht öffnen"
+
 #: ../application/cars.schmolck.de.localhost/module/exception/index/index/view.phtml:5
 msgid "Ups, sorry..."
 msgstr "Verzeihung..."
@@ -18,25 +62,23 @@ msgstr "Verzeihung..."
 msgid "...an error occured!"
 msgstr "...es hat sich ein Fehler eingeschlichen!"
 
-#: ../application/cars.schmolck.de.localhost/template/2013/_init.php:17
+#: ../application/cars.schmolck.de.localhost/template/2013/_init.php:18
 msgid "Home"
 msgstr "Startseite"
 
-#: ../application/cars.schmolck.de.localhost/template/2013/_init.php:21
-msgid "Location"
-msgstr "Anfahrt"
-
-#: ../application/cars.schmolck.de.localhost/template/2013/_init.php:25
-msgid "Contact"
-msgstr "Kontakt"
-
-#: ../application/cars.schmolck.de.localhost/template/2013/_init.php:29
+#: ../application/cars.schmolck.de.localhost/template/2013/_init.php:30
 msgid "Imprint"
 msgstr "Impressum"
 
-#: ../application/cars.schmolck.de.localhost/template/2013/_init.php:37
+#: ../application/cars.schmolck.de.localhost/template/2013/_init.php:38
 msgid "Language"
 msgstr "Sprache"
+
+#~ msgid "Tel"
+#~ msgstr "Tel"
+
+#~ msgid "Fax"
+#~ msgstr "Fax"
 
 #~ msgid "Mercedes-Benz"
 #~ msgstr "Mercedes-Benz"
