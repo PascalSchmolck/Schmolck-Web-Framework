@@ -9,11 +9,16 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 		<h1>
 			<?= $objCore->getHelperTranslator()->_("Location") ?>
 		</h1>
-		<p>			
+		<div style="float: right; text-align: right;">
 			<strong>
-				<?= $objCore->getHelperTranslator()->_("Route Planner") ?>
+				Schmolck GmbH &amp; Co. KG
 			</strong>
 			<br>
+			Am Elzdamm 2
+			<br>
+			79312 Emmendingen
+		</div>		
+		<p>			
 		<form method="get" action="https://maps.google.de/maps" target="_blank">
 			<input type="hidden" name="daddr" value="Am Elzdamm 2, 79312 Emmendingen">
 			<input type="text" name="saddr" style="width: 45%;" title="<?= $objCore->getHelperTranslator()->_("Enter your address here") ?>">
