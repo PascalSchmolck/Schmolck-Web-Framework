@@ -1,4 +1,4 @@
-@color-h1: #004176; 
+@color-h1: #0C4478; 
 @color-h2: #000; 
 @color-h3: #555; 
 @color-h4: #004176; 
@@ -6,14 +6,14 @@
 @color-h6: #555; 
 @color-text: #333;
 @color-a-link: #21759b;
-@color-a-hover: #004176;
+@color-a-hover: #0C4478;
 @color-border: #e1e1e1;
 //------------------------------------------------------------------------------
 @color-form-input-border: #ccc;
 //------------------------------------------------------------------------------
 @color-header-description: #000; 
 //------------------------------------------------------------------------------
-@color-nav-background: #004176; 
+@color-nav-background: #0C4478; 
 @color-nav-text: #fff; 
 @color-nav-link: #fff;
 @color-nav-link-background-hover: rgba(255, 255, 255, .3);
@@ -179,6 +179,7 @@ ul {
 // Page Layout
 //------------------------------------------------------------------------------
 body {
+	background-color: @color-footer-background;
 	a:hover {
 		img {
 			opacity: 0.90;
@@ -187,7 +188,14 @@ body {
 	}
 }
 #header {
-	padding: 20px 0;
+	@media only print {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	} 
+	@media only screen, handheld {
+		padding: 20px 0;
+	} 
+	background-color: #fff;
 	.description{
 		color: @color-header-description;
 		font-family: arial, sans-serif;
@@ -196,6 +204,9 @@ body {
 	}
 }
 #navigation {
+	@media only print {
+		display: none;
+	} 	
 	background-color: @color-nav-background;
 	color: @color-nav-text;
 
@@ -216,7 +227,10 @@ body {
 	}
 }
 #main {
-	padding: 30px 0;
+	@media only screen, handheld {
+		padding: 30px 0;
+	} 
+	background-color: #fff;
 	font-size: 0.9em;
 	line-height: 1.5em;
 
@@ -227,14 +241,21 @@ body {
 		
 	}
 	.sidebar {
+		@media only print {
+			display: none;
+		} 	
 		text-align: justify;
 	}
 }
 #footer {
+	@media only print {
+		display: none;
+	} 
 	background-color: @color-footer-background;
 	padding: 20px 0;
 	font-size: 0.8em;
 	color: @color-footer-text;
+
 	.language {
 		img {
 			float: left;
