@@ -4,7 +4,7 @@
 		<base href="<?= $this->getBaseUrl() ?>">
 		<meta charset="utf-8"/>
 		<title>
-			Schmolck Framework
+			Schmolck cars
 		</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -18,14 +18,35 @@
 		<script type="text/javascript" src="<?= $this->getCoreJSFile() ?>"></script>
 	</head>
 	<body>
+		<div id="quicklinks" class="container">
+			<div class="row">
+				<div class="twelvecol last">
+					<ul>
+						<li>
+							<a href="http://news.schmolck.de" title="<?= $objCore->getHelperTranslator()->_("Switch to 'Schmolck news'") ?>">
+								<?= $objCore->getHelperTranslator()->_("news") ?>
+							</a>
+						</li>
+						<li>
+							<a href="" title="<?= $objCore->getHelperTranslator()->_("You are already here") ?>">
+								<?= $objCore->getHelperTranslator()->_("cars") ?>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>		
+
 		<div id="header" class="container">
 			<div class="row">
 				<div class="sixcol">
-					<a href="">
-						<img class="logo" src="data/images/logo.png" />
-					</a>
-					<div class="description">
-						cars
+					<div class="padding">
+						<a href="">
+							<img class="logo" src="data/images/logo.png" />
+						</a>
+						<div class="description">
+							<?= $objCore->getHelperTranslator()->_("cars") ?>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -34,7 +55,34 @@
 		<div id="navigation" class="container">
 			<div class="row">
 				<div class="twelvecol last">
-					<?= $htmlNavbar ?>
+					<div class="hlist">
+						<ul>
+							<li>
+								<a href="">
+									<?= $objCore->getHelperTranslator()->_("Home") ?>
+								</a>
+							</li>
+
+							<li>
+								<a href="content/static/location">
+									<?= $objCore->getHelperTranslator()->_("Location") ?>
+								</a>
+							</li>
+
+							<li>
+								<a href="content/static/contact">
+									<?= $objCore->getHelperTranslator()->_("Contact") ?>
+								</a>
+							</li>
+
+							<li>
+								<a href="content/static/imprint">
+									<?= $objCore->getHelperTranslator()->_("Imprint") ?>
+								</a>
+							</li>
+						</ul>
+					</div>
+
 				</div>
 			</div>
 		</div>
@@ -48,27 +96,32 @@
 		<div id="footer" class="container">
 			<div class="row">
 				<div class="ninecol">
-					<div class="language" title="<?= $htmlLangSwitcherTitle ?>">
-						<img src="http://www.linuware.com/images/icons/24/i18n.png">
-						<?= $htmlLangSwitcher ?>
-					</div>										
+
 				</div>
 				<div class="threecol last">
 					<div class="logo">
-						<a href="">
-							<img class="logo" src="data/images/logo.png" />
-						</a>						
+						<div class="padding">
+							<a href="">
+								<img class="logo" src="data/images/logo.png" />
+							</a>						
+						</div>
 					</div>					
 				</div>
 			</div>
 			<div class="row">
 				<div class="ninecol">
-
+					<div class="padding">
+						<div class="language" title="<?= $htmlLangSwitcherTitle ?>">
+							<?= $htmlLangSwitcher ?>
+						</div>										
+					</div>
 				</div>
 				<div class="threecol last">
-					<div class="copyright">
-						&copy; <?= date('Y') ?> Schmolck
-					</div>					
+					<div class="padding">
+						<div class="copyright">
+							&copy; <?= date('Y') ?> Schmolck
+						</div>					
+					</div>
 				</div>
 			</div>
 		</div>

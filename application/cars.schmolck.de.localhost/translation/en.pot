@@ -2,43 +2,43 @@
 msgid "Contact" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:32 
-msgid "Tel +49 7641 / 4602-0" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:34 
-msgid "Fax +49 7641 / 4602-80" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:36 
-msgid "Mail" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:47 
-msgid "You can post your questions to our team in the following languages​​" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de.localhost/module/content/static/location/view.phtml:10 
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:24 
 msgid "Location" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de.localhost/module/content/static/location/view.phtml:14 
-msgid "Route Planner" 
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:31 
+msgid "Tel +49 7641 / 4602-0" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de.localhost/module/content/static/location/view.phtml:19 
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:33 
+msgid "Fax +49 7641 / 4602-80" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:35 
+msgid "Mail" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:46 
+msgid "You can post your questions to our team in the following languages​​" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/imprint/view.phtml:10 
+msgid "Imprint" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/location/view.phtml:24 
 msgid "Enter your address here" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de.localhost/module/content/static/location/view.phtml:20 
+#: ../application/cars.schmolck.de.localhost/module/content/static/location/view.phtml:25 
 msgid "Search" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de.localhost/module/content/static/location/view.phtml:28 
+#: ../application/cars.schmolck.de.localhost/module/content/static/location/view.phtml:33 
 msgid "Schmolck Group" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de.localhost/module/content/static/location/view.phtml:31 
+#: ../application/cars.schmolck.de.localhost/module/content/static/location/view.phtml:36 
 msgid "open in a larger map" 
 msgstr "" 
 
@@ -50,12 +50,24 @@ msgstr ""
 msgid "...an error occured!" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de.localhost/template/2013/_init.php:18 
-msgid "Home" 
+#: ../application/cars.schmolck.de.localhost/template/2013/html.phtml:26 
+msgid "Switch to 'Schmolck news'" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de.localhost/template/2013/_init.php:30 
-msgid "Imprint" 
+#: ../application/cars.schmolck.de.localhost/template/2013/html.phtml:27 
+msgid "news" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de.localhost/template/2013/html.phtml:31 
+msgid "You are already here" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de.localhost/template/2013/html.phtml:32 
+msgid "cars" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de.localhost/template/2013/html.phtml:62 
+msgid "Home" 
 msgstr "" 
 
 #: ../application/cars.schmolck.de.localhost/template/2013/_init.php:38 

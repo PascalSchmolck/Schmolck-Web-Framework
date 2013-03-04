@@ -11,12 +11,16 @@
 //------------------------------------------------------------------------------
 @color-form-input-border: #ccc;
 //------------------------------------------------------------------------------
+@color-quicklinks-border: #e1e1e1;
+@color-quicklinks-a-link: #000;
+@color-quicklinks-a-hover: #aaa;
+//------------------------------------------------------------------------------
 @color-header-description: #000; 
 //------------------------------------------------------------------------------
-@color-nav-background: #0C4478; 
-@color-nav-text: #fff; 
-@color-nav-link: #fff;
-@color-nav-link-background-hover: rgba(255, 255, 255, .3);
+@color-navigation-background: #0C4478; 
+@color-navigation-text: #fff; 
+@color-navigation-link: #fff;
+@color-navigation-link-background-hover: rgba(255, 255, 255, .3);
 //------------------------------------------------------------------------------
 @color-footer-background: #e1e1e1;
 @color-footer-text: #333;
@@ -186,14 +190,47 @@ body {
 			filter:alpha(opacity=90)
 		}
 	}
+	.padding {
+		padding: 0 20px;
+	}
+}
+#quicklinks {
+	@media only print {
+		display: none;
+	} 	
+	background-color: #fff;
+	border-bottom: 1px solid @color-quicklinks-border;
+	padding: 5px 0;
+
+	ul {
+		margin: 0;
+		padding: 0 10px;
+		display: inline;
+		float: left;
+		li {
+			padding-right: 10px;
+			margin: 0;
+			display: inline;
+			float: left;
+			font-size: 75%;
+			line-height: 1em;
+			list-style-type: none;
+			a {
+				color: @color-quicklinks-a-link;
+				&:hover {
+					color: @color-quicklinks-a-hover;
+					text-decoration: none;
+				}
+			}
+		}
+	}
 }
 #header {
 	@media only print {
-		padding-top: 10px;
-		padding-bottom: 10px;
+		padding: 10px 0;
 	} 
 	@media only screen, handheld {
-		padding: 20px 0;
+		padding: 30px 0;
 	} 
 	background-color: #fff;
 	.description{
@@ -207,22 +244,25 @@ body {
 	@media only print {
 		display: none;
 	} 	
-	background-color: @color-nav-background;
-	color: @color-nav-text;
-
+	background-color: @color-navigation-background;
+	color: @color-navigation-text;
 	ul {
-		padding: 0;
+		margin: 0;
+		padding: 0 20px;
 		li {
+			display: inline;
+			float: left;
 			padding: 15px;
+			margin: 0;	
 			a {
-				color: @color-nav-link;
+				color: @color-navigation-link;
 				&:hover {
 					text-decoration: none;
 				}
 			}
 		}
 		li:hover {
-			background-color: @color-nav-link-background-hover;
+			background-color: @color-navigation-link-background-hover;
 		}
 	}
 }
@@ -238,7 +278,7 @@ body {
 		padding: 5px 0;
 	}
 	.content {
-		
+		padding: 0 20px;
 	}
 	.sidebar {
 		@media only print {

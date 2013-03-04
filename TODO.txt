@@ -1,5 +1,14 @@
 2013.02.28
 **********
+[ ] [CONTACT] implement contact form
+[ ] [CARS] implement database structure
+[ ] [CARS] implement database loader (CSV->DB)
+[ ] [CARS] implement list view
+[ ] [CARS] implement detail view
+[ ] [CARS] implement statistic 
+
+2013.02.28
+**********
 [x] [FRAMEWORK] enable IDE autocompletion for core helpers
 [x] [FRAMEWORK] extend core helper by class memory feature
 [x] [FRAMEWORK] implement AJAX helper and move corresponding core code

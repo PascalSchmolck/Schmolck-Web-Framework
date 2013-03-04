@@ -1,7 +1,13 @@
+<?php
+/*
+ * INITIALISATION
+ */
+$objCore = Schmolck_Framework_Core::getInstance($this);
+?>
 <div class="twelvecol last">
 	<div class="content">
 		<h1>
-			Impressum			
+			<?= $objCore->getHelperTranslator()->_("Imprint") ?>
 		</h1>
 		<p>
 			<strong>Schmolck GmbH &amp; Co. KG </strong><br>
@@ -60,16 +66,16 @@
 			Tel +49 7641 / 4602-500<br>
 			Fax +49 7641 / 4602-8500<br>
 		</p>
-		<p style="text-align: justify;">Geschäftsführer: Bernhard Schmolck, Jürgen Henninger</p>
-		<p style="text-align: justify;">Registergericht Emmendingen, HR-Nr.: HRB 142<br>
+		<p>Geschäftsführer: Bernhard Schmolck, Jürgen Henninger</p>
+		<p>Registergericht Emmendingen, HR-Nr.: HRB 142<br>
 			Umsatzsteuer-Identifikationsnummer: DE 812 987 410</p>
 		<hr>
 		<h2>Web-Auftritt</h2>
-		<p style="text-align: justify;">Programmierung: <a href="http://www.pascalschmolck.de/" target="_blank">Pascal Schmolck</a><br>
+		<p>Programmierung &amp; Design: <a href="http://www.pascalschmolck.de/" target="_blank">Pascal Schmolck</a><br>
 		</p>
 		<hr>
 		<h2>Haftungsausschluss</h2>
-		<p style="text-align: justify;"><strong>Haftung für Inhalte<br>
+		<p><strong>Haftung für Inhalte<br>
 			</strong>Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.</p>
 		<p style="text-align: justify;">Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei bekannt werden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
 		<p style="text-align: justify;"><strong>Haftung für Links<br>
