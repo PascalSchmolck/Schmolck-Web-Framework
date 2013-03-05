@@ -34,6 +34,26 @@ msgstr "Mail"
 msgid "You can post your questions to our team in the following languages​​"
 msgstr "Sie können Ihre Fragen an unser Team in folgenden Sprachen stellen"
 
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:62
+msgid "Name"
+msgstr "Name"
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:69
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:76
+msgid "Your message"
+msgstr "Ihre Nachricht"
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:82
+msgid "Reset"
+msgstr "Reset"
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:83
+msgid "Submit"
+msgstr "Abschicken"
+
 #: ../application/cars.schmolck.de.localhost/module/content/static/imprint/view.phtml:10
 msgid "Imprint"
 msgstr "Impressum"

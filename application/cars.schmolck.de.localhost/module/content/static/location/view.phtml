@@ -21,8 +21,8 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 		<p>			
 		<form method="get" action="https://maps.google.de/maps" target="_blank">
 			<input type="hidden" name="daddr" value="Am Elzdamm 2, 79312 Emmendingen">
-			<input type="text" name="saddr" style="width: 45%;" title="<?= $objCore->getHelperTranslator()->_("Enter your address here") ?>">
-			<input type="submit" value="<?= $objCore->getHelperTranslator()->_("Search") ?>">
+			<input type="text" name="saddr" title="<?= $objCore->getHelperTranslator()->_("Enter your address here") ?>" style="width: 45%;">
+			<input type="submit" value="<?= $objCore->getHelperTranslator()->_("Search") ?>" style="float: none;">
 		</form>
 		</p>
 		<p>

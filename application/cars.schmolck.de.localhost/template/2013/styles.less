@@ -72,6 +72,9 @@ a:hover {
 	color: @color-a-hover;
 	text-decoration: underline;
 }
+form {
+	width: 75%;
+}
 select {
 	border: 1px solid @color-form-input-border;
 	font-family: inherit;
@@ -81,15 +84,30 @@ input {
 	font-family: inherit;
 	padding: 5px;
 	margin: 0;
+	width: 95%;
 	line-height: normal;
 	
 	&[type="file"] {
+		width: auto;
 		border: 0;
 		padding: 0;
 		margin: 10px 0;
 	}
 
+	&[type="radio"] {
+		width: auto;
+	}
+
+	&[type="checkbox"] {
+		width: auto;
+	}
+
+	&[type="submit"] {
+		float: right;
+	}
+
 	&[type="submit"], &input[type="button"], &input[type="reset"], &.button {
+		width: auto;
 		font-size: 90%;
 		font-weight: normal;
 		color: #7c7c7c;
@@ -135,7 +153,7 @@ textarea {
 	font-family: inherit;
 	height: 20em;
 	padding: 6px;
-	width: 100%;
+	width: 95%;
 	font-size: 90%;
 }
 label {

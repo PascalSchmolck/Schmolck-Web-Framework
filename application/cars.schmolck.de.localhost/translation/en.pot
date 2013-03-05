@@ -22,6 +22,26 @@ msgstr ""
 msgid "You can post your questions to our team in the following languages​​" 
 msgstr "" 
 
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:62 
+msgid "Name" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:69 
+msgid "E-Mail" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:76 
+msgid "Your message" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:82 
+msgid "Reset" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:83 
+msgid "Submit" 
+msgstr "" 
+
 #: ../application/cars.schmolck.de.localhost/module/content/static/imprint/view.phtml:10 
 msgid "Imprint" 
 msgstr "" 
