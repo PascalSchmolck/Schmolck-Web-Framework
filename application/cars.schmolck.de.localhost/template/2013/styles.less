@@ -5,27 +5,14 @@
 @color-h5: #000; 
 @color-h6: #555; 
 @color-text: #333;
+@color-form-input: #ccc;
 @color-a-link: #21759b;
 @color-a-hover: #0C4478;
 @color-border: #e1e1e1;
 //------------------------------------------------------------------------------
-@color-form-input-border: #ccc;
-//------------------------------------------------------------------------------
-@color-quicklinks-border: #e1e1e1;
-@color-quicklinks-a-link: #888;
-@color-quicklinks-a-hover: #333;
-//------------------------------------------------------------------------------
-@color-header-description: #000; 
-//------------------------------------------------------------------------------
-@color-navigation-background: #0C4478; 
-@color-navigation-text: #fff; 
-@color-navigation-link: #fff;
-@color-navigation-link-background-hover: rgba(255, 255, 255, .3);
-//------------------------------------------------------------------------------
-@color-footer-background: #e1e1e1;
-@color-footer-text: #333;
-@color-footer-a-link: #888;
-@color-footer-a-hover: #aaa;
+@color-site-description: #000; 
+@color-site-background: #e1e1e1;
+
 //------------------------------------------------------------------------------
 // Html Tags
 //------------------------------------------------------------------------------
@@ -76,11 +63,11 @@ form {
 	width: 75%;
 }
 select {
-	border: 1px solid @color-form-input-border;
+	border: 1px solid @color-border;
 	font-family: inherit;
 }
 input {
-	border: 1px solid @color-form-input-border;
+	border: 1px solid @color-form-input;
 	font-family: inherit;
 	padding: 5px;
 	margin: 0;
@@ -149,7 +136,7 @@ input {
 	}
 }
 textarea {
-	border: 1px solid @color-form-input-border;
+	border: 1px solid @color-form-input;
 	font-family: inherit;
 	height: 20em;
 	padding: 6px;
@@ -201,7 +188,7 @@ ul {
 // Page Layout
 //------------------------------------------------------------------------------
 body {
-	background-color: @color-footer-background;
+	background-color: @color-site-background;
 	a:hover {
 		img {
 			opacity: 0.90;
@@ -213,6 +200,10 @@ body {
 	}
 }
 #quicklinks {
+	@color-quicklinks-border: #e1e1e1;
+	@color-quicklinks-a-link: #888;
+	@color-quicklinks-a-hover: #333;
+
 	@media only print {
 		display: none;
 	} 	
@@ -252,13 +243,18 @@ body {
 	} 
 	background-color: #fff;
 	.description{
-		color: @color-header-description;
+		color: @color-site-description;
 		font-family: arial, sans-serif;
 		font-size: 180%;
 		font-weight: bold;
 	}
 }
 #navigation {
+	@color-navigation-background: #0C4478; 
+	@color-navigation-text: #fff; 
+	@color-navigation-link: #fff;
+	@color-navigation-link-background-hover: rgba(255, 255, 255, .3);
+
 	@media only print {
 		display: none;
 	} 	
@@ -306,10 +302,13 @@ body {
 	}
 }
 #footer {
+	@color-footer-text: #333;
+	@color-footer-a-link: #888;
+	@color-footer-a-hover: #aaa;
+
 	@media only print {
 		display: none;
 	} 
-	background-color: @color-footer-background;
 	padding: 20px 0;
 	font-size: 0.8em;
 	color: @color-footer-text;
@@ -320,7 +319,8 @@ body {
 			padding-right: 3px;
 		}
 		select {
-			background-color: @color-footer-background;
+			background-color: @color-site-background;
+			border: 1px solid @color-form-input;
 		}
 	}
 	.logo {
