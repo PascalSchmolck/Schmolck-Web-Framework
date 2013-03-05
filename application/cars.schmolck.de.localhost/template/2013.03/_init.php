@@ -6,6 +6,7 @@
 $objCore = Schmolck_Framework_Core::getInstance($this);
 $strTemplatePath = $objCore->getHelperApplication()->getTemplatePath();
 $this->registerViewJS('lib/js/schmolck/framework/ajax/ajax.js');
+$this->registerViewJS('lib/js/schmolck/framework/api/element.js');
 $this->registerViewJS('lib/js/schmolck/framework/mail/link.js');
 
 /*

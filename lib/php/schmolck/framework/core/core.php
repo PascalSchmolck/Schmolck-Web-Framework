@@ -33,7 +33,7 @@ class Schmolck_Framework_Core {
 		$this->_initHelpers();
 		$this->_initApplication();
 	}
-
+	
 	/**
 	 * Set action value
 	 * 
@@ -266,7 +266,7 @@ class Schmolck_Framework_Core {
 			exit();
 		} catch (Exception $Exception) {
 			ob_end_clean();
-			$this->_RunExceptionHandling($Exception);
+			$this->_runExceptionHandling($Exception);
 		}
 	}
 
@@ -503,6 +503,15 @@ class Schmolck_Framework_Core {
 	public function getBaseUrl() {
 		return $this->getHelperApplication()->getBaseUrl();
 	}
+	
+	/**
+	 * Check if currently in AJAX call
+	 * 
+	 * @return boolean
+	 */
+	public function checkAjaxCall() {
+		return (count($_POST) > 0 and isset($_POST['ajax']));
+	}
 
 	/**
 	 * Set layout rendering true or false
@@ -515,13 +524,13 @@ class Schmolck_Framework_Core {
 
 	protected function _runExceptionHandling(Exception &$Exception) {
 //		try {
-		$this->_RunExceptionModuleInit($Exception);
-		$this->_RunExceptionControllerInit($Exception);
-		$this->_RunExceptionAction($Exception);
-		$this->_RunExceptionControllerExit($Exception);
-		$this->_RunExceptionModuleExit($Exception);
-		$this->_RunExceptionView($Exception);
-		$this->_RunExceptionLayout($Exception);
+		$this->_runExceptionModuleInit($Exception);
+		$this->_runExceptionControllerInit($Exception);
+		$this->_runExceptionAction($Exception);
+		$this->_runExceptionControllerExit($Exception);
+		$this->_runExceptionModuleExit($Exception);
+		$this->_runExceptionView($Exception);
+		$this->_runExceptionLayout($Exception);
 //		} catch (Exception $Exception) {
 //			die($Exception->getMessage());
 //		}
@@ -569,15 +578,24 @@ class Schmolck_Framework_Core {
 	}
 
 	protected function _runExceptionLayout(Exception $Exception) {
+		/*
+		 * CHECK
+		 */
+		if ($this->checkAjaxCall()) {
+			$this->setLayoutRendering(false);
+		}
+		/*
+		 * OUTPUT
+		 */
 		if ($this->_bLayoutRendering) {
-			$this->_RunLayout();
+			$this->_runLayout();
 		} else {
-			$this->_RenderExceptionView($Exception);
+			$this->_renderExceptionView($Exception);
 		}
 	}
 
 	protected function _renderExceptionView(Exception $Exception) {
-		$this->_runView();
+		$this->renderViewHtml();
 	}
 
 	protected function _renderParsedOutput($strOutput) {
