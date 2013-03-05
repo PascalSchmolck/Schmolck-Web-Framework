@@ -3,27 +3,39 @@
  * INITIALISATION
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
+$strId = $objCore->getHelperApi()->getId();
+$strUri = $objCore->getHelperApplication()->getRequestUri();
+
+/*
+ * PARAMETER
+ */
+$strName = strip_tags($_POST['name']);
+$strEmail = strip_tags($_POST['email']);
+$strMessage = strip_tags($_POST['message']);
 ?>
-<form method="post">
+<form id="<?= $strId ?>" method="post">
+	<?php
+	print_r($_POST);
+	?>
 	<p>
 		<label>
 			<?= $objCore->getHelperTranslator()->_("Name") ?>*
 		</label>
-		<input type="text" name="name">
+		<input type="text" name="name" value="<?= $strName ?>">
 	</p>
 
 	<p>
 		<label>
 			<?= $objCore->getHelperTranslator()->_("E-Mail") ?>*
 		</label>
-		<input type="text" name="email">
+		<input type="text" name="email" value="<?= $strEmail ?>">
 	</p>
 
 	<p>
 		<label>
 			<?= $objCore->getHelperTranslator()->_("Your message") ?>*
 		</label>
-		<textarea></textarea>
+		<textarea name="message"><?= $strMessage ?></textarea>
 	</p>
 
 	<p>
@@ -31,3 +43,21 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 		<input class="button" type="submit" value="<?= $objCore->getHelperTranslator()->_("Submit") ?>">
 	</p>
 </form>
+<script>
+	$(document).ready(function() {		
+		$('#<?= $strId ?> input[type=submit]').click(function() {
+<?= $strId ?>_submit();
+			return false;
+		});
+		
+		
+<?= $strId ?>_submit = function() {
+		var strData = $('#<?= $strId ?>').serialize();
+		Schmolck_Framework_Api_Element({
+			url: '<?= $strUri ?>',
+			id: '<?= $strId ?>',
+			data: strData
+		});
+	}
+});
+</script>

@@ -72,6 +72,7 @@ class Schmolck_Framework_Core {
 		$this->_arrHelpers['translator'] = new Schmolck_Framework_Helper_Translator($this);
 		$this->_arrHelpers['cache'] = new Schmolck_Framework_Helper_Cache($this);
 		$this->_arrHelpers['ajax'] = new Schmolck_Framework_Helper_Ajax($this);
+		$this->_arrHelpers['api'] = new Schmolck_Framework_Helper_Api($this);
 	}
 	
 	/**
@@ -127,6 +128,15 @@ class Schmolck_Framework_Core {
 	public function &getHelperAjax() {
 		return $this->_arrHelpers['ajax'];
 	}	
+	
+	/**
+	 * Get api helper
+	 * 
+	 * @return \Schmolck_Framework_Helper_Api
+	 */
+	public function &getHelperApi() {
+		return $this->_arrHelpers['api'];
+	}		
 
 	/**
 	 * Initialize application settings
@@ -258,7 +268,8 @@ class Schmolck_Framework_Core {
 			 */
 			$strOutput = ob_get_contents();
 			ob_end_clean();
-			$this->_renderParsedOutput($strOutput);
+//			$this->_renderParsedOutput($strOutput);
+			echo $strOutput;
 
 			/*
 			 * EXIT
@@ -598,19 +609,19 @@ class Schmolck_Framework_Core {
 		$this->renderViewHtml();
 	}
 
-	protected function _renderParsedOutput($strOutput) {
-		/*
-		 * CHECK
-		 */
-		// - parse output if AJAX call detected
-		if ($this->getHelperAjax()->checkCall()) {
-			$arrResult = array();
-			$strName = $_POST['name'];
-			preg_match("|<\!--{$strName}-->(.*)<\!--/{$strName}-->|si", $strOutput, $arrResult);
-			echo trim($arrResult[1]);
-		} else {
-			echo $strOutput;
-		}
-	}
+//	protected function _renderParsedOutput($strOutput) {
+//		/*
+//		 * CHECK
+//		 */
+//		// - parse output if AJAX call detected
+//		if ($this->getHelperAjax()->checkCall()) {
+//			$arrResult = array();
+//			$strName = $_POST['name'];
+//			preg_match("|<\!--{$strName}-->(.*)<\!--/{$strName}-->|si", $strOutput, $arrResult);
+//			echo trim($arrResult[1]);
+//		} else {
+//			echo $strOutput;
+//		}
+//	}
 
 }

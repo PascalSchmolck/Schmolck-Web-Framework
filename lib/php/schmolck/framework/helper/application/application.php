@@ -64,4 +64,13 @@ class Schmolck_Framework_Helper_Application extends Schmolck_Framework_Helper {
 		return "http://{$strHost}{$strPath}/";
 	}
 
+	/**
+	 * Get module string
+	 * 
+	 * @return string
+	 */
+	public function getRequestUri() {
+		return $_SERVER['REQUEST_URI'];
+	}
+
 }
