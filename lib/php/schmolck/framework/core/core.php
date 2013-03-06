@@ -362,6 +362,7 @@ class Schmolck_Framework_Core {
 		} else {
 			throw new Exception("Action file '{$this->_strAction}/action.php' for module '{$this->_strModule}' and controller '{$this->_strController}' not found");
 		}
+		$this->_strViewOutput .= ob_get_contents();
 		ob_end_clean();
 	}
 
@@ -434,7 +435,7 @@ class Schmolck_Framework_Core {
 		/*
 		 * OUTPUT
 		 */
-		$this->_strViewOutput = ob_get_contents();
+		$this->_strViewOutput .= ob_get_contents();
 		ob_end_clean();
 	}
 

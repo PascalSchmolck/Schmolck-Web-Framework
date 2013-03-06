@@ -1,0 +1,31 @@
+<form id="<?= $objCore->strId ?>" method="post">
+	<?php
+	print_r($_POST);
+	?>
+	<input type="hidden" name="send" value="1">
+	<p>
+		<label>
+			<?= $objCore->getHelperTranslator()->_("Name") ?>*
+		</label>
+		<input type="text" name="name" value="<?= $objCore->strName ?>">
+	</p>
+
+	<p>
+		<label>
+			<?= $objCore->getHelperTranslator()->_("E-Mail") ?>*
+		</label>
+		<input type="text" name="email" value="<?= $objCore->strEmail ?>">
+		<?= $objCore->strEmailError ?>
+	</p>
+
+	<p>
+		<label>
+			<?= $objCore->getHelperTranslator()->_("Your message") ?>*
+		</label>
+		<textarea name="message"><?= $objCore->strMessage ?></textarea>
+	</p>
+
+	<p>
+		<input class="button" type="submit" value="<?= $objCore->getHelperTranslator()->_("Submit") ?>">
+	</p>
+</form>
