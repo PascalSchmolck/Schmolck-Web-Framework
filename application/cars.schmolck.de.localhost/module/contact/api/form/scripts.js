@@ -1,10 +1,5 @@
 $(document).ready(function() {		
 	/*
-	* TOOLTIP
-	*/
-	$('#SchmolckID input').tooltip().off("mouseover mouseout");
-		
-	/*
 	* ACTION
 	*/
 	$('#SchmolckID input[type=submit]').click(function() {

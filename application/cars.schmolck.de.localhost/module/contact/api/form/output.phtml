@@ -1,26 +1,37 @@
+<?php
+/*
+ * INITIALISATION
+ */
+$objCore = Schmolck_Framework_Core::getInstance($this);
+?>
 <form id="<?= $objCore->strId ?>" method="post">
-	<?php
-	print_r($_POST);
-	?>
 	<input type="hidden" name="send" value="1">
 	<p>
 		<label>
 			<?= $objCore->getHelperTranslator()->_("Name") ?>*
+			<span class="error" style="float: right;">
+				<?= $objCore->strNameError ?>
+			</span>
 		</label>
-		<input type="text" name="name" value="<?= $objCore->strName ?>">
+		<input id="<?= $objCore->strId ?>_name" type="text" name="name" value="<?= $objCore->strName ?>">	
 	</p>
 
 	<p>
 		<label>
-			<?= $objCore->getHelperTranslator()->_("E-Mail") ?>*
+			<?= $objCore->getHelperTranslator()->_("E-Mail") ?>*		
+			<span class="error" style="float: right;">
+				<?= $objCore->strEmailError ?>
+			</span>
 		</label>
 		<input type="text" name="email" value="<?= $objCore->strEmail ?>">
-		<?= $objCore->strEmailError ?>
 	</p>
 
 	<p>
 		<label>
 			<?= $objCore->getHelperTranslator()->_("Your message") ?>*
+			<span class="error" style="float: right;">
+				<?= $objCore->strMessageError ?>
+			</span>
 		</label>
 		<textarea name="message"><?= $objCore->strMessage ?></textarea>
 	</p>
