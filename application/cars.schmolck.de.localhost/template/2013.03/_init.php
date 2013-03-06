@@ -10,6 +10,13 @@ $this->registerViewJS('lib/js/schmolck/framework/api/element.js');
 $this->registerViewJS('lib/js/schmolck/framework/mail/link.js');
 
 /*
+ * TITLE
+ */
+if ($objCore->getHelperHtml()->getPageTitle() != '') {
+	$strPageTitle = ' | ' . $objCore->getHelperHtml()->getPageTitle();
+}
+
+/*
  * NAVIGATION
  */
 //$objNavbar = new Schmolck_Framework_Gui_Navbar($this, 'mainnav');

@@ -3,6 +3,7 @@
  * INITIALISATION
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
+$objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Contact Form"));
 $strId = $objCore->getHelperApi()->getId();
 $strUri = $objCore->getHelperApplication()->getRequestUri();
 
