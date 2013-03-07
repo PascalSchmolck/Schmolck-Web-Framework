@@ -14,10 +14,16 @@ $(document).ready(function() {
 		Schmolck_Framework_Api_Element({
 			url: 'SchmolckURI',
 			id: 'SchmolckID',
-			data: strData,
-			success: function() {
-				window.location.href = window.location;
-			}
+			data: strData
 		});
 	}
+	
+	/*
+	 * REDIRECT
+	 */
+	// - will be set in AJAX call if language successfully	changed
+	if ('SchmolckVAR1' == 'true') {
+		window.location.href = window.location;
+	}
+	
 });

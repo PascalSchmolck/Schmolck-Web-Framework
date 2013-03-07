@@ -17,6 +17,7 @@ if ($objCore->getHelperApi()->checkAjaxCall()) {
 	$strLanguage = trim(strip_tags($_POST['language']));
 	if ($strLanguage != '') {
 		$objCore->getHelperTranslator()->setLanguage($strLanguage);
+		$objCore->strLanguageSwitched = 'true';
 	}
 }
 
@@ -24,6 +25,7 @@ if ($objCore->getHelperApi()->checkAjaxCall()) {
  * SCRIPT
  */
 $objCore->registerViewScriptReplace(array(
-	'SchmolckID' => $this->strId,
-	'SchmolckURI' => $this->strUri,
+	'SchmolckID' => $objCore->strId,
+	'SchmolckURI' => $objCore->strUri,
+	'SchmolckVAR1' => $objCore->strLanguageSwitched
 ));
