@@ -66,3 +66,9 @@ define('DATABASE_HOST', 'localhost');
 define('DATABASE_NAME', 'pascal_cars.schmolck.de');
 define('DATABASE_USERNAME', 'pascal');
 define('DATABASE_PASSWORD', '');
+
+/*
+ * MAIL
+ */
+define('MAIL_SENDER_NAME', 'Pascal Schmolck');
+define('MAIL_SENDER_ADDRESS', 'mail@pascalschmolck.de');
