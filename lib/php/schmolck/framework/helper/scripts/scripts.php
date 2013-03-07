@@ -36,7 +36,7 @@ class Schmolck_Framework_Helper_Scripts extends Schmolck_Framework_Helper {
 			}
 			echo '<script>' . $strJavaScript . '</script>';
 		} else {
-			throw new Exception("View scripts file '{$strFile} not found");
+			throw new Schmolck_Tool_Exception("View scripts file '{$strFile} not found");
 		}
 	}
 

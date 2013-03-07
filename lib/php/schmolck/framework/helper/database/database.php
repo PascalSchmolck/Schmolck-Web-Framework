@@ -25,7 +25,7 @@ class Schmolck_Framework_Helper_Database extends Schmolck_Framework_Helper {
 		$link = mysql_connect($this->_host, $this->_name, $this->_password);
 		if (!$link) {
 			Schmolck_Tool_Debug::error(mysql_error());
-			throw new Exception("Database connection failed");
+			throw new Schmolck_Tool_Exception("Database connection failed");
 		} else {
 			return true;
 		}

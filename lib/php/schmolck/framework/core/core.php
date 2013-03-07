@@ -203,7 +203,7 @@ class Schmolck_Framework_Core {
 			$this->_arrLayoutStyles[] = $file;
 			$this->_arrLayoutStyles = array_unique($this->_arrLayoutStyles);
 		} else {
-			throw new Exception("Registration of LESS file '{$file}' failed in {$this->_strTrace}");
+			throw new Schmolck_Tool_Exception("Registration of LESS file '{$file}' failed in {$this->_strTrace}");
 		}
 	}
 
@@ -231,7 +231,7 @@ class Schmolck_Framework_Core {
 			$this->_arrLayoutScripts[] = $file;
 			$this->_arrLayoutScripts = array_unique($this->_arrLayoutScripts);
 		} else {
-			throw new Exception("Registration of scripts file '{$file}' failed in {$this->_strTrace}");
+			throw new Schmolck_Tool_Exception("Registration of scripts file '{$file}' failed in {$this->_strTrace}");
 		}
 	}
 
@@ -317,7 +317,7 @@ class Schmolck_Framework_Core {
 	protected function _runApplicationCheck() {
 		$strPath = $this->getHelperApplication()->getPath();
 		if (!file_exists($strPath)) {
-			throw new Exception("Application path '{$strPath}' not found");
+			throw new Schmolck_Tool_Exception("Application path '{$strPath}' not found");
 		}
 	}
 
@@ -338,7 +338,7 @@ class Schmolck_Framework_Core {
 	protected function _runModuleCheck() {
 		$strPath = $this->getHelperApplication()->getModulePath() . "/{$this->getModule()}";
 		if (!file_exists($strPath)) {
-			throw new Exception("Module '{$this->getModule()}' not found");
+			throw new Schmolck_Tool_Exception("Module '{$this->getModule()}' not found");
 		}
 	}
 
@@ -359,7 +359,7 @@ class Schmolck_Framework_Core {
 	protected function _runControllerCheck() {
 		$strPath = $this->getHelperApplication()->getModulePath() . "/{$this->getModule()}/{$this->getController()}";
 		if (!file_exists($strPath)) {
-			throw new Exception("Controller '{$this->getController()}' not found");
+			throw new Schmolck_Tool_Exception("Controller '{$this->getController()}' not found");
 		}
 	}
 
@@ -383,7 +383,7 @@ class Schmolck_Framework_Core {
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
-			throw new Exception("Action file '{$this->getAction()}/action.php' for module '{$this->getModule()}' and controller '{$this->getController()}' not found");
+			throw new Schmolck_Tool_Exception("Action file '{$this->getAction()}/action.php' for module '{$this->getModule()}' and controller '{$this->getController()}' not found");
 		}
 		$this->_strViewOutput .= ob_get_contents();
 		ob_end_clean();
@@ -415,7 +415,7 @@ class Schmolck_Framework_Core {
 				// - include layout
 				require($strFile);
 			} else {
-				throw new Exception("Layout file '{$strFile}' not found");
+				throw new Schmolck_Tool_Exception("Layout file '{$strFile}' not found");
 			}
 
 			/*
@@ -442,7 +442,7 @@ class Schmolck_Framework_Core {
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
-			throw new Exception("View file '{$this->getAction()}/output.phtml' for module '{$this->getModule()}' and controller '{$this->getController()}' not found");
+			throw new Schmolck_Tool_Exception("View file '{$this->getAction()}/output.phtml' for module '{$this->getModule()}' and controller '{$this->getController()}' not found");
 		}
 
 		/*
