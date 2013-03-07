@@ -34,6 +34,16 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 			</label>
 			<input type="text" name="email" value="<?= $objCore->strEmail ?>">
 		</p>
+		
+		<p>
+			<label>
+				<?= $objCore->getHelperTranslator()->_("Subject") ?>*		
+				<span class="error">
+					<?= $objCore->strErrorSubject ?>
+				</span>
+			</label>
+			<input type="text" name="subject" value="<?= $objCore->strSubject ?>">
+		</p>		
 
 		<p>
 			<label>

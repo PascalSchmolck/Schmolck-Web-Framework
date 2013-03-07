@@ -13,6 +13,7 @@ $objCore->strUri = $objCore->getHelperApplication()->getRequestUri();
 $objCore->strSend = strip_tags($_POST['send']);
 $objCore->strName = strip_tags($_POST['name']);
 $objCore->strEmail = strip_tags($_POST['email']);
+$objCore->strSubject = strip_tags($_POST['subject']);
 $objCore->strMessage = strip_tags($_POST['message']);
 
 /*
@@ -29,6 +30,11 @@ if ($objCore->strSend != '') {
 		$objCore->strErrorEmail = $objCore->getHelperTranslator()->_("Please enter a valid e-mail address");
 		$bError = true;
 	}
+	// - subject
+	if (trim($this->strSubject) == '') {
+		$objCore->strErrorSubject = $objCore->getHelperTranslator()->_("Please enter a subject");
+		$bError = true;
+	}	
 	// - message
 	if (trim($this->strMessage) == '') {
 		$objCore->strErrorMessage = $objCore->getHelperTranslator()->_("Please enter your message here");
@@ -43,7 +49,7 @@ if ($objCore->strSend != '') {
 		$strRecipient = $objCore->strEmail;
 
 		// - subject
-		$strSubject = $objCore->getHelperApplication()->getName() . ' ' . $objCore->getHelperTranslator()->_("Request");
+		$strSubject = $objCore->getHelperApplication()->getName() . ' ' . $objCore->strSubject;
 
 		// - message
 		$strMessage = '
