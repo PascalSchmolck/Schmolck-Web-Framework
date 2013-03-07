@@ -21,17 +21,20 @@ $objCore->strMessage = strip_tags($_POST['message']);
 if ($objCore->strSend != '') {
 	// - name
 	if (trim($this->strName) == '') {
-		$objCore->strNameError = $objCore->getHelperTranslator()->_("Please enter your name name");
+		$objCore->arrErrors['name'] = $objCore->getHelperTranslator()->_("Please enter your name name");
 	}
 	// - email
 	if (!Schmolck_Tool_Validate::checkEmail($objCore->strEmail)) {
-		$objCore->strEmailError = $objCore->getHelperTranslator()->_("Please enter a valid e-mail address");
+		$objCore->arrErrors['email'] = $objCore->getHelperTranslator()->_("Please enter a valid e-mail address");
 	}
 	// - message
 	if (trim($this->strMessage) == '') {
-		$objCore->strMessageError = $objCore->getHelperTranslator()->_("Please enter your message here");
+		$objCore->arrErrors['message'] = $objCore->getHelperTranslator()->_("Please enter your message here");
 	}
+	
+	Schmolck_Tool_Debug::debug(count($objCore->arrErrors), __FILE__, __LINE__);
 }
+
 
 /*
  * SCRIPT

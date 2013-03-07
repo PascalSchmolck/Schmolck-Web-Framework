@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Schmolck_Tool_Debug
  * 
@@ -6,16 +7,15 @@
  * @author Pascal Schmolck
  * @copyright 2013
  */
-class Schmolck_Tool_Debug
-{
+class Schmolck_Tool_Debug {
+
 	/**
 	 * Log alert message
 	 *
 	 * @param string $strMessage log message
 	 */
-	static public function emergency($strMessage)
-	{
-		self::_WriteMessage('EMERGENCY', $strMessage, 0);
+	static public function emergency($strMessage, $strFile='', $strLine='') {
+		self::_WriteMessage('EMERGENCY', self::_getFullMessage($strMessage, $strFile, $strLine), 0);
 	}
 
 	/**
@@ -23,9 +23,8 @@ class Schmolck_Tool_Debug
 	 *
 	 * @param string $strMessage log message
 	 */
-	static public function alert($strMessage)
-	{
-		self::_WriteMessage('ALERT', $strMessage, 1);
+	static public function alert($strMessage, $strFile='', $strLine='') {
+		self::_WriteMessage('ALERT', self::_getFullMessage($strMessage, $strFile, $strLine), 1);
 	}
 
 	/**
@@ -33,9 +32,8 @@ class Schmolck_Tool_Debug
 	 *
 	 * @param string $strMessage log message
 	 */
-	static public function critical($strMessage)
-	{
-		self::_WriteMessage('CRITICAL', $strMessage, 2);
+	static public function critical($strMessage, $strFile='', $strLine='') {
+		self::_WriteMessage('CRITICAL', self::_getFullMessage($strMessage, $strFile, $strLine), 2);
 	}
 
 	/**
@@ -43,9 +41,8 @@ class Schmolck_Tool_Debug
 	 *
 	 * @param string $strMessage log message
 	 */
-	static public function error($strMessage)
-	{
-		self::_WriteMessage('ERROR', $strMessage, 3);
+	static public function error($strMessage, $strFile='', $strLine='') {
+		self::_WriteMessage('ERROR', self::_getFullMessage($strMessage, $strFile, $strLine), 3);
 	}
 
 	/**
@@ -53,9 +50,8 @@ class Schmolck_Tool_Debug
 	 *
 	 * @param string $strMessage log message
 	 */
-	static public function warning($strMessage)
-	{
-		self::_WriteMessage('WARNING', $strMessage, 4);
+	static public function warning($strMessage, $strFile='', $strLine='') {
+		self::_WriteMessage('WARNING', self::_getFullMessage($strMessage, $strFile, $strLine), 4);
 	}
 
 	/**
@@ -63,9 +59,8 @@ class Schmolck_Tool_Debug
 	 *
 	 * @param string $strMessage log message
 	 */
-	static public function notice($strMessage)
-	{
-		self::_WriteMessage('NOTICE', $strMessage, 5);
+	static public function notice($strMessage, $strFile='', $strLine='') {
+		self::_WriteMessage('NOTICE', self::_getFullMessage($strMessage, $strFile, $strLine), 5);
 	}
 
 	/**
@@ -73,9 +68,8 @@ class Schmolck_Tool_Debug
 	 *
 	 * @param string $strMessage log message
 	 */
-	static public function info($strMessage)
-	{
-		self::_WriteMessage('INFO', $strMessage, 6);
+	static public function info($strMessage, $strFile='', $strLine='') {
+		self::_WriteMessage('INFO', self::_getFullMessage($strMessage, $strFile, $strLine), 6);
 	}
 
 	/**
@@ -83,20 +77,24 @@ class Schmolck_Tool_Debug
 	 *
 	 * @param string $strMessage log message
 	 */
-	static public function debug($strMessage)
-	{
-		self::_WriteMessage('DEBUG', self::_GetCallingClass().'->'.self::_GetCallingFunction().'(): '.$strMessage, 7);
+	static public function debug($strMessage, $strFile='', $strLine='') {
+		self::_WriteMessage('DEBUG', self::_getFullMessage($strMessage, $strFile, $strLine), 7);
 	}
 
 	/**
-	 * Get calling class and function name
-	 *
-	 * @return string calling class->function
+	 * Get full message containing file, line and message nicely formatted
+	 * 
+	 * @param type $strMessage
+	 * @param type $strFile
+	 * @param type $strLine
+	 * @return string full message
 	 */
-	static public function getCallingClassAndFunction()
-	{
-		$arrDebugBacktrace = debug_backtrace();
-		return $arrDebugBacktrace[2]['class'].'->'.$arrDebugBacktrace[2]['function'];
+	static private function _getFullMessage($strMessage, $strFile='?', $strLine='?') {
+		if ($strFile == '' and $strLine == '') {
+			return $strMessage;
+		} else {
+			return $strMessage . "\nLine: {$strLine} in {$strFile}";
+		}
 	}
 
 	/**
@@ -116,8 +114,7 @@ class Schmolck_Tool_Debug
 	 * @param int $nLevel number of backtrace steps
 	 *
 	 */
-	static private function _WriteMessage($strType, $strMessage, $nLevel)
-	{
+	static private function _WriteMessage($strType, $strMessage, $nLevel) {
 		//-------
 		// CHECK
 		//-------
@@ -137,25 +134,4 @@ class Schmolck_Tool_Debug
 		error_log($strLogMessage);
 	}
 
-	/**
-	 * Get calling class name
-	 *
-	 * @return string calling class
-	 */
-	static private function _GetCallingClass()
-	{
-		$arrDebugBacktrace = debug_backtrace();
-		return $arrDebugBacktrace[2]['class'];
-	}
-
-	/**
-	 * Get calling function name
-	 *
-	 * @return string calling function
-	 */
-	static private function _GetCallingFunction()
-	{
-		$arrDebugBacktrace = debug_backtrace();
-		return $arrDebugBacktrace[2]['function'];
-	}
 }

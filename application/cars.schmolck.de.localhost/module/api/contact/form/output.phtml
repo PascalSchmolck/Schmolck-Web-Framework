@@ -14,7 +14,7 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 		<label>
 			<?= $objCore->getHelperTranslator()->_("Name") ?>*
 			<span class="error">
-				<?= $objCore->strNameError ?>
+				<?= $objCore->arrErrors['name'] ?>
 			</span>
 		</label>
 		<input id="<?= $objCore->strId ?>_name" type="text" name="name" value="<?= $objCore->strName ?>">	
@@ -24,7 +24,7 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 		<label>
 			<?= $objCore->getHelperTranslator()->_("E-Mail") ?>*		
 			<span class="error">
-				<?= $objCore->strEmailError ?>
+				<?= $objCore->arrErrors['email'] ?>
 			</span>
 		</label>
 		<input type="text" name="email" value="<?= $objCore->strEmail ?>">
@@ -34,7 +34,7 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 		<label>
 			<?= $objCore->getHelperTranslator()->_("Your message") ?>*
 			<span class="error">
-				<?= $objCore->strMessageError ?>
+				<?= $objCore->arrErrors['message'] ?>
 			</span>
 		</label>
 		<textarea name="message"><?= $objCore->strMessage ?></textarea>

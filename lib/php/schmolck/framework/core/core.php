@@ -56,9 +56,9 @@ class Schmolck_Framework_Core {
 	public function __get($strKey) {
 		if (array_key_exists($strKey, $this->_arrActionValues)) {
 			return $this->_arrActionValues[$strKey];
-		} 
+		}
 	}
-	
+
 	/**
 	 * Get module name
 	 * 
@@ -67,21 +67,21 @@ class Schmolck_Framework_Core {
 	public function getModule() {
 		return $this->_strModule;
 	}
-	
+
 	/**
 	 * Get controller name
 	 * 
 	 * @return string name
-	 */	
+	 */
 	public function getController() {
 		return $this->_strController;
 	}
-	
+
 	/**
 	 * Get action name
 	 * 
 	 * @return string name
-	 */	
+	 */
 	public function getAction() {
 		return $this->_strAction;
 	}
@@ -135,7 +135,7 @@ class Schmolck_Framework_Core {
 	public function &getHelperTranslator() {
 		return $this->_arrHelpers['translator'];
 	}
-	
+
 	/**
 	 * Get scripts helper
 	 * 
@@ -143,7 +143,7 @@ class Schmolck_Framework_Core {
 	 */
 	public function &getHelperScripts() {
 		return $this->_arrHelpers['scripts'];
-	}	
+	}
 
 	/**
 	 * Get cache helper
