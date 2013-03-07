@@ -14,8 +14,9 @@ $objCore->strUri = $objCore->getHelperApplication()->getRequestUri();
  * AJAX HANDLING
  */
 if ($objCore->getHelperApi()->checkAjaxCall()) {
-	if ($_POST['language'] != '') {
-		$objCore->getHelperTranslator()->setLanguage(strip_tags($_POST['language']));
+	$strLanguage = trim(strip_tags($_POST['language']));
+	if ($strLanguage != '') {
+		$objCore->getHelperTranslator()->setLanguage($strLanguage);
 	}
 }
 
