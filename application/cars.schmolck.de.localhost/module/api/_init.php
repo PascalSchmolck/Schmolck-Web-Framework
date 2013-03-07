@@ -1,8 +1,10 @@
 <?php
+
 /*
  * INITIALISATION
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
-if ($objCore->getHelperApi()->checkAjaxCall()) { 
+// - switch of layout if in AJAX call
+if ($objCore->getHelperApi()->checkAjaxCall()) {
 	$objCore->setLayoutRendering(false);
 }
