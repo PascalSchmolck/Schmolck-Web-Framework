@@ -3,6 +3,10 @@
  * INITIALISATION
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
+
+/*
+ * OUTPUT
+ */
 ?>
 <form id="<?= $objCore->strId ?>" method="post">
 	<input type="hidden" name="send" value="1">
@@ -39,4 +43,5 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 	<p>
 		<input class="button" type="submit" value="<?= $objCore->getHelperTranslator()->_("Submit") ?>">
 	</p>
+	<?= $objCore->getHelperScripts()->renderViewScripts() ?>
 </form>

@@ -24,7 +24,7 @@ if ($objCore->getHelperApi()->checkAjaxCall()) {
 /*
  * SCRIPT
  */
-$objCore->registerViewScriptReplace(array(
+$objCore->getHelperScripts()->registerViewScriptReplace(array(
 	'SchmolckID' => $objCore->strId,
 	'SchmolckURI' => $objCore->strUri,
 	'SchmolckVAR1' => $objCore->strLanguageSwitched

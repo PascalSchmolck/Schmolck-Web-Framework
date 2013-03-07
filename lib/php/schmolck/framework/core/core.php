@@ -12,7 +12,6 @@ class Schmolck_Framework_Core {
 	protected $_bLayoutRendering = true;
 	protected $_arrLayoutStyles = array();
 	protected $_arrLayoutScripts = array();
-	protected $_arrViewScriptReplace = array();
 	protected $_arrHelpers = array();
 	protected $_arrActionValues = array();
 	protected $_strModule;
@@ -61,6 +60,33 @@ class Schmolck_Framework_Core {
 			Schmolck_Tool_Debug::warning("Action value '{$strKey}' not defined!");
 		}
 	}
+	
+	/**
+	 * Get module name
+	 * 
+	 * @return string name
+	 */
+	public function getModule() {
+		return $this->_strModule;
+	}
+	
+	/**
+	 * Get controller name
+	 * 
+	 * @return string name
+	 */	
+	public function getController() {
+		return $this->_strController;
+	}
+	
+	/**
+	 * Get action name
+	 * 
+	 * @return string name
+	 */	
+	public function getAction() {
+		return $this->_strAction;
+	}
 
 	/**
 	 * Initialize all required helpers
@@ -70,6 +96,7 @@ class Schmolck_Framework_Core {
 		$this->_arrHelpers['database'] = new Schmolck_Framework_Helper_Database($this);
 		$this->_arrHelpers['optimizer'] = new Schmolck_Framework_Helper_Optimizer($this);
 		$this->_arrHelpers['translator'] = new Schmolck_Framework_Helper_Translator($this);
+		$this->_arrHelpers['scripts'] = new Schmolck_Framework_Helper_Scripts($this);
 		$this->_arrHelpers['cache'] = new Schmolck_Framework_Helper_Cache($this);
 		$this->_arrHelpers['html'] = new Schmolck_Framework_Helper_Html($this);
 		$this->_arrHelpers['api'] = new Schmolck_Framework_Helper_Api($this);
@@ -110,6 +137,15 @@ class Schmolck_Framework_Core {
 	public function &getHelperTranslator() {
 		return $this->_arrHelpers['translator'];
 	}
+	
+	/**
+	 * Get scripts helper
+	 * 
+	 * @return \Schmolck_Framework_Helper_Scripts
+	 */
+	public function &getHelperScripts() {
+		return $this->_arrHelpers['scripts'];
+	}	
 
 	/**
 	 * Get cache helper
@@ -215,15 +251,6 @@ class Schmolck_Framework_Core {
 	}
 
 	/**
-	 * Register script replace strings
-	 * 
-	 * @param array $arrReplace
-	 */
-	public function registerViewScriptReplace($arrReplace) {
-		$this->_arrViewScriptReplace = $arrReplace;
-	}
-
-	/**
 	 * Run through whole MVC process
 	 */
 	public function run() {
@@ -311,42 +338,42 @@ class Schmolck_Framework_Core {
 	}
 
 	protected function _runModuleCheck() {
-		$strPath = $this->getHelperApplication()->getModulePath() . "/{$this->_strModule}";
+		$strPath = $this->getHelperApplication()->getModulePath() . "/{$this->getModule()}";
 		if (!file_exists($strPath)) {
-			throw new Exception("Module '{$this->_strModule}' not found");
+			throw new Exception("Module '{$this->getModule()}' not found");
 		}
 	}
 
 	protected function _runModuleInit() {
-		$strFile = $this->getHelperApplication()->getModulePath() . "/{$this->_strModule}/_init.php";
+		$strFile = $this->getHelperApplication()->getModulePath() . "/{$this->getModule()}/_init.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		}
 	}
 
 	protected function _runModuleExit() {
-		$strFile = $this->getHelperApplication()->getModulePath() . "/{$this->_strModule}/_exit.php";
+		$strFile = $this->getHelperApplication()->getModulePath() . "/{$this->getModule()}/_exit.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		}
 	}
 
 	protected function _runControllerCheck() {
-		$strPath = $this->getHelperApplication()->getModulePath() . "/{$this->_strModule}/{$this->_strController}";
+		$strPath = $this->getHelperApplication()->getModulePath() . "/{$this->getModule()}/{$this->getController()}";
 		if (!file_exists($strPath)) {
-			throw new Exception("Controller '{$this->_strController}' not found");
+			throw new Exception("Controller '{$this->getController()}' not found");
 		}
 	}
 
 	protected function _runControllerInit() {
-		$strFile = $this->getHelperApplication()->getModulePath() . "/{$this->_strModule}/{$this->_strController}/_init.php";
+		$strFile = $this->getHelperApplication()->getModulePath() . "/{$this->getModule()}/{$this->getController()}/_init.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		}
 	}
 
 	protected function _runControllerExit() {
-		$strFile = $this->getHelperApplication()->getModulePath() . "/{$this->_strModule}/{$this->_strController}/_exit.php";
+		$strFile = $this->getHelperApplication()->getModulePath() . "/{$this->getModule()}/{$this->getController()}/_exit.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		}
@@ -354,11 +381,11 @@ class Schmolck_Framework_Core {
 
 	protected function _runAction() {
 		ob_start();
-		$strFile = $this->getHelperApplication()->getModulePath() . "/{$this->_strModule}/{$this->_strController}/{$this->_strAction}/action.php";
+		$strFile = $this->getHelperApplication()->getModulePath() . "/{$this->getModule()}/{$this->getController()}/{$this->getAction()}/action.php";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
-			throw new Exception("Action file '{$this->_strAction}/action.php' for module '{$this->_strModule}' and controller '{$this->_strController}' not found");
+			throw new Exception("Action file '{$this->getAction()}/action.php' for module '{$this->getModule()}' and controller '{$this->getController()}' not found");
 		}
 		$this->_strViewOutput .= ob_get_contents();
 		ob_end_clean();
@@ -413,20 +440,11 @@ class Schmolck_Framework_Core {
 		 * LOADING
 		 */
 		// - Html
-		$strFile = $this->getHelperApplication()->getModulePath() . "/{$this->_strModule}/{$this->_strController}/{$this->_strAction}/output.phtml";
+		$strFile = $this->getHelperApplication()->getModulePath() . "/{$this->getModule()}/{$this->getController()}/{$this->getAction()}/output.phtml";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
-			throw new Exception("View file '{$this->_strAction}/output.phtml' for module '{$this->_strModule}' and controller '{$this->_strController}' not found");
-		}
-		// - JavaScript
-		$strFile = $this->getHelperApplication()->getModulePath() . "/{$this->_strModule}/{$this->_strController}/{$this->_strAction}/scripts.js";
-		if (file_exists($strFile)) {
-			$strJavaScript = str_replace(array_keys($this->_arrViewScriptReplace), array_values($this->_arrViewScriptReplace), file_get_contents($strFile));
-			if (APPLICATION_ENVIRONMENT != 'development') {
-				$strJavaScript = $this->getHelperOptimizer()->getOptimizedJsString($strJavaScript);
-			}
-			echo '<script>' . $strJavaScript . '</script>';
+			throw new Exception("View file '{$this->getAction()}/output.phtml' for module '{$this->getModule()}' and controller '{$this->getController()}' not found");
 		}
 
 		/*
