@@ -13,6 +13,7 @@ class Schmolck_Framework_Core {
 	protected $_arrViewStyles = array();
 	protected $_arrViewLESS = array();
 	protected $_arrViewScripts = array();
+	protected $_arrViewScriptReplace  = array();
 	protected $_arrHelpers = array();
 	protected $_arrActionValues = array();
 	protected $_strModule;
@@ -223,6 +224,15 @@ class Schmolck_Framework_Core {
 			}
 		}
 	}
+	
+	/**
+	 * Register JS replace strings
+	 * 
+	 * @param array $arrReplace
+	 */
+	public function registerViewScriptReplace($arrReplace) {
+		$this->_arrViewScriptReplace = $arrReplace;
+	}
 
 	/**
 	 * Run through whole MVC process
@@ -278,7 +288,6 @@ class Schmolck_Framework_Core {
 			 */
 			$strOutput = ob_get_contents();
 			ob_end_clean();
-//			$this->_renderParsedOutput($strOutput);
 			echo $strOutput;
 
 			/*
@@ -415,19 +424,18 @@ class Schmolck_Framework_Core {
 		 * LOADING
 		 */
 		// - Html
-		$strFile = $this->getHelperApplication()->getModulePath() . "/{$this->_strModule}/{$this->_strController}/{$this->_strAction}/view.phtml";
+		$strFile = $this->getHelperApplication()->getModulePath() . "/{$this->_strModule}/{$this->_strController}/{$this->_strAction}/output.phtml";
 		if (file_exists($strFile)) {
 			require($strFile);
 		} else {
-			throw new Exception("View file '{$this->_strAction}/view.phtml' for module '{$this->_strModule}' and controller '{$this->_strController}' not found");
+			throw new Exception("View file '{$this->_strAction}/output.phtml' for module '{$this->_strModule}' and controller '{$this->_strController}' not found");
 		}
 		// - JavaScript
 		$strFile = $this->getHelperApplication()->getModulePath() . "/{$this->_strModule}/{$this->_strController}/{$this->_strAction}/scripts.js";
 		if (file_exists($strFile)) {
-			if (APPLICATION_ENVIRONMENT == 'development') {
-				$strJavaScript = file_get_contents($strFile);
-			} else {
-				$strJavaScript = $this->getHelperOptimizer()->getOptimizedJsString(file_get_contents($strFile));
+			$strJavaScript = str_replace(array_keys($this->_arrViewScriptReplace), array_values($this->_arrViewScriptReplace), file_get_contents($strFile));
+			if (APPLICATION_ENVIRONMENT != 'development') {
+				$strJavaScript = $this->getHelperOptimizer()->getOptimizedJsString($strJavaScript);
 			}
 			echo '<script>' . $strJavaScript . '</script>';
 		}
@@ -435,7 +443,7 @@ class Schmolck_Framework_Core {
 		/*
 		 * OUTPUT
 		 */
-		$this->_strViewOutput .= ob_get_contents();
+		$this->_strViewOutput = ob_get_contents();
 		ob_end_clean();
 	}
 
@@ -594,7 +602,7 @@ class Schmolck_Framework_Core {
 
 	protected function _runExceptionView(Exception $Exception) {
 		ob_start();
-		require($this->getHelperApplication()->getModulePath() . '/' . MODULE_EXCEPTION . '/index/index/view.phtml');
+		require($this->getHelperApplication()->getModulePath() . '/' . MODULE_EXCEPTION . '/index/index/output.phtml');
 		$this->_strViewOutput = ob_get_contents();
 		ob_end_clean();
 	}
@@ -619,20 +627,5 @@ class Schmolck_Framework_Core {
 	protected function _renderExceptionView(Exception $Exception) {
 		$this->renderViewHtml();
 	}
-
-//	protected function _renderParsedOutput($strOutput) {
-//		/*
-//		 * CHECK
-//		 */
-//		// - parse output if AJAX call detected
-//		if ($this->getHelperAjax()->checkCall()) {
-//			$arrResult = array();
-//			$strName = $_POST['name'];
-//			preg_match("|<\!--{$strName}-->(.*)<\!--/{$strName}-->|si", $strOutput, $arrResult);
-//			echo trim($arrResult[1]);
-//		} else {
-//			echo $strOutput;
-//		}
-//	}
 
 }

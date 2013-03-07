@@ -33,13 +33,7 @@ if ($objCore->strSend != '') {
 	}
 }
 
-require __DIR__ . '/output.phtml';
-//require __DIR__ . '/2.phtml';
-
-$arrReplace = array(
+$objCore->registerViewScriptReplace(array(
 	'SchmolckID' => $this->strId,
 	'SchmolckURI' => $this->strUri,
-);
-echo "<script>";
-echo str_replace(array_keys($arrReplace), array_values($arrReplace), file_get_contents(__DIR__ . '/scripts.js'));
-echo "</script>";
+));

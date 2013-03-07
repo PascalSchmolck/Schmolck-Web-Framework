@@ -10,67 +10,79 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.5\n"
 
-#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:10
-msgid "Contact"
-msgstr "Kontakt"
+#: ../application/cars.schmolck.de.localhost/module/contact/api/form/action.php:24
+msgid "Please enter your name name"
+msgstr "Bitte geben Sie Ihren Namen ein"
 
-#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:24
-msgid "Location"
-msgstr "Anfahrt"
+#: ../application/cars.schmolck.de.localhost/module/contact/api/form/action.php:28
+msgid "Please enter a valid e-mail address"
+msgstr "Bitte geben Sie eine gültige E-Mail-Adresse ein"
 
-#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:31
-msgid "Tel +49 7641 / 4602-0"
-msgstr "Tel +49 7641 / 4602-0"
+#: ../application/cars.schmolck.de.localhost/module/contact/api/form/action.php:32
+msgid "Please enter your message here"
+msgstr "Bitte geben Sie hier Ihre Nachricht ein"
 
-#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:33
-msgid "Fax +49 7641 / 4602-80"
-msgstr "Fax +49 7641 / 4602-80"
-
-#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:35
-msgid "Mail"
-msgstr "Mail"
-
-#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:46
-msgid "You can post your questions to our team in the following languages​​"
-msgstr "Sie können Ihre Fragen an unser Team in folgenden Sprachen stellen"
-
-#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:62
+#: ../application/cars.schmolck.de.localhost/module/contact/api/form/output.phtml:11
 msgid "Name"
 msgstr "Name"
 
-#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:69
+#: ../application/cars.schmolck.de.localhost/module/contact/api/form/output.phtml:21
 msgid "E-Mail"
 msgstr "E-Mail"
 
-#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:76
+#: ../application/cars.schmolck.de.localhost/module/contact/api/form/output.phtml:31
 msgid "Your message"
 msgstr "Ihre Nachricht"
 
-#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:82
-msgid "Reset"
-msgstr "Reset"
-
-#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:83
+#: ../application/cars.schmolck.de.localhost/module/contact/api/form/output.phtml:40
 msgid "Submit"
 msgstr "Abschicken"
 
-#: ../application/cars.schmolck.de.localhost/module/content/static/imprint/view.phtml:10
+#: ../application/cars.schmolck.de.localhost/module/contact/api/form/view_1.phtml:7
+msgid "Contact Form"
+msgstr "Kontaktformular"
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:6
+msgid "Contact"
+msgstr "Kontakt"
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:29
+msgid "Location"
+msgstr "Anfahrt"
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:36
+msgid "Tel +49 7641 / 4602-0"
+msgstr "Tel +49 7641 / 4602-0"
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:38
+msgid "Fax +49 7641 / 4602-80"
+msgstr "Fax +49 7641 / 4602-80"
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:40
+msgid "Mail"
+msgstr "Mail"
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/view.phtml:51
+msgid "You can post your questions to our team in the following languages​​"
+msgstr "Sie können Ihre Fragen an unser Team in folgenden Sprachen stellen"
+
+#: ../application/cars.schmolck.de.localhost/module/content/static/imprint/view.phtml:6
 msgid "Imprint"
 msgstr "Impressum"
 
-#: ../application/cars.schmolck.de.localhost/module/content/static/location/view.phtml:24
+#: ../application/cars.schmolck.de.localhost/module/content/static/location/view.phtml:25
 msgid "Enter your address here"
 msgstr "Geben Sie hier Ihre Adresse ein"
 
-#: ../application/cars.schmolck.de.localhost/module/content/static/location/view.phtml:25
+#: ../application/cars.schmolck.de.localhost/module/content/static/location/view.phtml:26
 msgid "Search"
 msgstr "Suche"
 
-#: ../application/cars.schmolck.de.localhost/module/content/static/location/view.phtml:33
+#: ../application/cars.schmolck.de.localhost/module/content/static/location/view.phtml:34
 msgid "Schmolck Group"
 msgstr "Unternehmensgruppe Schmolck"
 
-#: ../application/cars.schmolck.de.localhost/module/content/static/location/view.phtml:36
+#: ../application/cars.schmolck.de.localhost/module/content/static/location/view.phtml:37
 msgid "open in a larger map"
 msgstr "in großer Ansicht öffnen"
 
@@ -82,29 +94,32 @@ msgstr "Verzeihung..."
 msgid "...an error occured!"
 msgstr "...es hat sich ein Fehler eingeschlichen!"
 
-#: ../application/cars.schmolck.de.localhost/template/2013/html.phtml:26
+#: ../application/cars.schmolck.de.localhost/template/2013.03/html.phtml:28
 msgid "Switch to 'Schmolck news'"
 msgstr "Zu 'Schmolck news' wechseln"
 
-#: ../application/cars.schmolck.de.localhost/template/2013/html.phtml:27
+#: ../application/cars.schmolck.de.localhost/template/2013.03/html.phtml:29
 msgid "news"
 msgstr "news"
 
-#: ../application/cars.schmolck.de.localhost/template/2013/html.phtml:31
+#: ../application/cars.schmolck.de.localhost/template/2013.03/html.phtml:33
 msgid "You are already here"
 msgstr "Sie befinden sich bereits hier"
 
-#: ../application/cars.schmolck.de.localhost/template/2013/html.phtml:32
+#: ../application/cars.schmolck.de.localhost/template/2013.03/html.phtml:34
 msgid "cars"
 msgstr "cars"
 
-#: ../application/cars.schmolck.de.localhost/template/2013/html.phtml:62
+#: ../application/cars.schmolck.de.localhost/template/2013.03/html.phtml:64
 msgid "Home"
 msgstr "Startseite"
 
-#: ../application/cars.schmolck.de.localhost/template/2013/_init.php:38
+#: ../application/cars.schmolck.de.localhost/template/2013.03/_init.php:46
 msgid "Language"
 msgstr "Sprache"
+
+#~ msgid "Reset"
+#~ msgstr "Reset"
 
 #~ msgid "Route Planner"
 #~ msgstr "Routenplaner"
