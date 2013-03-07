@@ -21,15 +21,15 @@ $objCore->strMessage = strip_tags($_POST['message']);
 if ($objCore->strSend != '') {
 	// - name
 	if (trim($this->strName) == '') {
-		$objCore->strNameError = $objCore->getHelperTranslator()->_("Please enter your name name");		
-	}	
+		$objCore->strNameError = $objCore->getHelperTranslator()->_("Please enter your name name");
+	}
 	// - email
 	if (!Schmolck_Tool_Validate::checkEmail($objCore->strEmail)) {
 		$objCore->strEmailError = $objCore->getHelperTranslator()->_("Please enter a valid e-mail address");
 	}
 	// - message
 	if (trim($this->strMessage) == '') {
-		$objCore->strMessageError = $objCore->getHelperTranslator()->_("Please enter your message here");		
+		$objCore->strMessageError = $objCore->getHelperTranslator()->_("Please enter your message here");
 	}
 }
 
