@@ -56,9 +56,7 @@ class Schmolck_Framework_Core {
 	public function __get($strKey) {
 		if (array_key_exists($strKey, $this->_arrActionValues)) {
 			return $this->_arrActionValues[$strKey];
-		} else {
-			Schmolck_Tool_Debug::warning("Action value '{$strKey}' not defined!");
-		}
+		} 
 	}
 	
 	/**

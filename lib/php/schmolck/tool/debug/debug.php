@@ -15,7 +15,7 @@ class Schmolck_Tool_Debug
 	 */
 	static public function emergency($strMessage)
 	{
-		self::_WriteMessage('EMERGENCY', self::_GetCallingClass().'->'.self::_GetCallingFunction().'(): '.$strMessage, 0);
+		self::_WriteMessage('EMERGENCY', $strMessage, 0);
 	}
 
 	/**
@@ -25,7 +25,7 @@ class Schmolck_Tool_Debug
 	 */
 	static public function alert($strMessage)
 	{
-		self::_WriteMessage('ALERT', self::_GetCallingClass().'->'.self::_GetCallingFunction().'(): '.$strMessage, 1);
+		self::_WriteMessage('ALERT', $strMessage, 1);
 	}
 
 	/**
@@ -35,7 +35,7 @@ class Schmolck_Tool_Debug
 	 */
 	static public function critical($strMessage)
 	{
-		self::_WriteMessage('CRITICAL', self::_GetCallingClass().'->'.self::_GetCallingFunction().'(): '.$strMessage, 2);
+		self::_WriteMessage('CRITICAL', $strMessage, 2);
 	}
 
 	/**
@@ -45,7 +45,7 @@ class Schmolck_Tool_Debug
 	 */
 	static public function error($strMessage)
 	{
-		self::_WriteMessage('ERROR', self::_GetCallingClass().'->'.self::_GetCallingFunction().'(): '.$strMessage, 3);
+		self::_WriteMessage('ERROR', $strMessage, 3);
 	}
 
 	/**
@@ -55,7 +55,7 @@ class Schmolck_Tool_Debug
 	 */
 	static public function warning($strMessage)
 	{
-		self::_WriteMessage('WARNING', self::_GetCallingClass().'->'.self::_GetCallingFunction().'(): '.$strMessage, 4);
+		self::_WriteMessage('WARNING', $strMessage, 4);
 	}
 
 	/**
@@ -75,7 +75,7 @@ class Schmolck_Tool_Debug
 	 */
 	static public function info($strMessage)
 	{
-		self::_WriteMessage('INFO', self::_GetCallingClass().'->'.self::_GetCallingFunction().'(): '.$strMessage, 6);
+		self::_WriteMessage('INFO', $strMessage, 6);
 	}
 
 	/**
@@ -129,7 +129,7 @@ class Schmolck_Tool_Debug
 		/*
 		 * MESSAGE
 		 */
-		$strLogMessage .= "{$strType}: {$strMessage}\n";
+		$strLogMessage .= "{$strType}: {$strMessage}";
 
 		/*
 		 * OUTPUT
