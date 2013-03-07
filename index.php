@@ -14,7 +14,7 @@
  */
 function __autoload($strClass) {
 	// - prepare
-	$strFilePath = 'lib/php';
+	$strFilePath = 'lib';
 
 	// - parse
 	$arrParts = explode('_', $strClass);
