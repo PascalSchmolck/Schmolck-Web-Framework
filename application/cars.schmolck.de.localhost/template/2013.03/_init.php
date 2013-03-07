@@ -5,9 +5,9 @@
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
 $strTemplatePath = $objCore->getHelperApplication()->getTemplatePath();
-$objCore->registerViewJS('lib/js/schmolck/framework/ajax/ajax.js');
-$objCore->registerViewJS('lib/js/schmolck/framework/api/element.js');
-$objCore->registerViewJS('lib/js/schmolck/framework/mail/link.js');
+$objCore->registerLayoutScript('lib/js/schmolck/framework/ajax/ajax.js');
+$objCore->registerLayoutScript('lib/js/schmolck/framework/api/element.js');
+$objCore->registerLayoutScript('lib/js/schmolck/framework/mail/link.js');
 
 /*
  * TITLE

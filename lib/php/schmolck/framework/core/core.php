@@ -10,9 +10,8 @@
 class Schmolck_Framework_Core {
 	
 	protected $_bLayoutRendering = true;
-	protected $_arrViewStyles = array();
-	protected $_arrViewLESS = array();
-	protected $_arrViewScripts = array();
+	protected $_arrLayoutStyles = array();
+	protected $_arrLayoutScripts = array();
 	protected $_arrViewScriptReplace  = array();
 	protected $_arrHelpers = array();
 	protected $_arrActionValues = array();
@@ -170,63 +169,63 @@ class Schmolck_Framework_Core {
 	}
 
 	/**
-	 * Register single LESS file
+	 * Register single layout style file
 	 * 
 	 * @param string $file
 	 * @throws Exception
 	 */
-	public function registerViewLESS($file) {
+	public function registerLayoutStyle($file) {
 		if (file_exists($file)) {
-			$this->_arrViewLESS[] = $file;
-			$this->_arrViewLESS = array_unique($this->_arrViewLESS);
+			$this->_arrLayoutStyles[] = $file;
+			$this->_arrLayoutStyles = array_unique($this->_arrLayoutStyles);
 		} else {
 			throw new Exception("Registration of LESS file '{$file}' failed in {$this->_strTrace}");
 		}
 	}
 
 	/**
-	 * Register multiple LESS files
+	 * Register multiple layout style files
 	 * 
 	 * @param array $arrFiles
 	 */
-	public function registerViewLESSs($arrFiles) {
+	public function registerLayoutStyles($arrFiles) {
 		if (count($arrFiles) > 0) {
 			foreach ($arrFiles as $strFile) {
-				$this->registerViewLESS($strFile);
+				$this->registerLayoutStyle($strFile);
 			}
 		}
 	}
 
 	/**
-	 * Register single JS file
+	 * Register single layout script file
 	 * 
 	 * @param string $file
 	 * @throws Exception
 	 */
-	public function registerViewJS($file) {
+	public function registerLayoutScript($file) {
 		if (file_exists($file)) {
-			$this->_arrViewScripts[] = $file;
-			$this->_arrViewScripts = array_unique($this->_arrViewScripts);
+			$this->_arrLayoutScripts[] = $file;
+			$this->_arrLayoutScripts = array_unique($this->_arrLayoutScripts);
 		} else {
 			throw new Exception("Registration of scripts file '{$file}' failed in {$this->_strTrace}");
 		}
 	}
 
 	/**
-	 * Register multiple JS files
+	 * Register multiple layout script files
 	 * 
 	 * @param array $arrFiles
 	 */
-	public function registerViewJSs($arrFiles) {
+	public function registerLayoutScripts($arrFiles) {
 		if (count($arrFiles) > 0) {
 			foreach ($arrFiles as $strFile) {
-				$this->registerViewJS($strFile);
+				$this->registerLayoutScript($strFile);
 			}
 		}
 	}
 	
 	/**
-	 * Register JS replace strings
+	 * Register script replace strings
 	 * 
 	 * @param array $arrReplace
 	 */
@@ -395,9 +394,9 @@ class Schmolck_Framework_Core {
 
 			if (file_exists($strFile)) {
 				// - include styles
-				$this->registerViewLESS("{$strPath}/styles.less");
+				$this->registerLayoutStyle("{$strPath}/styles.less");
 				// - include scripts
-				$this->registerViewJS("{$strPath}/scripts.js");
+				$this->registerLayoutScript("{$strPath}/scripts.js");
 				// - include layout
 				require($strFile);
 			} else {
@@ -455,14 +454,14 @@ class Schmolck_Framework_Core {
 	}
 
 	/**
-	 * Get core LESS file
+	 * Get view style file
 	 */
-	public function getCoreLESSFile() {
+	public function getViewStyleFile() {
 		/*
 		 * CHECK
 		 */
 		// - nothing to do if no styles registered
-		if (count($this->_arrViewLESS) < 1) {
+		if (count($this->_arrLayoutStyles) < 1) {
 			return;
 		}
 
@@ -470,7 +469,7 @@ class Schmolck_Framework_Core {
 		 * PROCESSING
 		 */
 		// - optimize all styles into one string
-		foreach ($this->_arrViewLESS as $strFile) {
+		foreach ($this->_arrLayoutStyles as $strFile) {
 			if (file_exists($strFile)) {
 				// - do not minify on development environment
 				if (APPLICATION_ENVIRONMENT == 'development') {
@@ -492,14 +491,14 @@ class Schmolck_Framework_Core {
 	}
 
 	/**
-	 * Get core JS file
+	 * Get view script file
 	 */
-	public function getCoreJSFile() {
+	public function getViewScriptFile() {
 		/*
 		 * CHECK
 		 */
 		// - nothing to do if no scripts registered
-		if (count($this->_arrViewScripts) < 1) {
+		if (count($this->_arrLayoutScripts) < 1) {
 			return;
 		}
 
@@ -507,7 +506,7 @@ class Schmolck_Framework_Core {
 		 * PROCESSING
 		 */
 		// - optimize all scripts into one string
-		foreach ($this->_arrViewScripts as $strFile) {
+		foreach ($this->_arrLayoutScripts as $strFile) {
 			if (file_exists($strFile)) {
 				if (APPLICATION_ENVIRONMENT == 'development') {
 					$strCombinedJs .= "\n\n/* {$strFile} */\n\n" . file_get_contents($strFile);
