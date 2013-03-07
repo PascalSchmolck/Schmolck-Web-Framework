@@ -72,7 +72,6 @@ class Schmolck_Framework_Core {
 		$this->_arrHelpers['translator'] = new Schmolck_Framework_Helper_Translator($this);
 		$this->_arrHelpers['cache'] = new Schmolck_Framework_Helper_Cache($this);
 		$this->_arrHelpers['html'] = new Schmolck_Framework_Helper_Html($this);
-		$this->_arrHelpers['ajax'] = new Schmolck_Framework_Helper_Ajax($this);
 		$this->_arrHelpers['api'] = new Schmolck_Framework_Helper_Api($this);
 	}
 
@@ -128,15 +127,6 @@ class Schmolck_Framework_Core {
 	 */
 	public function &getHelperHtml() {
 		return $this->_arrHelpers['html'];
-	}
-
-	/**
-	 * Get ajax helper
-	 * 
-	 * @return \Schmolck_Framework_Helper_Ajax
-	 */
-	public function &getHelperAjax() {
-		return $this->_arrHelpers['ajax'];
 	}
 
 	/**
@@ -534,15 +524,6 @@ class Schmolck_Framework_Core {
 	}
 
 	/**
-	 * Check if currently in AJAX call
-	 * 
-	 * @return boolean
-	 */
-	public function checkAjaxCall() {
-		return (count($_POST) > 0 and isset($_POST['ajax']));
-	}
-
-	/**
 	 * Set layout rendering true or false
 	 * 
 	 * @param boolean $bFlag
@@ -610,7 +591,7 @@ class Schmolck_Framework_Core {
 		/*
 		 * CHECK
 		 */
-		if ($this->checkAjaxCall()) {
+		if ($this->getHelperApi()->checkAjaxCall()) {
 			$this->setLayoutRendering(false);
 		}
 		/*
