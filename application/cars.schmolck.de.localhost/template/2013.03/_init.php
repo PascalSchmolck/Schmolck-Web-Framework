@@ -41,6 +41,5 @@ if ($objCore->getHelperHtml()->getPageTitle() != '') {
 //$htmlNavbar = $objNavbar->getHtml();
 
 
-$objLangSwitcher = new Schmolck_Framework_Gui_Dropdown_Langswitcher($this, 'langswitcher');
-$htmlLangSwitcher = $objLangSwitcher->getHtml();
-$htmlLangSwitcherTitle = $objCore->getHelperTranslator()->_("Language");
+//$objLangSwitcher = new Schmolck_Framework_Gui_Dropdown_Langswitcher($this, 'langswitcher');
+//$htmlLangSwitcher = $objLangSwitcher->getHtml();

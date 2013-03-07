@@ -33,6 +33,9 @@ if ($objCore->strSend != '') {
 	}
 }
 
+/*
+ * SCRIPT
+ */
 $objCore->registerViewScriptReplace(array(
 	'SchmolckID' => $this->strId,
 	'SchmolckURI' => $this->strUri,

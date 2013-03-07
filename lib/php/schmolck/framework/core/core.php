@@ -8,11 +8,11 @@
  * @copyright 2013
  */
 class Schmolck_Framework_Core {
-	
+
 	protected $_bLayoutRendering = true;
 	protected $_arrLayoutStyles = array();
 	protected $_arrLayoutScripts = array();
-	protected $_arrViewScriptReplace  = array();
+	protected $_arrViewScriptReplace = array();
 	protected $_arrHelpers = array();
 	protected $_arrActionValues = array();
 	protected $_strModule;
@@ -24,7 +24,7 @@ class Schmolck_Framework_Core {
 	static public function getInstance(Schmolck_Framework_Core $obj) {
 		return $obj;
 	}
-	
+
 	public function __construct() {
 		/*
 		 * PREPARATION
@@ -33,7 +33,7 @@ class Schmolck_Framework_Core {
 		$this->_initHelpers();
 		$this->_initApplication();
 	}
-	
+
 	/**
 	 * Set action value
 	 * 
@@ -75,7 +75,7 @@ class Schmolck_Framework_Core {
 		$this->_arrHelpers['ajax'] = new Schmolck_Framework_Helper_Ajax($this);
 		$this->_arrHelpers['api'] = new Schmolck_Framework_Helper_Api($this);
 	}
-	
+
 	/**
 	 * Get application helper
 	 * 
@@ -84,7 +84,7 @@ class Schmolck_Framework_Core {
 	public function &getHelperApplication() {
 		return $this->_arrHelpers['application'];
 	}
-	
+
 	/**
 	 * Get database helper
 	 * 
@@ -93,7 +93,7 @@ class Schmolck_Framework_Core {
 	public function &getHelperDatabase() {
 		return $this->_arrHelpers['database'];
 	}
-	
+
 	/**
 	 * Get optimizer helper
 	 * 
@@ -101,8 +101,8 @@ class Schmolck_Framework_Core {
 	 */
 	public function &getHelperOptimizer() {
 		return $this->_arrHelpers['optimizer'];
-	}	
-	
+	}
+
 	/**
 	 * Get translator helper
 	 * 
@@ -110,7 +110,7 @@ class Schmolck_Framework_Core {
 	 */
 	public function &getHelperTranslator() {
 		return $this->_arrHelpers['translator'];
-	}	
+	}
 
 	/**
 	 * Get cache helper
@@ -119,8 +119,8 @@ class Schmolck_Framework_Core {
 	 */
 	public function &getHelperCache() {
 		return $this->_arrHelpers['cache'];
-	}	
-	
+	}
+
 	/**
 	 * Get HTML helper
 	 * 
@@ -128,8 +128,8 @@ class Schmolck_Framework_Core {
 	 */
 	public function &getHelperHtml() {
 		return $this->_arrHelpers['html'];
-	}	
-	
+	}
+
 	/**
 	 * Get ajax helper
 	 * 
@@ -137,8 +137,8 @@ class Schmolck_Framework_Core {
 	 */
 	public function &getHelperAjax() {
 		return $this->_arrHelpers['ajax'];
-	}	
-	
+	}
+
 	/**
 	 * Get api helper
 	 * 
@@ -146,7 +146,7 @@ class Schmolck_Framework_Core {
 	 */
 	public function &getHelperApi() {
 		return $this->_arrHelpers['api'];
-	}		
+	}
 
 	/**
 	 * Initialize application settings
@@ -223,7 +223,7 @@ class Schmolck_Framework_Core {
 			}
 		}
 	}
-	
+
 	/**
 	 * Register script replace strings
 	 * 
@@ -532,7 +532,7 @@ class Schmolck_Framework_Core {
 	public function getBaseUrl() {
 		return $this->getHelperApplication()->getBaseUrl();
 	}
-	
+
 	/**
 	 * Check if currently in AJAX call
 	 * 
