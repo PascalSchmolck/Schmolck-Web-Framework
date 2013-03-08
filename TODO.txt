@@ -1,11 +1,14 @@
-2013.02.28
+2013.03.08
 **********
-[ ] [CONTACT] implement contact form
-[ ] [CARS] implement database structure
+[x] [CARS] implement database structure
 [ ] [CARS] implement database loader (CSV->DB)
 [ ] [CARS] implement list view
 [ ] [CARS] implement detail view
 [ ] [CARS] implement statistic 
+
+2013.02.28
+**********
+[x] [CONTACT] implement contact form
 
 2013.02.28
 **********

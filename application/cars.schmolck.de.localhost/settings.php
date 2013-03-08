@@ -65,7 +65,7 @@ define('MODULE_EXCEPTION', 'exception');
 define('DATABASE_HOST', 'localhost');
 define('DATABASE_NAME', 'pascal_cars.schmolck.de');
 define('DATABASE_USERNAME', 'pascal');
-define('DATABASE_PASSWORD', '');
+define('DATABASE_PASSWORD', 'test');
 
 /*
  * MAIL

@@ -1,0 +1,58 @@
+<?php
+/*
+ * INITIALISATION
+ */
+$objCore = Schmolck_Framework_Core::getInstance($this);
+$objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Contact"));
+
+/*
+  <?=file_get_contents($objCore->getBaseUrl() . 'contact/element/form'); ?>
+ */
+?>
+<div class="ninecol">
+	<div class="content">
+		<h1>
+			<?= $objCore->getHelperTranslator()->_("Cars") ?>
+		</h1>
+		<strong>
+			Database Connection
+		</strong>:
+		<?php
+		//echo $objCore->getHelperDatabase()->checkConnection();
+		
+//		echo DATABASE_NAME;
+//		exit();
+		
+		$resource = $objCore->getHelperDatabase()->query('SELECT * FROM  `mod_cars`');
+		
+		while ($arrRow = mysql_fetch_assoc($resource)) {
+			echo $arrRow['FGC'];
+			echo $arrRow['FGT'];
+			echo $arrRow['KNR'];
+			echo $arrRow['PS'];
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		?>
+	</div>
+</div>
+<div class="threecol last">
+	<div class="sidebar">
+		<div id="email">
+			<script>
+				Schmolck_Framework_Api_Element({
+					id: 'email',
+					url: 'api/contact/form'
+				});
+			</script>
+		</div>
+	</div>
+</div>
