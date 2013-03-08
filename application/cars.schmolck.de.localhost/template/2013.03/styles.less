@@ -191,6 +191,47 @@ ul {
 	}
 }
 //------------------------------------------------------------------------------
+// Classes
+//------------------------------------------------------------------------------
+.infos{
+	background-color: #f1f1f1;
+	padding: 15px;
+	color: #333;
+}
+.notes{
+	background-color: #CCDFFF;
+	color: #000000;
+	padding: 10px;
+}
+.warnings{
+	background-color: #FFF3CC;
+	color: #000000;
+	padding: 10px;
+}
+.errors{
+	background-color: #FFCCD1;
+	color: #000000;
+	padding: 10px;
+}
+.critical{
+	background-color: #FF8C97;
+	color: #000000;
+	padding: 10px;
+}
+.padding {
+	padding: 0 20px;
+}
+.loading {
+	min-height: 64px;
+	min-width: 64px;
+	background-image: url('../data/images/loading.gif');
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.error{
+	color: red;
+}
+//------------------------------------------------------------------------------
 // Page Layout
 //------------------------------------------------------------------------------
 body {
@@ -338,43 +379,51 @@ body {
 	}
 }
 //------------------------------------------------------------------------------
-// Classes
+// Module Layout
 //------------------------------------------------------------------------------
-.infos{
-	background-color: #f1f1f1;
-	padding: 15px;
-	color: #333;
-}
-.notes{
-	background-color: #CCDFFF;
-	color: #000000;
-	padding: 10px;
-}
-.warnings{
-	background-color: #FFF3CC;
-	color: #000000;
-	padding: 10px;
-}
-.errors{
-	background-color: #FFCCD1;
-	color: #000000;
-	padding: 10px;
-}
-.critical{
-	background-color: #FF8C97;
-	color: #000000;
-	padding: 10px;
-}
-.padding {
-	padding: 0 20px;
-}
-.loading {
-	min-height: 64px;
-	min-width: 64px;
-	background-image: url('../data/images/loading.gif');
-	background-repeat: no-repeat;
-	background-position: center center;
-}
-.error{
-	color: red;
+#cars {
+	.list {
+		width: 100%;
+		background-color: #f1f1f1;
+		.item {
+			padding: 15px 20px;
+			&.odd {
+				background-color: #e1e1e1;
+			}
+		}
+		.title {
+			font-size: 135%;
+			font-weight: bold;
+			padding-bottom: 20px;
+		}
+		.image {
+			float: left;
+			width: 150px;
+			padding-right: 20px;
+		}
+		.infos1 {
+			float: left;
+			font-weight: bold;
+			padding-right: 20px;
+			padding-bottom: 20px;
+		}
+		.infos2 {
+			float: left;
+			padding-right: 20px;
+			padding-bottom: 20px;
+		}
+		.infos3 {
+			float: left;
+			padding-right: 20px;
+			padding-bottom: 20px;
+		}
+		.price {
+			float: right;
+			font-size: 175%;
+		}
+		.clearer {
+			clear: both;
+			height: 0;
+		}
+	}
 }

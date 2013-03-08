@@ -14,34 +14,113 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cont
 		<h1>
 			<?= $objCore->getHelperTranslator()->_("Cars") ?>
 		</h1>
-		<strong>
-			Database Connection
-		</strong>:
 		<?php
 		//echo $objCore->getHelperDatabase()->checkConnection();
-		
 //		echo DATABASE_NAME;
 //		exit();
-		
-		$resource = $objCore->getHelperDatabase()->query('SELECT * FROM  `mod_cars`');
-		
-		while ($arrRow = mysql_fetch_assoc($resource)) {
-			echo $arrRow['FGC'];
-			echo $arrRow['FGT'];
-			echo $arrRow['KNR'];
-			echo $arrRow['PS'];
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
+//		$resource = $objCore->getHelperDatabase()->query('SELECT * FROM  `mod_cars`');
+
+//		while ($arrRow = mysql_fetch_assoc($resource)) {
+//			echo $arrRow['FGC'];
+//			echo $arrRow['FGT'];
+//			echo $arrRow['KNR'];
+//			echo $arrRow['PS'];
+//		}
 		?>
+
+		<div id="cars">
+			<div class="list">
+				<div class="item">
+					<div class="title">
+						Mercedes-Benz 113 CDI
+					</div>
+					<div class="data">
+						<div class="image">
+							<img src="http://i.ebayimg.com/00/$T2eC16hHJF8E9nnC9c4hBRHirJBcjQ~~_18.JPG">
+						</div>
+						<div class="infos1">
+							Kastenwagen <br>
+							Gebrauchtfahrzeug <br>
+						</div>
+						<div class="infos2">
+							EZ 04/2011 <br>
+							18.500 km <br>
+							100 kW (136 PS) <br>
+						</div>
+						<div class="infos3">
+							Diesel <br>
+							Schaltgetriebe <br>
+						</div>
+						<div class="price">
+							22.491 EUR
+						</div>
+						<div class="clearer">
+							&nbsp;
+						</div>
+					</div>
+				</div>
+				<div class="item odd">
+					<div class="title">
+						Mercedes-Benz 113 CDI
+					</div>
+					<div class="data">
+						<div class="image">
+							<img src="http://i.ebayimg.com/00/$T2eC16hHJF8E9nnC9c4hBRHirJBcjQ~~_18.JPG">
+						</div>
+						<div class="infos1">
+							Kastenwagen <br>
+							Gebrauchtfahrzeug <br>
+						</div>
+						<div class="infos2">
+							EZ 04/2011 <br>
+							18.500 km <br>
+							100 kW (136 PS) <br>
+						</div>
+						<div class="infos3">
+							Diesel <br>
+							Schaltgetriebe <br>
+						</div>
+						<div class="price">
+							22.491 EUR
+						</div>
+						<div class="clearer">
+							&nbsp;
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="title">
+						Mercedes-Benz 113 CDI
+					</div>
+					<div class="data">
+						<div class="image">
+							<img src="http://i.ebayimg.com/00/$T2eC16hHJF8E9nnC9c4hBRHirJBcjQ~~_18.JPG">
+						</div>
+						<div class="infos1">
+							Kastenwagen <br>
+							Gebrauchtfahrzeug <br>
+						</div>
+						<div class="infos2">
+							EZ 04/2011 <br>
+							18.500 km <br>
+							100 kW (136 PS) <br>
+						</div>
+						<div class="infos3">
+							Diesel <br>
+							Schaltgetriebe <br>
+						</div>
+						<div class="price">
+							22.491 EUR
+						</div>
+						<div class="clearer">
+							&nbsp;
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</div>
 </div>
 <div class="threecol last">
