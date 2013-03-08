@@ -23,7 +23,7 @@ class Schmolck_Tool_File_Po extends Schmolck_Tool_File {
 					$next = "msgstr";
 				} else {
 					if (preg_match("/\"/", $line)) {
-						$msgstr .= trim(str_replace("\"", "", $line));
+						$msgstr .= str_replace("\"", "", $line);
 					}
 				}
 			} elseif ($next == "msgstr") {
