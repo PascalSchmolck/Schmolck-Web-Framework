@@ -66,23 +66,23 @@ msgstr "Language / Sprache"
 msgid "Contact"
 msgstr "Kontakt"
 
-#: ../application/cars.schmolck.de.localhost/module/content/static/contact/output.phtml:29
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/output.phtml:28
 msgid "Location"
 msgstr "Anfahrt"
 
-#: ../application/cars.schmolck.de.localhost/module/content/static/contact/output.phtml:36
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/output.phtml:35
 msgid "Tel +49 7641 / 4602-0"
 msgstr "Tel +49 7641 / 4602-0"
 
-#: ../application/cars.schmolck.de.localhost/module/content/static/contact/output.phtml:38
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/output.phtml:37
 msgid "Fax +49 7641 / 4602-80"
 msgstr "Fax +49 7641 / 4602-80"
 
-#: ../application/cars.schmolck.de.localhost/module/content/static/contact/output.phtml:40
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/output.phtml:39
 msgid "Mail"
 msgstr "Mail"
 
-#: ../application/cars.schmolck.de.localhost/module/content/static/contact/output.phtml:51
+#: ../application/cars.schmolck.de.localhost/module/content/static/contact/output.phtml:50
 msgid "You can post your questions to our team in the following languages​​"
 msgstr "Sie können Ihre Fragen an unser Team in folgenden Sprachen stellen"
 
@@ -114,6 +114,16 @@ msgstr "Verzeihung..."
 msgid "...an error occured!"
 msgstr "...es hat sich ein Fehler eingeschlichen!"
 
+#: ../application/cars.schmolck.de.localhost/module/exception/index/index/output.phtml:11
+msgid "If this error occurs repeatedly, we would appreciate a short message."
+msgstr ""
+"Sollte dieser Fehler mehrmals auftreten, würden wir uns über eine kurze "
+"Benachrichtigung freuen."
+
+#: ../application/cars.schmolck.de.localhost/module/exception/index/index/output.phtml:15
+msgid "Error message"
+msgstr "Fehlermeldung"
+
 #: ../application/cars.schmolck.de.localhost/template/2013.03/html.phtml:25
 msgid "Switch to 'Schmolck news'"
 msgstr "Zu 'Schmolck news' wechseln"
@@ -133,6 +143,10 @@ msgstr "cars"
 #: ../application/cars.schmolck.de.localhost/template/2013.03/html.phtml:61
 msgid "Home"
 msgstr "Startseite"
+
+#: ../application/cars.schmolck.de.localhost/template/2013.03/html.phtml:67
+msgid "Cars"
+msgstr "Fahrzeuge"
 
 #~ msgid "Contact Form"
 #~ msgstr "Kontaktformular"
