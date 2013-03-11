@@ -3,13 +3,13 @@
  * INITIALISATION
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
-$objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Contact"));
+$objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cars"));
 
 /*
   <?=file_get_contents($objCore->getBaseUrl() . 'contact/element/form'); ?>
  */
 ?>
-<div class="twelvecol last">
+<div class="ninecol last">
 	<div class="content">
 		<h1>
 			<?= $objCore->getHelperTranslator()->_("Cars") ?>
@@ -21,14 +21,13 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cont
 			<script>
 				Schmolck_Framework_Api_Element({
 					id: 'cars',
-					url: 'api/cars/list'
+					url: 'api/cars/overview',
+					data: '<?= http_build_query($_GET) ?>&url=' + window.location
 				});
 			</script>
 		</div>
 	</div>
 </div>
-<?php
-/*
 <div class="threecol last">
 	<div class="sidebar">
 		<h2>
@@ -44,4 +43,3 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cont
 		</div>
 	</div>
 </div>
-*/

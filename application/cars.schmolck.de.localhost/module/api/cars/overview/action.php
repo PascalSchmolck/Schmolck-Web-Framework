@@ -6,11 +6,26 @@
 $objCore = Schmolck_Framework_Core::getInstance($this);
 $objCore->strId = $objCore->getHelperApi()->getId();
 $objCore->strUri = $objCore->getHelperApplication()->getRequestUri();
+$objCore->strStyleClass = $objCore->getHelperApi()->getStyleClass();
+
+/*
+ * PARAMETER
+ */
+// - url
+$objCore->strParameterUrl = strip_tags($_POST['url']);
+if ($objCore->strParameterUrl == '') {
+	$objCore->strParameterUrl = $objCore->strUri;
+}
+// - id
+$objCore->strParameterId = trim(strip_tags($_POST['id']));
+if ($objCore->strParameterId == '') {
+	$objCore->strParameterId = trim(strip_tags($_GET['id']));
+}
 
 /*
  * DATA
  */
-$resource = $objCore->getHelperDatabase()->query('SELECT * FROM  `mod_cars` LIMIT 0,30');
+$resource = $objCore->getHelperDatabase()->query('SELECT * FROM  `mod_cars` LIMIT 0,10');
 while ($arrRow = mysql_fetch_assoc($resource)) {
 	/*
 	 * PREPARATION

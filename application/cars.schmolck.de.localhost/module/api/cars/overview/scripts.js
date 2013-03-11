@@ -1,10 +1,11 @@
 $(document).ready(function() {			
 	/*
-	* ACTION
+	* LINKS
 	*/
-	$('#SchmolckID input[type=submit]').click(function() {
-		SchmolckID_send();
-		return false;
+	$('#SchmolckID .item').each(function() {
+		$(this).click(function() {
+			window.location.href = $(this).data('link');
+		});
 	});
 		
 	/*

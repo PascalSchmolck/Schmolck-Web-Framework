@@ -30,7 +30,7 @@ foreach($arrQueryParameter as $entry){
 			$strAction = $entry;
 			break;
 		default:
-			if($counter % 2 != 0){
+			if($nCounter % 2 != 0){
 				$key = $entry;
 			}else{
 				$value = $entry;

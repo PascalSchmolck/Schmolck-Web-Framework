@@ -8,18 +8,34 @@ $nCounter = 0;
 /*
  * OUTPUT
  */
+// - detail view
+if ($objCore->strParameterId != '') {
+	?>
+	<div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
+		<script>
+			Schmolck_Framework_Api_Element({
+				id: '<?= $objCore->strId ?>',
+				url: 'api/cars/detail',
+				data: '<?= http_build_query(array_merge($_GET, $_POST)) ?>'
+			});
+		</script>
+	</div>
+	<?php
+	return;
+}
+// - list view
 ?>
-<div id="<?= $objCore->strId ?>">
+<div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
 	<div class="list">
 		<? foreach ($objCore->arrCars as $arrCar) : ?>		
 			<? ($nCounter % 2 == 1) ? $strOdd = 'odd' : $strOdd = ''; ?> 
-			<div class="item <?= $strOdd ?>">
+			<div class="item <?= $strOdd ?>" data-link="<?= $objCore->strParameterUrl ?>/id/<?= $arrCar['KNR'] ?>">
 				<div class="title">
 					<?= $arrCar['name'] ?>
 				</div>
 				<div class="data">
 					<div class="image">
-						<img src="<?= $arrCar['image'] ?>">
+	<!--						<img src="<?= $arrCar['image'] ?>">-->
 					</div>
 					<div class="infos1">
 						<?= $arrCar['KAT'] ?> <br>
@@ -44,4 +60,5 @@ $nCounter = 0;
 			<? $nCounter++ ?>
 		<? endforeach; ?>
 	</div>
+	<?= $objCore->getHelperScripts()->renderViewScripts() ?>
 </div>
