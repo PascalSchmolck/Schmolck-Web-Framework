@@ -238,8 +238,8 @@ body {
 	background-color: @color-site-background;
 	a:hover {
 		img {
-			opacity: 0.90;
-			filter:alpha(opacity=90)
+			opacity: 0.75;
+			filter:alpha(opacity=75)
 		}
 	}
 }
@@ -392,6 +392,11 @@ body {
 			&.odd {
 				background-color: #e1e1e1;
 			}
+			&:hover {
+				cursor: pointer;
+				opacity: 0.75;
+				filter:alpha(opacity=75);
+			}
 		}
 		.title {
 			font-size: 135%;
@@ -461,6 +466,12 @@ body {
 			max-width: 100%;
 			height: auto;
 			padding-right: 20px;
+
+			&:hover {
+				cursor: pointer;
+				opacity: 0.75;
+				filter:alpha(opacity=75);
+			}
 		}
 		.infos1 {
 			font-weight: bold;
