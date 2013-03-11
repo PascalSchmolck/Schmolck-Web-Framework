@@ -336,14 +336,14 @@ body {
 		padding: 5px 0;
 	}
 	.content {
-		padding: 0 20px;
+		@media only screen, handheld {
+			padding: 0 20px;
+		}
 	}
 	.sidebar {
-		@media only print {
-			display: none;
-			visibility: none;
-		} 	
-		text-align: justify;
+		@media only screen, handheld {
+			padding: 0 20px;
+		}
 	}
 }
 #footer {

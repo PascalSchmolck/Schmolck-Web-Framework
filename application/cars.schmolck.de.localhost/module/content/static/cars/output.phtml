@@ -27,16 +27,30 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cars
 </div>
 <div class="threecol last">
 	<div class="sidebar">
-		<h2>
-			<?= $objCore->getHelperTranslator()->_("Request") ?>
-		</h2>
-		<div id="email" class="loading">
-			<script>
-				Schmolck_Framework_Helper_Api({
-					id: 'email',
-					url: 'api/contact/form'
-				});
-			</script>
-		</div>
+
+		<h1>
+			<?= $objCore->getHelperTranslator()->_("Contact") ?>
+		</h1>
+		<h3>
+			Schmolck GmbH &amp; Co. KG
+		</h3>
+		<p>
+			<a href="content/static/location" title="<?= $objCore->getHelperTranslator()->_("Location") ?>">
+				Am Elzdamm 2
+				<br>
+				79312 Emmendingen
+			</a>		
+		</p>
+		<p>
+			<?= $objCore->getHelperTranslator()->_("Tel +49 7641 / 4602-0") ?>
+			<br>
+			<?= $objCore->getHelperTranslator()->_("Fax +49 7641 / 4602-80") ?>
+			<br>
+			<?= $objCore->getHelperTranslator()->_("Mail") ?>
+			<a href="javascript:Schmolck_Framework_Mail_Link('info.emmendingen', 'schmolck.de');">
+				Info Emmendingen
+			</a>
+		</p>
+
 	</div>
 </div>
