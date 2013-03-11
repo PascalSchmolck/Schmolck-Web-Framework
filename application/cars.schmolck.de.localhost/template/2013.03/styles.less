@@ -152,6 +152,7 @@ label {
 		color: darkorange;
 		font-weight: normal;
 		float: right;
+		font-size: 95%;
 	}	
 }
 hr {
@@ -193,6 +194,18 @@ ul {
 //------------------------------------------------------------------------------
 // Classes
 //------------------------------------------------------------------------------
+.print {
+	@media only screen {
+		visibility:hidden;
+		display: none;
+	}
+}
+.screen {
+	@media only print {
+		visibility:hidden;
+		display: none;
+	}
+}
 .infos{
 	background-color: #f1f1f1;
 	padding: 15px;
