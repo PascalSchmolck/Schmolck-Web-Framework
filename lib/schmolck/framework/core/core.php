@@ -538,6 +538,13 @@ class Schmolck_Framework_Core {
 	public function getBaseUrl() {
 		return $this->getHelperApplication()->getBaseUrl();
 	}
+	
+	public function forward($strModule, $strController, $strAction) {
+		$this->_strModule = $strModule;
+		$this->_strController = $strController;
+		$this->_strAction = $strAction;
+		$this->run();
+	}
 
 	/**
 	 * Set layout rendering true or false

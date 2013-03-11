@@ -8,22 +8,6 @@ $nCounter = 0;
 /*
  * OUTPUT
  */
-// - detail view
-if ($objCore->strParameterId != '') {
-	?>
-	<div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?> loading">
-		<script>
-			Schmolck_Framework_Helper_Api({
-				id: '<?= $objCore->strId ?>',
-				url: 'api/cars/detail',
-				data: '<?= http_build_query(array_merge($_GET, $_POST)) ?>'
-			});
-		</script>
-	</div>
-	<?php
-	return;
-}
-// - list view
 ?>
 <div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
 	<div class="list">

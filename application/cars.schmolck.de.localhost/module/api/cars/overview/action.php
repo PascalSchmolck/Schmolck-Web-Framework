@@ -23,6 +23,14 @@ if ($objCore->strParameterId == '') {
 }
 
 /*
+ * CHECK
+ */
+// - id not empty then forward to detail view
+if ($objCore->strParameterId != '') {
+	$objCore->forward('api', 'cars', 'detail');
+}
+
+/*
  * DATA
  */
 $resource = $objCore->getHelperDatabase()->query('SELECT * FROM  `mod_cars` LIMIT 0,10');

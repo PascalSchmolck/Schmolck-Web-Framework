@@ -38,15 +38,22 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 					<div class="clearer">
 						&nbsp;
 					</div>
+					<hr>
 					<div class="equipment">
-						<table>
-							<? foreach ($arrCar["equip"] as $strEquipment) : ?>
-								<tr>
-									<td><?= $strEquipment ?></td>
-								</tr>
-							<? endforeach; ?>
-						</table>
-					</div>					
+						<div class="row1">
+							<? for ($i = 0; $i < count($arrCar["equip"]) / 2; $i++) : ?>
+								<?= $arrCar["equip"][$i] ?> <br>
+							<? endfor; ?>
+						</div>
+						<div class="row2">
+							<? for ($i = 0; $i < count($arrCar["equip"]) / 2; $i++) : ?>
+								<?= $arrCar["equip"][(count($arrCar["equip"]) / 2) + $i] ?> <br>
+							<? endfor; ?>
+						</div>
+					</div>	
+					<div class="clearer">
+						&nbsp;
+					</div>
 				</div>
 			</div>
 		<? endforeach; ?>
