@@ -13,7 +13,7 @@ if ($objCore->strParameterId != '') {
 	?>
 	<div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?> loading">
 		<script>
-			Schmolck_Framework_Api_Element({
+			Schmolck_Framework_Helper_Api({
 				id: '<?= $objCore->strId ?>',
 				url: 'api/cars/detail',
 				data: '<?= http_build_query(array_merge($_GET, $_POST)) ?>'

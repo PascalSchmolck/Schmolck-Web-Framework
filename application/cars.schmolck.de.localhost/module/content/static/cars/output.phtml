@@ -16,7 +16,7 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cars
 		</h1>
 		<div id="cars" class="loading">
 			<script>
-				Schmolck_Framework_Api_Element({
+				Schmolck_Framework_Helper_Api({
 					id: 'cars',
 					url: 'api/cars/overview',
 					data: '<?= http_build_query($_GET) ?>&url=' + window.location
@@ -32,7 +32,7 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cars
 		</h2>
 		<div id="email" class="loading">
 			<script>
-				Schmolck_Framework_Api_Element({
+				Schmolck_Framework_Helper_Api({
 					id: 'email',
 					url: 'api/contact/form'
 				});
