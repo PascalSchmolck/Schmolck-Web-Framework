@@ -3,33 +3,16 @@
  * INITIALISATION
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
-$nCounter = 0;
 
 /*
  * OUTPUT
  */
 // - detail view
-if ($objCore->strParameterId != '') {
-	?>
-	<div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?> loading">
-		<script>
-			Schmolck_Framework_Api_Element({
-				id: '<?= $objCore->strId ?>',
-				url: 'api/cars/detail',
-				data: '<?= http_build_query(array_merge($_GET, $_POST)) ?>'
-			});
-		</script>
-	</div>
-	<?php
-	return;
-}
-// - list view
 ?>
 <div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
-	<div class="list">
+	<div class="detail">
 		<? foreach ($objCore->arrCars as $arrCar) : ?>		
-			<? ($nCounter % 2 == 1) ? $strOdd = 'odd' : $strOdd = ''; ?> 
-			<div class="item <?= $strOdd ?>" data-link="<?= $objCore->strParameterUrl ?>/id/<?= $arrCar['KNR'] ?>">
+			<div class="item" data-link="<?= $objCore->strParameterUrl ?>/id/<?= $arrCar['KNR'] ?>">
 				<div class="title">
 					<?= $arrCar['name'] ?>
 				</div>
@@ -55,9 +38,17 @@ if ($objCore->strParameterId != '') {
 					<div class="clearer">
 						&nbsp;
 					</div>
+					<div class="equipment">
+						<table>
+							<? foreach ($arrCar["equip"] as $strEquipment) : ?>
+								<tr>
+									<td><?= $strEquipment ?></td>
+								</tr>
+							<? endforeach; ?>
+						</table>
+					</div>					
 				</div>
 			</div>
-			<? $nCounter++ ?>
 		<? endforeach; ?>
 	</div>
 	<?= $objCore->getHelperScripts()->renderViewScripts() ?>

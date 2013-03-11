@@ -4,7 +4,7 @@
 [x] [CARS] implement database structure
 [ ] [CARS] implement database loader (CSV->DB)
 [x] [CARS] implement list view
-[ ] [CARS] implement detail view
+[x] [CARS] implement detail view
 [ ] [CARS] implement statistic 
 
 2013.02.28

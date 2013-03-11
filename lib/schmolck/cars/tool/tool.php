@@ -92,4 +92,42 @@ class Schmolck_Cars_Tool {
 		return self::IMAGE_PATH . '/' . $arrRow['KNR'] . ',1.JPG';
 	}
 
+	static public function getAusstattung($arrRow) {
+		/*
+		 * INITIALISATION
+		 */
+		$nCounter = 0;
+		$arrAusstattung = array();
+
+		/*
+		 * EXTRACTION
+		 */
+		$arrSaust = explode("|", $arrRow["SAUST"]);
+		$arrAustc = explode("|", $arrRow["AUSTC"]);
+
+		/*
+		 * PROCESSING
+		 */
+		switch ($arrRow["FABT"]) {
+			default:
+				foreach ($arrSaust as $strEntry) {
+//					$arrAusstattung[] = array(utf8_encode(trim($strEntry)));
+					$arrAusstattung[] = '&nbsp;&nbsp;&nbsp;&nbsp;' . utf8_encode(trim($strEntry));
+					$nCounter++;
+				}
+				break;
+			case "Mercedes-Benz":
+				foreach ($arrSaust as $strEntry) {
+					if (!empty($arrAustc[$nCounter]) or !empty($strEntry)) {
+//						$arrAusstattung[] = array($arrAustc[$nCounter], utf8_encode(trim($strEntry)));
+						$arrAusstattung[] = $arrAustc[$nCounter] . ' ' . utf8_encode(trim($strEntry));
+					}
+					$nCounter++;
+				}
+				break;
+		}
+		sort($arrAusstattung);
+		return $arrAusstattung;
+	}
+
 }
