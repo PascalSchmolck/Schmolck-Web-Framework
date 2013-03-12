@@ -299,6 +299,9 @@ body {
 		padding: 30px 0;
 	} 
 	background-color: #fff;
+	.logo {		
+		width: 186px;
+	}
 	.description{
 		color: @color-site-description;
 		font-family: arial, sans-serif;
@@ -503,6 +506,9 @@ body {
 			height: 0;
 		}
 		.equipment {
+			@media print { 
+				font-size: 90%;
+			}
 			padding-top: 10px;
 			.row1 {
 				@media all and (min-width : 481px) { 
