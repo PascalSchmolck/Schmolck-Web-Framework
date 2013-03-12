@@ -27,6 +27,13 @@ error_reporting(E_ALL ^ E_NOTICE);
 define('DEBUG_LEVEL', 7);
 
 /*
+ * APPLICATION NAME
+ * 
+ * Corresponding to whatever 'application' inside the application folder
+ */
+define('APPLICATION_NAME', 'cars.schmolck.de');
+
+/*
  * APPLICATION ENVIRONMENT
  * 
  * development: on local development machine

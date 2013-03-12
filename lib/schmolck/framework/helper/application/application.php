@@ -11,17 +11,13 @@ class Schmolck_Framework_Helper_Application extends Schmolck_Framework_Helper {
 
 	const PATH = 'application';
 
-	static public function getSettings() {
-		return self::PATH . '/' . strtolower($_SERVER['HTTP_HOST']) . '/settings.php';
-	}
-
 	/**
 	 * Get application name
 	 * 
 	 * @return string lower case name
 	 */
 	public function getName() {
-		return strtolower($_SERVER['HTTP_HOST']);
+		return APPLICATION_NAME;
 	}
 
 	/**

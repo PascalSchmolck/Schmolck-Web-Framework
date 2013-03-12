@@ -90,6 +90,7 @@ class Schmolck_Framework_Core {
 	 * Initialize all required helpers
 	 */
 	protected function _initHelpers() {
+		$this->_arrHelpers['host'] = new Schmolck_Framework_Helper_Host($this);
 		$this->_arrHelpers['application'] = new Schmolck_Framework_Helper_Application($this);
 		$this->_arrHelpers['database'] = new Schmolck_Framework_Helper_Database($this);
 		$this->_arrHelpers['optimizer'] = new Schmolck_Framework_Helper_Optimizer($this);
@@ -100,6 +101,15 @@ class Schmolck_Framework_Core {
 		$this->_arrHelpers['api'] = new Schmolck_Framework_Helper_Api($this);
 	}
 
+	/**
+	 * Get host helper
+	 * 
+	 * @return \Schmolck_Framework_Helper_Server
+	 */
+	public function &getHelperHost() {
+		return $this->_arrHelpers['host'];
+	}
+	
 	/**
 	 * Get application helper
 	 * 
@@ -173,10 +183,10 @@ class Schmolck_Framework_Core {
 	}
 
 	/**
-	 * Initialize application settings
+	 * Initialize server settings
 	 */
 	protected function _initSettings() {
-		require(Schmolck_Framework_Helper_Application::getSettings());
+		require(Schmolck_Framework_Helper_Host::getSettings());
 	}
 
 	/**

@@ -1,3 +1,7 @@
+2013.03.12
+**********
+[x] [FRAMEWORK] implement host routing for using the same application
+
 2013.03.08
 **********
 [ ] [FRAMEWORK] implement image app for automatic image resizing

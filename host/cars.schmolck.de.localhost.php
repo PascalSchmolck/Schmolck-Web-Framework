@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Host Settings
  * 
@@ -6,8 +7,7 @@
  * @author Pascal Schmolck
  * @copyright 2013
  */
-
-/* 
+/*
  * ERROR REPORTING
  */
 error_reporting(E_ALL ^ E_NOTICE);
@@ -27,20 +27,27 @@ error_reporting(E_ALL ^ E_NOTICE);
 define('DEBUG_LEVEL', 7);
 
 /*
+ * APPLICATION NAME
+ * 
+ * Corresponding to whatever 'application' inside the application folder
+ */
+define('APPLICATION_NAME', 'cars.schmolck.de');
+
+/*
  * APPLICATION ENVIRONMENT
  * 
  * development: on local development machine
  * testing: on testing environment
  * production: on production server
  */
-define('APPLICATION_ENVIRONMENT', 'development');
+define('APPLICATION_ENVIRONMENT', 'production');
 
 /*
  * APPLICATION LANGUAGE
  * 
  * Define the default language for the application.
  */
-define('APPLICATION_LANGUAGE', 'en');
+define('APPLICATION_LANGUAGE', 'de');
 
 /*
  * APPLICATION TEMPLATE
@@ -48,7 +55,7 @@ define('APPLICATION_LANGUAGE', 'en');
  * Define what template should be used. 
  * Depends on what template folders you have installed and running.
  */
-define('APPLICATION_TEMPLATE', '2013');
+define('APPLICATION_TEMPLATE', '2013.03');
 
 /*
  * MODULE EXCEPTION
@@ -56,3 +63,19 @@ define('APPLICATION_TEMPLATE', '2013');
  * Define what module should be used in case of an exception. 
  */
 define('MODULE_EXCEPTION', 'exception');
+
+/*
+ * DATABASE CONNECTION
+ * 
+ * Define the database connection settings here.
+ */
+define('DATABASE_HOST', 'localhost');
+define('DATABASE_NAME', 'pascal_cars.schmolck.de');
+define('DATABASE_USERNAME', 'pascal');
+define('DATABASE_PASSWORD', 'test');
+
+/*
+ * MAIL
+ */
+define('MAIL_SENDER_NAME', 'Pascal Schmolck');
+define('MAIL_SENDER_ADDRESS', 'mail@pascalschmolck.de');
