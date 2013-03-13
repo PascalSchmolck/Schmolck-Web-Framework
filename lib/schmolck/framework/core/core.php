@@ -58,6 +58,10 @@ class Schmolck_Framework_Core {
 			return $this->_arrActionValues[$strKey];
 		}
 	}
+	
+	public function getViewOutput() {
+		return $this->_strViewOutput;
+	}
 
 	/**
 	 * Get module name
@@ -312,14 +316,14 @@ class Schmolck_Framework_Core {
 			$this->_strTrace = 'Action';
 			$this->_runAction();
 
+			$this->_strTrace = 'View';
+			$this->_runView();
+			
 			$this->_strTrace = 'ControllerExit';
 			$this->_runControllerExit();
 
 			$this->_strTrace = 'ModuleExit';
 			$this->_runModuleExit();
-
-			$this->_strTrace = 'View';
-			$this->_runView();
 
 			$this->_strTrace = 'Layout';
 			$this->_runLayout();
