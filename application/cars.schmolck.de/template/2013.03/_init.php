@@ -15,6 +15,9 @@ $objCore->registerLayoutScript('lib/schmolck/framework/helper/mail/mail.js');
 // - layout scripts
 $objCore->registerLayoutScript($strTemplatePath . '/scripts.js');
 
+// - layout styles
+$objCore->registerLayoutStyle('lib/jquery/ui/ui-lightness/jquery-ui-1.10.1.custom.min.css');
+
 /*
  * TITLE
  */

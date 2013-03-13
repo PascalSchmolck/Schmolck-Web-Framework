@@ -13,6 +13,13 @@
 error_reporting(E_ALL ^ E_NOTICE);
 
 /*
+ * COMPRESSION
+ */
+if (extension_loaded("zlib") && (ini_get("output_handler") != "ob_gzhandler")) {
+    ini_set("zlib.output_compression", 1);
+}
+
+/*
  * DEBUG_LEVEL
  * 
  * 0 Emergency: system is unusable
