@@ -24,7 +24,7 @@ error_reporting(E_ALL ^ E_NOTICE);
  * 6 Informational: informational messages
  * 7 Debug: debug messages
  */
-define('DEBUG_LEVEL', 7);
+define('DEBUG_LEVEL', 2);
 
 /*
  * APPLICATION NAME

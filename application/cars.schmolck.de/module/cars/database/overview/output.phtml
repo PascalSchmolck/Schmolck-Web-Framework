@@ -14,39 +14,13 @@ $nCounter = 0;
 <div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
 	<div class="ninecol last">
 		<div class="content">
-			<div class="list">
-				<? foreach ($objCore->arrCars as $arrCar) : ?>		
-					<? ($nCounter % 2 == 1) ? $strOdd = 'odd' : $strOdd = ''; ?> 
-					<div class="item <?= $strOdd ?>" data-link="<?= $strBaseUrl ?>/cars/database/detail/id/<?= $arrCar['KNR'] ?>">
-						<div class="title">
-							<?= $arrCar['name'] ?>
-						</div>
-						<div class="data">
-							<div class="image">
-								<img src="<?= $arrCar['image'] ?>">
-							</div>
-							<div class="infos1">
-								<?= $arrCar['KAT'] ?> <br>
-								<?= $arrCar['KNR'] ?> <br>						
-							</div>
-							<div class="infos2">
-								EZ <?= $arrCar['EZ'] ?> <br>
-								<?= $arrCar['KM'] ?> km <br>
-							</div>
-							<div class="infos3">
-								<?= $arrCar['KW'] ?> kW (<?= $arrCar['PS'] ?> PS) <br>
-								<?= $arrCar['color'] ?> <br>
-							</div>
-							<div class="price">
-								<?= $arrCar['RP'] ?> EUR <br>
-							</div>
-							<div class="clearer">
-								&nbsp;
-							</div>
-						</div>
-					</div>
-					<? $nCounter++ ?>
-				<? endforeach; ?>
+			<div id="cars" class="loading">
+				<script>
+					Schmolck_Framework_Helper_Api({
+						id: 'cars',
+						url: 'cars/api/list'
+					});
+				</script>
 			</div>
 		</div>
 	</div>

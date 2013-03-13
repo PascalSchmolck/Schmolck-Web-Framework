@@ -2,6 +2,7 @@
 **********
 [x] [FRAMEWORK] implement host routing for using the same application
 [x] [CARS] implement detail view id check
+[x] [CARS] implement list view partial loading
 
 2013.03.08
 **********

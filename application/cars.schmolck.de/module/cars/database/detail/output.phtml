@@ -16,7 +16,7 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 					<div class="item" data-link="<?= $objCore->strParameterUrl ?>/id/<?= $arrCar['KNR'] ?>">
 						<div class="title">
 							<?= $arrCar['name'] ?>
-							<? $objCore->getHelperHtml()->setPageTitle($arrCar['name']); ?>
+							<? $objCore->getHelperHtml()->setPageTitle($arrCar['name'] . ' (' . $arrCar['KNR'] . ')'); ?>
 						</div>
 						<div class="data">
 							<div class="qrcode">
