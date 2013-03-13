@@ -232,7 +232,12 @@ ul {
 	padding: 10px;
 }
 .padding {
-	padding: 0 20px;
+	@media only screen and (max-width : 480px) { 
+		padding: 0 10px;
+	} 
+	@media only screen and (min-width : 481px) { 
+		padding: 0 20px;
+	} 
 }
 .loading {
 	min-height: 64px;
@@ -295,7 +300,10 @@ body {
 	@media only print {
 		padding: 10px 0;
 	} 
-	@media only screen, handheld {
+	@media only screen and (max-width : 480px) { 
+		padding: 10px 0;
+	} 
+	@media only screen and (min-width : 481px) { 
 		padding: 30px 0;
 	} 
 	background-color: #fff;
@@ -321,8 +329,13 @@ body {
 	background-color: @color-navigation-background;
 	color: @color-navigation-text;
 	ul {
+		@media only screen and (max-width : 480px) { 
+			padding: 0;
+		} 
+		@media only screen and (min-width : 481px) { 
+			padding: 0 20px;
+		} 
 		margin: 0;
-		padding: 0 20px;
 		li {
 			display: inline;
 			float: left;
@@ -357,7 +370,10 @@ body {
 	}
 }
 #main {
-	@media only screen, handheld {
+	@media only screen and (max-width : 480px) { 
+		padding: 10px 0;
+	} 
+	@media only screen and (min-width : 481px) { 
 		padding: 20px 0;
 	} 
 	background-color: #fff;
@@ -368,12 +384,12 @@ body {
 		padding: 5px 0;
 	}
 	.content {
-		@media only screen, handheld {
+		@media only screen and (min-width : 481px) { 
 			padding: 0 20px;
-		}
+		} 
 	}
 	.sidebar {
-		@media only screen, handheld {
+		@media only screen and (min-width : 481px) { 
 			padding: 0 20px;
 		}
 	}
@@ -386,7 +402,12 @@ body {
 	@media only print {
 		display: none;
 	} 
-	padding: 20px 0;
+	@media only screen and (max-width : 480px) { 
+		padding: 10px 0;
+	} 
+	@media only screen and (min-width : 481px) { 
+		padding: 20px 0;
+	} 
 	font-size: 0.8em;
 	color: @color-footer-text;
 
