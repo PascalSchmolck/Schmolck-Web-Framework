@@ -8,15 +8,18 @@ require_once 'lib/phpqrcode/phpqrcode.php';
 /*
  * INITIALISATION
  */
+// - core
 $objCore = Schmolck_Framework_Core::getInstance($this);
 $objCore->strId = $objCore->getHelperApi()->getId();
 $objCore->strStyleClass = $objCore->getHelperApi()->getStyleClass();
+// - cars
+$objCars = new Schmolck_Cars_Helper($objCore);
+$objCars->updateFromCSV();
 
 /*
  * QR-CODE
  */
 $strUrl = $objCore->getHelperApplication()->getCurrentUrl();
-error_log($strUrl);
 $objCore->strQRImage = $objCore->getHelperCache()->getFilePath(md5($strUrl));
 QRcode::png($strUrl, $objCore->strQRImage);
 
@@ -27,32 +30,19 @@ QRcode::png($strUrl, $objCore->strQRImage);
 $strParameterId = trim(strip_tags($_GET['id']));
 
 /*
- * PREPARATION
- */
-$objCars = new Schmolck_Cars_Helper($objCore);
-$objCars->updateFromCSV();
-
-/*
  * DATA
  */
 $strQuery = sprintf("SELECT * FROM mod_cars WHERE knr='%s' LIMIT 1", mysql_real_escape_string($strParameterId));
 $resource = $objCore->getHelperDatabase()->query($strQuery);
 while ($arrRow = mysql_fetch_assoc($resource)) {
-	/*
-	 * PREPARATION
-	 */
-	$arrRow['name'] = Schmolck_Cars_Helper::getName($arrRow);
-	$arrRow["EZ"] = Schmolck_Cars_Helper::getEz($arrRow);
-	$arrRow["KM"] = Schmolck_Cars_Helper::getKm($arrRow);
-	$arrRow["RP"] = Schmolck_Cars_Helper::getPrice($arrRow);
-	$arrRow["color"] = Schmolck_Cars_Helper::getColor($arrRow);
-	$arrRow["polster"] = Schmolck_Cars_Helper::getPolster($arrRow);
-	$arrRow["image"] = Schmolck_Cars_Helper::getFirstImageUrl($arrRow);
-	$arrRow["equip"] = Schmolck_Cars_Helper::getAusstattung($arrRow);
-
-	/*
-	 * OUTPUT
-	 */
+	$arrRow['name'] = $objCars->getName($arrRow);
+	$arrRow["EZ"] = $objCars->getEz($arrRow);
+	$arrRow["KM"] = $objCars->getKm($arrRow);
+	$arrRow["RP"] = $objCars->getPrice($arrRow);
+	$arrRow["color"] = $objCars->getColor($arrRow);
+	$arrRow["polster"] = $objCars->getPolster($arrRow);
+	$arrRow["image"] = $objCars->getFirstImageUrl($arrRow);
+	$arrRow["equip"] = $objCars->getAusstattung($arrRow);
 	$arrResult[] = $arrRow;
 }
 $objCore->arrCars = $arrResult;

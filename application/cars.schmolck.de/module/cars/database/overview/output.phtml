@@ -11,9 +11,9 @@ $nCounter = 0;
  * OUTPUT
  */
 ?>
-<div class="ninecol last">
-	<div class="content">
-		<div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
+<div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
+	<div class="ninecol last">
+		<div class="content">
 			<div class="list">
 				<? foreach ($objCore->arrCars as $arrCar) : ?>		
 					<? ($nCounter % 2 == 1) ? $strOdd = 'odd' : $strOdd = ''; ?> 
@@ -48,37 +48,37 @@ $nCounter = 0;
 					<? $nCounter++ ?>
 				<? endforeach; ?>
 			</div>
-			<?= $objCore->getHelperScripts()->renderViewScripts() ?>
 		</div>
 	</div>
-</div>
-<div class="threecol last">
-	<div class="sidebar">
-		<h3>
-			Schmolck GmbH &amp; Co. KG
-		</h3>
-		<p>
-			<a href="content/static/location" title="<?= $objCore->getHelperTranslator()->_("Location") ?>">
-				Am Elzdamm 2
+	<div class="threecol last">
+		<div class="sidebar">
+			<h3>
+				Schmolck GmbH &amp; Co. KG
+			</h3>
+			<p>
+				<a href="content/static/location" title="<?= $objCore->getHelperTranslator()->_("Location") ?>">
+					Am Elzdamm 2
+					<br>
+					79312 Emmendingen
+				</a>		
+			</p>
+			<p>
+				<?= $objCore->getHelperTranslator()->_("Tel +49 7641 / 4602-0") ?>
 				<br>
-				79312 Emmendingen
-			</a>		
-		</p>
-		<p>
-			<?= $objCore->getHelperTranslator()->_("Tel +49 7641 / 4602-0") ?>
-			<br>
-			<?= $objCore->getHelperTranslator()->_("Fax +49 7641 / 4602-80") ?>
+				<?= $objCore->getHelperTranslator()->_("Fax +49 7641 / 4602-80") ?>
 
-		</p>
-		<div class="screen">
-			<div id="email" class="loading">
-				<script>
-					Schmolck_Framework_Helper_Api({
-						id: 'email',
-						url: 'api/contact/form'
-					});
-				</script>
+			</p>
+			<div class="screen">
+				<div id="email" class="loading">
+					<script>
+						Schmolck_Framework_Helper_Api({
+							id: 'email',
+							url: 'api/contact/form'
+						});
+					</script>
+				</div>
 			</div>
 		</div>
 	</div>
+	<?= $objCore->getHelperScripts()->renderViewScripts() ?>
 </div>

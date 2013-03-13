@@ -7,4 +7,5 @@ $(document).ready(function() {
 			window.location.href = $(this).data('link');
 		});
 	});
+
 });

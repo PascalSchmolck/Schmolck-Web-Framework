@@ -3,14 +3,12 @@
 /*
  * INITIALISATION
  */
+// - core
 $objCore = Schmolck_Framework_Core::getInstance($this);
 $objCore->strId = $objCore->getHelperApi()->getId();
 $objCore->strUri = $objCore->getHelperApplication()->getRequestUri();
 $objCore->strStyleClass = $objCore->getHelperApi()->getStyleClass();
-
-/*
- * PREPARATION
- */
+// - cars
 $objCars = new Schmolck_Cars_Helper($objCore);
 $objCars->updateFromCSV();
 
@@ -19,19 +17,12 @@ $objCars->updateFromCSV();
  */
 $resource = $objCore->getHelperDatabase()->query('SELECT * FROM  `mod_cars` LIMIT 0,10');
 while ($arrRow = mysql_fetch_assoc($resource)) {
-	/*
-	 * PREPARATION
-	 */
-	$arrRow['name'] = Schmolck_Cars_Helper::getName($arrRow);
-	$arrRow["EZ"] = Schmolck_Cars_Helper::getEz($arrRow);
-	$arrRow["KM"] = Schmolck_Cars_Helper::getKm($arrRow);
-	$arrRow["RP"] = Schmolck_Cars_Helper::getPrice($arrRow);
-	$arrRow["color"] = Schmolck_Cars_Helper::getColor($arrRow);
-	$arrRow["image"] = Schmolck_Cars_Helper::getFirstImageUrl($arrRow);
-
-	/*
-	 * OUTPUT
-	 */
+	$arrRow['name'] = $objCars->getName($arrRow);
+	$arrRow["EZ"] = $objCars->getEz($arrRow);
+	$arrRow["KM"] = $objCars->getKm($arrRow);
+	$arrRow["RP"] = $objCars->getPrice($arrRow);
+	$arrRow["color"] = $objCars->getColor($arrRow);
+	$arrRow["image"] = $objCars->getFirstImageUrl($arrRow);
 	$arrResult[] = $arrRow;
 }
 $objCore->arrCars = $arrResult;
