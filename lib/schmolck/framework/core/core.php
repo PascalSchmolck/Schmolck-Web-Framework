@@ -95,6 +95,8 @@ class Schmolck_Framework_Core {
 		$this->_arrHelpers['database'] = new Schmolck_Framework_Helper_Database($this);
 		$this->_arrHelpers['optimizer'] = new Schmolck_Framework_Helper_Optimizer($this);
 		$this->_arrHelpers['translator'] = new Schmolck_Framework_Helper_Translator($this);
+		$this->_arrHelpers['redirect'] = new Schmolck_Framework_Helper_Redirect($this);
+		$this->_arrHelpers['message'] = new Schmolck_Framework_Helper_Message($this);
 		$this->_arrHelpers['scripts'] = new Schmolck_Framework_Helper_Scripts($this);
 		$this->_arrHelpers['cache'] = new Schmolck_Framework_Helper_Cache($this);
 		$this->_arrHelpers['html'] = new Schmolck_Framework_Helper_Html($this);
@@ -145,6 +147,24 @@ class Schmolck_Framework_Core {
 	public function &getHelperTranslator() {
 		return $this->_arrHelpers['translator'];
 	}
+	
+	/**
+	 * Get redirect helper
+	 * 
+	 * @return \Schmolck_Framework_Helper_Redirect
+	 */
+	public function &getHelperRedirect() {
+		return $this->_arrHelpers['redirect'];
+	}
+	
+	/**
+	 * Get message helper
+	 * 
+	 * @return \Schmolck_Framework_Helper_Message
+	 */
+	public function &getHelperMessage() {
+		return $this->_arrHelpers['message'];
+	}	
 
 	/**
 	 * Get scripts helper

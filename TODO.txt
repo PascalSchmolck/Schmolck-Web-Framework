@@ -1,6 +1,7 @@
 2013.03.12
 **********
 [x] [FRAMEWORK] implement host routing for using the same application
+[x] [CARS] implement detail view id check
 
 2013.03.08
 **********

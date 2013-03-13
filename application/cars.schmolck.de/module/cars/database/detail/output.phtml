@@ -1,0 +1,79 @@
+<?php
+/*
+ * INITIALISATION
+ */
+$objCore = Schmolck_Framework_Core::getInstance($this);
+
+/*
+ * OUTPUT
+ */
+?>
+<div class="ninecol last">
+	<div class="content">
+		<div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
+			<div class="detail">
+				<? foreach ($objCore->arrCars as $arrCar) : ?>		
+					<div class="item" data-link="<?= $objCore->strParameterUrl ?>/id/<?= $arrCar['KNR'] ?>">
+						<div class="title">
+							<?= $arrCar['name'] ?>
+							<? $objCore->getHelperHtml()->setPageTitle($arrCar['name']); ?>
+						</div>
+						<div class="data">
+							<div class="image">
+								<img src="<?= $arrCar['image'] ?>">
+							</div>
+							<div class="infos1">
+								<?= $arrCar['KAT'] ?> <br>
+								<?= $arrCar['KNR'] ?> <br>						
+							</div>
+							<div class="infos2">
+								EZ <?= $arrCar['EZ'] ?> <br>
+								<?= $arrCar['KM'] ?> km <br>
+							</div>
+							<div class="infos3">
+								<?= $arrCar['KW'] ?> kW (<?= $arrCar['PS'] ?> PS) <br>
+								<?= $arrCar['color'] ?> <br>
+							</div>
+							<div class="price">
+								<?= $arrCar['RP'] ?> EUR <br>
+							</div>
+							<div class="clearer">
+								&nbsp;
+							</div>
+							<hr>
+							<div class="equipment">
+								<div class="row1">
+									<? for ($i = 0; $i < count($arrCar["equip"]) / 2; $i++) : ?>
+										<?= $arrCar["equip"][$i] ?> <br>
+									<? endfor; ?>
+								</div>
+								<div class="row2">
+									<? for ($i = 0; $i < count($arrCar["equip"]) / 2; $i++) : ?>
+										<?= $arrCar["equip"][(count($arrCar["equip"]) / 2) + $i] ?> <br>
+									<? endfor; ?>
+								</div>
+							</div>	
+							<div class="clearer">
+								&nbsp;
+							</div>
+						</div>
+					</div>
+				<? endforeach; ?>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="threecol last">
+	<div class="sidebar">
+		<div class="screen">
+			<div id="email" class="loading">
+				<script>
+					Schmolck_Framework_Helper_Api({
+						id: 'email',
+						url: 'api/contact/form'
+					});
+				</script>
+			</div>
+		</div>
+	</div>
+</div>

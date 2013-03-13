@@ -11,11 +11,6 @@ $objCore->strStyleClass = $objCore->getHelperApi()->getStyleClass();
 /*
  * PARAMETER
  */
-// - url
-$objCore->strParameterUrl = strip_tags($_POST['url']);
-if ($objCore->strParameterUrl == '') {
-	$objCore->strParameterUrl = $objCore->strUri;
-}
 // - id
 $objCore->strParameterId = trim(strip_tags($_POST['id']));
 if ($objCore->strParameterId == '') {
@@ -23,17 +18,10 @@ if ($objCore->strParameterId == '') {
 }
 
 /*
- * CHECK
- */
-// - id not empty then forward to detail view
-if ($objCore->strParameterId != '') {
-	$objCore->forward('api', 'cars', 'detail');
-}
-
-/*
  * DATA
  */
-$resource = $objCore->getHelperDatabase()->query('SELECT * FROM  `mod_cars` LIMIT 0,10');
+$strQuery = sprintf("SELECT * FROM mod_cars WHERE knr='%s' LIMIT 1", mysql_real_escape_string($objCore->strParameterId));
+$resource = $objCore->getHelperDatabase()->query($strQuery);
 while ($arrRow = mysql_fetch_assoc($resource)) {
 	/*
 	 * PREPARATION
@@ -44,6 +32,7 @@ while ($arrRow = mysql_fetch_assoc($resource)) {
 	$arrRow["RP"] = Schmolck_Cars_Tool::getPrice($arrRow);
 	$arrRow["color"] = Schmolck_Cars_Tool::getColor($arrRow);
 	$arrRow["image"] = Schmolck_Cars_Tool::getFirstImageUrl($arrRow);
+	$arrRow["equip"] = Schmolck_Cars_Tool::getAusstattung($arrRow);
 
 	/*
 	 * OUTPUT
@@ -53,9 +42,9 @@ while ($arrRow = mysql_fetch_assoc($resource)) {
 $objCore->arrCars = $arrResult;
 
 /*
- * SCRIPT
+ * CHECK
  */
-$objCore->getHelperScripts()->registerViewScriptReplace(array(
-	'SchmolckID' => $this->strId,
-	'SchmolckURI' => $this->strUri,
-));
+if (count($objCore->arrCars) == 0) {
+	$objCore->getHelperMessage()->setMessage($objCore->getHelperTranslator()->_("Sorry, the selected vehicle is no longer available."));
+	$objCore->getHelperRedirect()->local('cars/database/overview');
+}

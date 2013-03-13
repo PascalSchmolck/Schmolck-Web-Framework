@@ -9,19 +9,9 @@ $objCore->strUri = $objCore->getHelperApplication()->getRequestUri();
 $objCore->strStyleClass = $objCore->getHelperApi()->getStyleClass();
 
 /*
- * PARAMETER
- */
-// - id
-$objCore->strParameterId = trim(strip_tags($_POST['id']));
-if ($objCore->strParameterId == '') {
-	$objCore->strParameterId = trim(strip_tags($_GET['id']));
-}
-
-/*
  * DATA
  */
-$strQuery = sprintf("SELECT * FROM mod_cars WHERE knr='%s' LIMIT 1", mysql_real_escape_string($objCore->strParameterId));
-$resource = $objCore->getHelperDatabase()->query($strQuery);
+$resource = $objCore->getHelperDatabase()->query('SELECT * FROM  `mod_cars` LIMIT 0,10');
 while ($arrRow = mysql_fetch_assoc($resource)) {
 	/*
 	 * PREPARATION
@@ -32,7 +22,6 @@ while ($arrRow = mysql_fetch_assoc($resource)) {
 	$arrRow["RP"] = Schmolck_Cars_Tool::getPrice($arrRow);
 	$arrRow["color"] = Schmolck_Cars_Tool::getColor($arrRow);
 	$arrRow["image"] = Schmolck_Cars_Tool::getFirstImageUrl($arrRow);
-	$arrRow["equip"] = Schmolck_Cars_Tool::getAusstattung($arrRow);
 
 	/*
 	 * OUTPUT

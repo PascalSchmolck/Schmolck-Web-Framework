@@ -340,9 +340,25 @@ body {
 		}
 	}
 }
+#message{
+	@media print {
+		display: none;
+		visibility: hidden;
+	} 
+	display: none;
+	background-color: #fff;
+	.text {
+		background-color: #CCDFFF;
+		color: #000000;
+		padding: 15px 20px;
+		margin: 20px;
+		margin-bottom: 0;
+		font-size: 85%;
+	}
+}
 #main {
 	@media only screen, handheld {
-		padding: 30px 0;
+		padding: 20px 0;
 	} 
 	background-color: #fff;
 	font-size: 0.9em;
@@ -398,7 +414,7 @@ body {
 //------------------------------------------------------------------------------
 // Module Layout
 //------------------------------------------------------------------------------
-.api .cars {
+.cars .database {
 	padding: 10px 0;
 	.list {
 		width: 100%;
