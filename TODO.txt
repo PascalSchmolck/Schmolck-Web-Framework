@@ -7,7 +7,7 @@
 **********
 [ ] [FRAMEWORK] implement image app for automatic image resizing
 [x] [CARS] implement database structure
-[ ] [CARS] implement database loader (CSV->DB)
+[x] [CARS] implement database loader (CSV->DB)
 [x] [CARS] implement list view
 [x] [CARS] implement detail view
 [ ] [CARS] implement statistic 

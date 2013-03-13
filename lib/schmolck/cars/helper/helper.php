@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Schmolck_Cars_Tool
+ * Schmolck_Cars_Helper
  * 
  * FGC Fahrzeuggruppe-Code
  * FGT Fahrzeuggruppe-Text
@@ -39,9 +39,92 @@
  * @author Pascal Schmolck
  * @copyright 2013
  */
-class Schmolck_Cars_Tool {
+class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 
 	const IMAGE_PATH = 'http://www.schmolck.de/data/public/images/vehicles';
+	const DATA_FILE = 'http://www.schmolck.de/data/private/vehicles/IFZ.csv';
+	const DB_TABLE = 'mod_cars';
+
+	protected $_bUpdated;
+	protected $_arrMemoryAttributes = array(
+		'_bUpdated'
+	);
+
+	public function updateFromCSV() {
+		/*
+		 * SESSION
+		 */
+		// - only update once per session
+		if ($this->_bUpdated) {
+			Schmolck_Tool_Debug::debug('Cars database has NOT been updated due to session handling');		
+			return;
+		}
+		
+		/*
+		 * PREPARATION
+		 */
+		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
+
+		/*
+		 * COPY
+		 */
+		$strTempFile = $objCore->getHelperCache()->getFilePath(md5(self::DATA_FILE) . '.csv');
+		copy(self::DATA_FILE, $strTempFile);
+
+		/*
+		 * CHECK
+		 */
+		// - determine columns
+		$resource = $objCore->getHelperDatabase()->query("SHOW COLUMNS FROM " . self::DB_TABLE);
+		$nColumns = mysql_num_rows($resource);
+
+		/*
+		 * UPDATE
+		 */
+		// - read file...
+		$handle = fopen($strTempFile, 'r');
+		while (!feof($handle)) {
+
+			// - ...line by line
+			$strLine = fgets($handle);
+			$arrData = explode(";", $strLine);
+			$nCounter++;
+
+			// - ignore empty lines
+			if (trim($strLine) == '') {
+				continue;
+			}
+
+			// - consider line only if it matches the amount of columns
+			if (count($arrData) == $nColumns) {
+				// - build insert query
+				$strQuery1 = "INSERT INTO `" . self::DB_TABLE . "` VALUES (";
+				$strQuery2 = "";
+				$strQuery3 = ")";
+
+				for ($i = 0; $i < $nColumns; $i++) {
+					$strQuery2 = $strQuery2 . "'" . mysql_real_escape_string(trim($arrData[$i])) . "', ";
+				}
+				$strQuery2 = substr($strQuery2, 0, -2);
+
+				// - clear table first
+				if (!$bEmptied) {
+					$objCore->getHelperDatabase()->query("TRUNCATE TABLE `" . self::DB_TABLE . "`");
+					$bEmptied = true;
+				}
+				// - insert
+				$objCore->getHelperDatabase()->query($strQuery1 . $strQuery2 . $strQuery3);
+			} else {
+				Schmolck_Tool_Debug::error('CSV file contains wrong column number in line ' . $nCounter, __FILE__, __LINE__);
+			}
+		}
+		
+		/*
+		 * SESSION
+		 */
+		$this->_bUpdated = true;
+		Schmolck_Tool_Debug::debug('Cars database has been updated with file '. $strTempFile);		
+	}
 
 	static function getName($arrRow) {
 		if (preg_match("/Mercedes/i", $arrRow["FABT"])) {
