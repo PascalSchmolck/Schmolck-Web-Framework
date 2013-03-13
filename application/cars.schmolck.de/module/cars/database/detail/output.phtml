@@ -19,6 +19,9 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 							<? $objCore->getHelperHtml()->setPageTitle($arrCar['name']); ?>
 						</div>
 						<div class="data">
+							<div class="qrcode">
+								<img src="<?= $objCore->strQRImage ?>">
+							</div>
 							<div class="image">
 								<img src="<?= $arrCar['image'] ?>">
 							</div>

@@ -502,18 +502,15 @@ body {
 			font-weight: bold;
 			padding-bottom: 20px;
 		}
-		.thumbs {
-			img {
-				float: left;
-				width: 50px;
-				max-width: 100%;
-				height: auto;
-				padding-right: 2px;
+		.qrcode {
+			@media screen, handheld {
+				display: none;
 			}
+			float: right;
 		}
 		.image {
 			float: left;
-			width: 300px;
+			width: 310px;
 			max-width: 100%;
 			height: auto;
 			padding-right: 20px;

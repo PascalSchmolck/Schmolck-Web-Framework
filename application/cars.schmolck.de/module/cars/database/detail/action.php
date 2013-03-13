@@ -1,11 +1,24 @@
 <?php
 
 /*
+ * INCLUSION
+ */
+require_once 'lib/phpqrcode/phpqrcode.php';
+
+/*
  * INITIALISATION
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
 $objCore->strId = $objCore->getHelperApi()->getId();
 $objCore->strStyleClass = $objCore->getHelperApi()->getStyleClass();
+
+/*
+ * QR-CODE
+ */
+$strUrl = $objCore->getHelperApplication()->getCurrentUrl();
+error_log($strUrl);
+$objCore->strQRImage = $objCore->getHelperCache()->getFilePath(md5($strUrl));
+QRcode::png($strUrl, $objCore->strQRImage);
 
 /*
  * PARAMETER

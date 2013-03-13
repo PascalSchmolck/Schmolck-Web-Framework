@@ -69,4 +69,13 @@ class Schmolck_Framework_Helper_Application extends Schmolck_Framework_Helper {
 		return $_SERVER['REQUEST_URI'];
 	}
 
+	/**
+	 * Get current url
+	 * 
+	 * @return string url
+	 */
+	public function getCurrentUrl() {
+		return 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+	}
+
 }
