@@ -1,7 +1,3 @@
-#: ../application/cars.schmolck.de/module/api/cars/overview/action.php:59 
-msgid "Sorry, the selected vehicle is no longer available." 
-msgstr "" 
-
 #: ../application/cars.schmolck.de/module/api/contact/form/action.php:25 
 msgid "Please enter your name name" 
 msgstr "" 
@@ -54,24 +50,36 @@ msgstr ""
 msgid "Language / Sprache" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/content/static/cars/output.phtml:6 
-msgid "Cars" 
+#: ../application/cars.schmolck.de/module/cars/database/detail/action.php:52 
+msgid "Sorry, the selected vehicle is no longer available." 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/content/static/cars/output.phtml:32 
-msgid "Contact" 
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:35 
+msgid "Paint" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/content/static/cars/output.phtml:38 
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:36 
+msgid "Upholstery" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:73 
 msgid "Location" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/content/static/cars/output.phtml:45 
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:80 
 msgid "Tel +49 7641 / 4602-0" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/content/static/cars/output.phtml:47 
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:82 
 msgid "Fax +49 7641 / 4602-80" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/database/overview/output.phtml:6 
+msgid "Cars" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/content/static/contact/output.phtml:6 
+msgid "Contact" 
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/content/static/contact/output.phtml:39 

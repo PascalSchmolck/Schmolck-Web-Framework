@@ -32,7 +32,8 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 							</div>
 							<div class="infos3">
 								<?= $arrCar['KW'] ?> kW (<?= $arrCar['PS'] ?> PS) <br>
-								<?= $arrCar['color'] ?> <br>
+								<?= $arrCar['color'] ?> (<?= $objCore->getHelperTranslator()->_("Paint"); ?>) <br>
+								<?= $arrCar['polster'] ?> (<?= $objCore->getHelperTranslator()->_("Upholstery"); ?>) <br>
 							</div>
 							<div class="price">
 								<?= $arrCar['RP'] ?> EUR <br>

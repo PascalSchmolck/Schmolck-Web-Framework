@@ -170,6 +170,18 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 				break;
 		}
 	}
+	
+	static public function getPolster($arrRow) {
+		$arrRow["POLST"] = ucfirst(strtolower($arrRow["POLST"]));
+		switch($arrRow["FABT"]){
+			default:
+				return $arrRow["POLST"];
+				break;
+			case "Mercedes-Benz":
+				return $arrRow["POLSTC"]." ".$arrRow["POLST"];
+				break;
+		}
+	}	
 
 	static public function getFirstImageUrl($arrRow) {
 		return self::IMAGE_PATH . '/' . $arrRow['KNR'] . ',1.JPG';

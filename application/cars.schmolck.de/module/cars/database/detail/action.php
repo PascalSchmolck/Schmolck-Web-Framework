@@ -33,6 +33,7 @@ while ($arrRow = mysql_fetch_assoc($resource)) {
 	$arrRow["KM"] = Schmolck_Cars_Helper::getKm($arrRow);
 	$arrRow["RP"] = Schmolck_Cars_Helper::getPrice($arrRow);
 	$arrRow["color"] = Schmolck_Cars_Helper::getColor($arrRow);
+	$arrRow["polster"] = Schmolck_Cars_Helper::getPolster($arrRow);
 	$arrRow["image"] = Schmolck_Cars_Helper::getFirstImageUrl($arrRow);
 	$arrRow["equip"] = Schmolck_Cars_Helper::getAusstattung($arrRow);
 
