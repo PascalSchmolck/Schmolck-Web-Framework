@@ -57,7 +57,7 @@ class Schmolck_Framework_Helper_Application extends Schmolck_Framework_Helper {
 	public function getBaseUrl() {
 		$strHost = $_SERVER['HTTP_HOST'];
 		$strPath = dirname($_SERVER['PHP_SELF']);
-		return "http://{$strHost}{$strPath}/";
+		return "http://{$strHost}{$strPath}";
 	}
 
 	/**

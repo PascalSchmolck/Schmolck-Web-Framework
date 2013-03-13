@@ -561,13 +561,6 @@ class Schmolck_Framework_Core {
 		 */
 		return $strTempFile;
 	}
-
-	/**
-	 * Get base URL
-	 */
-	public function getBaseUrl() {
-		return $this->getHelperApplication()->getBaseUrl();
-	}
 	
 	public function forward($strModule, $strController, $strAction) {
 		$this->_strModule = $strModule;
