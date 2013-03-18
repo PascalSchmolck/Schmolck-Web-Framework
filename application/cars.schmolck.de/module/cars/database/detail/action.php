@@ -34,14 +34,14 @@ $strParameterId = trim(strip_tags($_GET['id']));
 $strQuery = sprintf("SELECT * FROM mod_cars WHERE knr='%s' LIMIT 1", mysql_real_escape_string($strParameterId));
 $resource = $objCore->getHelperDatabase()->query($strQuery);
 while ($arrRow = mysql_fetch_assoc($resource)) {
-	$arrRow['name'] = $objCars->getName($arrRow);
-	$arrRow["EZ"] = $objCars->getEz($arrRow);
-	$arrRow["KM"] = $objCars->getKm($arrRow);
-	$arrRow["RP"] = $objCars->getPrice($arrRow);
-	$arrRow["color"] = $objCars->getColor($arrRow);
-	$arrRow["polster"] = $objCars->getPolster($arrRow);
-	$arrRow["image"] = $objCars->getFirstImageUrl($arrRow);
-	$arrRow["equip"] = $objCars->getAusstattung($arrRow);
+	$arrRow['name'] = $objCars->extractName($arrRow);
+	$arrRow["EZ"] = $objCars->extractEz($arrRow);
+	$arrRow["KM"] = $objCars->extractKm($arrRow);
+	$arrRow["RP"] = $objCars->extractPrice($arrRow);
+	$arrRow["color"] = $objCars->extractColor($arrRow);
+	$arrRow["polster"] = $objCars->extractPolster($arrRow);
+	$arrRow["image"] = $objCars->extractFirstImageUrl($arrRow);
+	$arrRow["equip"] = $objCars->extractAusstattung($arrRow);
 	$arrResult[] = $arrRow;
 }
 $objCore->arrCars = $arrResult;

@@ -46,24 +46,87 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 	const DB_TABLE = 'mod_cars';
 	const UPDATE_LIMIT = 1800;
 
+	protected $_arrFilter;
+	protected $_arrMemoryAttributes = array(
+		'_arrFilter'
+	);
+
 	public function __construct(Schmolck_Framework_Core $objCore) {
 		parent::__construct($objCore);
 
 		$this->updateFromCSV();
 	}
 
+	/**
+	 * Set car filter
+	 * 
+	 * @param type $strName
+	 * @param type $strValue
+	 */
+	public function setFilter($strName, $strValue) {
+		$this->_arrFilter[$strName] = mysql_real_escape_string($strValue);
+	}
+
+	/**
+	 * Query cars according to filters
+	 */
+	public function queryFilteredCars() {
+		/*
+		 * INITIALISATION
+		 */
+		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
+
+		/*
+		 * PREPARATION
+		 */
+		// - brand
+		if ($this->_arrFilter['brand'] == '' or $this->_arrFilter['brand'] == 'all') {
+			$strFilterBrand = '%';
+		} else {
+			$strFilterBrand = $this->_arrFilter['brand'];
+		}
+		
+		/*
+		 * QUERY
+		 */
+		$strQuery = "
+			SELECT 
+				* 
+			FROM 
+				" . self::DB_TABLE . "
+			WHERE
+				TRUE
+				AND FABT LIKE '{$strFilterBrand}'
+		";
+error_log($strQuery);						
+		$resource = $objCore->getHelperDatabase()->query($strQuery);
+		while ($arrRow = mysql_fetch_assoc($resource)) {
+			$arrRow['name'] = $this->extractName($arrRow);
+			$arrRow["EZ"] = $this->extractEz($arrRow);
+			$arrRow["KM"] = $this->extractKm($arrRow);
+			$arrRow["RP"] = $this->extractPrice($arrRow);
+			$arrRow["color"] = $this->extractColor($arrRow);
+			$arrRow["image"] = $this->extractFirstImageUrl($arrRow);
+			$arrResult[] = $arrRow;
+		}
+		return $arrResult;
+	}
+
+	/**
+	 * Update database from CSV if required
+	 */
 	public function updateFromCSV() {
 		/*
 		 * INITIALISATION
 		 */
 		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
-		
+
 		/*
 		 * SESSION
 		 */
 		// - only update if necessary
 		if ($this->_isUpToDate()) {
-			Schmolck_Tool_Debug::debug(sprintf('Cars database still up-to-date and not older than %s minutes', (self::UPDATE_LIMIT/60)));
+			Schmolck_Tool_Debug::debug(sprintf('Cars database still up-to-date and not older than %s minutes', (self::UPDATE_LIMIT / 60)));
 			return;
 		}
 
@@ -120,7 +183,7 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 				Schmolck_Tool_Debug::error('CSV file contains wrong column number in line ' . $nCounter, __FILE__, __LINE__);
 			}
 		}
-		
+
 		Schmolck_Tool_Debug::debug('Cars database has been updated with file ' . $strTempFile);
 	}
 
@@ -138,7 +201,7 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 		return $objCore->getHelperCache()->getFilePath(md5(self::DATA_FILE) . '.csv');
 	}
 
-	static function getName($arrRow) {
+	static function extractName($arrRow) {
 		if (preg_match("/Mercedes/i", $arrRow["FABT"])) {
 			return 'Mercedes-Benz ' . $arrRow['TYP'];
 		}
@@ -152,7 +215,7 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 		}
 	}
 
-	static public function getEz($arrRow) {
+	static public function extractEz($arrRow) {
 		switch ($arrRow["EZ"]) {
 			case "0000-00-00":
 				return "-";
@@ -163,15 +226,15 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 		}
 	}
 
-	static public function getKm($arrRow) {
+	static public function extractKm($arrRow) {
 		return number_format($arrRow['KM'], 0, ',', ".");
 	}
 
-	static public function getPrice($arrRow) {
+	static public function extractPrice($arrRow) {
 		return number_format($arrRow["RP"], 0, "", ".");
 	}
 
-	static public function getColor($arrRow) {
+	static public function extractColor($arrRow) {
 		$arrRow["FARB"] = strtolower($arrRow["FARB"]);
 		switch ($arrRow["FABT"]) {
 			default:
@@ -183,7 +246,7 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 		}
 	}
 
-	static public function getPolster($arrRow) {
+	static public function extractPolster($arrRow) {
 		$arrRow["POLST"] = ucfirst(strtolower($arrRow["POLST"]));
 		switch ($arrRow["FABT"]) {
 			default:
@@ -195,11 +258,11 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 		}
 	}
 
-	static public function getFirstImageUrl($arrRow) {
+	static public function extractFirstImageUrl($arrRow) {
 		return self::IMAGE_PATH . '/' . $arrRow['KNR'] . ',1.JPG';
 	}
 
-	static public function getAusstattung($arrRow) {
+	static public function extractAusstattung($arrRow) {
 		/*
 		 * INITIALISATION
 		 */
@@ -233,6 +296,40 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 		}
 		sort($arrAusstattung);
 		return $arrAusstattung;
+	}
+
+	/**
+	 * Get all brands
+	 * 
+	 * @return array brands
+	 */
+	public function getBrands() {
+		/*
+		 * INITIALISATION
+		 */
+		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
+
+		/*
+		 * DATA
+		 */
+		$strQuery = "
+			SELECT 
+				DISTINCT FABT 
+			FROM 
+				" . self::DB_TABLE . "
+			WHERE
+				TRUE
+				AND FABT IS NOT NULL
+				AND FABT <> 'null'
+				AND FABT <> ''	
+			ORDER BY 
+				FABT
+		";
+		$resource = $objCore->getHelperDatabase()->query($strQuery);
+		while ($arrRow = mysql_fetch_assoc($resource)) {
+			$arrResult[] = strtolower($arrRow["FABT"]);
+		}
+		return $arrResult;
 	}
 
 }

@@ -14,13 +14,26 @@ $nCounter = 0;
 <div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
 	<div class="ninecol last">
 		<div class="content">
-			<div id="cars" class="loading">
-				<script>
-					Schmolck_Framework_Helper_Api({
-						id: 'cars',
-						url: 'cars/api/list'
-					});
-				</script>
+			<div>
+				<div id="filter" class="loading">
+					<script>
+						Schmolck_Framework_Helper_Api({
+							id: 'filter',
+							url: 'cars/api/filter'
+						});
+					</script>
+				</div>
+			</div>
+				
+			<div>
+				<div id="cars" class="loading">
+					<script>
+						Schmolck_Framework_Helper_Api({
+							id: 'cars',
+							url: 'cars/api/list'
+						});
+					</script>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -62,33 +62,67 @@ msgstr "Sprache Auswahl"
 msgid "Language / Sprache"
 msgstr "Language / Sprache"
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/action.php:52
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:9
+msgid "brand_all"
+msgstr "Alle"
+
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:10
+#, fuzzy
+msgid "brand_mercedes-benz"
+msgstr "Mercedes-Benz"
+
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:11
+#, fuzzy
+msgid "brand_smart"
+msgstr "smart"
+
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:12
+msgid "Display %s hits"
+msgstr "Zeige %s Treffer"
+
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:29
+msgid "Brand"
+msgstr "Marke"
+
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:35
+msgid "brand_{$strBrand}"
+msgstr ""
+
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:47
+msgid "No matches found."
+msgstr "Keine Treffer."
+
+#: ../application/cars.schmolck.de/module/cars/api/list/output.phtml:6
+msgid "Cars"
+msgstr "Fahrzeuge"
+
+#: ../application/cars.schmolck.de/module/cars/api/list/output.phtml:57
+msgid "Load next 10 hits"
+msgstr "Lade die nächsten 10 Treffer"
+
+#: ../application/cars.schmolck.de/module/cars/database/detail/action.php:54
 msgid "Sorry, the selected vehicle is no longer available."
 msgstr "Verzeihung, das gewählte Fahrzeug ist nicht mehr vorhanden."
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:35
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:38
 msgid "Paint"
 msgstr "Lack"
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:36
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:39
 msgid "Upholstery"
 msgstr "Polster"
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:73
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:76
 msgid "Location"
 msgstr "Anfahrt"
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:80
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:83
 msgid "Tel +49 7641 / 4602-0"
 msgstr "Tel +49 7641 / 4602-0"
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:82
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:85
 msgid "Fax +49 7641 / 4602-80"
 msgstr "Fax +49 7641 / 4602-80"
-
-#: ../application/cars.schmolck.de/module/cars/database/overview/output.phtml:6
-msgid "Cars"
-msgstr "Fahrzeuge"
 
 #: ../application/cars.schmolck.de/module/content/static/contact/output.phtml:6
 msgid "Contact"
@@ -140,23 +174,23 @@ msgstr ""
 msgid "Error message"
 msgstr "Fehlermeldung"
 
-#: ../application/cars.schmolck.de/template/2013.03/html.phtml:25
+#: ../application/cars.schmolck.de/template/2013.03/html.phtml:24
 msgid "Switch to 'Schmolck news'"
 msgstr "Zu 'Schmolck news' wechseln"
 
-#: ../application/cars.schmolck.de/template/2013.03/html.phtml:26
+#: ../application/cars.schmolck.de/template/2013.03/html.phtml:25
 msgid "news"
 msgstr "news"
 
-#: ../application/cars.schmolck.de/template/2013.03/html.phtml:30
+#: ../application/cars.schmolck.de/template/2013.03/html.phtml:29
 msgid "You are already here"
 msgstr "Sie befinden sich bereits hier"
 
-#: ../application/cars.schmolck.de/template/2013.03/html.phtml:31
+#: ../application/cars.schmolck.de/template/2013.03/html.phtml:30
 msgid "cars"
 msgstr "cars"
 
-#: ../application/cars.schmolck.de/template/2013.03/html.phtml:61
+#: ../application/cars.schmolck.de/template/2013.03/html.phtml:60
 msgid "Home"
 msgstr "Startseite"
 
@@ -174,9 +208,3 @@ msgstr "Startseite"
 
 #~ msgid "Fax"
 #~ msgstr "Fax"
-
-#~ msgid "Mercedes-Benz"
-#~ msgstr "Mercedes-Benz"
-
-#~ msgid "smart"
-#~ msgstr "smart"

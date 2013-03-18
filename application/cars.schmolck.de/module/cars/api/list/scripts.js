@@ -17,7 +17,13 @@ $(document).ready(function() {
 	 * LINKS
 	 */
 	$('#SchmolckID .item').each(function() {
+		// - animation
+		$(this).removeClass('loading');
+
+		// - action
 		$(this).click(function() {
+			// - animation
+			$(this).addClass('loading');
 			// - save scroll position
 			window.location.hash = $(window).scrollTop();			
 			// - open link

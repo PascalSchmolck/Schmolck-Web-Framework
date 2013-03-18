@@ -49,4 +49,14 @@ class Schmolck_Framework_Helper_Api extends Schmolck_Framework_Helper {
 				$this->_objCore->getAction();
 	}
 
+	/**
+	 * Get api identifier
+	 * 
+	 * @return string identifier
+	 */
+	public function getIdentifier() {
+		return $this->_objCore->getModule().'/'.
+				$this->_objCore->getController().'/'.
+				$this->_objCore->getAction();
+	}
 }

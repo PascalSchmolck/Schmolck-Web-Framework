@@ -1,0 +1,53 @@
+<?php
+/*
+ * INITIALISATION
+ */
+$objCore = Schmolck_Framework_Core::getInstance($this);
+// - style
+$strStyleClass = $objCore->getHelperApi()->getStyleClass();
+// - translation
+$objCore->getHelperTranslator()->_("brand_all");
+$objCore->getHelperTranslator()->_("brand_mercedes-benz");
+$objCore->getHelperTranslator()->_("brand_smart");
+$strButtonLabel = sprintf($objCore->getHelperTranslator()->_("Display %s hits"), $objCore->nCount);
+
+/*
+ * PREPARATION
+ */
+$arrBrands = array_merge(array('all'), $objCore->arrBrands);
+
+/*
+ * OUTPUT
+ */
+?>
+<div id="<?= $objCore->strId ?>" class="<?= $strStyleClass ?>">
+	<div class="filter">
+		<form>
+			<input type="hidden" name="send" value="1">
+			<p>
+				<label>
+					<?= $objCore->getHelperTranslator()->_("Brand") ?>
+				</label>
+				<select name="brand">
+					<? foreach ($arrBrands as $strBrand) : ?>
+						<? ($objCore->strParameterBrand == $strBrand) ? $strSelected = 'selected' : $strSelected = ''; ?>
+						<option value="<?= $strBrand ?>" <?= $strSelected ?>>
+							<?= $objCore->getHelperTranslator()->_("brand_{$strBrand}") ?>
+						</option>
+					<? endforeach; ?>
+				</select>
+			</p>
+			<? if ($objCore->strParameterSend and $objCore->nCount > 0) : ?>
+				<p>
+					<input class="button" type="button" value="<?= $strButtonLabel ?>">
+				</p>
+			<? endif; ?>
+			<? if ($objCore->nCount < 1) : ?>
+				<div class="infos">
+					<?= $objCore->getHelperTranslator()->_("No matches found.") ?>
+				</div>
+			<? endif; ?>				
+		</form>
+	</div>
+	<?= $objCore->getHelperScripts()->renderViewScripts() ?>
+</div>
