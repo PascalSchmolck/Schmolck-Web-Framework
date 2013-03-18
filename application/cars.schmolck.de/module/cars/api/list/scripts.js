@@ -4,14 +4,23 @@ $(document).ready(function() {
 	/*
 	 * SCROLLING
 	 */
-	$.scrollTo('a[name=' + window.location.hash.replace('#', '') + ']');
+	// - scroll to previous position
+	var hash = window.location.hash.replace('#', '');
+	if (hash != '') {
+		$('html, body').stop().animate({
+			scrollTop: window.location.hash.replace('#', '')
+		}, 500);
+		window.location.hash = '';
+	}
 	
 	/*
 	 * LINKS
 	 */
 	$('#SchmolckID .item').each(function() {
 		$(this).click(function() {
-			window.location.hash = '#' + $(this).data('name');
+			// - save scroll position
+			window.location.hash = $(window).scrollTop();			
+			// - open link
 			window.location.href = $(this).data('link');
 		});
 	});
@@ -35,19 +44,5 @@ $(document).ready(function() {
 			data: strData
 		});
 	}
-	
-	/*
-	 * SCROLLING
-	 */
-//	var bProcessed = false;
-//	$(window).scroll(function () {
-//		if(!bProcessed) {
-//			if ($(window).height() + $(window).scrollTop() == $(document).height()) {
-//				bProcessed = true;
-//				SchmolckID_send();
-//				return false;
-//			}
-//		}
-//	});
 
 });

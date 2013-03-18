@@ -1,8 +1,9 @@
 2013.03.18
 **********
+[ ] [CARS] implement filter box for list view
 [x] [CARS] optimize image loading from www.schmolck.de
 [x] [CARS] optimize database loader (update only once per hour)
-[ ] [CARS] save scroll position when opening detail view
+[x] [CARS] save scroll position when opening detail view
 
 2013.03.12
 **********
