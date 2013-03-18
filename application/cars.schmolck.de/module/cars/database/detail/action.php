@@ -14,7 +14,6 @@ $objCore->strId = $objCore->getHelperApi()->getId();
 $objCore->strStyleClass = $objCore->getHelperApi()->getStyleClass();
 // - cars
 $objCars = new Schmolck_Cars_Helper($objCore);
-$objCars->updateFromCSV();
 
 /*
  * QR-CODE

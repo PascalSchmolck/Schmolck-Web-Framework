@@ -10,7 +10,6 @@ $objCore->strUri = $objCore->getHelperApplication()->getRequestUri();
 $objCore->strStyleClass = $objCore->getHelperApi()->getStyleClass();
 // - cars
 $objCars = new Schmolck_Cars_Helper($objCore);
-$objCars->updateFromCSV();
 // - offset
 $objCore->nOffset = 10;
 

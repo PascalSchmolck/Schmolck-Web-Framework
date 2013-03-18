@@ -44,31 +44,33 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 	const IMAGE_PATH = 'http://www.schmolck.de/data/public/images/vehicles';
 	const DATA_FILE = 'http://www.schmolck.de/data/private/vehicles/IFZ.csv';
 	const DB_TABLE = 'mod_cars';
+	const UPDATE_LIMIT = 1800;
 
-	protected $_bUpdated;
-	protected $_arrMemoryAttributes = array(
-		'_bUpdated'
-	);
+	public function __construct(Schmolck_Framework_Core $objCore) {
+		parent::__construct($objCore);
+
+		$this->updateFromCSV();
+	}
 
 	public function updateFromCSV() {
 		/*
-		 * SESSION
-		 */
-		// - only update once per session
-		if ($this->_bUpdated) {
-			Schmolck_Tool_Debug::debug('Cars database has NOT been updated due to session handling');		
-			return;
-		}
-		
-		/*
-		 * PREPARATION
+		 * INITIALISATION
 		 */
 		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
+		
+		/*
+		 * SESSION
+		 */
+		// - only update if necessary
+		if ($this->_isUpToDate()) {
+			Schmolck_Tool_Debug::debug(sprintf('Cars database still up-to-date and not older than %s minutes', (self::UPDATE_LIMIT/60)));
+			return;
+		}
 
 		/*
 		 * COPY
 		 */
-		$strTempFile = $objCore->getHelperCache()->getFilePath(md5(self::DATA_FILE) . '.csv');
+		$strTempFile = $this->_getTempFile();
 		copy(self::DATA_FILE, $strTempFile);
 
 		/*
@@ -119,11 +121,21 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 			}
 		}
 		
-		/*
-		 * SESSION
-		 */
-		$this->_bUpdated = true;
-		Schmolck_Tool_Debug::debug('Cars database has been updated with file '. $strTempFile);		
+		Schmolck_Tool_Debug::debug('Cars database has been updated with file ' . $strTempFile);
+	}
+
+	protected function _isUpToDate() {
+		$strTempFile = $this->_getTempFile();
+		if (file_exists($strTempFile)) {
+			if ((time() - filemtime($strTempFile)) <= self::UPDATE_LIMIT) {
+				return true;
+			}
+		}
+	}
+
+	protected function _getTempFile() {
+		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
+		return $objCore->getHelperCache()->getFilePath(md5(self::DATA_FILE) . '.csv');
 	}
 
 	static function getName($arrRow) {
@@ -170,18 +182,18 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 				break;
 		}
 	}
-	
+
 	static public function getPolster($arrRow) {
 		$arrRow["POLST"] = ucfirst(strtolower($arrRow["POLST"]));
-		switch($arrRow["FABT"]){
+		switch ($arrRow["FABT"]) {
 			default:
 				return $arrRow["POLST"];
 				break;
 			case "Mercedes-Benz":
-				return $arrRow["POLSTC"]." ".$arrRow["POLST"];
+				return $arrRow["POLSTC"] . " " . $arrRow["POLST"];
 				break;
 		}
-	}	
+	}
 
 	static public function getFirstImageUrl($arrRow) {
 		return self::IMAGE_PATH . '/' . $arrRow['KNR'] . ',1.JPG';
