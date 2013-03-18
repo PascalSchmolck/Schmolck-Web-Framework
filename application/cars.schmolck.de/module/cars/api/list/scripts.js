@@ -1,9 +1,17 @@
 $(document).ready(function() {			
+	//alert(window.location.hash);
+	
+	/*
+	 * SCROLLING
+	 */
+	$.scrollTo('a[name=' + window.location.hash.replace('#', '') + ']');
+	
 	/*
 	 * LINKS
 	 */
 	$('#SchmolckID .item').each(function() {
 		$(this).click(function() {
+			window.location.hash = '#' + $(this).data('name');
 			window.location.href = $(this).data('link');
 		});
 	});
