@@ -1,5 +1,6 @@
 2013.03.18
 **********
+[x] [CARS] optimize image loading from www.schmolck.de
 [x] [CARS] optimize database loader (update only once per hour)
 [ ] [CARS] save scroll position when opening detail view
 

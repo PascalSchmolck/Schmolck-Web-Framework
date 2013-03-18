@@ -28,6 +28,11 @@ if($size > 1600 || $size < 1){
 if($quality == 0 || empty($quality)){
 	$quality = 90;
 }
+// *** CHECK
+if (!file_exists($file)) {
+	header('HTTP/1.0 404 Not Found');
+	exit();
+}
 // *** IMAGE
 $image = new IMAGE_CONVERTER();
 $image->file = $file;
