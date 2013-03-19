@@ -34,6 +34,14 @@ foreach ($objCore->arrPrices as $strPrice) {
 	}
 	$arrPrices[$strPrice] = number_format($strPrice, 0, "", ".") . ' EUR';
 }
+// - kms
+$arrKms['all'] = $objCore->getHelperTranslator()->_("All");
+foreach ($objCore->arrKms as $strKm) {
+	if ($strKm > 1000) {
+		$strKm = $strKm - ($strKm % 1000) + 1000;
+	}
+	$arrKms[$strKm] = number_format($strKm, 0, "", ".") . ' km';
+}
 
 /*
  * OUTPUT
@@ -54,7 +62,8 @@ foreach ($objCore->arrPrices as $strPrice) {
 					</option>
 				<? endforeach; ?>
 			</select>
-
+		</p>
+		<p>
 			<label>
 				<?= $objCore->getHelperTranslator()->_("Type") ?>
 			</label>
@@ -66,7 +75,8 @@ foreach ($objCore->arrPrices as $strPrice) {
 					</option>
 				<? endforeach; ?>
 			</select>
-
+		</p>
+		<p>
 			<label>
 				<?= $objCore->getHelperTranslator()->_("Price (max.)") ?>
 			</label>
@@ -79,9 +89,23 @@ foreach ($objCore->arrPrices as $strPrice) {
 				<? endforeach; ?>
 			</select>
 		</p>
+		<p>			
+			<label>
+				<?= $objCore->getHelperTranslator()->_("Km (max.)") ?>
+			</label>
+			<select name="km">
+				<? foreach ($arrKms as $strValue => $strLabel) : ?>
+					<? ($objCore->strParameterKm == $strValue) ? $strSelected = 'selected' : $strSelected = ''; ?>
+					<option value="<?= $strValue ?>" <?= $strSelected ?>>
+						<?= $strLabel ?>
+					</option>
+				<? endforeach; ?>
+			</select>
+		</p>
 		<? if ($objCore->bResetLink) : ?>
 			<input type="hidden" name="reset">
-			<input class="button" type="reset" value="<?= $objCore->getHelperTranslator()->_("Reset") ?>">
+			<input class="button" type="reset" value="<?= $objCore->getHelperTranslator()->_("Reset") ?>" 
+				   title="<?= $objCore->getHelperTranslator()->_("Reset all filter values") ?>">
 		<? endif; ?>
 
 		<? if ($objCore->strParameterSend and $objCore->nCount > 0 and !$objCore->strParameterReset) : ?>

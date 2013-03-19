@@ -129,6 +129,19 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 				continue;
 				break;
 		}
+		// - km
+		switch ($this->_arrFilter['km']) {
+			default:
+				if (trim($this->_arrFilter['km']) != '') {
+					$strWherePrice = "
+						AND KM <= '{$this->_arrFilter['km']}'
+					";
+				}
+				break;
+			case 'all':
+				continue;
+				break;
+		}		
 
 		/*
 		 * QUERY
@@ -382,6 +395,11 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 		return $arrResult;
 	}
 
+	/**
+	 * Get all distinc prices
+	 * 
+	 * @return array prices
+	 */
 	public function getPrices() {
 		/*
 		 * INITIALISATION
@@ -410,5 +428,39 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 		}
 		return $arrResult;
 	}
+	
+	/**
+	 * Get all distinct km values
+	 * 
+	 * @return array km values
+	 */
+	public function getKms() {
+		/*
+		 * INITIALISATION
+		 */
+		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
+
+		/*
+		 * DATA
+		 */
+		$strQuery = "
+			SELECT 
+				DISTINCT KM 
+			FROM 
+				" . self::DB_TABLE . "
+			WHERE
+				TRUE
+				AND KM IS NOT NULL
+				AND KM <> 'null'
+				AND KM <> ''	
+			ORDER BY 
+				KM ASC
+		";
+		$resource = $objCore->getHelperDatabase()->query($strQuery);
+		while ($arrRow = mysql_fetch_assoc($resource)) {
+			$arrResult[] = $arrRow["KM"];
+		}
+		return $arrResult;
+	}	
 
 }

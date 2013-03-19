@@ -106,23 +106,31 @@ msgstr "Jahreswagen"
 msgid "Secondhand Cars"
 msgstr "Gebrauchtwagen"
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:47
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:55
 msgid "Brand"
 msgstr "Marke"
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:59
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:68
 msgid "Type"
 msgstr "Art"
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:71
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:81
 msgid "Price (max.)"
 msgstr "Preis (max.)"
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:84
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:94
+msgid "Km (max.)"
+msgstr "Km (max.)"
+
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:107
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:93
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:108
+msgid "Reset all filter values"
+msgstr "Alle Filterwerte zurücksetzen"
+
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:117
 msgid "No matches found. Try a new search."
 msgstr "Keine Treffer gefunden. Probieren Sie es mit anderen Filterkriterien."
 
