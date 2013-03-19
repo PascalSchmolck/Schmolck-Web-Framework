@@ -102,6 +102,10 @@ msgstr ""
 msgid "Cars" 
 msgstr "" 
 
+#: ../application/cars.schmolck.de/module/cars/api/list/output.phtml:17 
+msgid "%s Hits" 
+msgstr "" 
+
 #: ../application/cars.schmolck.de/module/cars/database/detail/action.php:54 
 msgid "Sorry, the selected vehicle is no longer available." 
 msgstr "" 
