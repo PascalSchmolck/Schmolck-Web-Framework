@@ -4,6 +4,7 @@ $(document).ready(function() {
 	* ACTION
 	*/
 	$('#SchmolckID select').change(function() {
+		SchmolckID_closeList();
 		SchmolckID_send();
 		return false;
 	});
@@ -35,5 +36,15 @@ $(document).ready(function() {
 	 */
 	if ('SchmolckRELOAD' == 'true') {
 		window.location.reload();
+	}
+	
+	/*
+	 * LIST
+	 */
+	SchmolckID_closeList = function() {
+		if ('SchmolckLIST' != '') {
+			var objList = $('#SchmolckLIST');
+			objList.slideUp(1000);
+		}
 	}
 });

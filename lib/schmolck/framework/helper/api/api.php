@@ -60,7 +60,7 @@ class Schmolck_Framework_Helper_Api extends Schmolck_Framework_Helper {
 				$this->_objCore->getAction();
 	}
 
-	public function getElement($strId, $strApi) {
+	public function getElement($strId, $strApi, $arrParameter=array()) {
 		/*
 		 * BACKUP
 		 */
@@ -78,7 +78,7 @@ class Schmolck_Framework_Helper_Api extends Schmolck_Framework_Helper {
 		/*
 		 * PARAMETER
 		 */
-		$_GET = array();
+		$_GET = $arrParameter;
 		$_POST = array();
 		$_POST['_ajax'] = 'true';
 		$_POST['_id'] = $strId;

@@ -13,7 +13,9 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cars
 	<div class="ninecol last">
 		<div class="content">
 			<div>
-				<?= $objCore->getHelperApi()->getElement('filter', 'cars/api/filter') ?>				
+				<?= $objCore->getHelperApi()->getElement('filter', 'cars/api/filter', array(
+					'list' => 'cars'
+				)) ?>				
 			</div>
 				
 			<div>
