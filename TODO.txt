@@ -1,5 +1,6 @@
 2013.03.19
 **********
+[ ] [CARS] implement dedicated cars contact element
 [ ] [CARS] implement slideshow in detail view
 [ ] [CARS] display contact persons on detail view
 [x] [CARS] implement filter reset functionality

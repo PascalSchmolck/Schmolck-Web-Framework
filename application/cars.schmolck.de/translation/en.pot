@@ -50,6 +50,14 @@ msgstr ""
 msgid "Language / Sprache" 
 msgstr "" 
 
+#: ../application/cars.schmolck.de/module/cars/api/contact/action.php:27 
+msgid "Request for a vehicle" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/api/contact/action.php:29 
+msgid "Request for the vehicle %s" 
+msgstr "" 
+
 #: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:9 
 msgid "Display %s hits" 
 msgstr "" 

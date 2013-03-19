@@ -437,6 +437,11 @@ body {
 //------------------------------------------------------------------------------
 .cars .api {
 	padding: 10px 0;
+	&.contact {
+		textarea {
+			height: 8em;
+		}
+	}
 	.infos {
 		margin: 10px 0;
 	}
@@ -451,9 +456,11 @@ body {
 	.amount {
 		font-size: 130%;
 	}
-	.list {
+	&.result {
 		width: 100%;
-		background-color: #f1f1f1;
+		.list {
+			background-color: #f1f1f1;
+		}
 		.item {
 			@media print {
 				padding: 10px 0;
@@ -508,7 +515,7 @@ body {
 	}
 }
 .cars .database {
-	.detail {
+	&.detail {
 		width: 100%;
 		background-color: #f1f1f1;
 		.item {

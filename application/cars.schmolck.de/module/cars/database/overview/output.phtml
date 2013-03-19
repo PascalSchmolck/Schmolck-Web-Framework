@@ -34,7 +34,9 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cars
 
 			</p>
 			<div class="screen">
-				<?= $objCore->getHelperApi()->getElement('email', 'api/contact/form') ?>				
+				<?= $objCore->getHelperApi()->getElement('email', 'cars/api/contact', array(
+					'id' => ' '
+				)) ?>				
 			</div>
 		</div>
 	</div>

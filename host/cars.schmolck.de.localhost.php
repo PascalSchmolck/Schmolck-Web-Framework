@@ -86,3 +86,9 @@ define('DATABASE_PASSWORD', 'test');
  */
 define('MAIL_SENDER_NAME', 'Pascal Schmolck');
 define('MAIL_SENDER_ADDRESS', 'mail@pascalschmolck.de');
+
+/*
+ * CARS
+ */
+define('CARS_CONTACT_RECIPIENT_NAME', 'Pascal Schmolck');
+define('CARS_CONTACT_RECIPIENT_ADDRESS', 'mail@pascalschmolck.de');
