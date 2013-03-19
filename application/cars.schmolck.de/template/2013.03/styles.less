@@ -441,7 +441,7 @@ body {
 //------------------------------------------------------------------------------
 // Module Layout
 //------------------------------------------------------------------------------
-.cars .api {
+.cars {
 	&.contact {  
 		textarea {
 			height: 8em;
@@ -450,164 +450,166 @@ body {
 			margin: 0;
 		}
 	}
-	&.filter {
-		.infos {
-			margin: 10px 0;
-		}
-	}
-	.amount {
-		font-size: 130%;
-	}
-	&.gallery {
-		margin-top: 30px;
-		width: 100%;
+	&.search {
 		.amount {
-			padding: 10px 0;
 			font-size: 130%;
-		}	
-		.item {
-			float: left;
-			height: 113px;
-			padding-right: 10px;
-			padding-bottom: 10px;
-			&:hover {
-				cursor: pointer;
-				opacity: 0.75;
-				filter:alpha(opacity=75);
+		}
+		&.filter {
+			.infos {
+				margin: 10px 0;
 			}
 		}
-		.image {
-			width: 150px;
+		&.gallery {
+			margin-top: 30px;
+			width: 100%;
+			.amount {
+				padding: 10px 0;
+				font-size: 130%;
+			}	
+			.item {
+				float: left;
+				height: 113px;
+				padding-right: 10px;
+				padding-bottom: 10px;
+				&:hover {
+					cursor: pointer;
+					opacity: 0.75;
+					filter:alpha(opacity=75);
+				}
+			}
+			.image {
+				width: 150px;
+			}
+			.clearer {
+				clear: both;
+				height: 0;
+			}
 		}
-		.clearer {
-			clear: both;
-			height: 0;
+		&.result {
+			margin-top: 30px;
+			width: 100%;
+			.list {
+				background-color: #f1f1f1;
+			}
+			.item {
+				@media print {
+					padding: 10px 0;
+				}
+				padding: 15px 20px;
+				margin: 10px 0;
+
+				&.odd {
+					background-color: #e1e1e1;
+				}
+				&:hover {
+					cursor: pointer;
+					opacity: 0.75;
+					filter:alpha(opacity=75);
+				}
+			}
+			.title {
+				font-size: 135%;
+				font-weight: bold;
+				padding-bottom: 20px;
+			}
+			.image {
+				float: left;
+				width: 150px;
+				padding-right: 20px;
+			}
+			.infos1 {
+				float: left;
+				font-weight: bold;
+				padding-right: 30px;
+				padding-bottom: 20px;
+			}
+			.infos2 {
+				float: left;
+				padding-right: 30px;
+				padding-bottom: 20px;
+			}
+			.infos3 {
+				float: left;
+				padding-right: 30px;
+				padding-bottom: 20px;
+			}
+			.price {
+				float: right;
+				padding-top: 5px;
+				font-size: 150%;
+			}
+			.clearer {
+				clear: both;
+				height: 0;
+			}
 		}
 	}
-	&.result {
-		margin-top: 30px;
-		width: 100%;
-		.list {
+	&.database {
+		&.detail {
+			width: 100%;
 			background-color: #f1f1f1;
-		}
-		.item {
-			@media print {
-				padding: 10px 0;
+			.item {
+				@media print {
+					padding: 10px 0;
+				}
+				padding: 15px 20px;
+				&.odd {
+					background-color: #e1e1e1;
+				}
 			}
-			padding: 15px 20px;
-			margin: 10px 0;
+			.title {
+				font-size: 135%;
+				font-weight: bold;
+				padding-bottom: 20px;
+			}
+			.qrcode {
+				@media screen, handheld {
+					display: none;
+				}
+				float: right;
+			}
+			.image {
+				float: left;
+				width: 310px;
+				max-width: 100%;
+				height: auto;
+				padding-right: 20px;
 
-			&.odd {
-				background-color: #e1e1e1;
+				&:hover {
+					cursor: pointer;
+					opacity: 0.75;
+					filter:alpha(opacity=75);
+				}
 			}
-			&:hover {
-				cursor: pointer;
-				opacity: 0.75;
-				filter:alpha(opacity=75);
+			.infos1 {
+				font-weight: bold;
+				padding-bottom: 20px;
 			}
-		}
-		.title {
-			font-size: 135%;
-			font-weight: bold;
-			padding-bottom: 20px;
-		}
-		.image {
-			float: left;
-			width: 150px;
-			padding-right: 20px;
-		}
-		.infos1 {
-			float: left;
-			font-weight: bold;
-			padding-right: 30px;
-			padding-bottom: 20px;
-		}
-		.infos2 {
-			float: left;
-			padding-right: 30px;
-			padding-bottom: 20px;
-		}
-		.infos3 {
-			float: left;
-			padding-right: 30px;
-			padding-bottom: 20px;
-		}
-		.price {
-			float: right;
-			padding-top: 5px;
-			font-size: 150%;
-		}
-		.clearer {
-			clear: both;
-			height: 0;
-		}
-	}
-}
-.cars .database {
-	&.detail {
-		width: 100%;
-		background-color: #f1f1f1;
-		.item {
-			@media print {
-				padding: 10px 0;
+			.infos2 {
+				padding-bottom: 20px;
 			}
-			padding: 15px 20px;
-			&.odd {
-				background-color: #e1e1e1;
+			.infos3 {
+				padding-bottom: 20px;
 			}
-		}
-		.title {
-			font-size: 135%;
-			font-weight: bold;
-			padding-bottom: 20px;
-		}
-		.qrcode {
-			@media screen, handheld {
-				display: none;
+			.price {
+				padding-top: 5px;
+				font-size: 150%;
 			}
-			float: right;
-		}
-		.image {
-			float: left;
-			width: 310px;
-			max-width: 100%;
-			height: auto;
-			padding-right: 20px;
-
-			&:hover {
-				cursor: pointer;
-				opacity: 0.75;
-				filter:alpha(opacity=75);
+			.clearer {
+				clear: both;
+				height: 0;
 			}
-		}
-		.infos1 {
-			font-weight: bold;
-			padding-bottom: 20px;
-		}
-		.infos2 {
-			padding-bottom: 20px;
-		}
-		.infos3 {
-			padding-bottom: 20px;
-		}
-		.price {
-			padding-top: 5px;
-			font-size: 150%;
-		}
-		.clearer {
-			clear: both;
-			height: 0;
-		}
-		.equipment {
-			@media print { 
-				font-size: 90%;
-			}
-			padding-top: 10px;
-			.row1 {
-				@media all and (min-width : 481px) { 
-					float: left;
-					width: 50%;
-					padding-right: 10px;
+			.equipment {
+				@media print { 
+					font-size: 90%;
+				}
+				padding-top: 10px;
+				.row1 {
+					@media all and (min-width : 481px) { 
+						float: left;
+						width: 50%;
+						padding-right: 10px;
+					}
 				}
 			}
 		}

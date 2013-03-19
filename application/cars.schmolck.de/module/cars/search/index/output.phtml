@@ -12,10 +12,10 @@ $strStyleClass = $objCore->getHelperApi()->getStyleClass();
 ?>
 <div id="<?= $objCore->strId ?>" class="<?= $strStyleClass ?>">
 	<?=
-	$objCore->getHelperApi()->getElement("{$objCore->strId}_filter", 'cars/api/filter', array(
+	$objCore->getHelperApi()->getElement("{$objCore->strId}_filter", 'cars/search/filter', array(
 		'resultID' => "{$objCore->strId}_result"
 	));
 	?>				
 
-	<?= $objCore->getHelperApi()->getElement("{$objCore->strId}_result", 'cars/api/result') ?>				
+	<?= $objCore->getHelperApi()->getElement("{$objCore->strId}_result", 'cars/search/result') ?>				
 </div>

@@ -15,7 +15,7 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cars
 			<h1>
 				<?= $objCore->getHelperTranslator()->_("Cars") ?>
 			</h1>
-			<?= $objCore->getHelperApi()->getElement('cars', 'cars/api/search') ?>				
+			<?= $objCore->getHelperApi()->getElement('cars', 'cars/search/index') ?>				
 		</div>
 	</div>
 	<div class="threecol last">
@@ -38,7 +38,7 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cars
 			</p>
 			<div class="screen">
 				<?=
-				$objCore->getHelperApi()->getElement('email', 'cars/api/contact', array(
+				$objCore->getHelperApi()->getElement('email', 'cars/contact/form', array(
 					'id' => ' '
 				))
 				?>				

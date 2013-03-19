@@ -44,7 +44,7 @@ $(document).ready(function() {
 	SchmolckID_reloadResult = function() {
 		if ('SchmolckRESULTID' != '') {
 			Schmolck_Framework_Helper_Api({
-				url: 'cars/api/result',
+				url: 'cars/search/result',
 				id: 'SchmolckRESULTID'
 			});
 			var objResult = $('#SchmolckRESULTID');
