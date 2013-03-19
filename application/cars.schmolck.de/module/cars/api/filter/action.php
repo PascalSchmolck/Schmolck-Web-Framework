@@ -17,34 +17,20 @@ $objCars = new Schmolck_Cars_Helper($objCore);
 $objCore->strParameterSend = strip_tags($_POST['send']);
 $objCore->strParameterBrand = Schmolck_Tool_Memory::auto($objCore->strApi, 'brand', strip_tags($_POST['brand']));
 $objCore->strParameterType = Schmolck_Tool_Memory::auto($objCore->strApi, 'type', strip_tags($_POST['type']));
+$objCore->strParameterPrice = Schmolck_Tool_Memory::auto($objCore->strApi, 'price', strip_tags($_POST['price']));
 
 /*
  * SAVING
  */
 $objCars->setFilter('brand', $objCore->strParameterBrand);
 $objCars->setFilter('type', $objCore->strParameterType);
+$objCars->setFilter('price', $objCore->strParameterPrice);
 
 /*
  * DATA
  */
 $objCore->nCount = count($objCars->queryFilteredCars());
-
-///*
-// * DATA
-// */
-//$strQuery = sprintf("SELECT * FROM  `mod_cars` LIMIT 0,%s", $objCore->nLimit);
-//$resource = $objCore->getHelperDatabase()->query($strQuery);
-//while ($arrRow = mysql_fetch_assoc($resource)) {
-//	$arrRow['name'] = $objCars->getName($arrRow);
-//	$arrRow["EZ"] = $objCars->getEz($arrRow);
-//	$arrRow["KM"] = $objCars->getKm($arrRow);
-//	$arrRow["RP"] = $objCars->getPrice($arrRow);
-//	$arrRow["color"] = $objCars->getColor($arrRow);
-//	$arrRow["image"] = $objCars->getFirstImageUrl($arrRow);
-//	$arrResult[] = $arrRow;
-//}
-//$objCore->arrCars = $arrResult;
-//$objCore->nCars = count($objCore->arrCars);
+$objCore->arrPrices = $objCars->getPrices();
 
 /*
  * SCRIPT

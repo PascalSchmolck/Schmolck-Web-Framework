@@ -84,7 +84,7 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 			default:
 				if ($this->_arrFilter['brand'] == '') {
 					$this->_arrFilter['brand'] = '%';
-				} 
+				}
 				$strWhereBrand = "
 					AND FABT LIKE '{$this->_arrFilter['brand']}'
 				";
@@ -107,7 +107,7 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 			default:
 				if ($this->_arrFilter['type'] == '') {
 					$this->_arrFilter['type'] = '%';
-				} 
+				}
 				$strWhereType = "
 					AND KAT LIKE '{$this->_arrFilter['type']}'
 				";
@@ -116,6 +116,20 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 				$strWhereType = "
 					AND KAT LIKE '%'
 				";
+				break;
+		}
+		// - price
+		switch ($this->_arrFilter['price']) {
+			default:
+				if ($this->_arrFilter['price'] == '') {
+					continue;
+				}
+				$strWherePrice = "
+					AND RP <= '{$this->_arrFilter['price']}'
+				";
+				break;
+			case 'all':
+				continue;
 				break;
 		}
 
@@ -131,6 +145,7 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 				TRUE
 				$strWhereBrand
 				$strWhereType
+				$strWherePrice
 			ORDER BY
 				RP
 		";
@@ -363,6 +378,35 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 		$resource = $objCore->getHelperDatabase()->query($strQuery);
 		while ($arrRow = mysql_fetch_assoc($resource)) {
 			$arrResult[] = strtolower($arrRow["FABT"]);
+		}
+		return $arrResult;
+	}
+
+	public function getPrices() {
+		/*
+		 * INITIALISATION
+		 */
+		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
+
+		/*
+		 * DATA
+		 */
+		$strQuery = "
+			SELECT 
+				DISTINCT RP 
+			FROM 
+				" . self::DB_TABLE . "
+			WHERE
+				TRUE
+				AND RP IS NOT NULL
+				AND RP <> 'null'
+				AND RP <> ''
+			ORDER BY 
+				RP ASC
+		";
+		$resource = $objCore->getHelperDatabase()->query($strQuery);
+		while ($arrRow = mysql_fetch_assoc($resource)) {
+			$arrResult[] = $arrRow["RP"];
 		}
 		return $arrResult;
 	}

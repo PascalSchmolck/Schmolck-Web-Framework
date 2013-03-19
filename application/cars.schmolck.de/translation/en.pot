@@ -74,27 +74,31 @@ msgstr ""
 msgid "Others" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:24 
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:25 
 msgid "Company Cars" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:25 
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:26 
 msgid "Jahreswagen" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:26 
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:27 
 msgid "Secondhand Cars" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:39 
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:48 
 msgid "Brand" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:50 
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:60 
 msgid "Type" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:68 
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:72 
+msgid "Price" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:90 
 msgid "No matches found." 
 msgstr "" 
 
