@@ -16,21 +16,17 @@ $objCars = new Schmolck_Cars_Helper($objCore);
  */
 $objCore->strParameterSend = strip_tags($_POST['send']);
 $objCore->strParameterBrand = Schmolck_Tool_Memory::auto($objCore->strApi, 'brand', strip_tags($_POST['brand']));
+$objCore->strParameterType = Schmolck_Tool_Memory::auto($objCore->strApi, 'type', strip_tags($_POST['type']));
 
 /*
  * SAVING
  */
 $objCars->setFilter('brand', $objCore->strParameterBrand);
+$objCars->setFilter('type', $objCore->strParameterType);
 
 /*
  * DATA
  */
-//$objCore->arrBrands = $objCars->getBrands();
-$objCore->arrBrands = array(
-	'mercedes-benz',
-	'smart',
-//	'volkswagen'
-);
 $objCore->nCount = count($objCars->queryFilteredCars());
 
 ///*

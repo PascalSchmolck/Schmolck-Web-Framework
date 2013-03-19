@@ -1,5 +1,7 @@
 2013.03.18
 **********
+[x] [CARS] implement type filter
+[x] [CARS] implement brand filter for 'others'
 [x] [FRAMEWORK] optimize special api inclusion feature
 [x] [CARS] implement filter box for list view
 [x] [CARS] optimize image loading from www.schmolck.de

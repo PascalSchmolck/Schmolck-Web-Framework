@@ -12,52 +12,46 @@ $nCounter = 0;
  */
 ?>
 <div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
-	<div class="list">
-		<? foreach ($objCore->arrCars as $arrCar) : ?>		
-			<? ($nCounter % 2 == 1) ? $strOdd = 'odd' : $strOdd = ''; ?> 
-			<a name="<?= $arrCar['KNR'] ?>"></a>
-			<div class="item <?= $strOdd ?>" data-name="<?= $arrCar['KNR'] ?>" data-link="<?= $strBaseUrl ?>/cars/database/detail/id/<?= $arrCar['KNR'] ?>">
-				<div class="title">
-					<?= $arrCar['name'] ?>
+	<? if ($objCore->nCars > 0) : ?>
+		<div class="list">
+			<? foreach ($objCore->arrCars as $arrCar) : ?>		
+				<? ($nCounter % 2 == 1) ? $strOdd = 'odd' : $strOdd = ''; ?> 
+				<a name="<?= $arrCar['KNR'] ?>"></a>
+				<div class="item <?= $strOdd ?>" data-name="<?= $arrCar['KNR'] ?>" data-link="<?= $strBaseUrl ?>/cars/database/detail/id/<?= $arrCar['KNR'] ?>">
+					<div class="title">
+						<?= $arrCar['name'] ?>
+					</div>
+					<div class="data">
+						<div class="image">
+							<img src="<?= $arrCar['image'] ?>">
+						</div>
+						<div class="infos1">
+							<?= $arrCar['KAT'] ?> <br>
+							<?= $arrCar['KNR'] ?> <br>						
+						</div>
+						<div class="infos2">
+							EZ <?= $arrCar['EZ'] ?> <br>
+							<?= $arrCar['KM'] ?> km <br>
+						</div>
+						<div class="infos3">
+							<?= $arrCar['KW'] ?> kW (<?= $arrCar['PS'] ?> PS) <br>
+							<?= $arrCar['color'] ?> <br>
+						</div>
+						<div class="price">
+							<?= $arrCar['RP'] ?> EUR <br>
+						</div>
+						<div class="clearer">
+							&nbsp;
+						</div>
+					</div>
 				</div>
-				<div class="data">
-					<div class="image">
-						<img src="<?= $arrCar['image'] ?>">
-					</div>
-					<div class="infos1">
-						<?= $arrCar['KAT'] ?> <br>
-						<?= $arrCar['KNR'] ?> <br>						
-					</div>
-					<div class="infos2">
-						EZ <?= $arrCar['EZ'] ?> <br>
-						<?= $arrCar['KM'] ?> km <br>
-					</div>
-					<div class="infos3">
-						<?= $arrCar['KW'] ?> kW (<?= $arrCar['PS'] ?> PS) <br>
-						<?= $arrCar['color'] ?> <br>
-					</div>
-					<div class="price">
-						<?= $arrCar['RP'] ?> EUR <br>
-					</div>
-					<div class="clearer">
-						&nbsp;
-					</div>
-				</div>
-			</div>
-			<? $nCounter++ ?>
-		<? endforeach; ?>
-	</div>
-	<div class="amount">
-		# <?= $objCore->nCars ?>
-	</div>
-	<? if ($objCore->nCars == $objCore->nLimit) : ?>
-		<div class="loadlink">
-			<form>
-				<input type="hidden" name="limit" value="<?= $objCore->nLimit + $objCore->nOffset ?>">
-				<input type="button" class="button" value="<?= $objCore->getHelperTranslator()->_("Load next 10 hits") ?>">
-			</form>
-		</div>	
-	<? endif; ?>
+				<? $nCounter++ ?>
+			<? endforeach; ?>
+		</div>
+		<div class="amount">
+			# <?= $objCore->nCars ?>
+		</div>
+	<? endif; ?>	
 	<div class="clearer">
 		&nbsp;
 	</div>

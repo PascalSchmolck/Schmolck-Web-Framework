@@ -3,7 +3,7 @@ $(document).ready(function() {
 	/*
 	* ACTION
 	*/
-	$('#SchmolckID select[name=brand]').change(function() {
+	$('#SchmolckID select').change(function() {
 		SchmolckID_send();
 		return false;
 	});

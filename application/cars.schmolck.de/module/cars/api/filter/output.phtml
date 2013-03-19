@@ -5,16 +5,26 @@
 $objCore = Schmolck_Framework_Core::getInstance($this);
 // - style
 $strStyleClass = $objCore->getHelperApi()->getStyleClass();
-// - translation
-$objCore->getHelperTranslator()->_("brand_all");
-$objCore->getHelperTranslator()->_("brand_mercedes-benz");
-$objCore->getHelperTranslator()->_("brand_smart");
+// - button
 $strButtonLabel = sprintf($objCore->getHelperTranslator()->_("Display %s hits"), $objCore->nCount);
 
 /*
  * PREPARATION
  */
-$arrBrands = array_merge(array('all'), $objCore->arrBrands);
+// - brands
+$arrBrands = array(
+	'all' => $objCore->getHelperTranslator()->_("All"),
+	'mercedes-benz' => $objCore->getHelperTranslator()->_("Mercedes-Benz"),
+	'smart' => $objCore->getHelperTranslator()->_("smart"),
+	'volkswagen' => $objCore->getHelperTranslator()->_("Volkswagen"),
+	'others' => $objCore->getHelperTranslator()->_("Others"),
+);
+$arrTypes = array(
+	'all' => $objCore->getHelperTranslator()->_("All"),
+	'geschaeftswagen' => $objCore->getHelperTranslator()->_("Company Cars"),
+	'jahreswagen' => $objCore->getHelperTranslator()->_("Jahreswagen"),
+	'gebrauchtwagen' => $objCore->getHelperTranslator()->_("Secondhand Cars"),
+);
 
 /*
  * OUTPUT
@@ -29,10 +39,21 @@ $arrBrands = array_merge(array('all'), $objCore->arrBrands);
 					<?= $objCore->getHelperTranslator()->_("Brand") ?>
 				</label>
 				<select name="brand">
-					<? foreach ($arrBrands as $strBrand) : ?>
-						<? ($objCore->strParameterBrand == $strBrand) ? $strSelected = 'selected' : $strSelected = ''; ?>
-						<option value="<?= $strBrand ?>" <?= $strSelected ?>>
-							<?= $objCore->getHelperTranslator()->_("brand_{$strBrand}") ?>
+					<? foreach ($arrBrands as $strValue => $strLabel) : ?>
+						<? ($objCore->strParameterBrand == $strValue) ? $strSelected = 'selected' : $strSelected = ''; ?>
+						<option value="<?= $strValue ?>" <?= $strSelected ?>>
+							<?= $strLabel ?>
+						</option>
+					<? endforeach; ?>
+				</select>
+				<label>
+					<?= $objCore->getHelperTranslator()->_("Type") ?>
+				</label>
+				<select name="type">
+					<? foreach ($arrTypes as $strValue => $strLabel) : ?>
+						<? ($objCore->strParameterType == $strValue) ? $strSelected = 'selected' : $strSelected = ''; ?>
+						<option value="<?= $strValue ?>" <?= $strSelected ?>>
+							<?= $strLabel ?>
 						</option>
 					<? endforeach; ?>
 				</select>

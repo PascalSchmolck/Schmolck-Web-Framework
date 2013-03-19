@@ -51,39 +51,55 @@ msgid "Language / Sprache"
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:9 
-msgid "brand_all" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:10 
-msgid "brand_mercedes-benz" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:11 
-msgid "brand_smart" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:12 
 msgid "Display %s hits" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:29 
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:16 
+msgid "All" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:17 
+msgid "Mercedes-Benz" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:18 
+msgid "smart" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:19 
+msgid "Volkswagen" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:20 
+msgid "Others" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:24 
+msgid "Company Cars" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:25 
+msgid "Jahreswagen" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:26 
+msgid "Secondhand Cars" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:39 
 msgid "Brand" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:35 
-msgid "brand_{$strBrand}" 
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:50 
+msgid "Type" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:47 
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:68 
 msgid "No matches found." 
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/cars/api/list/output.phtml:6 
 msgid "Cars" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/api/list/output.phtml:57 
-msgid "Load next 10 hits" 
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/cars/database/detail/action.php:54 

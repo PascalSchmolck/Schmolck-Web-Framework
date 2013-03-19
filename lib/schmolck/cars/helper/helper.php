@@ -80,12 +80,39 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 		 * PREPARATION
 		 */
 		// - brand
-		if ($this->_arrFilter['brand'] == '' or $this->_arrFilter['brand'] == 'all') {
-			$strFilterBrand = '%';
-		} else {
-			$strFilterBrand = $this->_arrFilter['brand'];
+		switch ($this->_arrFilter['brand']) {
+			default:
+				$strWhereBrand = "
+					AND FABT LIKE '{$this->_arrFilter['brand']}'
+				";
+				break;
+			case 'all':
+				$strWhereBrand = "
+					AND FABT LIKE '%'
+				";
+				break;
+			case 'others':
+				$strWhereBrand = "
+					AND FABT NOT LIKE 'Mercedes-Benz'
+					AND FABT NOT LIKE 'Smart'
+					AND FABT NOT LIKE 'Volkswagen'
+				";
+				break;
 		}
-		
+		// - type
+		switch ($this->_arrFilter['type']) {
+			default:
+				$strWhereType = "
+					AND KAT LIKE '{$this->_arrFilter['type']}'
+				";
+				break;
+			case 'all':
+				$strWhereType = "
+					AND KAT LIKE '%'
+				";
+				break;
+		}
+
 		/*
 		 * QUERY
 		 */
@@ -96,8 +123,11 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 				" . self::DB_TABLE . "
 			WHERE
 				TRUE
-				AND FABT LIKE '{$strFilterBrand}'
-		";				
+				$strWhereBrand
+				$strWhereType
+			ORDER BY
+				RP
+		";
 		$resource = $objCore->getHelperDatabase()->query($strQuery);
 		while ($arrRow = mysql_fetch_assoc($resource)) {
 			$arrRow['name'] = $this->extractName($arrRow);

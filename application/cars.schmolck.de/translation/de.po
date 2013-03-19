@@ -63,42 +63,56 @@ msgid "Language / Sprache"
 msgstr "Language / Sprache"
 
 #: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:9
-msgid "brand_all"
-msgstr "Alle"
-
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:10
-#, fuzzy
-msgid "brand_mercedes-benz"
-msgstr "Mercedes-Benz"
-
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:11
-#, fuzzy
-msgid "brand_smart"
-msgstr "smart"
-
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:12
 msgid "Display %s hits"
 msgstr "Zeige %s Treffer"
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:29
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:16
+msgid "All"
+msgstr "Alle"
+
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:17
+msgid "Mercedes-Benz"
+msgstr "Mercedes-Benz"
+
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:18
+msgid "smart"
+msgstr "smart"
+
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:19
+msgid "Volkswagen"
+msgstr "Volkswagen"
+
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:20
+msgid "Others"
+msgstr "Sonstige"
+
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:24
+msgid "Company Cars"
+msgstr "Geschäftswagen"
+
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:25
+msgid "Jahreswagen"
+msgstr "Jahreswagen"
+
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:26
+msgid "Secondhand Cars"
+msgstr "Gebrauchtwagen"
+
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:39
 msgid "Brand"
 msgstr "Marke"
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:35
-msgid "brand_{$strBrand}"
-msgstr ""
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:50
+msgid "Type"
+msgstr "Art"
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:47
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:68
 msgid "No matches found."
 msgstr "Keine Treffer."
 
 #: ../application/cars.schmolck.de/module/cars/api/list/output.phtml:6
 msgid "Cars"
 msgstr "Fahrzeuge"
-
-#: ../application/cars.schmolck.de/module/cars/api/list/output.phtml:57
-msgid "Load next 10 hits"
-msgstr "Lade die nächsten 10 Treffer"
 
 #: ../application/cars.schmolck.de/module/cars/database/detail/action.php:54
 msgid "Sorry, the selected vehicle is no longer available."
@@ -193,6 +207,20 @@ msgstr "cars"
 #: ../application/cars.schmolck.de/template/2013.03/html.phtml:60
 msgid "Home"
 msgstr "Startseite"
+
+#~ msgid "brand_all"
+#~ msgstr "Alle"
+
+#, fuzzy
+#~ msgid "brand_mercedes-benz"
+#~ msgstr "Mercedes-Benz"
+
+#, fuzzy
+#~ msgid "brand_smart"
+#~ msgstr "smart"
+
+#~ msgid "Load next 10 hits"
+#~ msgstr "Lade die nächsten 10 Treffer"
 
 #~ msgid "Contact Form"
 #~ msgstr "Kontaktformular"
