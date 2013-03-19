@@ -20,17 +20,13 @@ class Schmolck_Framework_Core {
 	protected $_strViewOutput;
 	protected $_strTrace;
 
-	static public function getInstance(Schmolck_Framework_Core $obj) {
-		return $obj;
+	static public function getInstance(Schmolck_Framework_Core $objCore) {
+		return $objCore;
 	}
 
 	public function __construct() {
-		/*
-		 * PREPARATION
-		 */
 		$this->_initSettings();
 		$this->_initHelpers();
-		$this->_initApplication();
 	}
 
 	/**
@@ -58,7 +54,7 @@ class Schmolck_Framework_Core {
 			return $this->_arrActionValues[$strKey];
 		}
 	}
-	
+
 	public function getViewOutput() {
 		return $this->_strViewOutput;
 	}
@@ -73,6 +69,15 @@ class Schmolck_Framework_Core {
 	}
 
 	/**
+	 * Set module name
+	 * 
+	 * @param string $strModule
+	 */
+	public function setModule($strModule) {
+		$this->_strModule = $strModule;
+	}
+
+	/**
 	 * Get controller name
 	 * 
 	 * @return string name
@@ -82,12 +87,30 @@ class Schmolck_Framework_Core {
 	}
 
 	/**
+	 * Set controller name
+	 * 
+	 * @param string $strController
+	 */
+	public function setController($strController) {
+		$this->_strController = $strController;
+	}
+
+	/**
 	 * Get action name
 	 * 
 	 * @return string name
 	 */
 	public function getAction() {
 		return $this->_strAction;
+	}
+
+	/**
+	 * Set action name
+	 * 
+	 * @param string $strAction
+	 */
+	public function setAction($strAction) {
+		$this->_strAction = $strAction;
 	}
 
 	/**
@@ -115,7 +138,7 @@ class Schmolck_Framework_Core {
 	public function &getHelperHost() {
 		return $this->_arrHelpers['host'];
 	}
-	
+
 	/**
 	 * Get application helper
 	 * 
@@ -151,7 +174,7 @@ class Schmolck_Framework_Core {
 	public function &getHelperTranslator() {
 		return $this->_arrHelpers['translator'];
 	}
-	
+
 	/**
 	 * Get redirect helper
 	 * 
@@ -160,7 +183,7 @@ class Schmolck_Framework_Core {
 	public function &getHelperRedirect() {
 		return $this->_arrHelpers['redirect'];
 	}
-	
+
 	/**
 	 * Get message helper
 	 * 
@@ -168,7 +191,7 @@ class Schmolck_Framework_Core {
 	 */
 	public function &getHelperMessage() {
 		return $this->_arrHelpers['message'];
-	}	
+	}
 
 	/**
 	 * Get scripts helper
@@ -211,19 +234,6 @@ class Schmolck_Framework_Core {
 	 */
 	protected function _initSettings() {
 		require(Schmolck_Framework_Helper_Host::getSettings());
-	}
-
-	/**
-	 * Initialize application
-	 */
-	protected function _initApplication() {
-		/*
-		 * PARAMETERS
-		 */
-		require($this->getHelperApplication()->getPath() . '/parameters.php');
-		$this->_strModule = ($strModule != '') ? $strModule : 'index';
-		$this->_strController = ($strController != '') ? $strController : 'index';
-		$this->_strAction = ($strAction != '') ? $strAction : 'index';
 	}
 
 	/**
@@ -291,7 +301,7 @@ class Schmolck_Framework_Core {
 			 * BUFFERING
 			 */
 			ob_start();
-
+			
 			/*
 			 * PROCESSING
 			 */
@@ -318,7 +328,7 @@ class Schmolck_Framework_Core {
 
 			$this->_strTrace = 'View';
 			$this->_runView();
-			
+
 			$this->_strTrace = 'ControllerExit';
 			$this->_runControllerExit();
 
@@ -337,11 +347,6 @@ class Schmolck_Framework_Core {
 			$strOutput = ob_get_contents();
 			ob_end_clean();
 			echo $strOutput;
-
-			/*
-			 * EXIT
-			 */
-			exit();
 		} catch (Exception $Exception) {
 			ob_end_clean();
 			$this->_runExceptionHandling($Exception);
@@ -565,7 +570,7 @@ class Schmolck_Framework_Core {
 		 */
 		return $strTempFile;
 	}
-	
+
 	public function forward($strModule, $strController, $strAction) {
 		$this->_strModule = $strModule;
 		$this->_strController = $strController;
@@ -578,7 +583,7 @@ class Schmolck_Framework_Core {
 	 * 
 	 * @param boolean $bFlag
 	 */
-	protected function setLayoutRendering($bFlag) {
+	public function setLayoutRendering($bFlag) {
 		$this->_bLayoutRendering = $bFlag;
 	}
 

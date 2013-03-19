@@ -1,6 +1,7 @@
 2013.03.18
 **********
-[ ] [CARS] implement filter box for list view
+[x] [FRAMEWORK] optimize special api inclusion feature
+[x] [CARS] implement filter box for list view
 [x] [CARS] optimize image loading from www.schmolck.de
 [x] [CARS] optimize database loader (update only once per hour)
 [x] [CARS] save scroll position when opening detail view

@@ -86,14 +86,7 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 
 		</p>		
 		<div class="screen">
-			<div id="email" class="loading">
-				<script>
-					Schmolck_Framework_Helper_Api({
-						id: 'email',
-						url: 'api/contact/form'
-					});
-				</script>
-			</div>
+			<?= $objCore->getHelperApi()->getElement('email', 'api/contact/form') ?>				
 		</div>
 	</div>
 </div>

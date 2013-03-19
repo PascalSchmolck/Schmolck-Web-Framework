@@ -59,13 +59,6 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cont
 </div>
 <div class="sixcol last screen">
 	<div class="sidebar">
-		<div id="email" class="loading">
-			<script>
-				Schmolck_Framework_Helper_Api({
-					id: 'email',
-					url: 'api/contact/form'
-				});
-			</script>
-		</div>
+		<?= $objCore->getHelperApi()->getElement('email', 'api/contact/form') ?>				
 	</div>
 </div>

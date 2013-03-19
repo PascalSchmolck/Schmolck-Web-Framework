@@ -128,14 +128,7 @@
 				<div class="ninecol">
 					<div class="padding">
 						<div class="language">
-							<div id="langswitcher">
-								<script>
-									Schmolck_Framework_Helper_Api({
-										id: 'langswitcher',
-										url: 'api/language/switcher'
-									});
-								</script>
-							</div>
+							<?= $objCore->getHelperApi()->getElement('langswitcher', 'api/language/switcher') ?>				
 						</div>										
 					</div>
 				</div>

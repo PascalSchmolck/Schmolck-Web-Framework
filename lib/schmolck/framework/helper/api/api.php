@@ -37,15 +37,15 @@ class Schmolck_Framework_Helper_Api extends Schmolck_Framework_Helper {
 			return 'id' . md5($this->_objCore->getHelperApplication()->getRequestUri() . session_id());
 		}
 	}
-	
+
 	/**
 	 * Get api CSS class
 	 * 
 	 * @return string class
 	 */
 	public function getStyleClass() {
-		return $this->_objCore->getModule().' '.
-				$this->_objCore->getController().' '.
+		return $this->_objCore->getModule() . ' ' .
+				$this->_objCore->getController() . ' ' .
 				$this->_objCore->getAction();
 	}
 
@@ -55,8 +55,57 @@ class Schmolck_Framework_Helper_Api extends Schmolck_Framework_Helper {
 	 * @return string identifier
 	 */
 	public function getIdentifier() {
-		return $this->_objCore->getModule().'/'.
-				$this->_objCore->getController().'/'.
+		return $this->_objCore->getModule() . '/' .
+				$this->_objCore->getController() . '/' .
 				$this->_objCore->getAction();
 	}
+
+	public function getElement($strId, $strApi) {
+		/*
+		 * BACKUP
+		 */
+		$arrOldGET = $_GET;
+		$arrOldPOST = $_POST;
+		
+		/*
+		 * INITIALISATION
+		 */
+		$arrApi = explode('/', $strApi);
+		$strModule = $arrApi[0];
+		$strController = $arrApi[1];
+		$strAction = $arrApi[2];
+		
+		/*
+		 * PARAMETER
+		 */
+		$_GET = array();
+		$_POST = array();
+		$_POST['_ajax'] = 'true';
+		$_POST['_id'] = $strId;
+		
+		/*
+		 * PROCESSING
+		 */
+		ob_start();
+		$objNewCore = new Schmolck_Framework_Core();
+		$objNewCore->setModule($strModule);
+		$objNewCore->setController($strController);
+		$objNewCore->setAction($strAction);
+		$objNewCore->setLayoutRendering(false);
+		$objNewCore->run();
+		$strOutput = ob_get_contents();
+		ob_end_clean();
+
+		/*
+		 * RESTORE
+		 */
+		$_GET = $arrOldGET;
+		$_POST = $arrOldPOST;
+
+		/*
+		 * OUTPUT
+		 */
+		return $strOutput;
+	}
+
 }

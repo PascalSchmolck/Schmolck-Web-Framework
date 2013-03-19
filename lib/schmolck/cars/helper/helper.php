@@ -97,8 +97,7 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 			WHERE
 				TRUE
 				AND FABT LIKE '{$strFilterBrand}'
-		";
-error_log($strQuery);						
+		";				
 		$resource = $objCore->getHelperDatabase()->query($strQuery);
 		while ($arrRow = mysql_fetch_assoc($resource)) {
 			$arrRow['name'] = $this->extractName($arrRow);
