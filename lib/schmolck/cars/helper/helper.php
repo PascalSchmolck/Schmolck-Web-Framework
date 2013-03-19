@@ -82,6 +82,9 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 		// - brand
 		switch ($this->_arrFilter['brand']) {
 			default:
+				if ($this->_arrFilter['brand'] == '') {
+					$this->_arrFilter['brand'] = '%';
+				} 
 				$strWhereBrand = "
 					AND FABT LIKE '{$this->_arrFilter['brand']}'
 				";
@@ -102,6 +105,9 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 		// - type
 		switch ($this->_arrFilter['type']) {
 			default:
+				if ($this->_arrFilter['type'] == '') {
+					$this->_arrFilter['type'] = '%';
+				} 
 				$strWhereType = "
 					AND KAT LIKE '{$this->_arrFilter['type']}'
 				";
