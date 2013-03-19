@@ -458,6 +458,32 @@ body {
 	.amount {
 		font-size: 130%;
 	}
+	&.gallery {
+		margin-top: 30px;
+		width: 100%;
+		.amount {
+			padding: 10px 0;
+			font-size: 130%;
+		}	
+		.item {
+			float: left;
+			height: 113px;
+			padding-right: 10px;
+			padding-bottom: 10px;
+			&:hover {
+				cursor: pointer;
+				opacity: 0.75;
+				filter:alpha(opacity=75);
+			}
+		}
+		.image {
+			width: 150px;
+		}
+		.clearer {
+			clear: both;
+			height: 0;
+		}
+	}
 	&.result {
 		margin-top: 30px;
 		width: 100%;
