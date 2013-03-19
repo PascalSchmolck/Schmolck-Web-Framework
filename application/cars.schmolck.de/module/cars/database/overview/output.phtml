@@ -12,15 +12,7 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cars
 <div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
 	<div class="ninecol last">
 		<div class="content">
-			<div>
-				<?= $objCore->getHelperApi()->getElement('filter', 'cars/api/filter', array(
-					'list' => 'cars'
-				)) ?>				
-			</div>
-				
-			<div>
-				<?= $objCore->getHelperApi()->getElement('cars', 'cars/api/list') ?>				
-			</div>
+			<?= $objCore->getHelperApi()->getElement('cars', 'cars/api/search') ?>				
 		</div>
 	</div>
 	<div class="threecol last">

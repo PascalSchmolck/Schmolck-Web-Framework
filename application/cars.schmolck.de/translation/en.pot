@@ -98,15 +98,19 @@ msgstr ""
 msgid "Price" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:90 
-msgid "No matches found." 
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:86 
+msgid "Reset" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/api/list/output.phtml:6 
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:95 
+msgid "No matches found. Try a new search." 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/api/result/output.phtml:6 
 msgid "Cars" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/api/list/output.phtml:17 
+#: ../application/cars.schmolck.de/module/cars/api/result/output.phtml:17 
 msgid "%s Hits" 
 msgstr "" 
 

@@ -1,7 +1,8 @@
 2013.03.19
 **********
+[ ] [CARS] implement slideshow in detail view
 [ ] [CARS] display contact persons on detail view
-[ ] [CARS] implement filter reset functionality
+[x] [CARS] implement filter reset functionality
 [x] [CARS] implement price filter
 
 2013.03.18

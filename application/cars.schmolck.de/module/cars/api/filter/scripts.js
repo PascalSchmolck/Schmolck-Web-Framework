@@ -4,7 +4,7 @@ $(document).ready(function() {
 	* ACTION
 	*/
 	$('#SchmolckID select').change(function() {
-		SchmolckID_closeList();
+		SchmolckID_closeResult();
 		SchmolckID_send();
 		return false;
 	});
@@ -16,7 +16,7 @@ $(document).ready(function() {
 	});
 	
 	$('#SchmolckID input[type=button]').click(function() {
-		SchmolckID_reloadList();
+		SchmolckID_reloadResult();
 		$(this).hide();
 	});
 		
@@ -33,19 +33,19 @@ $(document).ready(function() {
 	}
 	
 	/*
-	 * LIST
+	 * RESULT
 	 */
-	SchmolckID_closeList = function() {
-		if ('SchmolckLIST' != '') {
-			var objList = $('#SchmolckLIST');
-			objList.slideUp(1000);
+	SchmolckID_closeResult = function() {
+		if ('SchmolckRESULTID' != '') {
+			var objResult = $('#SchmolckRESULTID');
+			objResult.slideUp(1000);
 		}
 	}
-	SchmolckID_reloadList = function() {
-		if ('SchmolckLIST' != '') {
+	SchmolckID_reloadResult = function() {
+		if ('SchmolckRESULTID' != '') {
 			Schmolck_Framework_Helper_Api({
-				url: 'cars/api/list',
-				id: 'SchmolckLIST'
+				url: 'cars/api/result',
+				id: 'SchmolckRESULTID'
 			});
 		}
 	}	
@@ -54,6 +54,6 @@ $(document).ready(function() {
 	 * RELOAD
 	 */
 	if ('SchmolckRELOAD' == 'true') {
-		SchmolckID_reloadList();
+		SchmolckID_reloadResult();
 	}
 });

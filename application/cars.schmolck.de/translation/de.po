@@ -110,15 +110,19 @@ msgstr "Art"
 msgid "Price"
 msgstr "Preis"
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:90
-msgid "No matches found."
-msgstr "Keine Treffer."
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:86
+msgid "Reset"
+msgstr "Reset"
 
-#: ../application/cars.schmolck.de/module/cars/api/list/output.phtml:6
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:95
+msgid "No matches found. Try a new search."
+msgstr "Keine Treffer gefunden. Probieren Sie es mit anderen Filterkriterien."
+
+#: ../application/cars.schmolck.de/module/cars/api/result/output.phtml:6
 msgid "Cars"
 msgstr "Fahrzeuge"
 
-#: ../application/cars.schmolck.de/module/cars/api/list/output.phtml:17
+#: ../application/cars.schmolck.de/module/cars/api/result/output.phtml:17
 msgid "%s Hits"
 msgstr "%s Treffer"
 
@@ -232,9 +236,6 @@ msgstr "Startseite"
 
 #~ msgid "Contact Form"
 #~ msgstr "Kontaktformular"
-
-#~ msgid "Reset"
-#~ msgstr "Reset"
 
 #~ msgid "Route Planner"
 #~ msgstr "Routenplaner"

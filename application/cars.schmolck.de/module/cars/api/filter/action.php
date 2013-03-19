@@ -15,7 +15,7 @@ $objCars = new Schmolck_Cars_Helper($objCore);
  * PARAMETER
  */
 // - GET
-$objCore->strParameterList = Schmolck_Tool_Memory::auto($objCore->strApi, 'list', strip_tags($_GET['list']));
+$objCore->strParameterResultID = Schmolck_Tool_Memory::auto($objCore->strApi, 'resultID', strip_tags($_GET['resultID']));
 // - POST
 $objCore->strParameterSend = strip_tags($_POST['send']);
 $objCore->strParameterReset = strip_tags($_POST['reset']);
@@ -48,6 +48,6 @@ $objCore->arrPrices = $objCars->getPrices();
 $objCore->getHelperScripts()->registerViewScriptReplace(array(
 	'SchmolckID' => $objCore->strId,
 	'SchmolckURI' => $objCore->strUri,
-	'SchmolckLIST' => $objCore->strParameterList,
+	'SchmolckRESULTID' => $objCore->strParameterResultID,
 	'SchmolckRELOAD' => $strReload
 ));
