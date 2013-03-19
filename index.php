@@ -63,6 +63,9 @@ foreach($arrQueryParameter as $entry){
 	}
 	$nCounter++;
 }
+($strModule == '')? $strModule = 'index': null;
+($strController == '')? $strController = 'index': null;
+($strAction == '')? $strAction = 'index': null;
 
 /*
  * CORE
