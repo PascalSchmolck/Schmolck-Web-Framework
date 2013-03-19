@@ -50,11 +50,11 @@ msgstr ""
 msgid "Language / Sprache" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/api/contact/action.php:27 
+#: ../application/cars.schmolck.de/module/cars/api/contact/action.php:28 
 msgid "Request for a vehicle" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/api/contact/action.php:29 
+#: ../application/cars.schmolck.de/module/cars/api/contact/action.php:30 
 msgid "Request for the vehicle %s" 
 msgstr "" 
 
@@ -94,23 +94,23 @@ msgstr ""
 msgid "Secondhand Cars" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:48 
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:47 
 msgid "Brand" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:60 
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:59 
 msgid "Type" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:72 
-msgid "Price" 
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:71 
+msgid "Price (max.)" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:86 
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:84 
 msgid "Reset" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:95 
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:93 
 msgid "No matches found. Try a new search." 
 msgstr "" 
 

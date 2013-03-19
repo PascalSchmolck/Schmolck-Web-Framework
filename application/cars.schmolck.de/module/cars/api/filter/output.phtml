@@ -40,62 +40,59 @@ foreach ($objCore->arrPrices as $strPrice) {
  */
 ?>
 <div id="<?= $objCore->strId ?>" class="<?= $strStyleClass ?>">
-	<div class="filter">
-		<form>
-			<input type="hidden" name="send" value="1">
-			<p>
-				<label>
-					<?= $objCore->getHelperTranslator()->_("Brand") ?>
-				</label>
-				<select name="brand">
-					<? foreach ($arrBrands as $strValue => $strLabel) : ?>
-						<? ($objCore->strParameterBrand == $strValue) ? $strSelected = 'selected' : $strSelected = ''; ?>
-						<option value="<?= $strValue ?>" <?= $strSelected ?>>
-							<?= $strLabel ?>
-						</option>
-					<? endforeach; ?>
-				</select>
+	<form>
+		<input type="hidden" name="send" value="1">
+		<p>
+			<label>
+				<?= $objCore->getHelperTranslator()->_("Brand") ?>
+			</label>
+			<select name="brand">
+				<? foreach ($arrBrands as $strValue => $strLabel) : ?>
+					<? ($objCore->strParameterBrand == $strValue) ? $strSelected = 'selected' : $strSelected = ''; ?>
+					<option value="<?= $strValue ?>" <?= $strSelected ?>>
+						<?= $strLabel ?>
+					</option>
+				<? endforeach; ?>
+			</select>
 
-				<label>
-					<?= $objCore->getHelperTranslator()->_("Type") ?>
-				</label>
-				<select name="type">
-					<? foreach ($arrTypes as $strValue => $strLabel) : ?>
-						<? ($objCore->strParameterType == $strValue) ? $strSelected = 'selected' : $strSelected = ''; ?>
-						<option value="<?= $strValue ?>" <?= $strSelected ?>>
-							<?= $strLabel ?>
-						</option>
-					<? endforeach; ?>
-				</select>
+			<label>
+				<?= $objCore->getHelperTranslator()->_("Type") ?>
+			</label>
+			<select name="type">
+				<? foreach ($arrTypes as $strValue => $strLabel) : ?>
+					<? ($objCore->strParameterType == $strValue) ? $strSelected = 'selected' : $strSelected = ''; ?>
+					<option value="<?= $strValue ?>" <?= $strSelected ?>>
+						<?= $strLabel ?>
+					</option>
+				<? endforeach; ?>
+			</select>
 
-				<label>
-					<?= $objCore->getHelperTranslator()->_("Price") ?>
-				</label>
-				<select name="price">
-					<? foreach ($arrPrices as $strValue => $strLabel) : ?>
-						<? ($objCore->strParameterPrice == $strValue) ? $strSelected = 'selected' : $strSelected = ''; ?>
-						<option value="<?= $strValue ?>" <?= $strSelected ?>>
-							<?= $strLabel ?>
-						</option>
-					<? endforeach; ?>
-				</select>
-			</p>
-			
-			<? if ($objCore->strParameterSend and !$objCore->strParameterReset) : ?>
-				<input type="hidden" name="reset">
-				<input class="button" type="reset" value="<?= $objCore->getHelperTranslator()->_("Reset") ?>">
-			<? endif; ?>
-				
-			<? if ($objCore->strParameterSend and $objCore->nCount > 0 and !$objCore->strParameterReset) : ?>
-				<input class="button highlight" type="button" value="<?= $strButtonLabel ?>">
-			<? endif; ?>
+			<label>
+				<?= $objCore->getHelperTranslator()->_("Price (max.)") ?>
+			</label>
+			<select name="price">
+				<? foreach ($arrPrices as $strValue => $strLabel) : ?>
+					<? ($objCore->strParameterPrice == $strValue) ? $strSelected = 'selected' : $strSelected = ''; ?>
+					<option value="<?= $strValue ?>" <?= $strSelected ?>>
+						<?= $strLabel ?>
+					</option>
+				<? endforeach; ?>
+			</select>
+		</p>
+		<? if ($objCore->bResetLink) : ?>
+			<input type="hidden" name="reset">
+			<input class="button" type="reset" value="<?= $objCore->getHelperTranslator()->_("Reset") ?>">
+		<? endif; ?>
 
-			<? if ($objCore->nCount < 1) : ?>
-				<div class="infos">
-					<?= $objCore->getHelperTranslator()->_("No matches found. Try a new search.") ?>
-				</div>
-			<? endif; ?>				
-		</form>
-	</div>
+		<? if ($objCore->strParameterSend and $objCore->nCount > 0 and !$objCore->strParameterReset) : ?>
+			<input class="button highlight" type="button" value="<?= $strButtonLabel ?>">
+		<? endif; ?>
+
+		<? if ($objCore->nCount < 1) : ?>
+			<div class="infos">
+				<?= $objCore->getHelperTranslator()->_("No matches found. Try a new search.") ?>
+			</div>
+		<? endif; ?>		
+	</form>
 	<?= $objCore->getHelperScripts()->renderViewScripts() ?>
 </div>

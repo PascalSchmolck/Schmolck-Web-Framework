@@ -146,7 +146,6 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 			ORDER BY
 				RP
 		";
-		Schmolck_Tool_Debug::debug($strQuery);
 		$resource = $objCore->getHelperDatabase()->query($strQuery);
 		while ($arrRow = mysql_fetch_assoc($resource)) {
 			$arrRow['name'] = $this->extractName($arrRow);
@@ -174,7 +173,7 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 		 */
 		// - only update if necessary
 		if ($this->_isUpToDate()) {
-			Schmolck_Tool_Debug::notice(sprintf('Cars database still up-to-date and not older than %s minutes', (self::UPDATE_LIMIT / 60)));
+			Schmolck_Tool_Debug::info(sprintf('Cars database still up-to-date and not older than %s minutes', (self::UPDATE_LIMIT / 60)));
 			return;
 		}
 

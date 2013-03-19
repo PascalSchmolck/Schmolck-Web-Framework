@@ -30,6 +30,13 @@ $objCore->strParameterType = Schmolck_Tool_Memory::auto($objCore->strApi, 'type'
 $objCore->strParameterPrice = Schmolck_Tool_Memory::auto($objCore->strApi, 'price', strip_tags($_POST['price']));
 
 /*
+ * PREPARATION
+ */
+if (trim($objCore->strParameterBrand) or trim($objCore->strParameterType) or trim($objCore->strParameterPrice)) {
+	$objCore->bResetLink = true;
+}
+
+/*
  * SAVING
  */
 $objCars->setFilter('brand', $objCore->strParameterBrand);

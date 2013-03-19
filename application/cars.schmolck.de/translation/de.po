@@ -24,7 +24,7 @@ msgstr "Bitte geben Sie einen Betreff an"
 
 #: ../application/cars.schmolck.de/module/api/contact/form/action.php:40
 msgid "Please enter your message here"
-msgstr "Bitte geben Sie hier Ihre Nachricht ein"
+msgstr "Bitte geben Sie Ihre Nachricht ein"
 
 #: ../application/cars.schmolck.de/module/api/contact/form/action.php:83
 msgid "Message has been sent. Thank you."
@@ -62,17 +62,17 @@ msgstr "Sprache Auswahl"
 msgid "Language / Sprache"
 msgstr "Language / Sprache"
 
-#: ../application/cars.schmolck.de/module/cars/api/contact/action.php:27
+#: ../application/cars.schmolck.de/module/cars/api/contact/action.php:28
 msgid "Request for a vehicle"
 msgstr "Anfrage zu den Fahrzeugen"
 
-#: ../application/cars.schmolck.de/module/cars/api/contact/action.php:29
+#: ../application/cars.schmolck.de/module/cars/api/contact/action.php:30
 msgid "Request for the vehicle %s"
 msgstr "Anfrage zum Fahrzeug %s"
 
 #: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:9
 msgid "Display %s hits"
-msgstr "Zeige %s Treffer"
+msgstr "%s Treffer anzeigen"
 
 #: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:16
 msgid "All"
@@ -106,23 +106,23 @@ msgstr "Jahreswagen"
 msgid "Secondhand Cars"
 msgstr "Gebrauchtwagen"
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:48
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:47
 msgid "Brand"
 msgstr "Marke"
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:60
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:59
 msgid "Type"
 msgstr "Art"
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:72
-msgid "Price"
-msgstr "Preis"
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:71
+msgid "Price (max.)"
+msgstr "Preis (max.)"
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:86
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:84
 msgid "Reset"
-msgstr "Reset"
+msgstr "Zurücksetzen"
 
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:95
+#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:93
 msgid "No matches found. Try a new search."
 msgstr "Keine Treffer gefunden. Probieren Sie es mit anderen Filterkriterien."
 
@@ -227,6 +227,9 @@ msgstr "cars"
 #: ../application/cars.schmolck.de/template/2013.03/html.phtml:60
 msgid "Home"
 msgstr "Startseite"
+
+#~ msgid "Price"
+#~ msgstr "Preis"
 
 #~ msgid "brand_all"
 #~ msgstr "Alle"

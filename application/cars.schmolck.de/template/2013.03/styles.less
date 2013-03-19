@@ -60,7 +60,7 @@ a:hover {
 	text-decoration: underline;
 }
 form {
-	width: 75%;
+	width: 100%;
 }
 select {
 	border: 1px solid @color-border;
@@ -94,6 +94,8 @@ input {
 	}
 
 	&[type="submit"], &input[type="button"], &input[type="reset"], &.button {
+		margin-top: 10px;
+		margin-right: 10px;
 		width: auto;
 		font-size: 90%;
 		font-weight: normal;
@@ -130,7 +132,7 @@ input {
 			border: none;
 		}
 		&.highlight {
-			color: @color-a-link;
+			color: darkorange;
 		}
 	}
 	&[type="text"] {
@@ -142,7 +144,7 @@ textarea {
 	border: 1px solid @color-form-input;
 	font-family: inherit;
 	height: 15em;
-	padding: 6px;
+	padding: 5px;
 	width: 95%;
 	font-size: 90%;
 }
@@ -154,7 +156,7 @@ label {
 	.error {
 		color: darkorange;
 		font-weight: normal;
-		float: right;
+		float: left;
 		font-size: 95%;
 	}	
 }
@@ -436,27 +438,24 @@ body {
 // Module Layout
 //------------------------------------------------------------------------------
 .cars .api {
-	padding: 10px 0;
-	&.contact {
+	&.contact {  
 		textarea {
 			height: 8em;
 		}
+		.button {
+			margin: 0;
+		}
 	}
-	.infos {
-		margin: 10px 0;
-	}
-	.loadlink {
-		padding: 10px;
-		padding-right: 0;
-		float: right;
-		form {
-			width: 100%;
+	&.filter {
+		.infos {
+			margin: 10px 0;
 		}
 	}
 	.amount {
 		font-size: 130%;
 	}
 	&.result {
+		margin-top: 30px;
 		width: 100%;
 		.list {
 			background-color: #f1f1f1;

@@ -47,6 +47,10 @@ $(document).ready(function() {
 				url: 'cars/api/result',
 				id: 'SchmolckRESULTID'
 			});
+			var objResult = $('#SchmolckRESULTID');
+			if (objResult) {
+				$('html, body').animate({scrollTop: objResult.offset().top-20  }, 1000);
+			}
 		}
 	}	
 	
