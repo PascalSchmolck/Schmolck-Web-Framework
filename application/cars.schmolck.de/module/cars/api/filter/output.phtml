@@ -81,8 +81,10 @@ foreach ($objCore->arrPrices as $strPrice) {
 				</select>
 			</p>
 			<p>
-				<input type="hidden" name="reset">
-				<input class="button" type="reset" value="<?= $objCore->getHelperTranslator()->_("Reset") ?>">
+				<? if (!$objCore->strParameterReset) : ?>
+					<input type="hidden" name="reset">
+					<input class="button" type="reset" value="<?= $objCore->getHelperTranslator()->_("Reset") ?>">
+				<? endif; ?>
 				<? if ($objCore->strParameterSend and $objCore->nCount > 0) : ?>
 					<input class="button" type="button" value="<?= $strButtonLabel ?>">
 				<? endif; ?>

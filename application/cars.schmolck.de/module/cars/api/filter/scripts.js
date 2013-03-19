@@ -16,7 +16,7 @@ $(document).ready(function() {
 	});
 	
 	$('#SchmolckID input[type=button]').click(function() {
-		window.location.reload();
+		SchmolckID_reloadList();
 	});
 		
 	/*
@@ -30,13 +30,6 @@ $(document).ready(function() {
 			data: strData
 		});
 	}
-
-	/*
-	 * RESET
-	 */
-	if ('SchmolckRELOAD' == 'true') {
-		window.location.reload();
-	}
 	
 	/*
 	 * LIST
@@ -47,4 +40,12 @@ $(document).ready(function() {
 			objList.slideUp(1000);
 		}
 	}
+	SchmolckID_reloadList = function() {
+		if ('SchmolckLIST' != '') {
+			Schmolck_Framework_Helper_Api({
+				url: 'cars/api/list',
+				id: 'SchmolckLIST'
+			});
+		}
+	}	
 });
