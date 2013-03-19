@@ -10,10 +10,24 @@
 class Schmolck_Framework_Helper_Cache extends Schmolck_Framework_Helper {
 
 	const PATH = 'tmp';
-	const LIMIT = 3600;  // seconds
+	const LIMIT_CLEAN = 3600;  // seconds
+	const LIMIT_CACHE = 'H';  // date()
+	
+	protected $_bCleanedDir;
+	protected $_arrMemoryAttributes = array(
+		'_bCleanedDir'
+	);	
 
-	public function __construct() {
-		$this->cleanDir();
+	public function init() {
+		/*
+		 * CLEAN
+		 */
+		// - directory
+		if (!$this->_bCleanedDir) {
+			// - only once per session
+			$this->cleanDir();
+			$this->_bCleanedDir = true;
+		}
 	}
 
 	/**
@@ -23,16 +37,24 @@ class Schmolck_Framework_Helper_Cache extends Schmolck_Framework_Helper {
 	 * @return string tmp file path
 	 */
 	public function getFilePath($strName) {
-		return self::PATH . '/' . $strName;
+		return self::PATH . '/' . md5($strName . date(self::LIMIT_CACHE));
 	}
 
 	/**
 	 * Clean obsolete tmp files
 	 */
 	public function cleanDir() {
+		/*
+		 * CLEANING
+		 */
 		$dir = new Schmolck_Tool_Dir();
 		$dir->directory = self::PATH;
-		$dir->deleteAllOlderThan(self::LIMIT);
+		$dir->deleteAllOlderThan(self::LIMIT_CLEAN);
+		
+		/*
+		 * DEBUGGING
+		 */
+		Schmolck_Tool_Debug::info(sprintf("Cache dir '%s' has been cleaned", self::PATH));
 	}
 
 }
