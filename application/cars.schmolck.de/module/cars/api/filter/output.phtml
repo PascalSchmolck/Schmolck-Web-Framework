@@ -29,7 +29,7 @@ $arrTypes = array(
 // - prices
 $arrPrices['all'] = $objCore->getHelperTranslator()->_("All");
 foreach ($objCore->arrPrices as $strPrice) {
-	if($strPrice > 1000){
+	if ($strPrice > 1000) {
 		$strPrice = $strPrice - ($strPrice % 1000) + 1000;
 	}
 	$arrPrices[$strPrice] = number_format($strPrice, 0, "", ".") . ' EUR';
@@ -55,7 +55,7 @@ foreach ($objCore->arrPrices as $strPrice) {
 						</option>
 					<? endforeach; ?>
 				</select>
-				
+
 				<label>
 					<?= $objCore->getHelperTranslator()->_("Type") ?>
 				</label>
@@ -67,7 +67,7 @@ foreach ($objCore->arrPrices as $strPrice) {
 						</option>
 					<? endforeach; ?>
 				</select>
-				
+
 				<label>
 					<?= $objCore->getHelperTranslator()->_("Price") ?>
 				</label>
@@ -80,14 +80,16 @@ foreach ($objCore->arrPrices as $strPrice) {
 					<? endforeach; ?>
 				</select>
 			</p>
-			<? if ($objCore->strParameterSend and $objCore->nCount > 0) : ?>
-				<p>
+			<p>
+				<input type="hidden" name="reset">
+				<input class="button" type="reset" value="<?= $objCore->getHelperTranslator()->_("Reset") ?>">
+				<? if ($objCore->strParameterSend and $objCore->nCount > 0) : ?>
 					<input class="button" type="button" value="<?= $strButtonLabel ?>">
-				</p>
-			<? endif; ?>
+				<? endif; ?>
+			</p>
 			<? if ($objCore->nCount < 1) : ?>
 				<div class="infos">
-					<?= $objCore->getHelperTranslator()->_("No matches found.") ?>
+					<?= $objCore->getHelperTranslator()->_("No matches found. Try a new search.") ?>
 				</div>
 			<? endif; ?>				
 		</form>

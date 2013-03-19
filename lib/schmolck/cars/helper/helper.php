@@ -82,12 +82,11 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 		// - brand
 		switch ($this->_arrFilter['brand']) {
 			default:
-				if ($this->_arrFilter['brand'] == '') {
-					$this->_arrFilter['brand'] = '%';
+				if (trim($this->_arrFilter['brand']) != '') {
+					$strWhereBrand = "
+						AND FABT LIKE '{$this->_arrFilter['brand']}'
+					";
 				}
-				$strWhereBrand = "
-					AND FABT LIKE '{$this->_arrFilter['brand']}'
-				";
 				break;
 			case 'all':
 				$strWhereBrand = "
@@ -105,12 +104,11 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 		// - type
 		switch ($this->_arrFilter['type']) {
 			default:
-				if ($this->_arrFilter['type'] == '') {
-					$this->_arrFilter['type'] = '%';
+				if (trim($this->_arrFilter['type']) != '') {
+					$strWhereType = "
+						AND KAT LIKE '{$this->_arrFilter['type']}'
+					";
 				}
-				$strWhereType = "
-					AND KAT LIKE '{$this->_arrFilter['type']}'
-				";
 				break;
 			case 'all':
 				$strWhereType = "
@@ -121,12 +119,11 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 		// - price
 		switch ($this->_arrFilter['price']) {
 			default:
-				if ($this->_arrFilter['price'] == '') {
-					continue;
+				if (trim($this->_arrFilter['price']) != '') {
+					$strWherePrice = "
+						AND RP <= '{$this->_arrFilter['price']}'
+					";
 				}
-				$strWherePrice = "
-					AND RP <= '{$this->_arrFilter['price']}'
-				";
 				break;
 			case 'all':
 				continue;
@@ -149,6 +146,7 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 			ORDER BY
 				RP
 		";
+		Schmolck_Tool_Debug::debug($strQuery);
 		$resource = $objCore->getHelperDatabase()->query($strQuery);
 		while ($arrRow = mysql_fetch_assoc($resource)) {
 			$arrRow['name'] = $this->extractName($arrRow);
@@ -176,7 +174,7 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 		 */
 		// - only update if necessary
 		if ($this->_isUpToDate()) {
-			Schmolck_Tool_Debug::debug(sprintf('Cars database still up-to-date and not older than %s minutes', (self::UPDATE_LIMIT / 60)));
+			Schmolck_Tool_Debug::notice(sprintf('Cars database still up-to-date and not older than %s minutes', (self::UPDATE_LIMIT / 60)));
 			return;
 		}
 
@@ -234,7 +232,10 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 			}
 		}
 
-		Schmolck_Tool_Debug::debug('Cars database has been updated with file ' . $strTempFile);
+		/*
+		 * DEBUGGING
+		 */
+		Schmolck_Tool_Debug::notice('Cars database has been updated with file ' . $strTempFile);
 	}
 
 	protected function _isUpToDate() {

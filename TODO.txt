@@ -1,6 +1,7 @@
 2013.03.19
 **********
 [ ] [CARS] display contact persons on detail view
+[ ] [CARS] implement filter reset functionality
 [x] [CARS] implement price filter
 
 2013.03.18

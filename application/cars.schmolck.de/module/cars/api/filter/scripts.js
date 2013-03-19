@@ -8,6 +8,12 @@ $(document).ready(function() {
 		return false;
 	});
 	
+	$('#SchmolckID input[type=reset]').click(function() {
+		$('#SchmolckID input[name=reset]').val('true');
+		SchmolckID_send();
+		return false;
+	});
+	
 	$('#SchmolckID input[type=button]').click(function() {
 		window.location.reload();
 	});
@@ -24,4 +30,10 @@ $(document).ready(function() {
 		});
 	}
 
+	/*
+	 * RESET
+	 */
+	if ('SchmolckRELOAD' == 'true') {
+		window.location.reload();
+	}
 });
