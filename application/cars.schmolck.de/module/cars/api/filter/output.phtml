@@ -80,15 +80,16 @@ foreach ($objCore->arrPrices as $strPrice) {
 					<? endforeach; ?>
 				</select>
 			</p>
-			<p>
-				<? if (!$objCore->strParameterReset) : ?>
-					<input type="hidden" name="reset">
-					<input class="button" type="reset" value="<?= $objCore->getHelperTranslator()->_("Reset") ?>">
-				<? endif; ?>
-				<? if ($objCore->strParameterSend and $objCore->nCount > 0) : ?>
-					<input class="button" type="button" value="<?= $strButtonLabel ?>">
-				<? endif; ?>
-			</p>
+			
+			<? if ($objCore->strParameterSend and !$objCore->strParameterReset) : ?>
+				<input type="hidden" name="reset">
+				<input class="button" type="reset" value="<?= $objCore->getHelperTranslator()->_("Reset") ?>">
+			<? endif; ?>
+				
+			<? if ($objCore->strParameterSend and $objCore->nCount > 0 and !$objCore->strParameterReset) : ?>
+				<input class="button highlight" type="button" value="<?= $strButtonLabel ?>">
+			<? endif; ?>
+
 			<? if ($objCore->nCount < 1) : ?>
 				<div class="infos">
 					<?= $objCore->getHelperTranslator()->_("No matches found. Try a new search.") ?>

@@ -17,6 +17,7 @@ $(document).ready(function() {
 	
 	$('#SchmolckID input[type=button]').click(function() {
 		SchmolckID_reloadList();
+		$(this).hide();
 	});
 		
 	/*
@@ -48,4 +49,11 @@ $(document).ready(function() {
 			});
 		}
 	}	
+	
+	/*
+	 * RELOAD
+	 */
+	if ('SchmolckRELOAD' == 'true') {
+		SchmolckID_reloadList();
+	}
 });
