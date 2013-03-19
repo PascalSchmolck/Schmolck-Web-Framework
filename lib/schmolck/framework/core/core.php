@@ -509,26 +509,38 @@ class Schmolck_Framework_Core {
 		if (count($this->_arrLayoutStyles) < 1) {
 			return;
 		}
+		
+		/*
+		 * PREPARATION
+		 */
+		foreach ($this->_arrLayoutStyles as $strFile) {
+			if (file_exists($strFile)) {
+				$nHash += filesize($strFile);
+			}
+		}
+		$strTempFile = $this->getHelperCache()->getFilePath($nHash.APPLICATION_ENVIRONMENT);
 
 		/*
 		 * PROCESSING
 		 */
-		// - optimize all styles into one string
-		foreach ($this->_arrLayoutStyles as $strFile) {
-			if (file_exists($strFile)) {
-				// - do not minify on development environment
-				if (APPLICATION_ENVIRONMENT == 'development') {
-					$strCombinedLESS .= "\n\n/* {$strFile} */\n\n" . file_get_contents($strFile);
-				} else {
-					$strCombinedLESS .= $this->getHelperOptimizer()->getOptimizedCssString(file_get_contents($strFile));
+		if (!file_exists($strTempFile)) {
+			// - logging
+			Schmolck_Tool_Debug::info("Optimization of styles into $strTempFile");
+			// - optimize all styles into one string
+			foreach ($this->_arrLayoutStyles as $strFile) {
+				if (file_exists($strFile)) {
+					// - do not minify on development environment
+					if (APPLICATION_ENVIRONMENT == 'development') {
+						$strCombinedLESS .= "\n\n/* {$strFile} */\n\n" . file_get_contents($strFile);
+					} else {
+						$strCombinedLESS .= $this->getHelperOptimizer()->getOptimizedCssString(file_get_contents($strFile));
+					}
 				}
 			}
+			// - fill tmp file with optimized styles
+			file_put_contents($strTempFile, $strCombinedLESS);
 		}
-		// - get md5 hash of optimized styles and create tmp file
-		$strTempFile = $this->getHelperCache()->getFilePath(md5($strCombinedLESS) . '.less');
-		// - fill tmp file with optimized styles
-		file_put_contents($strTempFile, $strCombinedLESS);
-
+		
 		/*
 		 * OUTPUT
 		 */
@@ -546,24 +558,36 @@ class Schmolck_Framework_Core {
 		if (count($this->_arrLayoutScripts) < 1) {
 			return;
 		}
+		
+		/*
+		 * PREPARATION
+		 */
+		foreach ($this->_arrLayoutScripts as $strFile) {
+			if (file_exists($strFile)) {
+				$nHash += filesize($strFile);
+			}
+		}
+		$strTempFile = $this->getHelperCache()->getFilePath($nHash.APPLICATION_ENVIRONMENT);		
 
 		/*
 		 * PROCESSING
 		 */
-		// - optimize all scripts into one string
-		foreach ($this->_arrLayoutScripts as $strFile) {
-			if (file_exists($strFile)) {
-				if (APPLICATION_ENVIRONMENT == 'development') {
-					$strCombinedJs .= "\n\n/* {$strFile} */\n\n" . file_get_contents($strFile);
-				} else {
-					$strCombinedJs .= $this->getHelperOptimizer()->getOptimizedJsString(file_get_contents($strFile));
+		if (!file_exists($strTempFile)) {
+			// - logging
+			Schmolck_Tool_Debug::info("Optimization of scripts into $strTempFile");
+			// - optimize all scripts into one string
+			foreach ($this->_arrLayoutScripts as $strFile) {
+				if (file_exists($strFile)) {
+					if (APPLICATION_ENVIRONMENT == 'development') {
+						$strCombinedJs .= "\n\n/* {$strFile} */\n\n" . file_get_contents($strFile);
+					} else {
+						$strCombinedJs .= $this->getHelperOptimizer()->getOptimizedJsString(file_get_contents($strFile));
+					}
 				}
 			}
+			// - fill tmp file with optimized scripts
+			file_put_contents($strTempFile, $strCombinedJs);
 		}
-		// - get md5 hash of optimized scripts and create tmp file
-		$strTempFile = $this->getHelperCache()->getFilePath(md5($strCombinedJs) . '.js');
-		// - fill tmp file with optimized scripts
-		file_put_contents($strTempFile, $strCombinedJs);
 
 		/*
 		 * OUTPUT
