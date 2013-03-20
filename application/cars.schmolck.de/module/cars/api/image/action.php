@@ -23,8 +23,6 @@ $objCore->nNumber = strip_tags($_POST['number']);
  * DATA
  */
 $objCore->arrImages = $objCars->getImages($objCore->strParameterId);
-error_log(print_r($objCore->arrImage, true));
-
 
 /*
  * CHECK
@@ -39,4 +37,5 @@ if ($objCore->nNumber == '' or ($objCore->nNumber >= count($objCore->arrImages))
 $objCore->getHelperScripts()->registerViewScriptReplace(array(
 	'SchmolckID' => $objCore->strId,
 	'SchmolckURI' => $objCore->strUri,
+	'SchmolckIMAGES' => json_encode($objCore->arrImages)
 ));

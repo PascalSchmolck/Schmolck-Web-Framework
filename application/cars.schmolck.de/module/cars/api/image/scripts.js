@@ -1,20 +1,27 @@
-$(document).ready(function() {			
+$(document).ready(function() {		
+	
+	var arrSchmolckIDImages = SchmolckIMAGES;
+
 	/*
 	* ACTION
 	*/
 	$('#SchmolckID img').click(function() {
-		SchmolckID_loadNext($(this).data('next'));
-		return false;
-	});
 		
-	/*
-	* AJAX
-	*/
-	SchmolckID_loadNext = function(strNext) {
-		Schmolck_Framework_Helper_Api({
-			url: 'SchmolckURI',
-			id: 'SchmolckID',
-			data: 'number=' + strNext
-		});
-	}
+		/*
+		 * PREPARATION
+		 */
+		var nNumber = parseInt($(this).data('next'));
+		var nNext = nNumber + 1;
+		
+		/*
+		 * CHECK
+		 */
+		if (nNext >= arrSchmolckIDImages.length) {
+			nNext = 0;
+		}
+		
+		$(this).attr('src', arrSchmolckIDImages[$(this).data('next')]);
+		$(this).data('next', nNext);
+	});
+
 });
