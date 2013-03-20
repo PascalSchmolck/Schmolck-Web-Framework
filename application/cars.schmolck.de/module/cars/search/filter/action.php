@@ -25,6 +25,7 @@ if ($objCore->strParameterReset) {
 	$_POST['type'] = ' ';
 	$_POST['price'] = ' ';
 	$_POST['km'] = ' ';
+	$_POST['sorting'] = 'price';
 }
 $objCore->strParameterBrand = Schmolck_Tool_Memory::auto($objCore->strApi, 'brand', strip_tags($_POST['brand']));
 $objCore->strParameterType = Schmolck_Tool_Memory::auto($objCore->strApi, 'type', strip_tags($_POST['type']));
