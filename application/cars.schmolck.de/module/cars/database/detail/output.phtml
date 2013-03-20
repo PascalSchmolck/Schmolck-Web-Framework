@@ -23,7 +23,11 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 								<img src="<?= $objCore->strQRImage ?>">
 							</div>
 							<div class="image">
-								<img src="<?= $arrCar['image'] ?>">
+								<?=
+								$objCore->getHelperApi()->getElement("{$objCore->strId}_image", 'cars/api/image', array(
+									'id' => $arrCar['KNR']
+								));
+								?>				
 							</div>
 							<div class="infos1">
 								<?= $arrCar['KAT'] ?> <br>

@@ -410,6 +410,21 @@ error_log($strQuery);
 		}
 		return $arrResult;
 	}
+	
+	/**
+	 * Get all images for one car
+	 * 
+	 * @return array images
+	 */
+	public function getImages($strId) {
+		return array(
+			self::IMAGE_PATH . '/' . $strId . ',1.JPG',
+			self::IMAGE_PATH . '/' . $strId . ',2.JPG',
+			self::IMAGE_PATH . '/' . $strId . ',3.JPG',
+			self::IMAGE_PATH . '/' . $strId . ',4.JPG',
+			self::IMAGE_PATH . '/' . $strId . ',5.JPG',
+		);
+	}	
 
 	/**
 	 * Get all distinc prices

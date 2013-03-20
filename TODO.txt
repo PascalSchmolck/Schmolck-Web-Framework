@@ -7,7 +7,7 @@
 [x] [CARS] implement dummy for non-existing images
 [x] [CARS] implement dedicated cars contact element
 [x] [CARS] implement gallery view for search results
-[ ] [CARS] implement slideshow in detail view
+[x] [CARS] implement slideshow in detail view
 [ ] [CARS] display contact persons on detail view
 [x] [CARS] implement filter reset functionality
 [x] [CARS] implement price filter
