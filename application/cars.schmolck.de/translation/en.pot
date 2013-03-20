@@ -50,84 +50,12 @@ msgstr ""
 msgid "Language / Sprache" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/api/contact/action.php:28 
+#: ../application/cars.schmolck.de/module/cars/contact/form/action.php:28 
 msgid "Request for a vehicle" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/api/contact/action.php:30 
+#: ../application/cars.schmolck.de/module/cars/contact/form/action.php:30 
 msgid "Request for the vehicle %s" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:9 
-msgid "Display %s hits" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:16 
-msgid "All" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:17 
-msgid "Mercedes-Benz" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:18 
-msgid "smart" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:19 
-msgid "Volkswagen" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:20 
-msgid "Others" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:25 
-msgid "Company Cars" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:26 
-msgid "Jahreswagen" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:27 
-msgid "Secondhand Cars" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:55 
-msgid "Brand" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:68 
-msgid "Type" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:81 
-msgid "Price (max.)" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:94 
-msgid "Km (max.)" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:107 
-msgid "Reset" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:108 
-msgid "Reset all filter values" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/api/filter/output.phtml:117 
-msgid "No matches found. Try a new search." 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/api/result/output.phtml:6 
-msgid "Cars" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/api/result/output.phtml:17 
-msgid "%s Hits" 
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/cars/database/detail/action.php:54 
@@ -152,6 +80,86 @@ msgstr ""
 
 #: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:85 
 msgid "Fax +49 7641 / 4602-80" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/database/overview/output.phtml:6 
+msgid "Cars" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:9 
+msgid "Display %s hits" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:16 
+msgid "All" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:17 
+msgid "Mercedes-Benz" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:18 
+msgid "smart" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:19 
+msgid "Volkswagen" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:20 
+msgid "Others" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:25 
+msgid "Company Cars" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:26 
+msgid "Jahreswagen" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:27 
+msgid "Secondhand Cars" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:55 
+msgid "Brand" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:68 
+msgid "Type" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:81 
+msgid "Km (max.)" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:94 
+msgid "Price (max.)" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:107 
+msgid "Reset" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:108 
+msgid "Reset all filter values" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:117 
+msgid "No matches found. Try a new search." 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/gallery/output.phtml:16 
+msgid "%s Hits" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/result/output.phtml:17 
+msgid "Gallery" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/result/output.phtml:26 
+msgid "List" 
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/content/static/contact/output.phtml:6 

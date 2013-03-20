@@ -458,6 +458,11 @@ body {
 			.infos {
 				margin: 10px 0;
 			}
+			.button {
+				@media print {
+					display: none;
+				}
+			}
 		}
 		&.gallery {
 			margin-top: 30px;
@@ -478,6 +483,9 @@ body {
 				}
 			}
 			.image {
+				@media print {
+					width: 145px;
+				}
 				width: 150px;
 			}
 			.clearer {
@@ -488,6 +496,18 @@ body {
 		&.result {
 			margin-top: 30px;
 			width: 100%;
+			.links {
+				@media print {
+					display: none;
+				}
+				font-size: 85%;
+				float: right;
+				a {
+					padding-left: 10px;
+				}
+			}
+		}
+		&.list {
 			.list {
 				background-color: #f1f1f1;
 			}

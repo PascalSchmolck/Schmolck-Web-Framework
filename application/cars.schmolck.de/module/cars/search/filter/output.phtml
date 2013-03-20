@@ -76,19 +76,6 @@ foreach ($objCore->arrKms as $strKm) {
 				<? endforeach; ?>
 			</select>
 		</p>
-		<p>
-			<label>
-				<?= $objCore->getHelperTranslator()->_("Price (max.)") ?>
-			</label>
-			<select name="price">
-				<? foreach ($arrPrices as $strValue => $strLabel) : ?>
-					<? ($objCore->strParameterPrice == $strValue) ? $strSelected = 'selected' : $strSelected = ''; ?>
-					<option value="<?= $strValue ?>" <?= $strSelected ?>>
-						<?= $strLabel ?>
-					</option>
-				<? endforeach; ?>
-			</select>
-		</p>
 		<p>			
 			<label>
 				<?= $objCore->getHelperTranslator()->_("Km (max.)") ?>
@@ -102,6 +89,19 @@ foreach ($objCore->arrKms as $strKm) {
 				<? endforeach; ?>
 			</select>
 		</p>
+		<p>
+			<label>
+				<?= $objCore->getHelperTranslator()->_("Price (max.)") ?>
+			</label>
+			<select name="price">
+				<? foreach ($arrPrices as $strValue => $strLabel) : ?>
+					<? ($objCore->strParameterPrice == $strValue) ? $strSelected = 'selected' : $strSelected = ''; ?>
+					<option value="<?= $strValue ?>" <?= $strSelected ?>>
+						<?= $strLabel ?>
+					</option>
+				<? endforeach; ?>
+			</select>
+		</p>		
 		<? if ($objCore->bResetLink) : ?>
 			<input type="hidden" name="reset">
 			<input class="button" type="reset" value="<?= $objCore->getHelperTranslator()->_("Reset") ?>" 
