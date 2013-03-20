@@ -19,8 +19,11 @@ $strBaseUrl = $objCore->getHelperApplication()->getBaseUrl();
 			<? foreach ($objCore->arrCars as $arrCar) : ?>		
 				<a name="<?= $arrCar['KNR'] ?>"></a>
 				<div class="item <?= $strOdd ?>" data-name="<?= $arrCar['KNR'] ?>" data-link="<?= $strBaseUrl ?>/cars/database/detail/id/<?= $arrCar['KNR'] ?>">
-					<div class="image" title="<?= $arrCar['name'] ?> - <?= $arrCar['RP'] ?> EUR">
+					<div class="image" title="<?= $arrCar['name'] ?> (<?= $arrCar['KNR'] ?>)">
 						<img src="<?= $arrCar['image'] ?>">
+					</div>
+					<div class="price">
+						<?= $arrCar['RP'] ?> EUR
 					</div>
 				</div>
 			<? endforeach; ?>
