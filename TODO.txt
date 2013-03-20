@@ -1,6 +1,10 @@
+2013.03.20
+**********
+[x] [CARS] implement sorting selection
+
 2013.03.19
 **********
-[ ] [CARS] implement dummy for non-existing images
+[x] [CARS] implement dummy for non-existing images
 [x] [CARS] implement dedicated cars contact element
 [x] [CARS] implement gallery view for search results
 [ ] [CARS] implement slideshow in detail view

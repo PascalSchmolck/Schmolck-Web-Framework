@@ -258,6 +258,10 @@ ul {
 .error{
 	color: red;
 }
+.clearer {
+	clear: both;
+	height: 0;
+}
 //------------------------------------------------------------------------------
 // Page Layout
 //------------------------------------------------------------------------------
@@ -455,6 +459,17 @@ body {
 			font-size: 130%;
 		}
 		&.filter {
+			label {
+				font-size: 80%;
+			}
+			select {
+				width: 100%
+			}
+			.box {
+				float: left;
+				width: 150px;
+				margin-right: 20px;
+			}
 			.infos {
 				margin: 10px 0;
 			}
@@ -495,10 +510,6 @@ body {
 				background-repeat: no-repeat;
 				width: 150px;
 				height: 113px;
-			}
-			.clearer {
-				clear: both;
-				height: 0;
 			}
 		}
 		&.result {

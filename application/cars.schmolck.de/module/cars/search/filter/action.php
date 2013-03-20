@@ -30,6 +30,7 @@ $objCore->strParameterBrand = Schmolck_Tool_Memory::auto($objCore->strApi, 'bran
 $objCore->strParameterType = Schmolck_Tool_Memory::auto($objCore->strApi, 'type', strip_tags($_POST['type']));
 $objCore->strParameterPrice = Schmolck_Tool_Memory::auto($objCore->strApi, 'price', strip_tags($_POST['price']));
 $objCore->strParameterKm = Schmolck_Tool_Memory::auto($objCore->strApi, 'km', strip_tags($_POST['km']));
+$objCore->strParameterSorting = Schmolck_Tool_Memory::auto($objCore->strApi, 'sorting', strip_tags($_POST['sorting']));
 
 /*
  * PREPARATION
@@ -37,7 +38,8 @@ $objCore->strParameterKm = Schmolck_Tool_Memory::auto($objCore->strApi, 'km', st
 if (trim($objCore->strParameterBrand) 
 	or trim($objCore->strParameterType) 
 	or trim($objCore->strParameterPrice)
-	or trim($objCore->strParameterKm)) {
+	or trim($objCore->strParameterKm)
+	or $objCore->strParameterSorting != 'price') {
 	$objCore->bResetLink = true;
 }
 
@@ -48,6 +50,7 @@ $objCars->setFilter('brand', $objCore->strParameterBrand);
 $objCars->setFilter('type', $objCore->strParameterType);
 $objCars->setFilter('price', $objCore->strParameterPrice);
 $objCars->setFilter('km', $objCore->strParameterKm);
+$objCars->setFilter('sorting', $objCore->strParameterSorting);
 
 /*
  * DATA

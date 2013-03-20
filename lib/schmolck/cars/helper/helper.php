@@ -121,7 +121,7 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 			default:
 				if (trim($this->_arrFilter['price']) != '') {
 					$strWherePrice = "
-						AND RP <= '{$this->_arrFilter['price']}'
+						AND RP <= {$this->_arrFilter['price']}
 					";
 				}
 				break;
@@ -133,7 +133,7 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 		switch ($this->_arrFilter['km']) {
 			default:
 				if (trim($this->_arrFilter['km']) != '') {
-					$strWherePrice = "
+					$strWhereKm = "
 						AND KM <= '{$this->_arrFilter['km']}'
 					";
 				}
@@ -141,7 +141,21 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 			case 'all':
 				continue;
 				break;
-		}		
+		}	
+		// - sorting
+		switch ($this->_arrFilter['sorting']) {
+			default:
+			case 'price':
+				$strSorting = "
+					RP ASC
+				";
+				break;
+			case 'km':
+				$strSorting = "
+					KM ASC
+				";
+				break;			
+		}			
 
 		/*
 		 * QUERY
@@ -155,10 +169,12 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 				TRUE
 				$strWhereBrand
 				$strWhereType
+				$strWhereKm
 				$strWherePrice
 			ORDER BY
-				RP
+				$strSorting
 		";
+error_log($strQuery);				
 		$resource = $objCore->getHelperDatabase()->query($strQuery);
 		while ($arrRow = mysql_fetch_assoc($resource)) {
 			$arrRow['name'] = $this->extractName($arrRow);

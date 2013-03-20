@@ -42,6 +42,11 @@ foreach ($objCore->arrKms as $strKm) {
 	}
 	$arrKms[$strKm] = number_format($strKm, 0, "", ".") . ' km';
 }
+// - sorting
+$arrSorting = array(
+	'price' => $objCore->getHelperTranslator()->_("Price"),
+	'km' => $objCore->getHelperTranslator()->_("Kilometer"),
+)
 
 /*
  * OUTPUT
@@ -50,7 +55,7 @@ foreach ($objCore->arrKms as $strKm) {
 <div id="<?= $objCore->strId ?>" class="<?= $strStyleClass ?>">
 	<form>
 		<input type="hidden" name="send" value="1">
-		<p>
+		<div class="box">
 			<label>
 				<?= $objCore->getHelperTranslator()->_("Brand") ?>
 			</label>
@@ -62,8 +67,7 @@ foreach ($objCore->arrKms as $strKm) {
 					</option>
 				<? endforeach; ?>
 			</select>
-		</p>
-		<p>
+		
 			<label>
 				<?= $objCore->getHelperTranslator()->_("Type") ?>
 			</label>
@@ -75,8 +79,8 @@ foreach ($objCore->arrKms as $strKm) {
 					</option>
 				<? endforeach; ?>
 			</select>
-		</p>
-		<p>			
+		</div>
+		<div class="box">
 			<label>
 				<?= $objCore->getHelperTranslator()->_("Km (max.)") ?>
 			</label>
@@ -88,8 +92,7 @@ foreach ($objCore->arrKms as $strKm) {
 					</option>
 				<? endforeach; ?>
 			</select>
-		</p>
-		<p>
+
 			<label>
 				<?= $objCore->getHelperTranslator()->_("Price (max.)") ?>
 			</label>
@@ -101,16 +104,34 @@ foreach ($objCore->arrKms as $strKm) {
 					</option>
 				<? endforeach; ?>
 			</select>
-		</p>		
-		<? if ($objCore->bResetLink) : ?>
-			<input type="hidden" name="reset">
-			<input class="button" type="reset" value="<?= $objCore->getHelperTranslator()->_("Reset") ?>" 
-				   title="<?= $objCore->getHelperTranslator()->_("Reset all filter values") ?>">
-		<? endif; ?>
+		</div>
+		<div class="box">
+			<label>
+				<?= $objCore->getHelperTranslator()->_("Sorting") ?>
+			</label>
+			<select name="sorting">
+				<? foreach ($arrSorting as $strValue => $strLabel) : ?>
+					<? ($objCore->strParameterSorting == $strValue) ? $strSelected = 'selected' : $strSelected = ''; ?>
+					<option value="<?= $strValue ?>" <?= $strSelected ?>>
+						<?= $strLabel ?>
+					</option>
+				<? endforeach; ?>
+			</select>
+		</div>
+		<div class="clearer">
+			&nbsp;
+		</div>
+		<p>
+			<? if ($objCore->bResetLink) : ?>
+				<input type="hidden" name="reset">
+				<input class="button" type="reset" value="<?= $objCore->getHelperTranslator()->_("Reset") ?>" 
+					   title="<?= $objCore->getHelperTranslator()->_("Reset all filter values") ?>">
+			<? endif; ?>
 
-		<? if ($objCore->strParameterSend and $objCore->nCount > 0 and !$objCore->strParameterReset) : ?>
-			<input class="button highlight" type="button" value="<?= $strButtonLabel ?>">
-		<? endif; ?>
+			<? if ($objCore->strParameterSend and $objCore->nCount > 0 and !$objCore->strParameterReset) : ?>
+				<input class="button highlight" type="button" value="<?= $strButtonLabel ?>">
+			<? endif; ?>
+		</p>
 
 		<? if ($objCore->nCount < 1) : ?>
 			<div class="infos">
