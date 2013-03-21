@@ -24,7 +24,7 @@ function __autoload($strClass) {
 	}
 
 	// - include
-	require_once($strFilePath . '/' . $strFileName);
+	require_once(strtolower($strFilePath . '/' . $strFileName));
 }
 
 /*
