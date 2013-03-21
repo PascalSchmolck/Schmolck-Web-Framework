@@ -34,7 +34,7 @@ if ($objCore->strSend != '') {
 	if (trim($this->strSubject) == '') {
 		$objCore->strErrorSubject = $objCore->getHelperTranslator()->_("Please enter a subject");
 		$bError = true;
-	}	
+	}
 	// - message
 	if (trim($this->strMessage) == '') {
 		$objCore->strErrorMessage = $objCore->getHelperTranslator()->_("Please enter your message here");
@@ -49,7 +49,7 @@ if ($objCore->strSend != '') {
 		$strRecipient = $objCore->strEmail;
 
 		// - subject
-		$strSubject = $objCore->getHelperApplication()->getName() . ' ' . $objCore->strSubject;
+		$strSubject = $_SERVER['HTTP_HOST'] . ' - ' . $objCore->strSubject;
 
 		// - message
 		$strMessage = '
