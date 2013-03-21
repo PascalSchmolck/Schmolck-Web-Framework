@@ -85,6 +85,13 @@ define('DATABASE_USERNAME', 'pascal');
 define('DATABASE_PASSWORD', 'test');
 
 /*
+ * PIWIK
+ * 
+ * Leave empty if tracking should not be activated
+ */
+define('PIWIK_TRACKING_ID', '');
+
+/*
  * MAIL
  */
 define('MAIL_SENDER_NAME', 'Pascal Schmolck');

@@ -1,5 +1,6 @@
 2013.03.21
 **********
+[ ] [PORTAL] include Piwik Web Analytic for production environment
 [x] [PORTAL] cleanup and optimise exception page
 [x] [PORTAL] cleanup and optimise module names / structure
 [x] [PORTAL] cleanup obsolete start page and establish redirections 
