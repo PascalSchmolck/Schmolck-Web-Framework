@@ -209,7 +209,6 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 		 */
 		// - only update if necessary
 		if ($this->_isUpToDate()) {
-			Schmolck_Tool_Debug::info(sprintf('Cars database still up-to-date and not older than %s minutes', (self::UPDATE_LIMIT / 60)));
 			return;
 		}
 

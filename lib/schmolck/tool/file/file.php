@@ -36,4 +36,17 @@ class Schmolck_Tool_File {
 		fclose($this->handle);
 	}
 
+	public static function convertBytes($bytes) {
+		$size = number_format(($bytes / pow(2, 10) / 1000), 0);
+		if ($size >= 1) {
+			return "$size MB";
+		}
+		$size = number_format(($bytes / pow(2, 10)), 0);
+		if ($size >= 1) {
+			return "$size KB";
+		}
+		$size = number_format($bytes, 0);
+		return "$size B";
+	}
+
 }
