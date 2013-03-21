@@ -12,6 +12,7 @@ class Schmolck_Framework_Core {
 	protected $_bLayoutRendering = true;
 	protected $_arrLayoutStyles = array();
 	protected $_arrLayoutScripts = array();
+	protected $_arrHelpers = array();
 	protected $_arrActionValues = array();
 	protected $_strModule;
 	protected $_strController;
@@ -25,6 +26,7 @@ class Schmolck_Framework_Core {
 
 	public function __construct() {
 		$this->_initSettings();
+		$this->_initHelpers();
 	}
 
 	/**
@@ -112,15 +114,29 @@ class Schmolck_Framework_Core {
 	}
 
 	/**
+	 * Initialize all required helpers
+	 */
+	protected function _initHelpers() {
+		$this->_arrHelpers['host'] = new Schmolck_Framework_Helper_Host($this);
+		$this->_arrHelpers['application'] = new Schmolck_Framework_Helper_Application($this);
+		$this->_arrHelpers['database'] = new Schmolck_Framework_Helper_Database($this);
+		$this->_arrHelpers['optimizer'] = new Schmolck_Framework_Helper_Optimizer($this);
+		$this->_arrHelpers['translator'] = new Schmolck_Framework_Helper_Translator($this);
+		$this->_arrHelpers['redirect'] = new Schmolck_Framework_Helper_Redirect($this);
+		$this->_arrHelpers['message'] = new Schmolck_Framework_Helper_Message($this);
+		$this->_arrHelpers['scripts'] = new Schmolck_Framework_Helper_Scripts($this);
+		$this->_arrHelpers['cache'] = new Schmolck_Framework_Helper_Cache($this);
+		$this->_arrHelpers['html'] = new Schmolck_Framework_Helper_Html($this);
+		$this->_arrHelpers['api'] = new Schmolck_Framework_Helper_Api($this);
+	}
+
+	/**
 	 * Get host helper
 	 * 
 	 * @return \Schmolck_Framework_Helper_Server
 	 */
 	public function &getHelperHost() {
-		$objInstance = Schmolck_Framework_Helper_Host::getInstance($this);
-		$objInstance->setCore($this);
-		$objInstance->init();
-		return $objInstance;
+		return $this->_arrHelpers['host'];
 	}
 
 	/**
@@ -129,10 +145,7 @@ class Schmolck_Framework_Core {
 	 * @return \Schmolck_Framework_Helper_Application
 	 */
 	public function &getHelperApplication() {
-		$objInstance = Schmolck_Framework_Helper_Application::getInstance($this);
-		$objInstance->setCore($this);
-		$objInstance->init();
-		return $objInstance;			
+		return $this->_arrHelpers['application'];
 	}
 
 	/**
@@ -141,10 +154,7 @@ class Schmolck_Framework_Core {
 	 * @return \Schmolck_Framework_Helper_Database
 	 */
 	public function &getHelperDatabase() {
-		$objInstance = Schmolck_Framework_Helper_Database::getInstance($this);
-		$objInstance->setCore($this);
-		$objInstance->init();
-		return $objInstance;			
+		return $this->_arrHelpers['database'];
 	}
 
 	/**
@@ -153,10 +163,7 @@ class Schmolck_Framework_Core {
 	 * @return \Schmolck_Framework_Helper_Optimizer
 	 */
 	public function &getHelperOptimizer() {
-		$objInstance = Schmolck_Framework_Helper_Optimizer::getInstance($this);
-		$objInstance->setCore($this);
-		$objInstance->init();
-		return $objInstance;			
+		return $this->_arrHelpers['optimizer'];
 	}
 
 	/**
@@ -165,10 +172,7 @@ class Schmolck_Framework_Core {
 	 * @return \Schmolck_Framework_Helper_Translator
 	 */
 	public function &getHelperTranslator() {
-		$objInstance = Schmolck_Framework_Helper_Translator::getInstance($this);
-		$objInstance->setCore($this);
-		$objInstance->init();
-		return $objInstance;			
+		return $this->_arrHelpers['translator'];
 	}
 
 	/**
@@ -177,10 +181,7 @@ class Schmolck_Framework_Core {
 	 * @return \Schmolck_Framework_Helper_Redirect
 	 */
 	public function &getHelperRedirect() {
-		$objInstance = Schmolck_Framework_Helper_Redirect::getInstance($this);
-		$objInstance->setCore($this);
-		$objInstance->init();
-		return $objInstance;			
+		return $this->_arrHelpers['redirect'];
 	}
 
 	/**
@@ -189,10 +190,7 @@ class Schmolck_Framework_Core {
 	 * @return \Schmolck_Framework_Helper_Message
 	 */
 	public function &getHelperMessage() {
-		$objInstance = Schmolck_Framework_Helper_Message::getInstance($this);
-		$objInstance->setCore($this);
-		$objInstance->init();
-		return $objInstance;
+		return $this->_arrHelpers['message'];
 	}
 
 	/**
@@ -201,10 +199,7 @@ class Schmolck_Framework_Core {
 	 * @return \Schmolck_Framework_Helper_Scripts
 	 */
 	public function &getHelperScripts() {
-		$objInstance = Schmolck_Framework_Helper_Scripts::getInstance($this);
-		$objInstance->setCore($this);
-		$objInstance->init();
-		return $objInstance;
+		return $this->_arrHelpers['scripts'];
 	}
 
 	/**
@@ -213,10 +208,7 @@ class Schmolck_Framework_Core {
 	 * @return \Schmolck_Framework_Helper_Cache
 	 */
 	public function &getHelperCache() {
-		$objInstance = Schmolck_Framework_Helper_Cache::getInstance($this);
-		$objInstance->setCore($this);
-		$objInstance->init();
-		return $objInstance;		
+		return $this->_arrHelpers['cache'];
 	}
 
 	/**
@@ -225,10 +217,7 @@ class Schmolck_Framework_Core {
 	 * @return \Schmolck_Framework_Helper_Html
 	 */
 	public function &getHelperHtml() {
-		$objInstance = Schmolck_Framework_Helper_Html::getInstance($this);
-		$objInstance->setCore($this);
-		$objInstance->init();
-		return $objInstance;	
+		return $this->_arrHelpers['html'];
 	}
 
 	/**
@@ -237,10 +226,7 @@ class Schmolck_Framework_Core {
 	 * @return \Schmolck_Framework_Helper_Api
 	 */
 	public function &getHelperApi() {
-		$objInstance = Schmolck_Framework_Helper_Api::getInstance($this);
-		$objInstance->setCore($this);
-		$objInstance->init();
-		return $objInstance;			
+		return $this->_arrHelpers['api'];
 	}
 
 	/**

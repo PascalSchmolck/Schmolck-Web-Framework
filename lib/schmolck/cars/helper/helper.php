@@ -50,8 +50,10 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 	protected $_arrMemoryAttributes = array(
 		'_arrFilter'
 	);
-	
-	public function init() {
+
+	public function __construct(Schmolck_Framework_Core $objCore) {
+		parent::__construct($objCore);
+
 		$this->updateFromCSV();
 	}
 

@@ -17,12 +17,7 @@ class Schmolck_Tool_Memory {
 	 * @param mixed $mixedValue
 	 */
 	static public function store($strDomain, $strKey, $mixedValue) {
-		if ($mixedValue != '') {
-			$_SESSION[md5($_SERVER['PHP_SELF'])][$strDomain][$strKey] = $mixedValue;
-		} else {
-			
-			unset($_SESSION[md5($_SERVER['PHP_SELF'])][$strDomain][$strKey]);
-		}
+		$_SESSION[md5($_SERVER['PHP_SELF'])][$strDomain][$strKey] = $mixedValue;
 	}
 
 	/**

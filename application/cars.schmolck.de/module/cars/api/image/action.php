@@ -9,8 +9,7 @@ $objCore->strId = $objCore->getHelperApi()->getId();
 $objCore->strUri = $objCore->getHelperApplication()->getRequestUri();
 $objCore->strApi = $objCore->getHelperApi()->getIdentifier();
 // - cars
-$objCars = new Schmolck_Cars_Helper();
-$objCars->setCore($objCore);
+$objCars = new Schmolck_Cars_Helper($objCore);
 
 /*
  * PARAMETER
