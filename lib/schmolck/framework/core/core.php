@@ -128,7 +128,9 @@ class Schmolck_Framework_Core {
 		$this->_arrHelpers['cache'] = new Schmolck_Framework_Helper_Cache($this);
 		$this->_arrHelpers['html'] = new Schmolck_Framework_Helper_Html($this);
 		$this->_arrHelpers['link'] = new Schmolck_Framework_Helper_Link($this);
+		$this->_arrHelpers['mail'] = new Schmolck_Framework_Helper_Mail($this);
 		$this->_arrHelpers['api'] = new Schmolck_Framework_Helper_Api($this);
+
 	}
 
 	/**
@@ -230,6 +232,15 @@ class Schmolck_Framework_Core {
 		return $this->_arrHelpers['link'];
 	}	
 
+	/**
+	 * Get mail helper
+	 * 
+	 * @return \Schmolck_Framework_Helper_Mail
+	 */
+	public function &getHelperMail() {
+		return $this->_arrHelpers['mail'];
+	}
+	
 	/**
 	 * Get api helper
 	 * 

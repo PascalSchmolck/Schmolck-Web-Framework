@@ -1,7 +1,9 @@
 2013.03.21
 **********
 [x] [FRAMEWORK] fix wrong image paths in styles
-[ ] [FRAMEWORK] convert line breaks into <br> in contact mails
+[x] [FRAMEWORK] convert line breaks into <br> in contact mails
+[x] [FRAMEWORK] implement overall usable mail template 
+[x] [FRAMEWORK] implement globally usable mail sender
 [x] [PORTAL] fix testing mail addresses for production server
 [x] [FRAMEWORK] fix mysql_escape issue on production server
 [x] [FRAMEWORK] enable logging into tmp/error.log
@@ -9,7 +11,6 @@
 [x] [FRAMEWORK] fix showstopping url parameter issues
 [x] [PORTAL] fix obsolete links to content/static/*
 [x] [FRAMEWORK] fix exception bug on production server
-[ ] [FRAMEWORK] implement overall usable mail template 
 [?] [FRAMEWORK] fix duplicate recipient in contact form e-mails
 [x] [FRAMEWORK] fix contact subject line 
 [x] [FRAMEWORK] fix absolute url issue within api helper

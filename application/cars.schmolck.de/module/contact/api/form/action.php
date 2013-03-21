@@ -45,46 +45,11 @@ if ($objCore->strSend != '') {
 	 * SENDING
 	 */
 	if (!$bError) {
-		// - recipient
-		$strRecipient = $objCore->strEmail;
-
-		// - subject
-		$strSubject = $_SERVER['HTTP_HOST'] . ' - ' . $objCore->strSubject;
-
-		// - message
-		$strMessage = '
-			<html>
-				<head>
-				<style type="text/css">
-					body{
-						font-face: arial;
-						font-size: 10pt;
-					}
-				</style>
-				</head>
-				<body>
-					' . $objCore->strMessage . '
-				</body>
-			</html>
-		';
-
-		// - proper header for HTML mails
-		$strHeader = 'MIME-Version: 1.0' . "\r\n";
-		$strHeader .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-
-		// - additional headers
-		$strHeader .= 'From:' . $objCore->strName . ' <' . $objCore->strEmail . '>' . "\r\n";
-		$strHeader .= 'To:  ' . MAIL_SENDER_NAME . ' <' . MAIL_SENDER_ADDRESS . '>' . "\r\n";
-
-		// - send mail
-		$bMail = mail($strRecipient, $strSubject, $strMessage, $strHeader);
-
-		if ($bMail) {
+		try {
+			$objCore->getHelperMail()->send($objCore->strName, $objCore->strEmail, MAIL_RECIPIENT_NAME, MAIL_RECIPIENT_ADDRESS, $objCore->strSubject, $objCore->strMessage);
 			$objCore->strMessageMail = $objCore->getHelperTranslator()->_("Message has been sent. Thank you.");
-			Schmolck_Tool_Debug::info('Mail has been sent.');
-		} else {
-			$objCore->strMessageMail = $objCore->getHelperTranslator()->_("Sorry, message could not be sent.");
-			Schmolck_Tool_Debug::error('Mail message could not be sent', __FILE__, __LINE__);
+		} catch (Exception $objException) {
+			$objCore->strMessageMail = $objException->getMessage();
 		}
 	}
 }
