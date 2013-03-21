@@ -9,7 +9,7 @@
  */
 class Schmolck_Tool_Exception extends Exception {
 
-	public function __construct($message, $code=null, $previous=null) {
+	public function __construct($message, $code=null) {
 		/*
 		 * LOGGING
 		 */
@@ -19,6 +19,6 @@ class Schmolck_Tool_Exception extends Exception {
 		/*
 		 * EXCEPTION
 		 */
-		parent::__construct($message, $code, $previous);
+		parent::__construct($message, $code);
 	}
 }

@@ -1,5 +1,8 @@
 2013.03.21
 **********
+[x] [FRAMEWORK] fix exception bug on production server
+[ ] [FRAMEWORK] implement overall usable mail template 
+[?] [FRAMEWORK] fix duplicate recipient in contact form e-mails
 [x] [FRAMEWORK] fix contact subject line 
 [x] [FRAMEWORK] fix absolute url issue within api helper
 [x] [PORTAL] create cars.schmolck.de production settings 
