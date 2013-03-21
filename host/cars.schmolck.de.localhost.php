@@ -66,11 +66,13 @@ define('APPLICATION_LANGUAGE', 'de');
 define('APPLICATION_TEMPLATE', '2013.03');
 
 /*
- * MODULE EXCEPTION
+ * EXCEPTION
  * 
- * Define what module should be used in case of an exception. 
+ * Define what module should be used in case of an exception and
+ * which e-mail address should be used for notification mails.
  */
-define('MODULE_EXCEPTION', 'exception');
+define('EXCEPTION_MODULE', 'exception');
+define('EXCEPTION_ADDRESS', 'webmaster@schmolck.de');
 
 /*
  * DATABASE CONNECTION

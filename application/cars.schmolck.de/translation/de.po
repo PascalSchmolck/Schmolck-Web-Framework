@@ -106,6 +106,10 @@ msgstr "Kontakt"
 msgid "Location"
 msgstr "Anfahrt"
 
+#: ../application/cars.schmolck.de/module/cars/database/overview/output.phtml:39
+msgid "Mail"
+msgstr "Mail"
+
 #: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:9
 msgid "Display %s hits"
 msgstr "%s Treffer anzeigen"
@@ -194,11 +198,7 @@ msgstr "Galerie"
 msgid "List"
 msgstr "Liste"
 
-#: ../application/cars.schmolck.de/module/content/static/contact/output.phtml:39
-msgid "Mail"
-msgstr "Mail"
-
-#: ../application/cars.schmolck.de/module/content/static/contact/output.phtml:45
+#: ../application/cars.schmolck.de/module/content/static/contact/output.phtml:43
 msgid "You can post your questions to our team in the following languages​​"
 msgstr "Sie können Ihre Fragen an unser Team in folgenden Sprachen stellen"
 
@@ -231,12 +231,12 @@ msgid "...an error occured!"
 msgstr "...es hat sich ein Fehler eingeschlichen!"
 
 #: ../application/cars.schmolck.de/module/exception/index/index/output.phtml:11
-msgid "If this error occurs repeatedly, we would appreciate a short message."
+msgid "If this error occurs repeatedly, we would appreciate a short message"
 msgstr ""
 "Sollte dieser Fehler mehrmals auftreten, würden wir uns über eine kurze "
-"Benachrichtigung freuen."
+"Benachrichtigung freuen"
 
-#: ../application/cars.schmolck.de/module/exception/index/index/output.phtml:15
+#: ../application/cars.schmolck.de/module/exception/index/index/output.phtml:18
 msgid "Error message"
 msgstr "Fehlermeldung"
 
@@ -256,9 +256,8 @@ msgstr "Sie befinden sich bereits hier"
 msgid "cars"
 msgstr "cars"
 
-#: ../application/cars.schmolck.de/template/2013.03/html.phtml:64
-msgid "Home"
-msgstr "Startseite"
+#~ msgid "Home"
+#~ msgstr "Startseite"
 
 #~ msgid "brand_all"
 #~ msgstr "Alle"

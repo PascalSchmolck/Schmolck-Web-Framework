@@ -628,28 +628,28 @@ class Schmolck_Framework_Core {
 	}
 
 	protected function _runExceptionModuleInit(Exception $Exception) {
-		$strFile = $this->getHelperApplication()->getModulePath() . '/' . MODULE_EXCEPTION . '/_init.php';
+		$strFile = $this->getHelperApplication()->getModulePath() . '/' . EXCEPTION_MODULE . '/_init.php';
 		if (file_exists($strFile)) {
 			require($strFile);
 		}
 	}
 
 	protected function _runExceptionModuleExit(Exception $Exception) {
-		$strFile = $this->getHelperApplication()->getModulePath() . '/' . MODULE_EXCEPTION . '/_exit.php';
+		$strFile = $this->getHelperApplication()->getModulePath() . '/' . EXCEPTION_MODULE . '/_exit.php';
 		if (file_exists($strFile)) {
 			require($strFile);
 		}
 	}
 
 	protected function _runExceptionControllerInit(Exception $Exception) {
-		$strFile = $this->getHelperApplication()->getModulePath() . '/' . MODULE_EXCEPTION . '/index/_init.php';
+		$strFile = $this->getHelperApplication()->getModulePath() . '/' . EXCEPTION_MODULE . '/index/_init.php';
 		if (file_exists($strFile)) {
 			require($strFile);
 		}
 	}
 
 	protected function _runExceptionControllerExit(Exception $Exception) {
-		$strFile = $this->getHelperApplication()->getModulePath() . '/' . MODULE_EXCEPTION . '/index/_exit.php';
+		$strFile = $this->getHelperApplication()->getModulePath() . '/' . EXCEPTION_MODULE . '/index/_exit.php';
 		if (file_exists($strFile)) {
 			require($strFile);
 		}
@@ -657,13 +657,13 @@ class Schmolck_Framework_Core {
 
 	protected function _runExceptionAction(Exception $Exception) {
 		ob_start();
-		require($this->getHelperApplication()->getModulePath() . '/' . MODULE_EXCEPTION . '/index/index/action.php');
+		require($this->getHelperApplication()->getModulePath() . '/' . EXCEPTION_MODULE . '/index/index/action.php');
 		ob_end_clean();
 	}
 
 	protected function _runExceptionView(Exception $Exception) {
 		ob_start();
-		require($this->getHelperApplication()->getModulePath() . '/' . MODULE_EXCEPTION . '/index/index/output.phtml');
+		require($this->getHelperApplication()->getModulePath() . '/' . EXCEPTION_MODULE . '/index/index/output.phtml');
 		$this->_strViewOutput = ob_get_contents();
 		ob_end_clean();
 	}
