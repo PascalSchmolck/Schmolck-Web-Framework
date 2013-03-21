@@ -7,15 +7,32 @@
  * @author Pascal Schmolck
  * @copyright 2013
  */
-abstract class Schmolck_Framework_Helper {
+class Schmolck_Framework_Helper {
 
 	protected $_objCore;
 	protected $_arrMemoryAttributes = array();
+	private static $_arrInstances = array();
 
-	public function __construct(Schmolck_Framework_Core $objCore) {
-		$this->_objCore = $objCore;
+	/**
+	 * Abstract Singleton Pattern
+	 * 
+	 * @return instance
+	 */
+	final public static function getInstance() {
+		$class = get_called_class();
+		if (empty(self::$_arrInstances[$class])) {
+			$rc = new ReflectionClass($class);
+			self::$_arrInstances[$class] = $rc->newInstanceArgs(func_get_args());
+		}
+		return self::$_arrInstances[$class];
+	}
+
+	final public function __clone() {
+		throw new Exception('This singleton must not be cloned!');
+	}
+
+	public function __construct() {
 		$this->_initMemory();
-		$this->init();
 	}
 
 	public function __destruct() {
@@ -27,6 +44,10 @@ abstract class Schmolck_Framework_Helper {
 	 */
 	public function init() {
 		// - implementation by child
+	}
+	
+	public function setCore(Schmolck_Framework_Core $objCore) {
+		$this->_objCore = $objCore;
 	}
 
 	/**

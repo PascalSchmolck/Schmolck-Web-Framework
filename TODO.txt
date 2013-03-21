@@ -1,6 +1,8 @@
 2013.03.20
 **********
 [x] [CARS] implement sorting selection
+[ ] [FRAMEWORK] implement mailto: obfuscator
+[x] [FRAMEWORK] fix multiple helper instances issue
 
 2013.03.19
 **********
@@ -8,7 +10,7 @@
 [x] [CARS] implement dedicated cars contact element
 [x] [CARS] implement gallery view for search results
 [x] [CARS] implement slideshow in detail view
-[ ] [CARS] display contact persons on detail view
+[x] [CARS] display contact persons on detail view
 [x] [CARS] implement filter reset functionality
 [x] [CARS] implement price filter
 

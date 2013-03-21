@@ -13,7 +13,8 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 $objCore->strId = $objCore->getHelperApi()->getId();
 $objCore->strStyleClass = $objCore->getHelperApi()->getStyleClass();
 // - cars
-$objCars = new Schmolck_Cars_Helper($objCore);
+$objCars = new Schmolck_Cars_Helper();
+$objCars->setCore($objCore);
 
 /*
  * QR-CODE

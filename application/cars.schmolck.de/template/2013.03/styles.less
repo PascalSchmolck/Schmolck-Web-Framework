@@ -159,7 +159,7 @@ form {
 		.error {
 			color: darkorange;
 			font-weight: normal;
-			float: left;
+			float: right;
 			font-size: 95%;
 		}	
 	}
@@ -261,6 +261,14 @@ ul {
 .clearer {
 	clear: both;
 	height: 0;
+}
+.float {
+	&.left {
+		float: left;
+	}
+	&.right {
+		float: right;
+	}
 }
 //------------------------------------------------------------------------------
 // Page Layout
