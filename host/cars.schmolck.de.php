@@ -8,15 +8,17 @@
  * @copyright 2013
  */
 /*
- * ERROR REPORTING
+ * ERROR LOGGING & REPORTING
  */
-error_reporting(E_ALL ^ E_NOTICE);
+ini_set("log_errors", 1);
+ini_set("error_log", "tmp/error.log");
+ini_set("error_reporting", E_ALL ^ E_NOTICE);
 
 /*
  * COMPRESSION
  */
 if (extension_loaded("zlib") && (ini_get("output_handler") != "ob_gzhandler")) {
-    ini_set("zlib.output_compression", 1);
+	ini_set("zlib.output_compression", 1);
 }
 
 /*
