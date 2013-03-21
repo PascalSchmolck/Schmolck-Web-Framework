@@ -46,11 +46,6 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 	const DB_TABLE = 'mod_cars';
 	const UPDATE_LIMIT = 1800;
 
-	protected $_arrFilter;
-	protected $_arrMemoryAttributes = array(
-		'_arrFilter'
-	);
-
 	public function __construct(Schmolck_Framework_Core $objCore) {
 		parent::__construct($objCore);
 
@@ -58,15 +53,28 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 	}
 
 	/**
-	 * Set car filter
+	 * Set car filter value
 	 * 
 	 * @param type $strName
 	 * @param type $strValue
 	 */
 	public function setFilter($strName, $strValue) {
-		$this->_arrFilter[$strName] = mysql_real_escape_string($strValue);
+		$arrFilter = $this->restore('filter');
+		$arrFilter[$strName] = mysql_real_escape_string($strValue);
+		$this->store('filter', $arrFilter);
 	}
 
+	/**
+	 * Get car filter value
+	 * 
+	 * @param string $strName
+	 * @return mixed
+	 */
+	public function getFilter($strName) {
+		$arrFilter = $this->restore('filter');
+		return $arrFilter[$strName];
+	}
+	
 	/**
 	 * Query cars according to filters
 	 */
@@ -80,11 +88,11 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 		 * PREPARATION
 		 */
 		// - brand
-		switch ($this->_arrFilter['brand']) {
+		switch ($this->getFilter('brand')) {
 			default:
-				if (trim($this->_arrFilter['brand']) != '') {
+				if (trim($this->getFilter('brand')) != '') {
 					$strWhereBrand = "
-						AND FABT LIKE '{$this->_arrFilter['brand']}'
+						AND FABT LIKE '{$this->getFilter('brand')}'
 					";
 				}
 				break;
@@ -102,11 +110,11 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 				break;
 		}
 		// - type
-		switch ($this->_arrFilter['type']) {
+		switch ($this->getFilter('type')) {
 			default:
-				if (trim($this->_arrFilter['type']) != '') {
+				if (trim($this->getFilter('type')) != '') {
 					$strWhereType = "
-						AND KAT LIKE '{$this->_arrFilter['type']}'
+						AND KAT LIKE '{$this->getFilter('type')}'
 					";
 				}
 				break;
@@ -117,11 +125,11 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 				break;
 		}
 		// - price
-		switch ($this->_arrFilter['price']) {
+		switch ($this->getFilter('price')) {
 			default:
-				if (trim($this->_arrFilter['price']) != '') {
+				if (trim($this->getFilter('price')) != '') {
 					$strWherePrice = "
-						AND RP <= {$this->_arrFilter['price']}
+						AND RP <= {$this->getFilter('price')}
 					";
 				}
 				break;
@@ -130,11 +138,11 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 				break;
 		}
 		// - km
-		switch ($this->_arrFilter['km']) {
+		switch ($this->getFilter('km')) {
 			default:
-				if (trim($this->_arrFilter['km']) != '') {
+				if (trim($this->getFilter('km')) != '') {
 					$strWhereKm = "
-						AND KM <= '{$this->_arrFilter['km']}'
+						AND KM <= '{$this->getFilter('km')}'
 					";
 				}
 				break;
@@ -143,7 +151,7 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 				break;
 		}	
 		// - sorting
-		switch ($this->_arrFilter['sorting']) {
+		switch ($this->getFilter('sorting')) {
 			default:
 			case 'price':
 				$strSorting = "

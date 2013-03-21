@@ -12,21 +12,16 @@ class Schmolck_Framework_Helper_Cache extends Schmolck_Framework_Helper {
 	const PATH = 'tmp';
 	const LIMIT_CLEAN = 3600;  // seconds
 	const LIMIT_CACHE = 'H';  // date()
-	
-	protected $_bCleanedDir;
-	protected $_arrMemoryAttributes = array(
-		'_bCleanedDir'
-	);	
 
 	public function init() {
 		/*
 		 * CLEAN
 		 */
 		// - directory
-		if (!$this->_bCleanedDir) {
+		if (!$this->restore('clean')) {
 			// - only once per session
 			$this->cleanDir();
-			$this->_bCleanedDir = true;
+			$this->store('clean', true);
 		}
 	}
 

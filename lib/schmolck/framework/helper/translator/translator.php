@@ -9,18 +9,12 @@
  */
 class Schmolck_Framework_Helper_Translator extends Schmolck_Framework_Helper {
 
-	protected $_language;
-	protected $_arrDictionary;
-	protected $_arrMemoryAttributes = array(
-		'_language'
-	);
-
 	public function init() {
 		/*
 		 * LANGUAGE
 		 */
 		if (!in_array($this->getLanguage(), $this->getLanguages())) {
-			$this->_language = APPLICATION_LANGUAGE;
+			$this->store('language', APPLICATION_LANGUAGE);
 		}
 	}
 
@@ -46,7 +40,7 @@ class Schmolck_Framework_Helper_Translator extends Schmolck_Framework_Helper {
 	 * @return string language
 	 */
 	public function getLanguage() {
-		return $this->_language;
+		return $this->restore('language');
 	}
 
 	public function setLanguage($strLanguage) {
@@ -54,7 +48,7 @@ class Schmolck_Framework_Helper_Translator extends Schmolck_Framework_Helper {
 		 * CHECK
 		 */
 		if (in_array($strLanguage, $this->getLanguages())) {
-			$this->_language = $strLanguage;
+			$this->store('language', $strLanguage);
 			Schmolck_Tool_Debug::info("Language has been changed to '{$strLanguage}'");
 		} else {
 			throw new Schmolck_Tool_Exception("Non existing language '{$strLanguage}' could not be set");

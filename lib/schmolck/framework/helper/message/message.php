@@ -8,11 +8,6 @@
  * @copyright 2013
  */
 class Schmolck_Framework_Helper_Message extends Schmolck_Framework_Helper {
-
-	protected $_strMessage;
-	protected $_arrMemoryAttributes = array(
-		'_strMessage'
-	);
 	
 	/**
 	 * Set message string
@@ -20,7 +15,7 @@ class Schmolck_Framework_Helper_Message extends Schmolck_Framework_Helper {
 	 * @param string $strMessage
 	 */
 	public function setMessage($strMessage) {
-		$this->_strMessage = $strMessage;
+		$this->store('message', $strMessage);
 	}
 	
 	/**
@@ -29,7 +24,7 @@ class Schmolck_Framework_Helper_Message extends Schmolck_Framework_Helper {
 	 * @return string message
 	 */
 	public function getMessage() {
-		return $this->_strMessage;
+		return $this->restore('message');
 	}
 	
 	/**

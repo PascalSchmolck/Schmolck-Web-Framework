@@ -10,16 +10,11 @@
 abstract class Schmolck_Framework_Helper {
 
 	protected $_objCore;
-	protected $_arrMemoryAttributes = array();
+	protected $_arrAttributes = array();
 
 	public function __construct(Schmolck_Framework_Core $objCore) {
 		$this->_objCore = $objCore;
-		$this->_initMemory();
 		$this->init();
-	}
-
-	public function __destruct() {
-		$this->_saveMemory();
 	}
 
 	/**
@@ -30,21 +25,22 @@ abstract class Schmolck_Framework_Helper {
 	}
 
 	/**
-	 * Initialise memory state
+	 * Restore from memory
+	 * 
+	 * @param string $strKey
 	 */
-	protected function _initMemory() {
-		foreach ($this->_arrMemoryAttributes as $strClassAttribute) {
-			$this->$strClassAttribute = Schmolck_Tool_Memory::restore(get_class($this), $strClassAttribute);
-		}
+	public function restore($strKey) {
+		return Schmolck_Tool_Memory::restore(get_class($this), $strKey);
 	}
 
 	/**
-	 * Save memory state
+	 * Store to memory
+	 * 
+	 * @param string $strKey
+	 * @param string $strValue
 	 */
-	protected function _saveMemory() {
-		foreach ($this->_arrMemoryAttributes as $strClassAttribute) {
-			Schmolck_Tool_Memory::store(get_class($this), $strClassAttribute, $this->$strClassAttribute);
-		}
+	public function store($strKey, $strValue) {
+		Schmolck_Tool_Memory::store(get_class($this), $strKey, $strValue);
 	}
 
 }
