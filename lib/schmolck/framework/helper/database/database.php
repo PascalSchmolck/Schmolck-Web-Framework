@@ -23,6 +23,8 @@ class Schmolck_Framework_Helper_Database extends Schmolck_Framework_Helper {
 		$this->_name = DATABASE_NAME;
 		$this->_username = DATABASE_USERNAME;
 		$this->_password = DATABASE_PASSWORD;
+
+		$this->connect();
 	}
 
 	/**
@@ -68,11 +70,6 @@ class Schmolck_Framework_Helper_Database extends Schmolck_Framework_Helper {
 	 * @throws Schmolck_Tool_Exception
 	 */
 	public function query($strSQL) {
-		/*
-		 * CONNECT
-		 */
-		$this->connect();
-
 		/*
 		 * QUERY
 		 */
