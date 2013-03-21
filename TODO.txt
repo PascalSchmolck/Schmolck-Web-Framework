@@ -1,5 +1,6 @@
 2013.03.21
 **********
+[ ] [FRAMEWORK] fix absolute url issue within api helper
 [x] [PORTAL] create cars.schmolck.de production settings 
 [x] [FRAMEWORK] fix case-issue when loading classes from library
 [x] [PORTAL] include Piwik Web Analytic for production environment
