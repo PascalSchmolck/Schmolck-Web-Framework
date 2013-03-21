@@ -95,11 +95,11 @@ define('PIWIK_TRACKING_ID', '3');
 /*
  * MAIL
  */
-define('MAIL_SENDER_NAME', 'Pascal Schmolck');
-define('MAIL_SENDER_ADDRESS', 'mail@pascalschmolck.de');
+define('MAIL_SENDER_NAME', 'cars.schmolck.de');
+define('MAIL_SENDER_ADDRESS', 'info@schmolck.de');
 
 /*
  * CARS
  */
-define('CARS_CONTACT_RECIPIENT_NAME', 'Pascal Schmolck');
-define('CARS_CONTACT_RECIPIENT_ADDRESS', 'mail@pascalschmolck.de');
+define('CARS_CONTACT_RECIPIENT_NAME', 'cars.schmolck.de');
+define('CARS_CONTACT_RECIPIENT_ADDRESS', 'info@schmolck.de');

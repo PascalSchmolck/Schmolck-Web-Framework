@@ -1,5 +1,6 @@
 2013.03.21
 **********
+[x] [PORTAL] fix testing mail addresses for production server
 [x] [FRAMEWORK] fix mysql_escape issue on production server
 [x] [FRAMEWORK] enable logging into tmp/error.log
 [x] [PORTAL] remove work-intensive mails from imprint page
