@@ -41,7 +41,7 @@
 
 2013.03.08
 **********
-[ ] [FRAMEWORK] implement image app for automatic image resizing
+[x] [FRAMEWORK] implement image app for automatic image resizing
 [x] [CARS] implement database structure
 [x] [CARS] implement database loader (CSV->DB)
 [x] [CARS] implement list view
