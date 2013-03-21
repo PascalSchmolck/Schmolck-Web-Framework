@@ -1,55 +1,3 @@
-#: ../application/cars.schmolck.de/module/api/contact/form/action.php:25 
-msgid "Please enter your name name" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/api/contact/form/action.php:30 
-msgid "Please enter a valid e-mail address" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/api/contact/form/action.php:35 
-msgid "Please enter a subject" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/api/contact/form/action.php:40 
-msgid "Please enter your message here" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/api/contact/form/action.php:83 
-msgid "Message has been sent. Thank you." 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/api/contact/form/action.php:86 
-msgid "Sorry, message could not be sent." 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/api/contact/form/output.phtml:20 
-msgid "Name" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/api/contact/form/output.phtml:30 
-msgid "E-Mail" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/api/contact/form/output.phtml:40 
-msgid "Subject" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/api/contact/form/output.phtml:50 
-msgid "Your message" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/api/contact/form/output.phtml:59 
-msgid "Submit" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/api/language/switcher/action.php:8 
-msgid "Language Selector" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/api/language/switcher/output.phtml:8 
-msgid "Language / Sprache" 
-msgstr "" 
-
 #: ../application/cars.schmolck.de/module/cars/contact/form/action.php:28 
 msgid "Request for a vehicle" 
 msgstr "" 
@@ -58,27 +6,63 @@ msgstr ""
 msgid "Request for the vehicle %s" 
 msgstr "" 
 
+#: ../application/cars.schmolck.de/module/cars/contact/form/action.php:39 
+msgid "Please enter your name name" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/contact/form/action.php:44 
+msgid "Please enter a valid e-mail address" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/contact/form/action.php:49 
+msgid "Please enter your message here" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/contact/form/action.php:92 
+msgid "Message has been sent. Thank you." 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/contact/form/action.php:95 
+msgid "Sorry, message could not be sent." 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/contact/form/output.phtml:21 
+msgid "Name" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/contact/form/output.phtml:31 
+msgid "E-Mail" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/contact/form/output.phtml:41 
+msgid "Your message" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/contact/form/output.phtml:49 
+msgid "Submit" 
+msgstr "" 
+
 #: ../application/cars.schmolck.de/module/cars/database/detail/action.php:54 
 msgid "Sorry, the selected vehicle is no longer available." 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:42 
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:43 
 msgid "Paint" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:43 
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:44 
 msgid "Upholstery" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:77 
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:78 
 msgid "Contact Person" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:135 
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:136 
 msgid "Tel +49 7641 / 4602-0" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:137 
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:138 
 msgid "Fax +49 7641 / 4602-80" 
 msgstr "" 
 
@@ -186,44 +170,60 @@ msgstr ""
 msgid "List" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/content/static/contact/output.phtml:43 
+#: ../application/cars.schmolck.de/module/contact/api/form/action.php:35 
+msgid "Please enter a subject" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/contact/api/form/output.phtml:40 
+msgid "Subject" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/contact/index/index/output.phtml:43 
 msgid "You can post your questions to our team in the following languages​​" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/content/static/imprint/output.phtml:6 
-msgid "Imprint" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/content/static/location/output.phtml:26 
-msgid "Enter your address here" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/content/static/location/output.phtml:27 
-msgid "Search" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/content/static/location/output.phtml:36 
-msgid "Schmolck Group" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/content/static/location/output.phtml:39 
-msgid "open in a larger map" 
-msgstr "" 
-
 #: ../application/cars.schmolck.de/module/exception/index/index/output.phtml:5 
-msgid "Ups, sorry..." 
+msgid "Error message" 
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/exception/index/index/output.phtml:8 
-msgid "...an error occured!" 
+msgid "Ups, sorry..." 
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/exception/index/index/output.phtml:11 
+msgid "...an error occured!" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/exception/index/index/output.phtml:14 
 msgid "If this error occurs repeatedly, we would appreciate a short message" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/exception/index/index/output.phtml:18 
-msgid "Error message" 
+#: ../application/cars.schmolck.de/module/imprint/index/index/output.phtml:6 
+msgid "Imprint" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/location/index/index/output.phtml:26 
+msgid "Enter your address here" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/location/index/index/output.phtml:27 
+msgid "Search" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/location/index/index/output.phtml:36 
+msgid "Schmolck Group" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/location/index/index/output.phtml:39 
+msgid "open in a larger map" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/translation/api/switcher/action.php:8 
+msgid "Language Selector" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/translation/api/switcher/output.phtml:8 
+msgid "Language / Sprache" 
 msgstr "" 
 
 #: ../application/cars.schmolck.de/template/2013.03/html.phtml:28 

@@ -1,5 +1,6 @@
 2013.03.21
 **********
+[x] [PORTAL] create cars.schmolck.de production settings 
 [x] [FRAMEWORK] fix case-issue when loading classes from library
 [x] [PORTAL] include Piwik Web Analytic for production environment
 [x] [PORTAL] cleanup and optimise exception page

@@ -10,8 +10,7 @@
 /*
  * ERROR REPORTING
  */
-error_reporting(E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR);
-//error_reporting(E_ALL ^ E_NOTICE);
+error_reporting(E_ALL ^ E_NOTICE);
 
 /*
  * COMPRESSION
@@ -32,7 +31,7 @@ if (extension_loaded("zlib") && (ini_get("output_handler") != "ob_gzhandler")) {
  * 6 Informational: informational messages
  * 7 Debug: debug messages
  */
-define('DEBUG_LEVEL', 7);
+define('DEBUG_LEVEL', 2);
 
 /*
  * APPLICATION NAME
@@ -80,16 +79,16 @@ define('EXCEPTION_ADDRESS', 'webmaster@schmolck.de');
  * Define the database connection settings here.
  */
 define('DATABASE_HOST', 'localhost');
-define('DATABASE_NAME', 'pascal_cars.schmolck.de');
-define('DATABASE_USERNAME', 'pascal');
-define('DATABASE_PASSWORD', 'test');
+define('DATABASE_NAME', 'd016b5da');
+define('DATABASE_USERNAME', 'd016b5da');
+define('DATABASE_PASSWORD', 'TzwhgUFzoyJsySGc');
 
 /*
  * PIWIK
  * 
  * Leave empty if tracking should not be activated
  */
-define('PIWIK_TRACKING_ID', '');
+define('PIWIK_TRACKING_ID', '3');
 
 /*
  * MAIL
