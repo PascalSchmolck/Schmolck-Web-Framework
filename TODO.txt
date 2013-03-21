@@ -1,5 +1,6 @@
 2013.03.21
 **********
+[x] [PORTAL] remove work-intensive mails from imprint page
 [x] [FRAMEWORK] fix showstopping url parameter issues
 [x] [PORTAL] fix obsolete links to content/static/*
 [x] [FRAMEWORK] fix exception bug on production server
