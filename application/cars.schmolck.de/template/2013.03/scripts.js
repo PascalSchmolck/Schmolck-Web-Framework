@@ -1,6 +1,7 @@
 $(document).ready(function() {		
 	/*
-	* ANIMATION
-	*/
+	 * ANIMATION
+	 */
 	$('.slideDown').slideDown('slow');
+
 });

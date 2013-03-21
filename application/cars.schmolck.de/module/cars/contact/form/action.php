@@ -58,7 +58,7 @@ if ($objCore->strSend != '') {
 		$strRecipient = CARS_CONTACT_RECIPIENT_ADDRESS;
 
 		// - subject
-		$strSubject = $objCore->getHelperApplication()->getName() . ' ' . $objCore->strSubject;
+		$strSubject = $_SERVER['HTTP_HOST'] . ' - ' . $objCore->strSubject;
 
 		// - message
 		$strMessage = '

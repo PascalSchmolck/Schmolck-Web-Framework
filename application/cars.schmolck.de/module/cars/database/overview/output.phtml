@@ -37,7 +37,7 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cars
 				Tel +49 7641 / 4602-0 <br>
 				Fax +49 7641 / 4602-80 <br>
 				<?= $objCore->getHelperTranslator()->_("Mail") ?>
-				<a href="javascript:Schmolck_Framework_Mail_Link('info.emmendingen', 'schmolck.de');">
+				<a href="<?= $objCore->getHelperLink()->get('mailto:info.emmendingen@schmolck.de')?>">
 					Info Emmendingen
 				</a>
 			</p>

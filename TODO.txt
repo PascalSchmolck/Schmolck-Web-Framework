@@ -7,10 +7,9 @@
 
 2013.03.20
 **********
-[ ] [FRAMEWORK] optimize cache handling by reducing time limit
 [ ] [PORTAL] optimize cache handling by reducing time limit
 [x] [CARS] implement sorting selection
-[ ] [FRAMEWORK] implement mailto: obfuscator
+[x] [FRAMEWORK] implement mailto: obfuscator
 [x] [FRAMEWORK] fix multiple helper instances issue
 
 2013.03.19
