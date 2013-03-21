@@ -1,5 +1,6 @@
 2013.03.21
 **********
+[x] [PORTAL] fix obsolete links to content/static/*
 [x] [FRAMEWORK] fix exception bug on production server
 [ ] [FRAMEWORK] implement overall usable mail template 
 [?] [FRAMEWORK] fix duplicate recipient in contact form e-mails
