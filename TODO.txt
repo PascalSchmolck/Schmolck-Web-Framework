@@ -1,9 +1,9 @@
 2013.03.21
 **********
 [x] [PORTAL] cleanup and optimise exception page
-[ ] [PORTAL] cleanup and optimise module names / structure
+[x] [PORTAL] cleanup and optimise module names / structure
 [x] [PORTAL] cleanup obsolete start page and establish redirections 
-[ ] [FRAMEWORK] add an e-mail link to exception page
+[x] [FRAMEWORK] add an e-mail link to exception page
 
 2013.03.20
 **********
