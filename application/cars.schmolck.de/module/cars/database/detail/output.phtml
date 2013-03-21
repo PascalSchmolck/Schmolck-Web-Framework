@@ -48,7 +48,6 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 							<div class="clearer">
 								&nbsp;
 							</div>
-							<hr>
 							<div class="equipment">
 								<div class="row1">
 									<? for ($i = 0; $i < count($arrCar["equip"]) / 2; $i++) : ?>
@@ -73,76 +72,75 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 </div>
 <div class="threecol last">
 	<div class="sidebar">
-		<h1>
-			<?= $objCore->getHelperTranslator()->_("Contact") ?>
-		</h1>
-		<h2>
-			Emmendingen			
-		</h2>
-		<p>
-			<img src="apps/image/200/100/data/images/cars/contact/pkw-verkauf-em.jpg">
-		</p>
-		<p>
-			<a href="javascript:Schmolck_Framework_Mail_Link('mike.mack', 'schmolck.de');">
-				Mike Mack 
-			</a><br>			
-			Tel +49 7641 / 4602-115
-		</p>
-		<p>
-			<a href="javascript:Schmolck_Framework_Mail_Link('andreas.blakowski', 'schmolck.de');">
-				Andreas Blakowski 
-			</a><br>
-			Tel +49 7641 / 4602-114
-		</p>
-		<p>
-			<a href="javascript:Schmolck_Framework_Mail_Link('sven.schoner', 'schmolck.de');">
-				Sven Schoner 
-			</a><br>			
-			Tel +49 7641 / 4602-113
-		</p>
-		<p>
-			<a href="javascript:Schmolck_Framework_Mail_Link('sebastian.heiny', 'schmolck.de');">
-				Sebastian Heiny 
-			</a><br>	
-			Tel +49 7641 / 4602-116 
-		</p>
-
-		<h2>
-			Müllheim
-		</h2>
-		<p>
-			<img src="apps/image/150/90/data/images/cars/contact/michelmisiuk.jpg">
-		</p>
-		<p>
-			<a href="javascript:Schmolck_Framework_Mail_Link('michel.misiuk', 'schmolck.de');">
-				Michel Misiuk 
-			</a><br>
-			Tel +49 7631 / 3672-740  <br>
-			Téléphone Français:  <br>
-			0682 91 69 85			
-		</p>
-<!--
-		
-		<h3>
-			Schmolck GmbH &amp; Co. KG
-		</h3>
-		<p>
-			<a href="content/static/location" title="<?= $objCore->getHelperTranslator()->_("Location") ?>">
-				Am Elzdamm 2
-				<br>
-				79312 Emmendingen
-			</a>		
-		</p>
-		<p>
-			<?= $objCore->getHelperTranslator()->_("Tel +49 7641 / 4602-0") ?>
-			<br>
-			<?= $objCore->getHelperTranslator()->_("Fax +49 7641 / 4602-80") ?>
-
-		</p>		
 		<div class="screen">
-			<?= $objCore->getHelperApi()->getElement('email', 'cars/contact/form', array(
-				'id' => $_GET['id']
-			)) ?>				
-		</div>-->
+			<h1>
+				<?= $objCore->getHelperTranslator()->_("Contact Person") ?>
+			</h1>
+			<h2>
+				Emmendingen			
+			</h2>
+			<p>
+				<img src="apps/image/200/100/data/images/cars/contact/pkw-verkauf-em.jpg">
+			</p>
+			<p>
+				<a href="javascript:Schmolck_Framework_Mail_Link('mike.mack', 'schmolck.de');">
+					Mike Mack 
+				</a><br>			
+				Tel +49 7641 / 4602-115
+			</p>
+			<p>
+				<a href="javascript:Schmolck_Framework_Mail_Link('andreas.blakowski', 'schmolck.de');">
+					Andreas Blakowski 
+				</a><br>
+				Tel +49 7641 / 4602-114
+			</p>
+			<p>
+				<a href="javascript:Schmolck_Framework_Mail_Link('sven.schoner', 'schmolck.de');">
+					Sven Schoner 
+				</a><br>			
+				Tel +49 7641 / 4602-113
+			</p>
+			<p>
+				<a href="javascript:Schmolck_Framework_Mail_Link('sebastian.heiny', 'schmolck.de');">
+					Sebastian Heiny 
+				</a><br>	
+				Tel +49 7641 / 4602-116 
+			</p>
+
+			<h2>
+				Müllheim
+			</h2>
+			<p>
+				<img src="apps/image/150/90/data/images/cars/contact/michelmisiuk.jpg">
+			</p>
+			<p>
+				<a href="javascript:Schmolck_Framework_Mail_Link('michel.misiuk', 'schmolck.de');">
+					Michel Misiuk 
+				</a><br>
+				Tel +49 7631 / 3672-740  <br>
+				Téléphone Français:  <br>
+				0682 91 69 85			
+			</p>
+		</div>
+
+		<div class="print">
+			<h3>
+				Schmolck GmbH &amp; Co. KG
+			</h3>
+			<p>
+				Am Elzdamm 2 <br>
+				79312 Emmendingen
+			</p>
+			<p>
+				<?= $objCore->getHelperTranslator()->_("Tel +49 7641 / 4602-0") ?>
+				<br>
+				<?= $objCore->getHelperTranslator()->_("Fax +49 7641 / 4602-80") ?>
+				<br>
+				<a href="javascript:Schmolck_Framework_Mail_Link('info.emmendingen', 'schmolck.de');">
+					info.emmendingen@schmolck.de
+				</a>				
+			</p>		
+		</div>
+		
 	</div>
 </div>

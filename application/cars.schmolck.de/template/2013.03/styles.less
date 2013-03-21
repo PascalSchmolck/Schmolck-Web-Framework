@@ -402,6 +402,10 @@ body {
 		@media only screen and (min-width : 481px) { 
 			padding: 0 20px;
 		}
+		@media print {
+			margin-top: 10px;
+			border-top: 1px solid @color-border;
+		}
 		p {
 			padding: 5px 0;
 		}
@@ -660,7 +664,7 @@ body {
 				@media print { 
 					font-size: 90%;
 				}
-				padding-top: 10px;
+				margin-top: 20px;
 				.row1 {
 					@media all and (min-width : 481px) { 
 						float: left;
