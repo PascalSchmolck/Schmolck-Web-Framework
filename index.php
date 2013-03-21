@@ -37,7 +37,15 @@ session_start();
  */
 // - preparation
 $strUrlQuery = utf8_decode(rawurldecode(str_replace(dirname($_SERVER["PHP_SELF"])."/", "", strip_tags($_SERVER["REQUEST_URI"]))));
+(substr($strUrlQuery, 0, 1) == "/")? $strUrlQuery = substr($strUrlQuery, 1, strlen($strUrlQuery)): null;
 $arrQueryParameter = explode("/", $strUrlQuery);
+
+/*
+ * DEBUGGING
+ */
+//echo $strUrlQuery;
+//exit();
+
 // - parsing
 $nCounter = 0;
 $_GET = array();
