@@ -70,27 +70,31 @@ msgstr "Anfrage zu den Fahrzeugen"
 msgid "Request for the vehicle %s"
 msgstr "Anfrage zum Fahrzeug %s"
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/action.php:54
+#: ../application/cars.schmolck.de/module/cars/database/detail/action.php:55
 msgid "Sorry, the selected vehicle is no longer available."
 msgstr "Verzeihung, das gewählte Fahrzeug ist nicht mehr vorhanden."
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:38
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:42
 msgid "Paint"
 msgstr "Lack"
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:39
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:43
 msgid "Upholstery"
 msgstr "Polster"
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:76
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:77
+msgid "Contact"
+msgstr "Kontakt"
+
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:130
 msgid "Location"
 msgstr "Anfahrt"
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:83
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:137
 msgid "Tel +49 7641 / 4602-0"
 msgstr "Tel +49 7641 / 4602-0"
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:85
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:139
 msgid "Fax +49 7641 / 4602-80"
 msgstr "Fax +49 7641 / 4602-80"
 
@@ -134,31 +138,43 @@ msgstr "Jahreswagen"
 msgid "Secondhand Cars"
 msgstr "Gebrauchtwagen"
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:55
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:47
+msgid "Price"
+msgstr "Preis"
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:48
+msgid "Kilometer"
+msgstr "Kilometer"
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:60
 msgid "Brand"
 msgstr "Marke"
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:68
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:72
 msgid "Type"
 msgstr "Art"
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:81
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:85
 msgid "Km (max.)"
 msgstr "Km (max.)"
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:94
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:97
 msgid "Price (max.)"
 msgstr "Preis (max.)"
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:107
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:110
+msgid "Sorting"
+msgstr "Sortierung"
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:127
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:108
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:128
 msgid "Reset all filter values"
 msgstr "Alle Filterwerte zurücksetzen"
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:117
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:138
 msgid "No matches found. Try a new search."
 msgstr "Keine Treffer gefunden. Probieren Sie es mit anderen Filterkriterien."
 
@@ -174,15 +190,11 @@ msgstr "Galerie"
 msgid "List"
 msgstr "Liste"
 
-#: ../application/cars.schmolck.de/module/content/static/contact/output.phtml:6
-msgid "Contact"
-msgstr "Kontakt"
-
 #: ../application/cars.schmolck.de/module/content/static/contact/output.phtml:39
 msgid "Mail"
 msgstr "Mail"
 
-#: ../application/cars.schmolck.de/module/content/static/contact/output.phtml:50
+#: ../application/cars.schmolck.de/module/content/static/contact/output.phtml:45
 msgid "You can post your questions to our team in the following languages​​"
 msgstr "Sie können Ihre Fragen an unser Team in folgenden Sprachen stellen"
 
@@ -224,28 +236,25 @@ msgstr ""
 msgid "Error message"
 msgstr "Fehlermeldung"
 
-#: ../application/cars.schmolck.de/template/2013.03/html.phtml:24
+#: ../application/cars.schmolck.de/template/2013.03/html.phtml:31
 msgid "Switch to 'Schmolck news'"
 msgstr "Zu 'Schmolck news' wechseln"
 
-#: ../application/cars.schmolck.de/template/2013.03/html.phtml:25
+#: ../application/cars.schmolck.de/template/2013.03/html.phtml:32
 msgid "news"
 msgstr "news"
 
-#: ../application/cars.schmolck.de/template/2013.03/html.phtml:29
+#: ../application/cars.schmolck.de/template/2013.03/html.phtml:36
 msgid "You are already here"
 msgstr "Sie befinden sich bereits hier"
 
-#: ../application/cars.schmolck.de/template/2013.03/html.phtml:30
+#: ../application/cars.schmolck.de/template/2013.03/html.phtml:37
 msgid "cars"
 msgstr "cars"
 
-#: ../application/cars.schmolck.de/template/2013.03/html.phtml:60
+#: ../application/cars.schmolck.de/template/2013.03/html.phtml:67
 msgid "Home"
 msgstr "Startseite"
-
-#~ msgid "Price"
-#~ msgstr "Preis"
 
 #~ msgid "brand_all"
 #~ msgstr "Alle"

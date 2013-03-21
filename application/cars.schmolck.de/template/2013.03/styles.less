@@ -410,6 +410,9 @@ body {
 		@media only screen and (min-width : 481px) { 
 			padding: 0 20px;
 		}
+		p {
+			padding: 5px 0;
+		}
 	}
 }
 #footer {
@@ -454,6 +457,15 @@ body {
 // Module Layout
 //------------------------------------------------------------------------------
 .cars {
+	&.api {
+		.image {
+			max-width: 100%;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
 	&.contact {  
 		textarea {
 			height: 8em;
@@ -481,9 +493,12 @@ body {
 			.infos {
 				margin: 10px 0;
 			}
-			.button {
+			.buttons {
 				@media print {
 					display: none;
+				}
+				.highlight {
+					float: right;
 				}
 			}
 		}
@@ -625,18 +640,11 @@ body {
 					max-width: 100%;
 					height: 233px;
 				}
-				background: url("../data/images/cars/dummy.jpg");
-				background-size: 550px 412px;	
-				background-repeat: no-repeat;
 				float: left;
 				width: 550px;
-				height: 413px;
+				height: auto;
 				max-width: 100%;
 				margin-right: 20px;
-
-				&:hover {
-					cursor: pointer;
-				}
 			}
 			.infos1 {
 				font-weight: bold;

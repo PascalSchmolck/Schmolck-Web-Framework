@@ -121,7 +121,7 @@ $arrSorting = array(
 		<div class="clearer">
 			&nbsp;
 		</div>
-		<p>
+		<div class="buttons">
 			<? if ($objCore->bResetLink) : ?>
 				<input type="hidden" name="reset">
 				<input class="button" type="reset" value="<?= $objCore->getHelperTranslator()->_("Reset") ?>" 
@@ -131,7 +131,7 @@ $arrSorting = array(
 			<? if ($objCore->strParameterSend and $objCore->nCount > 0 and !$objCore->strParameterReset) : ?>
 				<input class="button highlight" type="button" value="<?= $strButtonLabel ?>">
 			<? endif; ?>
-		</p>
+		</div>
 
 		<? if ($objCore->nCount < 1) : ?>
 			<div class="infos">
