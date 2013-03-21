@@ -34,10 +34,12 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cars
 				</a>		
 			</p>
 			<p>
-				<?= $objCore->getHelperTranslator()->_("Tel +49 7641 / 4602-0") ?>
-				<br>
-				<?= $objCore->getHelperTranslator()->_("Fax +49 7641 / 4602-80") ?>
-
+				Tel +49 7641 / 4602-0 <br>
+				Fax +49 7641 / 4602-80 <br>
+				<?= $objCore->getHelperTranslator()->_("Mail") ?>
+				<a href="javascript:Schmolck_Framework_Mail_Link('info.emmendingen', 'schmolck.de');">
+					Info Emmendingen
+				</a>
 			</p>
 			<div class="screen">
 				<?=

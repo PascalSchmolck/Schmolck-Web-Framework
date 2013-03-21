@@ -14,10 +14,10 @@
 		<link rel="stylesheet/less" type="text/css" href="apps/style/<?= $this->getViewStyleFile() ?>" media="all"/>
 
 		<script type="text/javascript" src="apps/script/<?= $this->getViewScriptFile() ?>"></script>
-		
+
 		<!--
-  		Memory Peak Usage: <?= Schmolck_Tool_File::convertBytes(memory_get_peak_usage()) ?>
-  		-->
+		Memory Peak Usage: <?= Schmolck_Tool_File::convertBytes(memory_get_peak_usage()) ?>
+		-->
 	</head>
 	<body>
 		<div id="quicklinks" class="container">
@@ -60,12 +60,6 @@
 					<div class="hlist">
 						<ul>
 							<li>
-								<a href="">
-									<?= $objCore->getHelperTranslator()->_("Home") ?>
-								</a>
-							</li>
-
-							<li>
 								<a href="cars/database/overview">
 									<?= $objCore->getHelperTranslator()->_("Cars") ?>
 								</a>
@@ -96,15 +90,15 @@
 		</div>
 
 		<?php if ($objCore->getHelperMessage()->getMessage() != '') : ?>
-		<div id="message" class="container slideDown">
-			<div class="row">
-				<div class="twelvecol last">
-					<div class="text">
-						<?= $objCore->getHelperMessage()->popMessage() ?>
-					</div>
-				</div>				
-			</div>			
-		</div>
+			<div id="message" class="container slideDown">
+				<div class="row">
+					<div class="twelvecol last">
+						<div class="text">
+							<?= $objCore->getHelperMessage()->popMessage() ?>
+						</div>
+					</div>				
+				</div>			
+			</div>
 		<?php endif; ?>
 
 		<div id="main" class="container">
@@ -116,7 +110,7 @@
 		<div id="footer" class="container">
 			<div class="row">
 				<div class="ninecol">
-					
+
 				</div>
 				<div class="threecol last">
 					<div class="logo">

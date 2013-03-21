@@ -516,6 +516,7 @@ class Schmolck_Framework_Core {
 		foreach ($this->_arrLayoutStyles as $strFile) {
 			if (file_exists($strFile)) {
 				$nHash += filesize($strFile);
+				$nHash += filectime($strFile);
 			}
 		}
 		$strTempFile = $this->getHelperCache()->getFilePath($nHash.APPLICATION_ENVIRONMENT);
@@ -565,6 +566,7 @@ class Schmolck_Framework_Core {
 		foreach ($this->_arrLayoutScripts as $strFile) {
 			if (file_exists($strFile)) {
 				$nHash += filesize($strFile);
+				$nHash += filectime($strFile);
 			}
 		}
 		$strTempFile = $this->getHelperCache()->getFilePath($nHash.APPLICATION_ENVIRONMENT);		
