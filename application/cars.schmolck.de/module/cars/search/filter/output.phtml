@@ -127,10 +127,6 @@ $arrSorting = array(
 				<input class="button" type="reset" value="<?= $objCore->getHelperTranslator()->_("Reset") ?>" 
 					   title="<?= $objCore->getHelperTranslator()->_("Reset all filter values") ?>">
 			<? endif; ?>
-
-			<? if ($objCore->strParameterSend and $objCore->nCount > 0 and !$objCore->strParameterReset) : ?>
-				<input class="button highlight" type="button" value="<?= $strButtonLabel ?>">
-			<? endif; ?>
 		</div>
 
 		<? if ($objCore->nCount < 1) : ?>

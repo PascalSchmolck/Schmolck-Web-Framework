@@ -154,8 +154,12 @@ msgstr ""
 msgid "Reset all filter values" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:138 
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:134 
 msgid "No matches found. Try a new search." 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/gallery/action.php:39 
+msgid "Loading..." 
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/cars/search/gallery/output.phtml:16 
