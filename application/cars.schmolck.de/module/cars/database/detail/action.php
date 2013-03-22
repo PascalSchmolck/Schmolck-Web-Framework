@@ -11,6 +11,7 @@ require_once 'lib/phpqrcode/phpqrcode.php';
 // - core
 $objCore = Schmolck_Framework_Core::getInstance($this);
 $objCore->strId = $objCore->getHelperApi()->getId();
+$objCore->strUri = $objCore->getHelperApplication()->getRequestUri();
 $objCore->strStyleClass = $objCore->getHelperApi()->getStyleClass();
 // - cars
 $objCars = new Schmolck_Cars_Helper($objCore);
@@ -54,3 +55,11 @@ if (count($objCore->arrCars) == 0) {
 	$objCore->getHelperMessage()->setMessage($objCore->getHelperTranslator()->_("Sorry, the selected vehicle is no longer available."));
 	$objCore->getHelperRedirect()->local('cars/database/overview');
 }
+
+/*
+ * SCRIPT
+ */
+$objCore->getHelperScripts()->registerViewScriptReplace(array(
+	'SchmolckID' => $this->strId,
+	'SchmolckURI' => $this->strUri,
+));

@@ -30,13 +30,9 @@ msgstr "Bitte geben Sie eine gültige E-Mail-Adresse ein"
 msgid "Please enter your message here"
 msgstr "Bitte geben Sie Ihre Nachricht ein"
 
-#: ../application/cars.schmolck.de/module/cars/contact/form/action.php:92
+#: ../application/cars.schmolck.de/module/cars/contact/form/action.php:59
 msgid "Message has been sent. Thank you."
 msgstr "Die Nachricht wurde verschickt. Dankeschön."
-
-#: ../application/cars.schmolck.de/module/cars/contact/form/action.php:95
-msgid "Sorry, message could not be sent."
-msgstr "Verzeihung, die Nachricht konnte nicht verschickt werden."
 
 #: ../application/cars.schmolck.de/module/cars/contact/form/output.phtml:21
 msgid "Name"
@@ -54,27 +50,31 @@ msgstr "Ihre Nachricht"
 msgid "Submit"
 msgstr "Abschicken"
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/action.php:54
+#: ../application/cars.schmolck.de/module/cars/database/detail/action.php:55
 msgid "Sorry, the selected vehicle is no longer available."
 msgstr "Verzeihung, das gewählte Fahrzeug ist nicht mehr vorhanden."
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:43
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:15
+msgid "Back"
+msgstr "Zurück"
+
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:47
 msgid "Paint"
 msgstr "Lack"
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:44
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:48
 msgid "Upholstery"
 msgstr "Polster"
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:78
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:88
 msgid "Contact Person"
 msgstr "Ansprechpartner"
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:136
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:146
 msgid "Tel +49 7641 / 4602-0"
 msgstr "Tel +49 7641 / 4602-0"
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:138
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:148
 msgid "Fax +49 7641 / 4602-80"
 msgstr "Fax +49 7641 / 4602-80"
 
@@ -255,6 +255,9 @@ msgstr "Sie befinden sich bereits hier"
 #: ../application/cars.schmolck.de/template/2013.03/html.phtml:34
 msgid "cars"
 msgstr "cars"
+
+#~ msgid "Sorry, message could not be sent."
+#~ msgstr "Verzeihung, die Nachricht konnte nicht verschickt werden."
 
 #~ msgid "Home"
 #~ msgstr "Startseite"

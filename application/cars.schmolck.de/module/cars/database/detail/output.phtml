@@ -11,6 +11,10 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 <div class="ninecol last">
 	<div class="content">
 		<div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
+			<form class="navigation screen">
+				<input type="button" class="button" name="back" value="<?= $objCore->getHelperTranslator()->_("Back") ?>">
+			</form>					
+			
 			<div class="detail">
 				<? foreach ($objCore->arrCars as $arrCar) : ?>		
 					<div class="item" data-link="<?= $objCore->strParameterUrl ?>/id/<?= $arrCar['KNR'] ?>">
@@ -68,6 +72,12 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 					</div>
 				<? endforeach; ?>
 			</div>
+			
+			<form class="navigation screen">
+				<input type="button" class="button" name="back" value="<?= $objCore->getHelperTranslator()->_("Back") ?>">
+			</form>		
+			
+			<?= $objCore->getHelperScripts()->renderViewScripts() ?>
 		</div>
 	</div>
 </div>
@@ -84,25 +94,25 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 				<img src="apps/image/200/100/data/images/cars/contact/pkw-verkauf-em.jpg">
 			</p>
 			<p>
-				<a href="<?= $objCore->getHelperLink()->get("mailto:mike.mack@schmolck.de?subject={$strMailInfo}")?>">
+				<a href="<?= $objCore->getHelperLink()->get("mailto:mike.mack@schmolck.de?subject={$strMailInfo}") ?>">
 					Mike Mack 
 				</a><br>			
 				Tel +49 7641 / 4602-115
 			</p>
 			<p>
-				<a href="<?= $objCore->getHelperLink()->get("mailto:andreas.blakowski@schmolck.de?subject={$strMailInfo}")?>">
+				<a href="<?= $objCore->getHelperLink()->get("mailto:andreas.blakowski@schmolck.de?subject={$strMailInfo}") ?>">
 					Andreas Blakowski 
 				</a><br>
 				Tel +49 7641 / 4602-114
 			</p>
 			<p>
-				<a href="<?= $objCore->getHelperLink()->get("mailto:sven.schoner@schmolck.de?subject={$strMailInfo}")?>">
+				<a href="<?= $objCore->getHelperLink()->get("mailto:sven.schoner@schmolck.de?subject={$strMailInfo}") ?>">
 					Sven Schoner 
 				</a><br>			
 				Tel +49 7641 / 4602-113
 			</p>
 			<p>
-				<a href="<?= $objCore->getHelperLink()->get("mailto:sebastian.heiny@schmolck.de?subject={$strMailInfo}")?>">
+				<a href="<?= $objCore->getHelperLink()->get("mailto:sebastian.heiny@schmolck.de?subject={$strMailInfo}") ?>">
 					Sebastian Heiny 
 				</a><br>	
 				Tel +49 7641 / 4602-116 
@@ -115,7 +125,7 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 				<img src="apps/image/150/90/data/images/cars/contact/michelmisiuk.jpg">
 			</p>
 			<p>
-				<a href="<?= $objCore->getHelperLink()->get("mailto:michel.misiuk@schmolck.de?subject={$strMailInfo}")?>">
+				<a href="<?= $objCore->getHelperLink()->get("mailto:michel.misiuk@schmolck.de?subject={$strMailInfo}") ?>">
 					Michel Misiuk 
 				</a><br>
 				Tel +49 7631 / 3672-740  <br>
@@ -142,6 +152,6 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 				</a>				
 			</p>		
 		</div>
-		
+
 	</div>
 </div>
