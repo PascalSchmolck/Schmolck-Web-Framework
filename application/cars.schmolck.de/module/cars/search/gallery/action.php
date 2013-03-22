@@ -27,6 +27,20 @@ if ($objCore->nLimit == 0) {
 /*
  * DATA
  */
+//$strQuery = sprintf("SELECT * FROM  `mod_cars` LIMIT 0,%s", $objCore->nLimit);
+//$resource = $objCore->getHelperDatabase()->query($strQuery);
+//while ($arrRow = mysql_fetch_assoc($resource)) {
+//	$arrRow['name'] = $objCars->extractName($arrRow);
+//	$arrRow["EZ"] = $objCars->extractEz($arrRow);
+//	$arrRow["KM"] = $objCars->extractKm($arrRow);
+//	$arrRow["RP"] = $objCars->extractPrice($arrRow);
+//	$arrRow["color"] = $objCars->extractColor($arrRow);
+//	$arrRow["image"] = $objCars->extractFirstImageUrl($arrRow);
+//	$arrResult[] = $arrRow;
+//}
+//$objCore->arrCars = $arrResult;
+//$objCore->nCars = count($objCore->arrCars);
+
 $objCore->arrCars = $objCars->queryFilteredCars();
 $objCore->nCars = count($objCore->arrCars);
 
@@ -36,5 +50,4 @@ $objCore->nCars = count($objCore->arrCars);
 $objCore->getHelperScripts()->registerViewScriptReplace(array(
 	'SchmolckID' => $objCore->strId,
 	'SchmolckURI' => $objCore->strUri,
-	'SchmolckLOADINGTEXT' => $objCore->getHelperTranslator()->_("Loading...")
 ));

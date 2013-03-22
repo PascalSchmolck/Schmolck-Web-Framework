@@ -1,13 +1,5 @@
 $(document).ready(function() {			
-	
-	/*
-	 * LISTENER
-	 */
-	$(window).on('hashchange', function() {
-		if (window.location.hash == '#cars/search/filter') {
-			SchmolckID_send();
-		}
-	});
+	//alert(window.location.hash);
 	
 	/*
 	 * SCROLLING
@@ -46,7 +38,6 @@ $(document).ready(function() {
 	* AJAX
 	*/
 	SchmolckID_send = function() {
-		$('#SchmolckID .amount').html('SchmolckLOADINGTEXT');
 		var strData = $('#SchmolckID form').serialize();
 		Schmolck_Framework_Helper_Api({
 			url: 'SchmolckURI',
