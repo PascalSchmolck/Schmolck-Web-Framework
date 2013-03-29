@@ -551,11 +551,15 @@ class Schmolck_Framework_Core {
 			// - optimize all styles into one string
 			foreach ($this->_arrLayoutStyles as $strFile) {
 				if (file_exists($strFile)) {
+					// - less compiler
+					$objLessc = new lessc();
+					
 					// - do not minify on development environment
 					if (APPLICATION_ENVIRONMENT == 'development') {
-						$strCombinedLESS .= "\n\n/* {$strFile} */\n\n" . file_get_contents($strFile);
+						$strCombinedLESS .= "\n\n/* {$strFile} */\n\n" . $objLessc->compileFile($strFile);
 					} else {
-						$strCombinedLESS .= $this->getHelperOptimizer()->getOptimizedCssString(file_get_contents($strFile));
+						//$strCombinedLESS .= $this->getHelperOptimizer()->getOptimizedCssString($objLessc->compileFile($strFile));
+						$strCombinedLESS .= $objLessc->compileFile($strFile);
 					}
 				}
 			}

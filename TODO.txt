@@ -1,3 +1,8 @@
+2013.03.29
+**********
+[ ] [FRAMEWORK] move scripts and styles compilation into dediacted helpers
+[x] [FRAMEWORK] optimize LESS compilation (JS -> PHP)
+
 2013.03.22
 **********
 [ ] [CARS] implement graphical forward button on detail view

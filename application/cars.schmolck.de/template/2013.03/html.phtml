@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!--
+		Memory Peak Usage: <?= Schmolck_Tool_File::convertBytes(memory_get_peak_usage()) ?>
+		-->		
 		<base href="<?= $objCore->getHelperApplication()->getBaseUrl() ?>">
 		<meta charset="utf-8"/>
 		<title>
@@ -11,13 +14,9 @@
 		<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans'>
 		<link rel="stylesheet" type="text/css" href="apps/style/lib/cssgrid/1140.css"/>
 		<!--[if lte IE 9]><link rel="stylesheet" href="apps/style/lib/css/cssgrid/ie.css" type="text/css" media="screen" /><![endif]-->
-		<link rel="stylesheet/less" type="text/css" href="apps/style/<?= $this->getViewStyleFile() ?>" media="all"/>
-
-		<script type="text/javascript" src="apps/script/<?= $this->getViewScriptFile() ?>"></script>
-
-		<!--
-		Memory Peak Usage: <?= Schmolck_Tool_File::convertBytes(memory_get_peak_usage()) ?>
-		-->
+		<link rel="stylesheet" type="text/css" href="apps/style/<?= $this->getViewStyleFile() ?>" media="all"/>
+		
+		<script type="text/javascript" src="apps/script/<?= $this->getViewScriptFile() ?>"></script>		
 	</head>
 	<body>
 		<div id="quicklinks" class="container">
@@ -157,5 +156,5 @@
 			</script>
 			<!-- End Piwik Code -->		
 		<? endif; ?>
-	</body>
+	</body>	
 </html>
