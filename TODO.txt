@@ -1,5 +1,6 @@
 2013.03.29
 **********
+[x] [CARS] implement graphical list and gallery buttons
 [x] [FRAMEWORK] include CSSgrid styles into framework styles
 [x] [FRAMEWORK] optimization and cleanup of wrong method names
 [x] [FRAMEWORK] optimize LESS compilation (JS -> PHP)
