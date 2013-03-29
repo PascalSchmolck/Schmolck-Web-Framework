@@ -1,5 +1,6 @@
 2013.03.29
 **********
+[x] [FRAMEWORK] include CSSgrid styles into framework styles
 [ ] [FRAMEWORK] move scripts and styles compilation into dediacted helpers
 [x] [FRAMEWORK] optimize LESS compilation (JS -> PHP)
 
