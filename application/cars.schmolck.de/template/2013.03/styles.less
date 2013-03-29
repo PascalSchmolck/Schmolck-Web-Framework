@@ -472,6 +472,18 @@ body {
 		}
 	}
 	&.search {
+		&.loading {
+			.amount {
+				display: none;
+			}
+			.loadingmessage {
+				font-size: 130%;
+				display: block;
+			}
+		}
+		.loadingmessage {
+			display: none;
+		}
 		.amount {
 			font-size: 130%;
 		}

@@ -13,6 +13,9 @@ $nCounter = 0;
 ?>
 <div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
 	<? if ($objCore->nCars > 0) : ?>
+		<div class="loadingmessage">
+			<?= $objCore->getHelperTranslator()->_("Loading...") ?>
+		</div>	
 		<div class="amount">
 			<?= sprintf($objCore->getHelperTranslator()->_("%s Hits"), $objCore->nCars) ?>
 		</div>

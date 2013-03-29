@@ -67,5 +67,4 @@ $objCore->getHelperScripts()->registerViewScriptReplace(array(
 	'SchmolckID' => $objCore->strId,
 	'SchmolckURI' => $objCore->strUri,
 	'SchmolckRESULTID' => $objCore->strParameterResultID,
-	'SchmolckRELOAD' => $strReload
 ));

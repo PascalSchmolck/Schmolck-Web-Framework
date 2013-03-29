@@ -9,7 +9,7 @@
 [ ] [CARS] implement graphical forward button on detail view
 [x] [CARS] implement graphical back button on detail view
 [ ] [CARS] implement graphical hint for more car pictures
-[ ] [CARS] implement immediate loading of filtered cars
+[x] [CARS] implement immediate loading of filtered cars
 
 2013.03.21
 **********
