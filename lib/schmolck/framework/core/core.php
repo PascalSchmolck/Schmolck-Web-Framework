@@ -520,9 +520,9 @@ class Schmolck_Framework_Core {
 	}
 
 	/**
-	 * Get view style file
+	 * Get layout style file
 	 */
-	public function getViewStyleFile() {
+	public function getLayoutStyleFile() {
 		/*
 		 * CHECK
 		 */
@@ -574,9 +574,9 @@ class Schmolck_Framework_Core {
 	}
 
 	/**
-	 * Get view script file
+	 * Get layout script file
 	 */
-	public function getViewScriptFile() {
+	public function getLayoutScriptFile() {
 		/*
 		 * CHECK
 		 */
