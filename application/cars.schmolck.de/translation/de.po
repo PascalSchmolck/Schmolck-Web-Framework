@@ -166,11 +166,15 @@ msgstr "Zurücksetzen"
 msgid "Reset all filter values"
 msgstr "Alle Filterwerte zurücksetzen"
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:138
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:134
 msgid "No matches found. Try a new search."
 msgstr "Keine Treffer gefunden. Probieren Sie es mit anderen Filterkriterien."
 
 #: ../application/cars.schmolck.de/module/cars/search/gallery/output.phtml:16
+msgid "Loading..."
+msgstr "Lade..."
+
+#: ../application/cars.schmolck.de/module/cars/search/gallery/output.phtml:19
 msgid "%s Hits"
 msgstr "%s Treffer"
 
@@ -240,19 +244,19 @@ msgstr "Sprache Auswahl"
 msgid "Language / Sprache"
 msgstr "Language / Sprache"
 
-#: ../application/cars.schmolck.de/template/2013.03/html.phtml:28
+#: ../application/cars.schmolck.de/template/2013.03/html.phtml:23
 msgid "Switch to 'Schmolck news'"
 msgstr "Zu 'Schmolck news' wechseln"
 
-#: ../application/cars.schmolck.de/template/2013.03/html.phtml:29
+#: ../application/cars.schmolck.de/template/2013.03/html.phtml:24
 msgid "news"
 msgstr "news"
 
-#: ../application/cars.schmolck.de/template/2013.03/html.phtml:33
+#: ../application/cars.schmolck.de/template/2013.03/html.phtml:28
 msgid "You are already here"
 msgstr "Sie befinden sich bereits hier"
 
-#: ../application/cars.schmolck.de/template/2013.03/html.phtml:34
+#: ../application/cars.schmolck.de/template/2013.03/html.phtml:29
 msgid "cars"
 msgstr "cars"
 
