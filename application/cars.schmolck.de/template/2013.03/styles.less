@@ -10,7 +10,6 @@
 @color-a-hover: #0C4478;
 @color-border: #e1e1e1;
 //------------------------------------------------------------------------------
-@color-site-description: #000; 
 @color-site-background: #e1e1e1;
 
 //------------------------------------------------------------------------------
@@ -243,7 +242,7 @@ ul {
 }
 .padding {
 	@media only screen and (max-width : 480px) { 
-		padding: 0 10px;
+		padding: 0;
 	} 
 	@media only screen and (min-width : 481px) { 
 		padding: 0 20px;
@@ -313,7 +312,7 @@ body {
 #header {
 	@media only print {
 		padding: 10px 0;
-	} 
+	}
 	@media only screen and (max-width : 480px) { 
 		padding: 10px 0;
 	} 
@@ -321,11 +320,18 @@ body {
 		padding: 30px 0;
 	} 
 	background-color: #fff;
-	.logo {		
+	.title {		
 		width: 186px;
+		@media only screen and (max-width : 768px) { 
+			float: left;
+			padding-right: 8px;
+		}
 	}
 	.description{
-		color: @color-site-description;
+		@media only screen and (max-width : 768px) { 
+			padding-top: 12px;
+		} 
+		color: #000;
 		font-family: arial, sans-serif;
 		font-size: 180%;
 		font-weight: bold;
@@ -342,9 +348,18 @@ body {
 	} 	
 	background-color: @color-navigation-background;
 	color: @color-navigation-text;
+	.button {
+		@media only screen and (min-width : 481px) { 
+			display: none;
+		}
+		cursor: pointer;
+		width: 32px;
+		padding-top: 5px;
+	}
 	ul {
 		@media only screen and (max-width : 480px) { 
 			padding: 0;
+			display: none;
 		} 
 		@media only screen and (min-width : 481px) { 
 			padding: 0 20px;
@@ -541,6 +556,14 @@ body {
 				}
 			}
 			.image {
+				@media only screen and (max-width : 768px) { 
+					width: 150px;
+					background-size: 150px 113px;
+				}
+				@media only screen and (max-width : 480px) { 
+					width: 100px;
+					background-size: 100px 75px;
+				} 
 				@media print {
 					width: 145px;
 				}

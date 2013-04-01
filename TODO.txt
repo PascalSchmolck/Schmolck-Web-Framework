@@ -1,5 +1,10 @@
+2013.04.01
+**********
+[x] [LAYOUT] implement graphical show/hide-button for the menu
+
 2013.03.29
 **********
+[ ] [DEVELOPMENT] find proper way of keeping FTP server in sync
 [x] [CARS] implement graphical list and gallery buttons
 [x] [FRAMEWORK] include CSSgrid styles into framework styles
 [x] [FRAMEWORK] optimization and cleanup of wrong method names
