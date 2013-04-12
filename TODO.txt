@@ -1,3 +1,8 @@
+2013.04.13
+**********
+[ ] [CARS] remove "Sven Schoner" contact person
+[x] [CARS] remove brand "Volkswagen" as requested
+
 2013.04.01
 **********
 [x] [LAYOUT] implement graphical show/hide-button for the menu

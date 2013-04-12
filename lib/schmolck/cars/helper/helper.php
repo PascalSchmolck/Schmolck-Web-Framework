@@ -105,7 +105,6 @@ class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
 				$strWhereBrand = "
 					AND FABT NOT LIKE 'Mercedes-Benz'
 					AND FABT NOT LIKE 'Smart'
-					AND FABT NOT LIKE 'Volkswagen'
 				";
 				break;
 		}
