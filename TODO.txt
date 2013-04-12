@@ -1,7 +1,7 @@
 2013.04.13
 **********
-[ ] [CARS] remove "Sven Schoner" contact person
-[x] [CARS] remove brand "Volkswagen" as requested
+[x] [CARS] remove "Sven Schoner" contact person as requested by BSC
+[x] [CARS] remove brand "Volkswagen" as requested by BSC
 
 2013.04.01
 **********
