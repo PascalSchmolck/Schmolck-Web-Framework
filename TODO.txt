@@ -1,5 +1,6 @@
 2013.04.13
 **********
+[ ] [PORTAL] implement tab/carousel based contact and location sub-pages
 [x] [CARS] remove "Sven Schoner" contact person as requested by BSC
 [x] [CARS] remove brand "Volkswagen" as requested by BSC
 

@@ -10,7 +10,7 @@
 @color-a-hover: darkblue;
 @color-border: #e1e1e1;
 //------------------------------------------------------------------------------
-@color-site-background: #e1e1e1;
+@color-site-background: #DDE2E6;
 
 //------------------------------------------------------------------------------
 // Html Tags
@@ -282,22 +282,21 @@ body {
 	@media only print {
 		display: none;
 	} 	
-	background-color: #fff;
-	border-bottom: 1px solid @color-quicklinks-border;
 	padding: 5px 0;
 
 	ul {
 		margin: 0;
-		padding: 0 10px;
+		padding: 0;
 		display: inline;
 		float: left;
 		li {
-			padding-right: 10px;
 			margin: 0;
+			padding: 0;
+			padding-right: 30px;
 			display: inline;
 			float: left;
 			font-size: 75%;
-			line-height: 1em;
+			letter-spacing: 0.1em;
 			list-style-type: none;
 			a {
 				color: @color-quicklinks-a-link;
@@ -329,7 +328,7 @@ body {
 	}
 	.description{
 		@media only screen and (max-width : 768px) { 
-			padding-top: 12px;
+			padding-top: 8px;
 		} 
 		color: #000;
 		font-family: arial, sans-serif;
