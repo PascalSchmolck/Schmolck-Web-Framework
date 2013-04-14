@@ -1,6 +1,7 @@
 2013.04.15
 **********
-[ ] [PORTAL] improve logo rendering for IE
+[x] [PORTAL] fix navigation layout for 1024px displays
+[x] [PORTAL] improve logo rendering for IE
 
 2013.04.13
 **********
