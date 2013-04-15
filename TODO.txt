@@ -1,6 +1,6 @@
 2013.04.15
 **********
-[ ] [FRAMEWORK] implement highlighting menu items when active
+[x] [FRAMEWORK] implement highlighting menu items when active
 [x] [PORTAL] remove contact sidebar from cars overview page
 [x] [PORTAL] fix navigation layout for 1024px displays
 [x] [PORTAL] improve logo rendering for IE

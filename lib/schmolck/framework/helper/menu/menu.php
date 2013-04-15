@@ -18,6 +18,12 @@ class Schmolck_Framework_Helper_Menu extends Schmolck_Framework_Helper {
 	 */
 	public function getHtml($strClass, $arrMenu) {
 		/*
+		 * INITIALISATION
+		 */
+		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
+		$strCurrentUri = $objCore->getHelperApplication()->getCurrentUri();
+		
+		/*
 		 * CHECK
 		 */
 		// - do nothing if menu empty
@@ -29,9 +35,14 @@ class Schmolck_Framework_Helper_Menu extends Schmolck_Framework_Helper {
 		 * PREPARATION
 		 */
 		foreach ($arrMenu as $arrEntry) {
+			if ($strCurrentUri == $arrEntry['link']) {
+				$strEntryClass = 'current';
+			} else {
+				$strEntryClass = '';
+			}			
 			$strEntryHtml .= "
 				<li>
-					<a href=\"{$arrEntry['link']}\">
+					<a href=\"{$arrEntry['link']}\" class=\"{$strEntryClass}\">
 						{$arrEntry['label']}
 					</a>
 				</li>
