@@ -69,21 +69,18 @@ class Schmolck_Framework_Helper_Application extends Schmolck_Framework_Helper {
 	 * @return string
 	 */
 	public function getRequestUrl() {
-		//return $_SERVER['REQUEST_URI'];
+		/*
+		 * INITIALISATION
+		 */
 		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
 
 		/*
 		 * PREPARATION
 		 */
+		// - http://host/module/controller/action		
 		$strHost = $_SERVER['HTTP_HOST'];
 		$strUri = $objCore->getModule() . '/' . $objCore->getController() . '/' . $objCore->getAction();
-		$strPath = dirname($_SERVER['PHP_SELF']);
-		// - http://host/path/module/controller/action
-		if ($strPath != '') {
-			return 'http://'.$strHost.$strPath ."/". $strUri;
-		} 
-		// - http://host/module/controller/action
-		return 'http://'.$strHost.$strUri;		
+		return 'http://'.$strHost.'/'.$strUri;		
 	}
 
 }
