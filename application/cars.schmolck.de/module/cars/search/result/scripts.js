@@ -17,7 +17,7 @@ $(document).ready(function() {
 	*/
 	SchmolckID_send = function(strMode) {
 		Schmolck_Framework_Helper_Api({
-			url: 'SchmolckURI',
+			url: 'SchmolckURL',
 			id: 'SchmolckID',
 			data: 'mode='+strMode
 		});

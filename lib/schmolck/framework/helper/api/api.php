@@ -34,7 +34,7 @@ class Schmolck_Framework_Helper_Api extends Schmolck_Framework_Helper {
 		if ($this->checkAjaxCall()) {
 			return $_POST['_id'];
 		} else {
-			return 'id' . md5($this->_objCore->getHelperApplication()->getRequestUri() . session_id());
+			return 'id' . md5($this->_objCore->getHelperApplication()->getRequestUrl() . session_id());
 		}
 	}
 

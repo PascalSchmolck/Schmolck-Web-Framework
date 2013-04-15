@@ -6,7 +6,7 @@
 // - core
 $objCore = Schmolck_Framework_Core::getInstance($this);
 $objCore->strId = $objCore->getHelperApi()->getId();
-$objCore->strUri = $objCore->getHelperApplication()->getRequestUri();
+$objCore->strUrl = $objCore->getHelperApplication()->getRequestUrl();
 $objCore->strApi = $objCore->getHelperApi()->getIdentifier();
 // - cars
 $objCars = new Schmolck_Cars_Helper($objCore);
@@ -65,6 +65,6 @@ $objCore->arrKms = $objCars->getKms();
  */
 $objCore->getHelperScripts()->registerViewScriptReplace(array(
 	'SchmolckID' => $objCore->strId,
-	'SchmolckURI' => $objCore->strUri,
+	'SchmolckURL' => $objCore->strUrl,
 	'SchmolckRESULTID' => $objCore->strParameterResultID,
 ));

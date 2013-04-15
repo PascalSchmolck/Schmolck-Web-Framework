@@ -11,7 +11,7 @@ require_once 'lib/phpqrcode/phpqrcode.php';
 // - core
 $objCore = Schmolck_Framework_Core::getInstance($this);
 $objCore->strId = $objCore->getHelperApi()->getId();
-$objCore->strUri = $objCore->getHelperApplication()->getRequestUri();
+$objCore->strUrl = $objCore->getHelperApplication()->getRequestUrl();
 $objCore->strStyleClass = $objCore->getHelperApi()->getStyleClass();
 // - cars
 $objCars = new Schmolck_Cars_Helper($objCore);
@@ -19,7 +19,7 @@ $objCars = new Schmolck_Cars_Helper($objCore);
 /*
  * QR-CODE
  */
-$strUrl = $objCore->getHelperApplication()->getCurrentUrl();
+$strUrl = $objCore->getHelperApplication()->getRequestUrl();
 $objCore->strQRImage = $objCore->getHelperCache()->getFilePath(md5($strUrl));
 QRcode::png($strUrl, $objCore->strQRImage);
 
@@ -60,6 +60,6 @@ if (count($objCore->arrCars) == 0) {
  * SCRIPT
  */
 $objCore->getHelperScripts()->registerViewScriptReplace(array(
-	'SchmolckID' => $this->strId,
-	'SchmolckURI' => $this->strUri,
+	'SchmolckID' => $objCore->strId,
+	'SchmolckURL' => $objCore->strUrl,
 ));

@@ -6,7 +6,7 @@
 // - core
 $objCore = Schmolck_Framework_Core::getInstance($this);
 $objCore->strId = $objCore->getHelperApi()->getId();
-$objCore->strUri = $objCore->getHelperApplication()->getRequestUri();
+$objCore->strUrl = $objCore->getHelperApplication()->getRequestUrl();
 $objCore->strApi = $objCore->getHelperApi()->getIdentifier();
 
 /*
@@ -22,5 +22,5 @@ if ($objCore->strParameterMode == '') {
  */
 $objCore->getHelperScripts()->registerViewScriptReplace(array(
 	'SchmolckID' => $objCore->strId,
-	'SchmolckURI' => $objCore->strUri,
+	'SchmolckURL' => $objCore->strUrl,
 ));

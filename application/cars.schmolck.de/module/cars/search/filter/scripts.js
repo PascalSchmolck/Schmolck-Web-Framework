@@ -20,7 +20,7 @@ $(document).ready(function() {
 	SchmolckID_send = function() {
 		var strData = $('#SchmolckID form').serialize();
 		Schmolck_Framework_Helper_Api({
-			url: 'SchmolckURI',
+			url: 'SchmolckURL',
 			id: 'SchmolckID',
 			data: strData,
 			success: function () {

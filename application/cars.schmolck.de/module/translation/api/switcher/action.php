@@ -8,7 +8,7 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Language Selector"));
 // - parameters
 $objCore->strId = $objCore->getHelperApi()->getId();
-$objCore->strUri = $objCore->getHelperApplication()->getRequestUri();
+$objCore->strUrl = $objCore->getHelperApplication()->getRequestUrl();
 
 /*
  * AJAX HANDLING
@@ -26,6 +26,6 @@ if ($objCore->getHelperApi()->checkAjaxCall()) {
  */
 $objCore->getHelperScripts()->registerViewScriptReplace(array(
 	'SchmolckID' => $objCore->strId,
-	'SchmolckURI' => $objCore->strUri,
+	'SchmolckURL' => $objCore->strUrl,
 	'SchmolckVAR1' => $objCore->strLanguageSwitched
 ));
