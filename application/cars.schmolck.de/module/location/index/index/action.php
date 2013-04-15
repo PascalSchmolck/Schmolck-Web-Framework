@@ -1,7 +1,11 @@
 <?php
 
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * INITIALISATION
  */
-?>
+$objCore = Schmolck_Framework_Core::getInstance($this);
+
+/*
+ * REDIRECT
+ */
+$objCore->getHelperRedirect()->local('location/emmendingen');

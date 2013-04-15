@@ -418,6 +418,42 @@ body {
 			padding: 0 20px;
 		} 
 	}
+	.menu {
+		@color-menu-a-link: #888;
+		@color-menu-a-hover: @color-a-link;
+
+		@media only print {
+			visibility: hidden;
+			display: none;
+		}
+		letter-spacing: 0.1em;
+		border-bottom: 1px solid @color-border;
+		margin-bottom: 20px;
+
+		ul {
+			list-style-type:none;
+			margin:0;
+			padding:0;
+			overflow:hidden;
+			li {
+				float: left;
+				padding: 8px 10px;
+
+				a {
+					display:block;
+					&:link, &:visited {
+						color: @color-menu-a-link;
+					}
+					&:hover {
+						color: @color-menu-a-hover;
+					}					
+				}
+				ul {
+					display: none;
+				}
+			}		
+		}
+	}
 	.sidebar {
 		@media only screen and (min-width : 481px) { 
 			padding: 0 20px;

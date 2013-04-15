@@ -23,31 +23,53 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cars
 			<h1>
 				<?= $objCore->getHelperTranslator()->_("Contact") ?>
 			</h1>
-			<h3>
-				Schmolck GmbH &amp; Co. KG
-			</h3>
-			<p>
-				<a href="location" title="<?= $objCore->getHelperTranslator()->_("Location") ?>">
-					Am Elzdamm 2
-					<br>
-					79312 Emmendingen
-				</a>		
-			</p>
+			<h2>
+				Emmendingen
+			</h2>
 			<p>
 				Tel +49 7641 / 4602-0 <br>
 				Fax +49 7641 / 4602-80 <br>
+			</p>
+			<p>
 				<?= $objCore->getHelperTranslator()->_("Mail") ?>
 				<a href="<?= $objCore->getHelperLink()->get('mailto:info.emmendingen@schmolck.de')?>">
-					Info Emmendingen
+					<span class="screen">
+						Info Emmendingen
+					</span>
+					<span class="print">
+						info.emmendingen@schmolck.de
+					</span>
 				</a>
 			</p>
-			<div class="screen">
-				<?=
-				$objCore->getHelperApi()->getElement('email', 'cars/contact/form', array(
-					'id' => ' '
-				))
-				?>				
-			</div>
+			
+			<h2>
+				Müllheim
+			</h2>
+			<p>
+				Tel +49 7631 / 3672-0 <br>
+				Fax +49 7631 / 3672-80 <br>
+			</p>
+			<p>
+				<?= $objCore->getHelperTranslator()->_("Mail") ?>
+				<a href="<?= $objCore->getHelperLink()->get('mailto:info.muellheim@schmolck.de')?>">
+					<span class="screen">
+						Info Müllheim
+					</span>
+					<span class="print">
+						info.muellheim@schmolck.de
+					</span>
+				</a>
+			</p>
+			
+			<p>
+				<div class="screen">
+					<?=
+					$objCore->getHelperApi()->getElement('email', 'cars/contact/form', array(
+						'id' => ' '
+					))
+					?>				
+				</div>
+			</p>
 		</div>
 	</div>
 </div>
