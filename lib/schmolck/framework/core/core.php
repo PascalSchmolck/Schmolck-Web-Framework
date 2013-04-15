@@ -546,11 +546,12 @@ class Schmolck_Framework_Core {
 		 */
 		foreach ($this->_arrLayoutStyles as $strFile) {
 			if (file_exists($strFile)) {
-				$nHash += filesize($strFile);
-				$nHash += filectime($strFile);
+				$strHash .= filesize($strFile);
+				$strHash .= filectime($strFile);
 			}
 		}
-		$strTempFile = $this->getHelperCache()->getFilePath($nHash.APPLICATION_ENVIRONMENT);
+		$strHash = md5($strHash.APPLICATION_ENVIRONMENT);
+		$strTempFile = $this->getHelperCache()->getFilePath($strHash);
 
 		/*
 		 * PROCESSING
@@ -600,11 +601,12 @@ class Schmolck_Framework_Core {
 		 */
 		foreach ($this->_arrLayoutScripts as $strFile) {
 			if (file_exists($strFile)) {
-				$nHash += filesize($strFile);
-				$nHash += filectime($strFile);
+				$strHash .= filesize($strFile);
+				$strHash .= filectime($strFile);
 			}
 		}
-		$strTempFile = $this->getHelperCache()->getFilePath($nHash.APPLICATION_ENVIRONMENT);		
+		$strHash = md5($strHash.APPLICATION_ENVIRONMENT);
+		$strTempFile = $this->getHelperCache()->getFilePath($strHash);		
 
 		/*
 		 * PROCESSING
