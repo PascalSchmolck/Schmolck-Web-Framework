@@ -1,3 +1,7 @@
+2013.04.18
+**********
+[x] [FRAMEWORK] move module helper class from library to module folder
+
 2013.04.15
 **********
 [x] [FRAMEWORK] implement highlighting menu items when active

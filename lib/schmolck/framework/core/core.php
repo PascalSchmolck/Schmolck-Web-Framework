@@ -413,6 +413,15 @@ class Schmolck_Framework_Core {
 	}
 
 	protected function _runModuleInit() {
+		/*
+		 * INITIALISATION
+		 */
+		// - helper
+		$strFile = $this->getHelperApplication()->getModulePath() . "/{$this->getModule()}/_helper.php";
+		if (file_exists($strFile)) {
+			require_once($strFile);
+		}
+		// - init
 		$strFile = $this->getHelperApplication()->getModulePath() . "/{$this->getModule()}/_init.php";
 		if (file_exists($strFile)) {
 			require($strFile);

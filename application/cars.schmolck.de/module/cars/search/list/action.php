@@ -9,7 +9,7 @@ $objCore->strId = $objCore->getHelperApi()->getId();
 $objCore->strUrl = $objCore->getHelperApplication()->getRequestUrl();
 $objCore->strStyleClass = $objCore->getHelperApi()->getStyleClass();
 // - cars
-$objCars = new Schmolck_Cars_Helper($objCore);
+$objCars = new Cars_Helper($objCore);
 // - offset
 $objCore->nOffset = 10;
 

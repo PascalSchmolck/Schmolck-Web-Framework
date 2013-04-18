@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Schmolck_Cars_Helper
+ * Cars_Helper
  * 
  * FGC Fahrzeuggruppe-Code
  * FGT Fahrzeuggruppe-Text
@@ -39,7 +39,7 @@
  * @author Pascal Schmolck
  * @copyright 2013
  */
-class Schmolck_Cars_Helper extends Schmolck_Framework_Helper {
+class Cars_Helper extends Schmolck_Framework_Helper {
 
 	const IMAGE_PATH = 'http://www.schmolck.de/data/public/images/vehicles';
 	const DATA_FILE = 'http://www.schmolck.de/data/private/vehicles/IFZ.csv';
