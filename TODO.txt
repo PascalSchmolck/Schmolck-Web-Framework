@@ -1,3 +1,7 @@
+2013.04.22
+**********
+[x] [PORTAL] add contact address into template for print view
+
 2013.04.18
 **********
 [x] [CARS] implement EZ filter selection
