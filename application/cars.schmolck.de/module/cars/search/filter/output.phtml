@@ -41,6 +41,12 @@ foreach ($objCore->arrKms as $strKm) {
 	}
 	$arrKms[$strKm] = number_format($strKm, 0, "", ".") . ' km';
 }
+// - kms
+$arrEzs['all'] = $objCore->getHelperTranslator()->_("All");
+foreach ($objCore->arrEzs as $strEz) {
+	$strYear = substr($strEz, 0, 4);
+	$arrEzs[$strYear] = $strYear;
+}
 // - sorting
 $arrSorting = array(
 	'price' => $objCore->getHelperTranslator()->_("Price"),
@@ -82,7 +88,20 @@ $arrSorting = array(
 		</div>
 		<div class="box">
 			<label>
-				<?= $objCore->getHelperTranslator()->_("Km (max.)") ?>
+				<?= $objCore->getHelperTranslator()->_("Initial Registration") ?>
+			</label>
+			<select name="ez">
+				<? foreach ($arrEzs as $strValue => $strLabel) : ?>
+					<? ($objCore->strParameterEz == $strValue) ? $strSelected = 'selected' : $strSelected = ''; ?>
+					<option value="<?= $strValue ?>" <?= $strSelected ?>>
+						<?= $strLabel ?>
+					</option>
+				<? endforeach; ?>
+			</select>
+		</div>		
+		<div class="box">
+			<label>
+				<?= $objCore->getHelperTranslator()->_("Kilometer (max.)") ?>
 			</label>
 			<select name="km">
 				<? foreach ($arrKms as $strValue => $strLabel) : ?>

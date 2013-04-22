@@ -72,6 +72,7 @@ class Cars_Helper extends Schmolck_Framework_Helper {
 	 */
 	public function getFilter($strName) {
 		$arrFilter = $this->restore('filter');
+		Schmolck_Tool_Debug::debug(print_r($arrFilter, true));		
 		return $arrFilter[$strName];
 	}
 	
@@ -149,6 +150,19 @@ class Cars_Helper extends Schmolck_Framework_Helper {
 				continue;
 				break;
 		}	
+		// - ez
+		switch ($this->getFilter('ez')) {
+			default:
+				if (trim($this->getFilter('ez')) != '') {
+					$strWhereEz = "
+						AND EZ LIKE '{$this->getFilter('ez')}%'
+					";
+				}
+				break;
+			case 'all':
+				continue;
+				break;
+		}
 		// - sorting
 		switch ($this->getFilter('sorting')) {
 			default:
@@ -177,6 +191,7 @@ class Cars_Helper extends Schmolck_Framework_Helper {
 				$strWhereBrand
 				$strWhereType
 				$strWhereKm
+				$strWhereEz
 				$strWherePrice
 			ORDER BY
 				$strSorting
@@ -497,6 +512,40 @@ class Cars_Helper extends Schmolck_Framework_Helper {
 			$arrResult[] = $arrRow["KM"];
 		}
 		return $arrResult;
-	}	
+	}
+	
+	/**
+	 * Get all distinct ez values
+	 * 
+	 * @return array ez values
+	 */
+	public function getEzs() {
+		/*
+		 * INITIALISATION
+		 */
+		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
+
+		/*
+		 * DATA
+		 */
+		$strQuery = "
+			SELECT 
+				DISTINCT EZ 
+			FROM 
+				" . self::DB_TABLE . "
+			WHERE
+				TRUE
+				AND EZ IS NOT NULL
+				AND EZ <> 'null'
+				AND EZ <> ''	
+			ORDER BY 
+				EZ ASC
+		";
+		$resource = $objCore->getHelperDatabase()->query($strQuery);
+		while ($arrRow = mysql_fetch_assoc($resource)) {
+			$arrResult[] = $arrRow["EZ"];
+		}
+		return $arrResult;
+	}
 
 }

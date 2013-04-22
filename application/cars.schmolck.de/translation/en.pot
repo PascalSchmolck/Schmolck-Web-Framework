@@ -58,11 +58,11 @@ msgstr ""
 msgid "Contact Person" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:146 
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:141 
 msgid "Tel +49 7641 / 4602-0" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:148 
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:143 
 msgid "Fax +49 7641 / 4602-80" 
 msgstr "" 
 
@@ -70,15 +70,11 @@ msgstr ""
 msgid "Cars" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/database/overview/output.phtml:24 
+#: ../application/cars.schmolck.de/module/cars/database/overview/output.phtml:25 
 msgid "Contact" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/database/overview/output.phtml:30 
-msgid "Location" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/database/overview/output.phtml:39 
+#: ../application/cars.schmolck.de/module/cars/database/overview/output.phtml:35 
 msgid "Mail" 
 msgstr "" 
 
@@ -99,62 +95,62 @@ msgid "smart"
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:19 
-msgid "Volkswagen" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:20 
 msgid "Others" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:25 
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:24 
 msgid "Company Cars" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:26 
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:25 
 msgid "Jahreswagen" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:27 
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:26 
 msgid "Secondhand Cars" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:47 
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:52 
 msgid "Price" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:48 
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:53 
 msgid "Kilometer" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:60 
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:65 
 msgid "Brand" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:72 
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:78 
 msgid "Type" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:85 
-msgid "Km (max.)" 
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:91 
+msgid "Initial Registration" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:97 
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:104 
+msgid "Kilometer (max.)" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:117 
 msgid "Price (max.)" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:110 
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:130 
 msgid "Sorting" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:127 
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:147 
 msgid "Reset" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:128 
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:148 
 msgid "Reset all filter values" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:134 
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:154 
 msgid "No matches found. Try a new search." 
 msgstr "" 
 
@@ -182,7 +178,7 @@ msgstr ""
 msgid "Subject" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/contact/index/index/output.phtml:43 
+#: ../application/cars.schmolck.de/module/contact/emmendingen/index/output.phtml:53 
 msgid "You can post your questions to our team in the following languages​​" 
 msgstr "" 
 
@@ -206,19 +202,23 @@ msgstr ""
 msgid "Imprint" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/location/index/index/output.phtml:26 
+#: ../application/cars.schmolck.de/module/location/emmendingen/index/output.phtml:6 
+msgid "Location" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/location/emmendingen/index/output.phtml:27 
 msgid "Enter your address here" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/location/index/index/output.phtml:27 
+#: ../application/cars.schmolck.de/module/location/emmendingen/index/output.phtml:28 
 msgid "Search" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/location/index/index/output.phtml:36 
+#: ../application/cars.schmolck.de/module/location/emmendingen/index/output.phtml:37 
 msgid "Schmolck Group" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/location/index/index/output.phtml:39 
+#: ../application/cars.schmolck.de/module/location/emmendingen/index/output.phtml:40 
 msgid "open in a larger map" 
 msgstr "" 
 
@@ -230,19 +230,7 @@ msgstr ""
 msgid "Language / Sprache" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/template/2013.03/html.phtml:23 
-msgid "Switch to 'Schmolck news'" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/template/2013.03/html.phtml:24 
-msgid "news" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/template/2013.03/html.phtml:28 
-msgid "You are already here" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/template/2013.03/html.phtml:29 
+#: ../application/cars.schmolck.de/template/2013.03/html.phtml:47 
 msgid "cars" 
 msgstr "" 
 
