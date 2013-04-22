@@ -70,14 +70,6 @@ msgstr "Polster"
 msgid "Contact Person"
 msgstr "Ansprechpartner"
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:141
-msgid "Tel +49 7641 / 4602-0"
-msgstr "Tel +49 7641 / 4602-0"
-
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:143
-msgid "Fax +49 7641 / 4602-80"
-msgstr "Fax +49 7641 / 4602-80"
-
 #: ../application/cars.schmolck.de/module/cars/database/overview/output.phtml:6
 msgid "Cars"
 msgstr "Fahrzeuge"
@@ -163,8 +155,17 @@ msgid "Reset all filter values"
 msgstr "Alle Filterwerte zurücksetzen"
 
 #: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:154
-msgid "No matches found. Try a new search."
-msgstr "Keine Treffer gefunden. Probieren Sie es mit anderen Filterkriterien."
+msgid "No matches found."
+msgstr "Keine Übereinstimmungen gefunden."
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:155
+msgid "Try a new search."
+msgstr "Versuchen Sie es mit anderen Filterkriterien."
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:158
+msgid "Or get in %s contact %s with us and we will find a car for you."
+msgstr ""
+"Oder nehmen Sie %s Kontakt %s mit uns auf und wir finden ein Auto für Sie."
 
 #: ../application/cars.schmolck.de/module/cars/search/gallery/output.phtml:16
 msgid "Loading..."
@@ -247,6 +248,12 @@ msgstr "Language / Sprache"
 #: ../application/cars.schmolck.de/template/2013.03/html.phtml:47
 msgid "cars"
 msgstr "cars"
+
+#~ msgid "Tel +49 7641 / 4602-0"
+#~ msgstr "Tel +49 7641 / 4602-0"
+
+#~ msgid "Fax +49 7641 / 4602-80"
+#~ msgstr "Fax +49 7641 / 4602-80"
 
 #~ msgid "Volkswagen"
 #~ msgstr "Volkswagen"

@@ -151,7 +151,11 @@ $arrSorting = array(
 
 		<? if ($objCore->nCount < 1) : ?>
 			<div class="infos">
-				<?= $objCore->getHelperTranslator()->_("No matches found. Try a new search.") ?>
+				<?= $objCore->getHelperTranslator()->_("No matches found.") ?>
+				<?= $objCore->getHelperTranslator()->_("Try a new search.") ?>
+				<br>
+				<br>
+				<?= sprintf($objCore->getHelperTranslator()->_("Or get in %s contact %s with us and we will find a car for you."), '<a href="contact">', '</a>') ?>
 			</div>
 		<? endif; ?>		
 	</form>

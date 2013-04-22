@@ -1,6 +1,7 @@
 2013.04.22
 **********
 [x] [PORTAL] add contact address into template for print view
+[x] [CARS] show contact hint if search gave no results
 
 2013.04.18
 **********
