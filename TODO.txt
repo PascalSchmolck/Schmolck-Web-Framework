@@ -3,8 +3,8 @@
 [x] [CARS] add "Vogtsburg" to contact page, location page and print view
 [x] [CARS] remove "Jahreswagen" information in all views
 [x] [CARS] add contact person "Lieven van der Hoofd" with picture
+[x] [CARS] add tax note to all price labels
 [ ] [CARS] add model separation into gallery view
-[ ] [CARS] add tax note to all price labels
 [ ] [CARS] add search filter "Modell"
 [ ] [CARS] hide search filters "Art", "Erstzulassung" and "Kilometer"
 

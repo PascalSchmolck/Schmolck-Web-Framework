@@ -19,14 +19,15 @@ $strBaseUrl = $objCore->getHelperApplication()->getBaseUrl();
 			<?= sprintf($objCore->getHelperTranslator()->_("%s Hits"), $objCore->nCars) ?>
 		</div>
 		<div class="items">
-			<? foreach ($objCore->arrCars as $arrCar) : ?>		
+			<? foreach ($objCore->arrCars as $arrCar) : ?>	
+				<? ($arrCar['STEUR'] != 'differenzbesteuert' ? $strStar = '*': $strStar = '') ?>
 				<a name="<?= $arrCar['KNR'] ?>"></a>
 				<div class="item <?= $strOdd ?>" data-name="<?= $arrCar['KNR'] ?>" data-link="<?= $strBaseUrl ?>/cars/database/detail/id/<?= $arrCar['KNR'] ?>">
 					<div class="image" title="<?= $arrCar['name'] ?> (<?= $arrCar['KNR'] ?>)">
 						<img src="<?= $arrCar['image'] ?>">
 					</div>
 					<div class="price">
-						<?= $arrCar['RP'] ?> EUR
+						<?= $arrCar['RP'] ?> EUR <?= $strStar ?>
 					</div>
 				</div>
 			<? endforeach; ?>
@@ -39,6 +40,9 @@ $strBaseUrl = $objCore->getHelperApplication()->getBaseUrl();
 				<?= sprintf($objCore->getHelperTranslator()->_("%s Hits"), $objCore->nCars) ?>
 			</div>
 		<? endif; ?>	
+		<div>
+			* Umsatzsteuer ausweisbar
+		</div>
 	<? endif; ?>	
 	<div class="clearer">
 		&nbsp;

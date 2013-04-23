@@ -48,7 +48,10 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 								<?= $arrCar['polster'] ?> (<?= $objCore->getHelperTranslator()->_("Upholstery"); ?>) <br>
 							</div>
 							<div class="price">
-								<?= $arrCar['RP'] ?> EUR <br>
+								<?= $arrCar['RP'] ?> EUR<br>
+								<div class="pricenote">
+									<?= $arrCar['STEUR'] ?>
+								</div>		
 							</div>
 							<div class="clearer">
 								&nbsp;
