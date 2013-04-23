@@ -13,8 +13,8 @@ $objCore->menu = array(
 		'link' => 'location/muellheim',
 		'label' => 'Müllheim'
 	),
-//	array(
-//		'link' => 'location/vogtsburg',
-//		'label' => 'Vogtsburg-Bischoffingen'
-//	)
+	array(
+		'link' => 'location/vogtsburg',
+		'label' => 'Vogtsburg-Bischoffingen'
+	)
 );
