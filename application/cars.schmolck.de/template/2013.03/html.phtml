@@ -10,7 +10,6 @@
 			<?= $strPageTitle ?> Schmolck cars 
 		</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans'>
 		<link rel="stylesheet" type="text/css" href="apps/style/<?= $this->getLayoutStyleFile() ?>" media="all"/>
 		<script type="text/javascript" src="apps/script/<?= $this->getLayoutScriptFile() ?>"></script>		
 	</head>
@@ -40,9 +39,9 @@
 			<div class="row">
 				<div class="sixcol">
 					<div class="padding">
-						<a href="">
-							<img class="title" src="data/images/logo/header.png" />
-						</a>
+						<div class="title">
+							<a href=""><img class="title" src="data/images/logo/header.png" /></a>
+						</div>						
 						<div class="description">
 							<?= $objCore->getHelperTranslator()->_("cars") ?>
 						</div>

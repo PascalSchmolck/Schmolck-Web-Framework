@@ -16,7 +16,8 @@
 // Html Tags
 //------------------------------------------------------------------------------
 body {
-	font-family: 'Open Sans', sans-serif;
+	background-color: @color-site-background;
+	font-family: arial, sans-serif;
 	padding: 0;
 	margin: 0;
 	color: @color-text;
@@ -50,13 +51,16 @@ h6 {
 	color: @color-h6;
 	font-weight: bold;
 }
-a:link, a:visited {
-	color: @color-a-link;
-	text-decoration: none;
-}
-a:hover {
-	color: @color-a-hover;
-	text-decoration: underline;
+a {
+	&:link, &:visited {
+		color: @color-a-link;
+		text-decoration: none;
+	}
+	&:hover {
+		opacity: 0.75;
+		filter:alpha(opacity=75);
+		text-decoration: underline;
+	}
 }
 form {
 	width: 100%;
@@ -265,15 +269,6 @@ ul {
 //------------------------------------------------------------------------------
 // Page Layout
 //------------------------------------------------------------------------------
-body {
-	background-color: @color-site-background;
-	a:hover {
-		img {
-			opacity: 0.75;
-			filter:alpha(opacity=75)
-		}
-	}
-}
 #quicklinks {
 	@color-quicklinks-border: #e1e1e1;
 	@color-quicklinks-a-link: #888;

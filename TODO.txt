@@ -1,3 +1,7 @@
+2013.04.24
+**********
+[x] [PORTAL] optimize look'n'feel regarding colors and fonts
+
 2013.04.23
 **********
 [x] [CARS] add "Vogtsburg" to contact page, location page and print view
