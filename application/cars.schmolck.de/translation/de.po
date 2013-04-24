@@ -54,19 +54,19 @@ msgstr "Abschicken"
 msgid "Sorry, the selected vehicle is no longer available."
 msgstr "Verzeihung, das gewählte Fahrzeug ist nicht mehr vorhanden."
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:15
-msgid "Back"
-msgstr "Zurück"
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:16
+msgid "Car"
+msgstr "Fahrzeug"
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:47
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:45
 msgid "Paint"
 msgstr "Lack"
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:48
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:46
 msgid "Upholstery"
 msgstr "Polster"
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:88
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:84
 msgid "Contact Person"
 msgstr "Ansprechpartner"
 
@@ -245,9 +245,12 @@ msgstr "Sprache Auswahl"
 msgid "Language / Sprache"
 msgstr "Language / Sprache"
 
-#: ../application/cars.schmolck.de/template/2013.03/html.phtml:47
+#: ../application/cars.schmolck.de/template/2013.03/html.phtml:46
 msgid "cars"
 msgstr "cars"
+
+#~ msgid "Back"
+#~ msgstr "Zurück"
 
 #~ msgid "Tel +49 7641 / 4602-0"
 #~ msgstr "Tel +49 7641 / 4602-0"

@@ -42,19 +42,19 @@ msgstr ""
 msgid "Sorry, the selected vehicle is no longer available." 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:15 
-msgid "Back" 
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:16 
+msgid "Car" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:47 
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:45 
 msgid "Paint" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:48 
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:46 
 msgid "Upholstery" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:88 
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:84 
 msgid "Contact Person" 
 msgstr "" 
 
@@ -230,7 +230,7 @@ msgstr ""
 msgid "Language / Sprache" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/template/2013.03/html.phtml:47 
+#: ../application/cars.schmolck.de/template/2013.03/html.phtml:46 
 msgid "cars" 
 msgstr "" 
 
