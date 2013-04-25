@@ -10,8 +10,8 @@
 [x] [CARS] add contact person "Lieven van der Hoofd" with picture
 [x] [CARS] add tax note to all price labels
 [ ] [CARS] add model separation into gallery view
-[ ] [CARS] add search filter "Modell"
-[ ] [CARS] hide search filters "Art", "Erstzulassung" and "Kilometer"
+[x] [CARS] add search filter "Modell"
+[x] [CARS] hide search filters "Art", "Erstzulassung" and "Kilometer"
 
 2013.04.22
 **********

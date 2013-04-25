@@ -18,6 +18,25 @@ $arrBrands = array(
 	'smart' => $objCore->getHelperTranslator()->_("smart"),
 	'others' => $objCore->getHelperTranslator()->_("Others"),
 );
+// - models
+$arrModelsMercedes = array(
+	"all" => $objCore->getHelperTranslator()->_("All"),
+	"a" => $objCore->getHelperTranslator()->_("A-Class"),
+	"b" => $objCore->getHelperTranslator()->_("B-Class"),
+	"c" => $objCore->getHelperTranslator()->_("C-Class"),
+	"e" => $objCore->getHelperTranslator()->_("E-Class"),
+	"clk" => $objCore->getHelperTranslator()->_("CLK"),
+	"slk" => $objCore->getHelperTranslator()->_("SLK"),
+	"offroad" => $objCore->getHelperTranslator()->_("Offroad"),
+	"others-mercedes" => $objCore->getHelperTranslator()->_("Others"),
+);
+$arrModelsSmart = array(
+	"all" => $objCore->getHelperTranslator()->_("All"),
+	"f2" => $objCore->getHelperTranslator()->_("Fortwo"),
+	"f4" => $objCore->getHelperTranslator()->_("Forfour"),
+	"roadster" => $objCore->getHelperTranslator()->_("Roadster"),
+	"others-smart" => $objCore->getHelperTranslator()->_("Others"),
+);
 // - types
 $arrTypes = array(
 	'all' => $objCore->getHelperTranslator()->_("All"),
@@ -73,45 +92,39 @@ $arrSorting = array(
 				<? endforeach; ?>
 			</select>
 		</div>
+		
+		<? if ($objCore->strParameterBrand == 'mercedes-benz'): ?>
 		<div class="box">
 			<label>
-				<?= $objCore->getHelperTranslator()->_("Type") ?>
+				<?= $objCore->getHelperTranslator()->_("Model") ?>
 			</label>
-			<select name="type">
-				<? foreach ($arrTypes as $strValue => $strLabel) : ?>
-					<? ($objCore->strParameterType == $strValue) ? $strSelected = 'selected' : $strSelected = ''; ?>
+			<select name="model">
+				<? foreach ($arrModelsMercedes as $strValue => $strLabel) : ?>
+					<? ($objCore->strParameterModel == $strValue) ? $strSelected = 'selected' : $strSelected = ''; ?>
 					<option value="<?= $strValue ?>" <?= $strSelected ?>>
 						<?= $strLabel ?>
 					</option>
 				<? endforeach; ?>
 			</select>
 		</div>
+		<? endif; ?>
+		
+		<? if ($objCore->strParameterBrand == 'smart'): ?>
 		<div class="box">
 			<label>
-				<?= $objCore->getHelperTranslator()->_("Initial Registration") ?>
+				<?= $objCore->getHelperTranslator()->_("Model") ?>
 			</label>
-			<select name="ez">
-				<? foreach ($arrEzs as $strValue => $strLabel) : ?>
-					<? ($objCore->strParameterEz == $strValue) ? $strSelected = 'selected' : $strSelected = ''; ?>
-					<option value="<?= $strValue ?>" <?= $strSelected ?>>
-						<?= $strLabel ?>
-					</option>
-				<? endforeach; ?>
-			</select>
-		</div>		
-		<div class="box">
-			<label>
-				<?= $objCore->getHelperTranslator()->_("Kilometer (max.)") ?>
-			</label>
-			<select name="km">
-				<? foreach ($arrKms as $strValue => $strLabel) : ?>
-					<? ($objCore->strParameterKm == $strValue) ? $strSelected = 'selected' : $strSelected = ''; ?>
+			<select name="model">
+				<? foreach ($arrModelsSmart as $strValue => $strLabel) : ?>
+					<? ($objCore->strParameterModel == $strValue) ? $strSelected = 'selected' : $strSelected = ''; ?>
 					<option value="<?= $strValue ?>" <?= $strSelected ?>>
 						<?= $strLabel ?>
 					</option>
 				<? endforeach; ?>
 			</select>
 		</div>
+		<? endif; ?>		
+		
 		<div class="box">
 			<label>
 				<?= $objCore->getHelperTranslator()->_("Price (max.)") ?>

@@ -109,6 +109,128 @@ class Cars_Helper extends Schmolck_Framework_Helper {
 				";
 				break;
 		}
+		// - model
+		switch ($this->getFilter('model')) {
+			case 'all':
+				$strWhereModel = "
+					AND TYP LIKE '%'
+				";
+				break;
+			// - mercedes
+			case "a":
+				$strWhereModel = "
+					AND typ LIKE 'A %'
+				";
+				break;
+			case "b":
+				$strWhereModel = "
+					AND typ LIKE 'B %'
+				";
+				break;
+			case "c":
+				$strWhereModel = "
+					AND
+						( typ LIKE 'C %'
+						OR typ LIKE 'CL %'
+						)
+				";
+				break;
+			case "e":
+				$strWhereModel = "
+					AND typ LIKE 'E %'
+				";
+				break;
+			case "offroad":
+				$strWhereModel = "
+					AND
+						( typ LIKE 'M %'
+						OR typ LIKE 'ML %'
+						OR typ LIKE 'G %'
+						OR typ LIKE 'GL %'
+						OR typ LIKE 'GLK %'
+						)
+				";
+				break;
+			case "clk":
+				$strWhereModel = "
+					AND typ LIKE 'CLK %'
+				";
+				break;
+			case "slk":
+				$strWhereModel = "
+					AND typ LIKE 'SLK %'
+				";
+				break;
+			case "others-mercedes":
+				$strWhereModel = "
+					AND typ NOT LIKE 'A %'
+					AND typ NOT LIKE 'B %'
+					AND typ NOT LIKE 'C %'
+					AND typ NOT LIKE 'CL %'
+					AND typ NOT LIKE 'E %'
+					AND typ NOT LIKE 'CLK %'
+					AND typ NOT LIKE 'SLK %'
+					AND typ NOT LIKE 'M %'
+					AND typ NOT LIKE 'ML %'
+					AND typ NOT LIKE 'G %'
+					AND typ NOT LIKE 'GL %'
+					AND typ NOT LIKE 'GLK %'
+				";
+				break;
+			// - smart
+			case "f2":
+				$strWhereModel = "
+					AND typ LIKE '%FORTWO%'
+				";
+				break;
+			case "f4":
+				$strWhereModel = "
+					AND typ LIKE '%FORFOUR%'
+				";
+				break;
+			case "roadster":
+				$strWhereModel = "
+					AND typ LIKE '%ROADSTER%'
+				";
+				break;
+			case "others-smart":
+				$strWhereModel = "
+					AND typ NOT LIKE '%FORTWO%'
+					AND typ NOT LIKE '%FORFOUR%'
+					AND typ NOT LIKE '%ROADSTER%'
+				";
+				break;			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+//			default:
+//				if (trim($this->getFilter('model')) != '') {
+//					$strWhereModel = "
+//						AND TYP LIKE '{$this->getFilter('model')} %'
+//					";
+//				}
+//				break;
+//			case 'all':
+//				$strWhereModel = "
+//					AND TYP LIKE '%'
+//				";
+//				break;
+//			case 'others':
+//				$strWhereModel = "
+//					AND TYP NOT LIKE 'Mercedes-Benz'
+//					AND TYP NOT LIKE 'Smart'
+//				";
+//				break;
+		}		
 		// - type
 		switch ($this->getFilter('type')) {
 			default:
@@ -189,6 +311,7 @@ class Cars_Helper extends Schmolck_Framework_Helper {
 			WHERE
 				TRUE
 				$strWhereBrand
+				$strWhereModel
 				$strWhereType
 				$strWhereKm
 				$strWhereEz

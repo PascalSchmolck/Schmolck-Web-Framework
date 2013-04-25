@@ -54,19 +54,15 @@ msgstr "Abschicken"
 msgid "Sorry, the selected vehicle is no longer available."
 msgstr "Verzeihung, das gewählte Fahrzeug ist nicht mehr vorhanden."
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:16
-msgid "Car"
-msgstr "Fahrzeug"
-
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:45
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:46
 msgid "Paint"
 msgstr "Lack"
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:46
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:47
 msgid "Upholstery"
 msgstr "Polster"
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:84
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:85
 msgid "Contact Person"
 msgstr "Ansprechpartner"
 
@@ -103,66 +99,98 @@ msgid "Others"
 msgstr "Sonstige"
 
 #: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:24
+msgid "A-Class"
+msgstr "A-Klasse"
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:25
+msgid "B-Class"
+msgstr "B-Klasse"
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:26
+msgid "C-Class"
+msgstr "C-Klasse"
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:27
+msgid "E-Class"
+msgstr "E-Klasse"
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:28
+msgid "CLK"
+msgstr "CLK"
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:29
+msgid "SLK"
+msgstr "SLK"
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:30
+msgid "Offroad"
+msgstr "Offroad"
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:35
+msgid "Fortwo"
+msgstr "Fortwo"
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:36
+msgid "Forfour"
+msgstr "Forfour"
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:37
+msgid "Roadster"
+msgstr "Roadster"
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:43
 msgid "Company Cars"
 msgstr "Geschäftswagen"
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:25
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:44
 msgid "Jahreswagen"
 msgstr "Jahreswagen"
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:26
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:45
 msgid "Secondhand Cars"
 msgstr "Gebrauchtwagen"
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:52
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:71
 msgid "Price"
 msgstr "Preis"
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:53
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:72
 msgid "Kilometer"
 msgstr "Kilometer"
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:65
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:84
 msgid "Brand"
 msgstr "Marke"
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:78
-msgid "Type"
-msgstr "Art"
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:99
+msgid "Model"
+msgstr "Modell"
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:91
-msgid "Initial Registration"
-msgstr "Erstzulassung"
-
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:104
-msgid "Kilometer (max.)"
-msgstr "Kilometer (max.)"
-
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:117
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:130
 msgid "Price (max.)"
 msgstr "Preis (max.)"
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:130
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:143
 msgid "Sorting"
 msgstr "Sortierung"
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:147
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:160
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:148
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:161
 msgid "Reset all filter values"
 msgstr "Alle Filterwerte zurücksetzen"
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:154
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:167
 msgid "No matches found."
 msgstr "Keine Übereinstimmungen gefunden."
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:155
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:168
 msgid "Try a new search."
 msgstr "Versuchen Sie es mit anderen Filterkriterien."
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:158
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:171
 msgid "Or get in %s contact %s with us and we will find a car for you."
 msgstr ""
 "Oder nehmen Sie %s Kontakt %s mit uns auf und wir finden ein Auto für Sie."
@@ -248,6 +276,18 @@ msgstr "Language / Sprache"
 #: ../application/cars.schmolck.de/template/2013.03/html.phtml:46
 msgid "cars"
 msgstr "cars"
+
+#~ msgid "Car"
+#~ msgstr "Fahrzeug"
+
+#~ msgid "Type"
+#~ msgstr "Art"
+
+#~ msgid "Initial Registration"
+#~ msgstr "Erstzulassung"
+
+#~ msgid "Kilometer (max.)"
+#~ msgstr "Kilometer (max.)"
 
 #~ msgid "Back"
 #~ msgstr "Zurück"

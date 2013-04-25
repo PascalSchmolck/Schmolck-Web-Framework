@@ -3,7 +3,17 @@ $(document).ready(function() {
 	/*
 	* ACTION
 	*/
+//   $('#SchmolckID select[name=brand]').change(function() {
+//	   
+//	   alert($('#SchmolckID select[name=model]').val());
+//	   $('#SchmolckID select[name=model]').val('all');
+//	});
+   
 	$('#SchmolckID select').change(function() {
+		// - reset model selection if brand changed
+		if ($(this).attr('name') == 'brand') {
+			$('#SchmolckID select[name=model]').val('all');
+		}
 		SchmolckID_send();
 		return false;
 	});

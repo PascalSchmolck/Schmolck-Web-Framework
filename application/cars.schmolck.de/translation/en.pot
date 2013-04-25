@@ -42,19 +42,15 @@ msgstr ""
 msgid "Sorry, the selected vehicle is no longer available." 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:16 
-msgid "Car" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:45 
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:46 
 msgid "Paint" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:46 
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:47 
 msgid "Upholstery" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:84 
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:85 
 msgid "Contact Person" 
 msgstr "" 
 
@@ -91,66 +87,98 @@ msgid "Others"
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:24 
-msgid "Company Cars" 
+msgid "A-Class" 
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:25 
-msgid "Jahreswagen" 
+msgid "B-Class" 
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:26 
+msgid "C-Class" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:27 
+msgid "E-Class" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:28 
+msgid "CLK" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:29 
+msgid "SLK" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:30 
+msgid "Offroad" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:35 
+msgid "Fortwo" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:36 
+msgid "Forfour" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:37 
+msgid "Roadster" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:43 
+msgid "Company Cars" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:44 
+msgid "Jahreswagen" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:45 
 msgid "Secondhand Cars" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:52 
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:71 
 msgid "Price" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:53 
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:72 
 msgid "Kilometer" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:65 
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:84 
 msgid "Brand" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:78 
-msgid "Type" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:91 
-msgid "Initial Registration" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:104 
-msgid "Kilometer (max.)" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:117 
-msgid "Price (max.)" 
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:99 
+msgid "Model" 
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:130 
+msgid "Price (max.)" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:143 
 msgid "Sorting" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:147 
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:160 
 msgid "Reset" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:148 
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:161 
 msgid "Reset all filter values" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:154 
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:167 
 msgid "No matches found." 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:155 
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:168 
 msgid "Try a new search." 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:158 
+#: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:171 
 msgid "Or get in %s contact %s with us and we will find a car for you." 
 msgstr "" 
 
