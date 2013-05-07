@@ -555,8 +555,7 @@ class Schmolck_Framework_Core {
 		 */
 		foreach ($this->_arrLayoutStyles as $strFile) {
 			if (file_exists($strFile)) {
-				$strHash .= filesize($strFile);
-				$strHash .= filectime($strFile);
+				$strHash .= md5_file($strFile);
 			}
 		}
 		$strHash = md5($strHash.APPLICATION_ENVIRONMENT);
@@ -610,8 +609,7 @@ class Schmolck_Framework_Core {
 		 */
 		foreach ($this->_arrLayoutScripts as $strFile) {
 			if (file_exists($strFile)) {
-				$strHash .= filesize($strFile);
-				$strHash .= filectime($strFile);
+				$strHash .= md5_file($strFile);
 			}
 		}
 		$strHash = md5($strHash.APPLICATION_ENVIRONMENT);
