@@ -19,9 +19,10 @@ $objCars = new Cars_Helper($objCore);
 /*
  * QR-CODE
  */
-$strUrl = $objCore->getHelperApplication()->getRequestUrl();
-$objCore->strQRImage = $objCore->getHelperCache()->getFilePath(md5($strUrl));
-QRcode::png($strUrl, $objCore->strQRImage);
+$strUri = $objCore->getHelperApplication()->getCurrentUri();
+$strBaseUrl = $objCore->getHelperApplication()->getBaseUrl();
+$objCore->strQRImage = $objCore->getHelperCache()->getFilePath(md5($strBaseUrl.'/'.$strUri));
+QRcode::png($strBaseUrl.'/'.$strUri, $objCore->strQRImage);
 
 /*
  * PARAMETER
