@@ -193,7 +193,8 @@ msgstr "Versuchen Sie es mit anderen Filterkriterien."
 #: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:171
 msgid "Or get in %s contact %s with us and we will find a car for you."
 msgstr ""
-"Oder nehmen Sie %s Kontakt %s mit uns auf und wir finden ein Auto für Sie."
+"Oder nehmen Sie %s Kontakt %s mit uns auf und wir finden das passende "
+"Fahrzeug."
 
 #: ../application/cars.schmolck.de/module/cars/search/gallery/output.phtml:16
 msgid "Loading..."
@@ -277,6 +278,10 @@ msgstr "Language / Sprache"
 msgid "cars"
 msgstr "cars"
 
+#: ../application/cars.schmolck.de/template/2013.05/html.phtml:24
+msgid "Home"
+msgstr "Startseite"
+
 #~ msgid "Car"
 #~ msgstr "Fahrzeug"
 
@@ -315,9 +320,6 @@ msgstr "cars"
 
 #~ msgid "Sorry, message could not be sent."
 #~ msgstr "Verzeihung, die Nachricht konnte nicht verschickt werden."
-
-#~ msgid "Home"
-#~ msgstr "Startseite"
 
 #~ msgid "brand_all"
 #~ msgstr "Alle"

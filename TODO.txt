@@ -1,3 +1,7 @@
+2013.05.08
+**********
+[ ] [LAYOUT] create new layout similar to print media
+
 2013.04.24
 **********
 [x] [CARS] optimize look'n'feel regarding layout

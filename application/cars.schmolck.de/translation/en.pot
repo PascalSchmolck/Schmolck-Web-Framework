@@ -262,3 +262,7 @@ msgstr ""
 msgid "cars" 
 msgstr "" 
 
+#: ../application/cars.schmolck.de/template/2013.05/html.phtml:24 
+msgid "Home" 
+msgstr "" 
+
