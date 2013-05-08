@@ -67,8 +67,14 @@ form {
 	}
 	input {
 		@media handheld, only screen and (max-width: 768px) {
-			width: 96%;
 			font-size: 90%;
+			width: 98%;
+		}	
+		@media handheld, only screen and (max-width: 480px) {
+			width: 96%;
+		}	
+		@media handheld, only screen and (max-width: 320px) {
+			width: 95%;
 		}	
 		border: 1px solid @color-form-input;
 		font-family: inherit;
@@ -144,15 +150,21 @@ form {
 	}
 	textarea {
 		@media handheld, only screen and (max-width: 768px) {
-			width: 96%;
 			font-size: 90%;
+			width: 98%;
+		}	
+		@media handheld, only screen and (max-width: 480px) {
+			width: 96%;
+		}	
+		@media handheld, only screen and (max-width: 320px) {
+			width: 95%;
 		}	
 		border: 1px solid @color-form-input;
 		font-family: inherit;
 		height: 15em;
 		padding: 5px;
-		width: 98%;
 		font-size: 90%;
+		width: 98%;
 	}
 	label {
 		display: block;
@@ -273,7 +285,7 @@ img {
 .container {
 	@media handheld, only screen and (max-width: 768px) {
 		width: 100%;
-		min-width: 400px;
+		min-width: 250px;
 	}
 	width: 100%;
 	max-width: 1024px;
@@ -307,6 +319,9 @@ img {
 			padding: 0;
 			margin: 0;
 			li {
+				@media handheld, only screen and (max-width: 320px) {
+					padding: 5px 10px;
+				}
 				display: inline;
 				float: left;
 				padding: 0;
@@ -365,6 +380,10 @@ img {
 			padding:0;
 			overflow:hidden;
 			li {
+				@media handheld, only screen and (max-width: 320px) {
+					padding: 5px 10px;
+					padding-left: 0;
+				}
 				float: left;
 				padding: 8px 20px;
 				padding-left: 0;

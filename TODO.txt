@@ -1,5 +1,6 @@
 2013.05.08
 **********
+[x] [LAYOUT] make new layout compatible to small screens (320x240)
 [x] [LAYOUT] make new layout compatible to small screens (480x320)
 [ ] [LAYOUT] prevent contact print footer on contact pages
 [x] [LAYOUT] create two logos (screen and print)
