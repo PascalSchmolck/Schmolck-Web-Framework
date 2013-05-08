@@ -11,7 +11,7 @@
 // Html Tags
 //------------------------------------------------------------------------------
 body {
-	@media print, handheld, only screen and (max-width: 768px) {
+	@media handheld, only screen and (max-width: 768px) {
 		font-size: 75%;
 	}	
 	font-family: arial, sans-serif;
@@ -59,14 +59,14 @@ form {
 		margin: 0;
 	}
 	select {
-		@media print, handheld, only screen and (max-width: 768px) {
+		@media handheld, only screen and (max-width: 768px) {
 			font-size: 90%;
 		}	
 		border: 1px solid @color-border;
 		font-family: inherit;
 	}
 	input {
-		@media print, handheld, only screen and (max-width: 768px) {
+		@media handheld, only screen and (max-width: 768px) {
 			width: 96%;
 			font-size: 90%;
 		}	
@@ -143,7 +143,7 @@ form {
 		}
 	}
 	textarea {
-		@media print, handheld, only screen and (max-width: 768px) {
+		@media handheld, only screen and (max-width: 768px) {
 			width: 96%;
 			font-size: 90%;
 		}	
@@ -271,7 +271,7 @@ img {
 // Page Layout
 //------------------------------------------------------------------------------
 .container {
-	@media print, handheld, only screen and (max-width: 768px) {
+	@media handheld, only screen and (max-width: 768px) {
 		width: 100%;
 		min-width: 400px;
 	}
@@ -282,13 +282,13 @@ img {
 	overflow: hidden;
 }
 #header {
-	@media print, handheld, only screen and (max-width: 768px) {
+	@media handheld, only screen and (max-width: 768px) {
 		padding: 10px 20px;
 	}
 	padding: 20px;
 	background-color: #DDE2E6;
 	.logo {
-		@media print, handheld, only screen and (max-width: 768px) {
+		@media handheld, only screen and (max-width: 768px) {
 			float: none;
 		}
 		float: left;
@@ -297,7 +297,7 @@ img {
 		@media only print {
 			display: none;
 		}
-		@media print, handheld, only screen and (max-width: 768px) {
+		@media handheld, only screen and (max-width: 768px) {
 			margin-top: 10px;
 		}
 		float: right;
@@ -481,7 +481,7 @@ img {
 				width: 100%
 			}
 			.box {
-				@media print, handheld, only screen and (max-width: 768px) {
+				@media handheld, only screen and (max-width: 768px) {
 					width: 45%;
 				}
 				@media only screen and (min-width: 769px) {
@@ -605,7 +605,7 @@ img {
 				padding-top: 5px;
 				font-size: 150%;
 				.pricenote {
-					@media print, handheld, only screen and (max-width: 768px) {
+					@media handheld, only screen and (max-width: 768px) {
 						font-size: 55%;
 					}	
 					font-size: 45%;
@@ -699,12 +699,23 @@ img {
 					padding: 0;
 				}
 				.emmendingen {
+					@media handheld, only screen and (max-width: 480px) {
+						float: none;
+						width: 75%;
+					}	
+					float: left;
 					width: 50%;
 				}
 				.muellheim {
-					img {
-						max-width: 40%;
-					}
+					@media handheld, only screen and (max-width: 480px) {
+						float: none;
+						width: 50%;
+						img {
+							width: 45%;
+						}
+					}	
+					float: right;
+					width: 50%		
 				}
 			}
 		}
@@ -712,7 +723,7 @@ img {
 }
 .api.contact {
 	img {
-		@media print, handheld, only screen and (max-width: 480px) {
+		@media handheld, only screen and (max-width: 480px) {
 			float: none;
 			display: block;
 			margin-bottom: 10px;
