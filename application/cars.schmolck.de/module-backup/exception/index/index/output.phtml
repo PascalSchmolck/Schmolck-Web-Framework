@@ -1,0 +1,31 @@
+<?php
+$objCore = Schmolck_Framework_Core::getInstance($this);
+
+$strSubject = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+$strBody = $objCore->getHelperTranslator()->_("Error message") . ': ' . $Exception->getMessage();
+?>
+<h1>
+	<?= $objCore->getHelperTranslator()->_("Ups, sorry..."); ?>
+</h1>
+<h2>
+	<?= $objCore->getHelperTranslator()->_("...an error occured!"); ?>
+</h2>
+<p>
+	<?= $objCore->getHelperTranslator()->_("If this error occurs repeatedly, we would appreciate a short message"); ?>:
+	<a href="mailto:webmaster@schmolck.de?subject=<?= $strSubject ?>&body=<?= $strBody ?>">
+		<?= EXCEPTION_ADDRESS ?>
+	</a>
+</p>
+<p class="errors">
+	<strong>
+		<?= $objCore->getHelperTranslator()->_("Error message"); ?>
+	</strong>:
+	<?= $Exception->getMessage(); ?>
+</p>
+
+<? if (APPLICATION_ENVIRONMENT != 'production') : ?>
+	<p style="font-style: italic;">
+		<?= $Exception->getLine(); ?>: <?= $Exception->getFile(); ?>
+	</p>
+	<pre class="infos" style="overflow: auto;"><?= $Exception->getTraceAsString() ?></pre>
+<? endif; ?>

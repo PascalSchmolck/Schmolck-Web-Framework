@@ -15,6 +15,6 @@ $objCore->menu = array(
 	),
 	array(
 		'link' => 'contact/vogtsburg',
-		'label' => 'Vogtsburg-Bischoffingen'
+		'label' => 'Vogtsburg'
 	)
 );

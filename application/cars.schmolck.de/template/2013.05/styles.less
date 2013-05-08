@@ -1,10 +1,5 @@
-@color-h1: #000; 
-@color-h2: #000; 
-@color-h3: #555; 
-@color-h4: #004176; 
-@color-h5: #000; 
-@color-h6: #555; 
-@color-text: #333;
+@color-h: #000; 
+@color-text: #000;
 @color-form-input: #ccc;
 @color-a-link: #005cd7;
 @color-a-hover: darkblue;
@@ -30,30 +25,18 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 	margin-top: 10px;
 	margin-bottom: 5px;
+	color: @color-h;
 }
 h1 {
 	font-family: times, serif;
-	color: @color-h1;
 	font-size: 300%;
 }
 h2 {
-	color: @color-h2;
 	font-size: 180%;
 }
 h3 {
-	color: @color-h3;
 	font-weight: bold;
 	font-size: 130%;
-}
-h4 {
-	color: @color-h4;
-}
-h5 {
-	color: @color-h5;
-}
-h6 {
-	color: @color-h6;
-	font-weight: bold;
 }
 a {
 	&:link, &:visited {
@@ -81,7 +64,7 @@ form {
 		font-family: inherit;
 		padding: 5px;
 		margin: 0;
-		width: 95%;
+		width: 98%;
 		line-height: normal;
 
 		&[type="file"] {
@@ -105,7 +88,6 @@ form {
 
 		&[type="submit"], &input[type="button"], &input[type="reset"], &.button {
 			margin-top: 10px;
-			margin-right: 10px;
 			width: auto;
 			font-size: 90%;
 			font-weight: normal;
@@ -155,7 +137,7 @@ form {
 		font-family: inherit;
 		height: 15em;
 		padding: 5px;
-		width: 95%;
+		width: 98%;
 		font-size: 90%;
 	}
 	label {
@@ -179,7 +161,8 @@ hr {
 	margin: 15px 0;
 }
 p {
-	padding: 10px 0;
+	padding: 5px 0;
+	margin: 0;
 }
 table {
 	th {
@@ -276,7 +259,7 @@ img {
 .container {
 	width: 100%;
 	max-width: 1024px;
-	min-width: 720px;
+	min-width: 700px;
 	margin: 0 auto;
 	overflow: hidden;
 }
@@ -294,6 +277,7 @@ img {
 		float: right;
 		margin-top: 30px;
 		ul {
+			padding: 0;
 			margin: 0;
 			li {
 				display: inline;
@@ -371,16 +355,11 @@ img {
 		}
 	}
 	.sidebar {
-		@media only screen and (min-width : 481px) { 
-			padding: 0 20px;
-		}
 		@media print {
 			margin-top: 10px;
 			border-top: 1px solid @color-border;
 		}
-		p {
-			padding: 5px 0;
-		}
+		float: right;
 	}
 }
 #contact {
@@ -516,22 +495,14 @@ img {
 				}
 			}
 			.image {
-				@media only screen and (max-width : 768px) { 
-					width: 150px;
-					background-size: 150px 113px;
-				}
-				@media only screen and (max-width : 480px) { 
-					width: 100px;
-					background-size: 100px 75px;
-				} 
 				@media print {
-					width: 145px;
+					width: 150px;
 				}
 				background: url("../../../data/images/cars/dummy.jpg");
-				background-size: 145px 110px;
 				background-repeat: no-repeat;
-				width: 145px;
-				height: 110px;
+				background-size: 163px 123px;
+				width: 163px;
+				height: 123px;
 			}
 		}
 		&.result {
@@ -560,7 +531,7 @@ img {
 				margin: 10px 0;
 
 				&.odd {
-					background-color: #e1e1e1;
+					background-color: #fff;
 				}
 				&:hover {
 					cursor: pointer;
@@ -624,7 +595,7 @@ img {
 					padding: 10px 0;
 				}
 			}
-			.qrcode {
+			.qrcode1 {
 				@media screen, handheld {
 					display: none;
 				}
@@ -659,6 +630,12 @@ img {
 					font-size: 65%;
 				}
 			}
+			.qrcode2 {
+				@media only print {
+					display: none;
+				}
+				margin-top: 10px;
+			}
 			.clearer {
 				clear: both;
 				height: 0;
@@ -674,6 +651,23 @@ img {
 						width: 50%;
 						padding-right: 10px;
 					}
+				}
+			}
+			
+			.contact {
+				@media only print { 
+					display: none;
+				}
+				margin-top: 20px;
+				table {
+					width: 100%;
+				}
+				td {
+					vertical-align: top;
+					padding: 0;
+				}
+				.emmendingen {
+					width: 50%;
 				}
 			}
 		}

@@ -1,0 +1,64 @@
+<?php
+/*
+ * INITIALISATION
+ */
+$objCore = Schmolck_Framework_Core::getInstance($this);
+$objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Contact"));
+
+/*
+  <?=file_get_contents($objCore->getBaseUrl() . '/contact/element/form'); ?>
+ */
+?>
+<div class="twelvecol last">
+	<div class="content">
+		<h1>
+			<?= $objCore->getHelperTranslator()->_("Contact") ?>
+		</h1>
+		<?=  $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
+	</div>
+</div>
+<div class="sixcol">
+	<div class="content">
+		<h3>
+			Schmolck GmbH &amp; Co. KG
+		</h3>
+		<p>
+			Autorisierter Mercedes-Benz Service und Vermittler <br>
+			für Mercedes-Benz PKW und Transporter 
+		</p>
+		<img src="apps/image/270/90/data/images/contact/vogtsburg.jpg" style="float: right;">
+		<p>
+			Bacchusstraße 19 <br>
+			79235 Vogtsburg-Bischoffingen 
+		</p>
+		<p>
+			Tel +49 7641 / 4602-0 <br>
+			Fax +49 7641 / 4602-80 <br>
+		</p>
+		<p>
+			<?= $objCore->getHelperTranslator()->_("Mail") ?>
+			<a href="<?= $objCore->getHelperLink()->get('mailto:info.drexler@schmolck.de')?>">
+				<span class="screen">
+					Info Bischoffingen
+				</span>
+				<span class="print">
+					info.drexler@schmolck.de
+				</span>
+			</a>
+		</p>
+		<p>
+			<?= $objCore->getHelperTranslator()->_("You can post your questions to our team in the following languages​​") ?>:
+			<br>
+		<ul>
+			<li>Deutsch</li>
+			<li>English</li>
+			<li>Français</li>
+		</ul>
+		</p>
+	</div>
+</div>
+<div class="sixcol last screen">	
+	<div class="sidebar">
+		<?= $objCore->getHelperApi()->getElement('email', 'contact/api/form') ?>				
+	</div>
+</div>

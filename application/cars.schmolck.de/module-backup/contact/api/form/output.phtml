@@ -1,0 +1,64 @@
+<?php
+/*
+ * INITIALISATION
+ */
+$objCore = Schmolck_Framework_Core::getInstance($this);
+
+/*
+ * OUTPUT
+ */
+?>
+<form id="<?= $objCore->strId ?>" method="post">
+	<? if ($objCore->strMessageMail != '') { ?>
+		<div class="notes">
+			<?= $objCore->strMessageMail ?>
+		</div>
+	<? } else { ?>
+		<input type="hidden" name="send" value="1">
+		<p>
+			<label>
+				<?= $objCore->getHelperTranslator()->_("Name") ?>*
+				<span class="error">
+					<?= $objCore->strErrorName ?>
+				</span>
+			</label>
+			<input id="<?= $objCore->strId ?>_name" type="text" name="name" value="<?= $objCore->strName ?>">	
+		</p>
+
+		<p>
+			<label>
+				<?= $objCore->getHelperTranslator()->_("E-Mail") ?>*		
+				<span class="error">
+					<?= $objCore->strErrorEmail ?>
+				</span>
+			</label>
+			<input type="text" name="email" value="<?= $objCore->strEmail ?>">
+		</p>
+		
+		<p>
+			<label>
+				<?= $objCore->getHelperTranslator()->_("Subject") ?>*		
+				<span class="error">
+					<?= $objCore->strErrorSubject ?>
+				</span>
+			</label>
+			<input type="text" name="subject" value="<?= $objCore->strSubject ?>">
+		</p>		
+
+		<p>
+			<label>
+				<?= $objCore->getHelperTranslator()->_("Your message") ?>*
+				<span class="error">
+					<?= $objCore->strErrorMessage ?>
+				</span>
+			</label>
+			<textarea name="message" spellcheck="true"><?= $objCore->strMessage ?></textarea>
+		</p>
+
+		<p>
+			<input class="button" type="submit" value="<?= $objCore->getHelperTranslator()->_("Submit") ?>">
+		</p>
+		<?= $objCore->getHelperScripts()->renderViewScripts() ?>
+
+	<? } ?>
+</form>
