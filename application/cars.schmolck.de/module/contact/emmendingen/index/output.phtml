@@ -9,45 +9,47 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cont
   <?=file_get_contents($objCore->getBaseUrl() . '/contact/element/form'); ?>
  */
 ?>
-<h1>
-	<?= $objCore->getHelperTranslator()->_("Contact") ?>
-</h1>
-<?=  $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
-<h2>
-	Schmolck GmbH &amp; Co. KG
-</h2>
-<p>
-	<img src="apps/image/350/90/data/images/contact/emmendingen.jpg" style="float: right;">
-	Autorisierter Mercedes-Benz Service und Vermittler
-	<br>
-	der Daimler AG f&uuml;r Mercedes-Benz PKW, NFZ und smart
-	<br>
-	Unimog-Service, Umwelttechnik
-</p>
-<p>
-	Am Elzdamm 2 <br>
-	79312 Emmendingen
-</p>
-<p>
-	Tel +49 7641 / 4602-0 <br>
-	Fax +49 7641 / 4602-80 <br>
-</p>
-<p>
-	<?= $objCore->getHelperTranslator()->_("Mail") ?>
-	<a href="<?= $objCore->getHelperLink()->get('mailto:info.emmendingen@schmolck.de')?>">
-		<span class="screen">
-			Info Emmendingen
-		</span>
-		<span class="print">
-			info.emmendingen@schmolck.de
-		</span>
-	</a>
-</p>
-<div class="clearer">
-	
-</div>
-<div class="screen">
+<div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
+	<h1>
+		<?= $objCore->getHelperTranslator()->_("Contact") ?>
+	</h1>
+	<?=  $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
+	<h2>
+		Schmolck GmbH &amp; Co. KG
+	</h2>
 	<p>
-		<?= $objCore->getHelperApi()->getElement('email', 'contact/api/form') ?>				
+		<img src="apps/image/350/90/data/images/contact/emmendingen.jpg">
+		Autorisierter Mercedes-Benz Service und Vermittler
+		<br>
+		der Daimler AG f&uuml;r Mercedes-Benz PKW, NFZ und smart
+		<br>
+		Unimog-Service, Umwelttechnik
 	</p>
+	<p>
+		Am Elzdamm 2 <br>
+		79312 Emmendingen
+	</p>
+	<p>
+		Tel +49 7641 / 4602-0 <br>
+		Fax +49 7641 / 4602-80 <br>
+	</p>
+	<p>
+		<?= $objCore->getHelperTranslator()->_("Mail") ?>
+		<a href="<?= $objCore->getHelperLink()->get('mailto:info.emmendingen@schmolck.de')?>">
+			<span class="screen">
+				Info Emmendingen
+			</span>
+			<span class="print">
+				info.emmendingen@schmolck.de
+			</span>
+		</a>
+	</p>
+	<div class="clearer">
+
+	</div>
+	<div class="screen">
+		<p>
+			<?= $objCore->getHelperApi()->getElement('email', 'contact/api/form') ?>				
+		</p>
+	</div>
 </div>
