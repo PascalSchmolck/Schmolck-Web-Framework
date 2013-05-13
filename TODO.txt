@@ -5,7 +5,7 @@
 
 2013.05.08
 **********
-[ ] [PORTAL] change e-mail address for "Vogtsburg-Bischoffingen"
+[x] [PORTAL] change e-mail address for "Vogtsburg-Bischoffingen"
 [x] [LAYOUT] fix logo (screen vs. print) problem on IE8 and lower
 [x] [LAYOUT] make new layout compatible to small screens (320x240)
 [x] [LAYOUT] make new layout compatible to small screens (480x320)
