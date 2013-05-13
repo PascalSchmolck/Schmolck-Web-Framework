@@ -326,6 +326,9 @@ img {
 		@media only print {
 			display: none;
 		}
+		@media handheld, only screen and (max-width: 640px) {
+			margin-top: 10px;
+		}
 		@media handheld, only screen and (max-width: 480px) {
 			margin-top: 10px;
 		}
@@ -715,6 +718,9 @@ img {
 					width: 310px;
 					height: 233px;
 				}
+				@media handheld, only screen and (max-width: 640px) {
+					float: none;
+				}	
 				float: left;
 				width: 500px;
 				height: auto;
@@ -783,7 +789,7 @@ img {
 					width: 50%;
 				}
 				.muellheim {
-					@media handheld, only screen and (max-width: 480px) {
+					@media handheld, only screen and (max-width: 640px) {
 						float: none;
 						width: 50%;
 						img {
@@ -805,6 +811,9 @@ img {
 		@media handheld, only screen and (max-width: 1024px) {
 			width: 50%;
 		}	
+		@media handheld, only screen and (max-width: 640px) {
+			width: 40%;
+		}
 		@media handheld, only screen and (max-width: 480px) {
 			float: none;
 			display: block;
