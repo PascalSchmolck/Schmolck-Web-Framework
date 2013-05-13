@@ -70,6 +70,7 @@
 			</div>
 		</div>
 
+		<? if (!in_array($objCore->getModule(), array('contact', 'location'))) : ?>
 		<div id="contact">
 			<div class="container">
 				<table>
@@ -118,6 +119,7 @@
 				</table>
 			</div>
 		</div>
+		<? endif; ?>
 
 		<div id="footer">
 			<div class="container">
