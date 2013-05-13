@@ -1,5 +1,6 @@
 2013.05.13
 **********
+[x] [LAYOUT] improve new layout for all common screen sizes
 [x] [CARS] hide cars with price tag 0€
 
 2013.05.08
