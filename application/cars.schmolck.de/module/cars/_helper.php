@@ -252,11 +252,18 @@ class Cars_Helper extends Schmolck_Framework_Helper {
 				if (trim($this->getFilter('price')) != '') {
 					$strWherePrice = "
 						AND RP <= {$this->getFilter('price')}
+						AND RP > 1
+					";
+				} else {
+					$strWherePrice = "
+						AND RP > 1
 					";
 				}
 				break;
 			case 'all':
-				continue;
+				$strWherePrice = "
+					AND RP > 1
+				";
 				break;
 		}
 		// - km
