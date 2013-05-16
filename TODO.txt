@@ -1,3 +1,7 @@
+2013.05.16
+**********
+[x] [LAYOUT] separate styles into 'default' and 'layout' for better portability
+
 2013.05.13
 **********
 [x] [LAYOUT] improve new layout for all Apple device screen sizes
