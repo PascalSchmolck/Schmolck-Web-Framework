@@ -14,7 +14,7 @@ $strStyleClass = $objCore->getHelperApi()->getStyleClass();
 	<? if ($objCore->strParameterMode == 'list') : ?>
 		<div class="links">
 			<a href="#" data-mode="gallery">
-				<img src="data/images/cars/icons/gallery.png" title="<?= $objCore->getHelperTranslator()->_("Gallery") ?>">
+				<img src="data/cars/images/icons/gallery.png" title="<?= $objCore->getHelperTranslator()->_("Gallery") ?>">
 			</a>
 		</div>
 		<?= $objCore->getHelperApi()->getElement("{$objCore->strId}_result", 'cars/search/list') ?>				
@@ -23,7 +23,7 @@ $strStyleClass = $objCore->getHelperApi()->getStyleClass();
 	<? if ($objCore->strParameterMode == 'gallery') : ?>
 		<div class="links">
 			<a href="#" data-mode="list">				
-				<img src="data/images/cars/icons/list.png" title="<?= $objCore->getHelperTranslator()->_("List") ?>">
+				<img src="data/cars/images/icons/list.png" title="<?= $objCore->getHelperTranslator()->_("List") ?>">
 			</a>
 		</div>
 		<?= $objCore->getHelperApi()->getElement("{$objCore->strId}_result", 'cars/search/gallery') ?>				
