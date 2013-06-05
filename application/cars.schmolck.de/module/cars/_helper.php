@@ -41,8 +41,8 @@
  */
 class Cars_Helper extends Schmolck_Framework_Helper {
 
-	const IMAGE_PATH = 'http://www.schmolck.de/data/public/images/vehicles';
-	const DATA_FILE = 'http://www.schmolck.de/data/private/vehicles/IFZ.csv';
+	const IMAGE_PATH = CARS_LOCATION_IMAGES;
+	const DATA_FILE = CARS_LOCATION_SYNCFILE;
 	const DB_TABLE = 'mod_cars';
 	const UPDATE_LIMIT = 1800;
 
