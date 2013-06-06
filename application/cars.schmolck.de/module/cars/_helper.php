@@ -333,7 +333,7 @@ class Cars_Helper extends Schmolck_Framework_Helper {
 			$arrRow["KM"] = $this->extractKm($arrRow);
 			$arrRow["RP"] = $this->extractPrice($arrRow);
 			$arrRow["color"] = $this->extractColor($arrRow);
-			$arrRow["image"] = $this->extractFirstImageUrl($arrRow);
+			$arrRow["images"] = $this->getImages($arrRow['KNR']);
 			$arrResult[] = $arrRow;
 		}
 		return $arrResult;
@@ -487,10 +487,6 @@ class Cars_Helper extends Schmolck_Framework_Helper {
 		}
 	}
 
-	static public function extractFirstImageUrl($arrRow) {
-		return self::IMAGE_PATH . '/' . $arrRow['KNR'] . ',1.JPG';
-	}
-
 	static public function extractAusstattung($arrRow) {
 		/*
 		 * INITIALISATION
@@ -566,14 +562,24 @@ class Cars_Helper extends Schmolck_Framework_Helper {
 	 * 
 	 * @return array images
 	 */
-	public function getImages($strId) {
-		return array(
-			self::IMAGE_PATH . '/' . $strId . ',1.JPG',
-			self::IMAGE_PATH . '/' . $strId . ',2.JPG',
-			self::IMAGE_PATH . '/' . $strId . ',3.JPG',
-			self::IMAGE_PATH . '/' . $strId . ',4.JPG',
-			self::IMAGE_PATH . '/' . $strId . ',5.JPG',
-		);
+	public function getImages($strId) {		
+		if (file_exists(self::IMAGE_PATH . '/' . $strId . ',1.JPG') || substr(self::IMAGE_PATH, 0, 4) == 'http') {
+			return array(
+				self::IMAGE_PATH . '/' . $strId . ',1.JPG',
+				self::IMAGE_PATH . '/' . $strId . ',2.JPG',
+				self::IMAGE_PATH . '/' . $strId . ',3.JPG',
+				self::IMAGE_PATH . '/' . $strId . ',4.JPG',
+				self::IMAGE_PATH . '/' . $strId . ',5.JPG',
+			);
+		} elseif (file_exists('data/cars/images/sync/dummy.jpg')) {
+			return array(
+				'data/cars/images/sync/dummy.jpg'
+			);
+		} else {
+			return array(
+				'data/cars/images/dummy.jpg'
+			);
+		}
 	}	
 
 	/**

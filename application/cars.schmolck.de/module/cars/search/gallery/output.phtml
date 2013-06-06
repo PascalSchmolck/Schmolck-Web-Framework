@@ -24,7 +24,7 @@ $strBaseUrl = $objCore->getHelperApplication()->getBaseUrl();
 				<a name="<?= $arrCar['KNR'] ?>"></a>
 				<div class="item <?= $strOdd ?>" data-name="<?= $arrCar['KNR'] ?>" data-link="<?= $strBaseUrl ?>/cars/database/detail/id/<?= $arrCar['KNR'] ?>">
 					<div class="image" title="<?= $arrCar['name'] ?> (<?= $arrCar['KNR'] ?>)">
-						<img src="<?= $arrCar['image'] ?>">
+						<img src="<?= $arrCar['images'][0] ?>">
 					</div>
 					<div class="price">
 						<?= $arrCar['RP'] ?> EUR <?= $strStar ?>

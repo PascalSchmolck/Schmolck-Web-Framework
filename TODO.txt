@@ -1,7 +1,11 @@
+2013.06.06
+**********
+[x] [CARS] implement dummy feature for data/cars/images/sync folder
+
 2013.06.05
 **********
-[ ] [CARS] move cars images into data/cars/images folder
-[ ] [CARS] use new FTP locations for images and update file
+[x] [CARS] move cars images into data/cars/images folder
+[x] [CARS] use new FTP locations for images and update file
 
 2013.05.16
 **********

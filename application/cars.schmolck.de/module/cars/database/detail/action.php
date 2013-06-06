@@ -42,7 +42,6 @@ while ($arrRow = mysql_fetch_assoc($resource)) {
 	$arrRow["RP"] = $objCars->extractPrice($arrRow);
 	$arrRow["color"] = $objCars->extractColor($arrRow);
 	$arrRow["polster"] = $objCars->extractPolster($arrRow);
-	$arrRow["image"] = $objCars->extractFirstImageUrl($arrRow);
 	$arrRow["equip"] = $objCars->extractAusstattung($arrRow);
 	$arrResult[] = $arrRow;
 }

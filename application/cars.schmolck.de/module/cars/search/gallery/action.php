@@ -35,7 +35,6 @@ if ($objCore->nLimit == 0) {
 //	$arrRow["KM"] = $objCars->extractKm($arrRow);
 //	$arrRow["RP"] = $objCars->extractPrice($arrRow);
 //	$arrRow["color"] = $objCars->extractColor($arrRow);
-//	$arrRow["image"] = $objCars->extractFirstImageUrl($arrRow);
 //	$arrResult[] = $arrRow;
 //}
 //$objCore->arrCars = $arrResult;
