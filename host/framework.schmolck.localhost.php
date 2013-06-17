@@ -103,5 +103,5 @@ define('MAIL_RECIPIENT_ADDRESS', 'mail@pascalschmolck.de');
  */
 define('CARS_RECIPIENT_NAME', 'Pascal Schmolck');
 define('CARS_RECIPIENT_ADDRESS', 'mail@pascalschmolck.de');
-define('CARS_LOCATION_IMAGES', 'data/cars/images/sync');
+define('CARS_LOCATION_IMAGES', 'http://cars.schmolck.de/data/cars/images/sync');
 define('CARS_LOCATION_SYNCFILE', 'http://cars.schmolck.de/data/cars/files/sync/IFZ.csv');
