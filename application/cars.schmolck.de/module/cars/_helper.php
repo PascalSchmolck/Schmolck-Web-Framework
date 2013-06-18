@@ -442,6 +442,8 @@ class Cars_Helper extends Schmolck_Framework_Helper {
 		if (preg_match("/Volkswagen/i", $arrRow["FABT"])) {
 			return 'Volkswagen ' . $arrRow['TYP'];
 		}
+		
+		return $arrRow['FABT'].' '.$arrRow['TYP'];
 	}
 
 	static public function extractEz($arrRow) {
