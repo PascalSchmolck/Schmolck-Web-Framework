@@ -1,3 +1,7 @@
+2013.06.21
+**********
+[x] [CARS] add new contact person "Jürgen Rinkenauer"
+
 2013.06.18
 **********
 [x] [CARS] fix missing car names for foreign brands
