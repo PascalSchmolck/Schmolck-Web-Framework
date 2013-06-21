@@ -15,8 +15,8 @@ $objCore->registerLayoutScript('lib/schmolck/framework/helper/link/link.js');
 $objCore->registerLayoutScript($strTemplatePath . '/scripts.js');
 
 // - layout styles
-//$objCore->registerLayoutStyle('lib/cssgrid/1140.css');
-//$objCore->registerLayoutStyle('lib/jquery/ui/ui-lightness/jquery-ui-1.10.1.custom.min.css');
+$objCore->registerLayoutStyle($strTemplatePath . '/styles.default.less');
+$objCore->registerLayoutStyle($strTemplatePath . '/styles.layout.less');
 
 /*
  * TITLE

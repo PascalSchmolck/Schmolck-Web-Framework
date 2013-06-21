@@ -49,7 +49,7 @@ define('APPLICATION_NAME', 'cars.schmolck.de');
  * testing: on testing environment
  * production: on production server
  */
-define('APPLICATION_ENVIRONMENT', 'production');
+define('APPLICATION_ENVIRONMENT', 'development');
 
 /*
  * APPLICATION LANGUAGE

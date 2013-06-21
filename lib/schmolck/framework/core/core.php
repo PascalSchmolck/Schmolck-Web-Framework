@@ -487,10 +487,6 @@ class Schmolck_Framework_Core {
 			$strFile = "{$strPath}/html.phtml";
 
 			if (file_exists($strFile)) {
-				// - include styles
-				$this->registerLayoutStyle("{$strPath}/styles.less");
-				// - include scripts
-				$this->registerLayoutScript("{$strPath}/scripts.js");
 				// - include layout
 				require($strFile);
 			} else {
@@ -558,13 +554,13 @@ class Schmolck_Framework_Core {
 				$strHash .= md5_file($strFile);
 			}
 		}
-		$strHash = md5($strHash.APPLICATION_ENVIRONMENT);
+		$strHash = md5($strHash);
 		$strTempFile = $this->getHelperCache()->getFilePath($strHash);
 
 		/*
 		 * PROCESSING
 		 */
-		if (!file_exists($strTempFile)) {
+		if (!file_exists($strTempFile) || APPLICATION_ENVIRONMENT == 'development') {
 			// - logging
 			Schmolck_Tool_Debug::info("Optimization of styles into $strTempFile");
 			// - optimize all styles into one string
@@ -572,7 +568,7 @@ class Schmolck_Framework_Core {
 				if (file_exists($strFile)) {
 					// - less compiler
 					$objLessc = new lessc();
-					
+
 					// - do not minify on development environment
 					if (APPLICATION_ENVIRONMENT == 'development') {
 						$strCombinedLESS .= "\n\n/* {$strFile} */\n\n" . $objLessc->compileFile($strFile);
@@ -612,13 +608,13 @@ class Schmolck_Framework_Core {
 				$strHash .= md5_file($strFile);
 			}
 		}
-		$strHash = md5($strHash.APPLICATION_ENVIRONMENT);
+		$strHash = md5($strHash);
 		$strTempFile = $this->getHelperCache()->getFilePath($strHash);		
 
 		/*
 		 * PROCESSING
 		 */
-		if (!file_exists($strTempFile)) {
+		if (!file_exists($strTempFile) || APPLICATION_ENVIRONMENT == 'development') {
 			// - logging
 			Schmolck_Tool_Debug::info("Optimization of scripts into $strTempFile");
 			// - optimize all scripts into one string
