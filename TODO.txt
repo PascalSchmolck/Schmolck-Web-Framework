@@ -1,6 +1,8 @@
 2013.06.21
 **********
+[x] [LAYOUT] add scrollup image button 
 [x] [CARS] add new contact person "Jürgen Rinkenauer"
+[x] [LAYOUT] add new favicon according to logo
 
 2013.06.18
 **********
