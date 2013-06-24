@@ -54,29 +54,21 @@ msgstr "Abschicken"
 msgid "Sorry, the selected vehicle is no longer available."
 msgstr "Verzeihung, das gewählte Fahrzeug ist nicht mehr vorhanden."
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:46
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:44
 msgid "Paint"
 msgstr "Lack"
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:47
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:45
 msgid "Upholstery"
 msgstr "Polster"
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:85
+#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:81
 msgid "Contact Person"
 msgstr "Ansprechpartner"
 
 #: ../application/cars.schmolck.de/module/cars/database/overview/output.phtml:6
 msgid "Cars"
 msgstr "Fahrzeuge"
-
-#: ../application/cars.schmolck.de/module/cars/database/overview/output.phtml:25
-msgid "Contact"
-msgstr "Kontakt"
-
-#: ../application/cars.schmolck.de/module/cars/database/overview/output.phtml:35
-msgid "Mail"
-msgstr "Mail"
 
 #: ../application/cars.schmolck.de/module/cars/search/filter/output.phtml:9
 msgid "Display %s hits"
@@ -220,9 +212,13 @@ msgstr "Bitte geben Sie einen Betreff an"
 msgid "Subject"
 msgstr "Betreff"
 
-#: ../application/cars.schmolck.de/module/contact/emmendingen/index/output.phtml:53
-msgid "You can post your questions to our team in the following languages​​"
-msgstr "Sie können Ihre Fragen an unser Team in folgenden Sprachen stellen"
+#: ../application/cars.schmolck.de/module/contact/emmendingen/index/output.phtml:6
+msgid "Contact"
+msgstr "Kontakt"
+
+#: ../application/cars.schmolck.de/module/contact/emmendingen/index/output.phtml:37
+msgid "Mail"
+msgstr "Mail"
 
 #: ../application/cars.schmolck.de/module/exception/index/index/output.phtml:5
 msgid "Error message"
@@ -250,19 +246,19 @@ msgstr "Impressum"
 msgid "Location"
 msgstr "Anfahrt"
 
-#: ../application/cars.schmolck.de/module/location/emmendingen/index/output.phtml:27
+#: ../application/cars.schmolck.de/module/location/emmendingen/index/output.phtml:25
 msgid "Enter your address here"
 msgstr "Geben Sie hier Ihre Adresse ein"
 
-#: ../application/cars.schmolck.de/module/location/emmendingen/index/output.phtml:28
+#: ../application/cars.schmolck.de/module/location/emmendingen/index/output.phtml:26
 msgid "Search"
 msgstr "Suche"
 
-#: ../application/cars.schmolck.de/module/location/emmendingen/index/output.phtml:37
+#: ../application/cars.schmolck.de/module/location/emmendingen/index/output.phtml:35
 msgid "Schmolck Group"
 msgstr "Unternehmensgruppe Schmolck"
 
-#: ../application/cars.schmolck.de/module/location/emmendingen/index/output.phtml:40
+#: ../application/cars.schmolck.de/module/location/emmendingen/index/output.phtml:38
 msgid "open in a larger map"
 msgstr "in großer Ansicht öffnen"
 
@@ -278,9 +274,16 @@ msgstr "Language / Sprache"
 msgid "cars"
 msgstr "cars"
 
-#: ../application/cars.schmolck.de/template/2013.05/html.phtml:24
+#: ../application/cars.schmolck.de/template/2013.05/html.phtml:26
 msgid "Home"
 msgstr "Startseite"
+
+#: ../application/cars.schmolck.de/template/2013.07/html.phtml:27
+msgid "Menu"
+msgstr "Menü"
+
+#~ msgid "You can post your questions to our team in the following languages​​"
+#~ msgstr "Sie können Ihre Fragen an unser Team in folgenden Sprachen stellen"
 
 #~ msgid "Car"
 #~ msgstr "Fahrzeug"

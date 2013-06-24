@@ -1,3 +1,7 @@
+2013.06.24
+**********
+[x] [LAYOUT] create minimal navigation link for smaller screens
+
 2013.06.21
 **********
 [x] [LAYOUT] remove scrollup image button due to Windows Phone issues
