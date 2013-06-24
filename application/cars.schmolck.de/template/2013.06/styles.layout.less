@@ -294,12 +294,12 @@
 					height: 123px;
 				}
 				@media handheld, only screen and (max-width: 480px) {
-					width: 192px;
-					height: 144px;
+					width: 125px;
+					height: 94px;
 				}
 				@media handheld, only screen and (max-width: 320px) {
-					width: 240px;
-					height: 180px;
+					width: 115px;
+					height: 86px;
 				}
 			}
 		}
@@ -325,6 +325,9 @@
 				@media print {
 					padding: 10px 0;
 				}
+				@media handheld, only screen and (max-width: 320px) {
+					margin-bottom: 0;
+				}
 				padding: 15px 20px;
 				margin: 10px 0;
 
@@ -348,8 +351,10 @@
 					height: 154px;
 				}
 				@media handheld, only screen and (max-width: 320px) {
-					width: 205px;
-					height: 154px;
+					width: 100px;
+					height: 75px;
+					float: right;
+					padding-right: 0;
 				}
 				float: left;
 				width: 150px;
@@ -481,7 +486,7 @@
 				      padding: 0;
 				}
 				.emmendingen {
-					@media handheld, only screen and (max-width: 640px) {
+					@media handheld, only screen and (max-width: 480px) {
 					     float: none;
 					     width: 50%;
 							img {
@@ -489,10 +494,10 @@
 							}
 					}	
 					float: left;
-					width: 50%;
+					width: 45%;
 				}
 				.muellheim {
-					@media handheld, only screen and (max-width: 640px) {
+					@media handheld, only screen and (max-width: 480px) {
 					     float: none;
 					     width: 50%;
 							img {
@@ -500,7 +505,7 @@
 							}
 					}	
 					float: right;
-					width: 50%		
+					width: 45%		
 				}
 			}
 		}
