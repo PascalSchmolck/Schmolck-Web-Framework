@@ -1,5 +1,7 @@
 2013.06.24
 **********
+[ ] [CONTACT] fix Windows Phone error showing duplicate contact form
+[x] [CONTACT] fix Windows Phone error with submitting contact form
 [x] [LAYOUT] create minimal navigation link for smaller screens
 
 2013.06.21

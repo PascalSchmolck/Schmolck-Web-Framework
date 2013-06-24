@@ -2,10 +2,10 @@ $(document).ready(function() {
 	/*
 	* ACTION
 	*/
-	$('#SchmolckID input[type=submit]').click(function() {
-		SchmolckID_send();
-		return false;
-	});
+//	$('#SchmolckID_submit').click(function() {
+//		SchmolckID_send();
+//		return false;
+//	});
 		
 	/*
 	* AJAX
@@ -17,5 +17,5 @@ $(document).ready(function() {
 			id: 'SchmolckID',
 			data: strData
 		});
-	}
+	};
 });
