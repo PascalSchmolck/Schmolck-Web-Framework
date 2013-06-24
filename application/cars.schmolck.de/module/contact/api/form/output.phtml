@@ -8,6 +8,11 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
  * OUTPUT
  */
 ?>
+<? /* Windows Phone 7.8 Browser Hack */ ?>
+<div style="height: 0px;">
+	&nbsp;
+</div>
+<? /* Windows Phone 7.8 Browser Hack */ ?>
 <form id="<?= $objCore->strId ?>" method="post">
 	<? if ($objCore->strMessageMail != '') { ?>
 		<div class="notes">
