@@ -13,7 +13,16 @@
 		<link rel="stylesheet" type="text/css" href="apps/style/<?= $objCore->getLayoutStyleFile() ?>" media="all"/>
 		<!--[if lt IE 9]>
 		<link rel="stylesheet" type="text/css" href="<?= $objCore->getHelperApplication()->getTemplatePath() ?>/styles.ie.css" media="all"> 
+		<![endif]-->
+		
+		<!--[if lt IE 9]>
+		<link rel="stylesheet" type="text/css" href="<?= $objCore->getHelperApplication()->getTemplatePath() ?>/styles.ie8andlower.css" media="all">   
+		<![endif]-->
+		
+		<!--[if lt IE 8]>
+		<link rel="stylesheet" type="text/css" href="<?= $objCore->getHelperApplication()->getTemplatePath() ?>/styles.ie7andlower.css" media="all">     
 		<![endif]-->		
+		
 		<script type="text/javascript" src="apps/script/<?= $objCore->getLayoutScriptFile() ?>"></script>		
 	</head>
 	<body>
