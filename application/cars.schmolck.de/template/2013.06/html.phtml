@@ -11,6 +11,9 @@
 		</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" type="text/css" href="apps/style/<?= $objCore->getLayoutStyleFile() ?>" media="all"/>
+		<!--[if lt IE 9]>
+		<link rel="stylesheet" type="text/css" href="<?= $objCore->getHelperApplication()->getTemplatePath() ?>/styles.ie.css" media="all"> 
+		<![endif]-->		
 		<script type="text/javascript" src="apps/script/<?= $objCore->getLayoutScriptFile() ?>"></script>		
 	</head>
 	<body>
