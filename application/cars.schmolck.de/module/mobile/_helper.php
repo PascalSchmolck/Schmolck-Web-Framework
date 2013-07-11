@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Cars_Helper
+ * Mobile_Helper
  * 
  * FGC Fahrzeuggruppe-Code
  * FGT Fahrzeuggruppe-Text
@@ -39,7 +39,7 @@
  * @author Pascal Schmolck
  * @copyright 2013
  */
-class Cars_Helper extends Schmolck_Framework_Helper {
+class Mobile_Helper extends Schmolck_Framework_Helper {
 
 	const IMAGE_PATH = CARS_LOCATION_IMAGES;
 	const DATA_FILE = CARS_LOCATION_SYNCFILE;

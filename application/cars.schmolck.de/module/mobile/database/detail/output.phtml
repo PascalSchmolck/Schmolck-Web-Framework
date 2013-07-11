@@ -1,0 +1,145 @@
+<?php
+/*
+ * INITIALISATION
+ */
+$objCore = Schmolck_Framework_Core::getInstance($this);
+
+/*
+ * OUTPUT
+ */
+?>
+<div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
+	<div class="detail">
+
+		<? foreach ($objCore->arrCars as $arrCar) : ?>		
+			<h1>
+				<?= $arrCar['name'] ?>
+			</h1>
+			<div class="item" data-link="<?= $objCore->strParameterUrl ?>/id/<?= $arrCar['KNR'] ?>">
+				<div class="title">
+					<? $objCore->getHelperHtml()->setPageTitle($arrCar['name'] . ' (' . $arrCar['KNR'] . ')'); ?>
+					<? $strMailInfo = $_SERVER['HTTP_HOST'] . ' - ' . sprintf($objCore->getHelperTranslator()->_("Request for the vehicle %s"), $arrCar['KNR']); ?>
+				</div>
+				<div class="data">
+					<div class="qrcode1">
+						<img src="<?= $objCore->strQRImage ?>">
+					</div>
+					<div class="image">
+						<?=
+						$objCore->getHelperApi()->getElement("{$objCore->strId}_image", 'mobile/api/image', array(
+							'id' => $arrCar['KNR']
+						));
+						?>				
+					</div>
+					<div class="infos1">
+						<?= $arrCar['name'] ?> <br>
+						<?= $arrCar['KNR'] ?> <br>						
+					</div>
+					<div class="infos2">
+						EZ <?= $arrCar['EZ'] ?> <br>
+						<?= $arrCar['KM'] ?> km <br>
+					</div>
+					<div class="infos3">
+						<?= $arrCar['KW'] ?> kW (<?= $arrCar['PS'] ?> PS) <br>
+						<?= $arrCar['color'] ?> (<?= $objCore->getHelperTranslator()->_("Paint"); ?>) <br>
+						<?= $arrCar['polster'] ?> (<?= $objCore->getHelperTranslator()->_("Upholstery"); ?>) <br>
+					</div>
+					<div class="price">
+						<?= $arrCar['RP'] ?> EUR<br>
+						<div class="pricenote">
+							<?= $arrCar['STEUR'] ?>
+						</div>		
+					</div>
+					<div class="qrcode2">
+						<img src="<?= $objCore->strQRImage ?>">
+					</div>
+					<div class="clearer">
+						&nbsp;
+					</div>
+					<div class="equipment">
+						<div class="row1">
+							<? for ($i = 0; $i < count($arrCar["equip"]) / 2; $i++) : ?>
+								<?= $arrCar["equip"][$i] ?> <br>
+							<? endfor; ?>
+						</div>
+						<div class="row2">
+							<? for ($i = 0; $i < count($arrCar["equip"]) / 2; $i++) : ?>
+								<?= $arrCar["equip"][(count($arrCar["equip"]) / 2) + $i] ?> <br>
+							<? endfor; ?>
+						</div>
+					</div>	
+					<div class="clearer">
+						&nbsp;
+					</div>
+				</div>
+			</div>
+		<? endforeach; ?>
+	</div>			
+
+	<div class="contact">
+		<h2>
+			<?= $objCore->getHelperTranslator()->_("Contact Person") ?>
+		</h2>
+		<div class="emmendingen">
+			<h3>
+				Emmendingen	&amp; Vogtsburg
+			</h3>
+			<p>
+				<img src="apps/image/200/100/data/mobile/images/contact/mikemack.jpg">
+				<img src="apps/image/200/100/data/mobile/images/contact/andreasblakowski.jpg">
+			</p>
+			<p>
+				<a href="<?= $objCore->getHelperLink()->get("mailto:mike.mack@schmolck.de?subject={$strMailInfo}") ?>">
+					Mike Mack 
+				</a><br>			
+				Tel +49 7641 / 4602-115
+			</p>
+			<p>
+				<a href="<?= $objCore->getHelperLink()->get("mailto:andreas.blakowski@schmolck.de?subject={$strMailInfo}") ?>">
+					Andreas Blakowski 
+				</a><br>
+				Tel +49 7641 / 4602-114
+			</p>
+			<p>
+				<img src="apps/image/200/100/data/mobile/images/contact/juergenrinkenauer.jpg">
+				<img src="apps/image/200/100/data/mobile/images/contact/sebastianheiny.jpg">
+			</p>
+                        <p>
+				<a href="<?= $objCore->getHelperLink()->get("mailto:juergen.rinkenauer@schmolck.de?subject={$strMailInfo}") ?>">
+					Jürgen Rinkenauer
+				</a><br>
+				Tel +49 7641 / 4602-113 
+			</p>
+
+			<p>
+				<a href="<?= $objCore->getHelperLink()->get("mailto:sebastian.heiny@schmolck.de?subject={$strMailInfo}") ?>">
+					Sebastian Heiny 
+				</a><br>	
+				Tel +49 7641 / 4602-116 
+			</p>
+		</div>
+		<div class="muellheim">
+			<h3>
+				Müllheim
+			</h3>
+			<p>
+				<img src="apps/image/200/90/data/mobile/images/contact/lievenvanderhoofd.jpg">
+				<img src="apps/image/200/90/data/mobile/images/contact/michelmisiuk.jpg">				
+			</p>
+			<p>
+				<a href="<?= $objCore->getHelperLink()->get("mailto:lieven.vanderhoofd@schmolck.de?subject={$strMailInfo}") ?>">
+					Lieven van der Hoofd 
+				</a><br>
+				Tel +49 7631 / 3672-0 
+			</p>
+			<p>
+				<a href="<?= $objCore->getHelperLink()->get("mailto:michel.misiuk@schmolck.de?subject={$strMailInfo}") ?>">
+					Michel Misiuk 
+				</a><br>
+				Tel +49 7631 / 3672-740  <br>
+			</p>
+		</div>
+	</div>
+
+	<?= $objCore->getHelperScripts()->renderViewScripts() ?>
+</div>

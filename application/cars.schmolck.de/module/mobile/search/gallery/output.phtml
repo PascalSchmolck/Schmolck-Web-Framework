@@ -1,0 +1,51 @@
+<?php
+/*
+ * INITIALISATION
+ */
+$objCore = Schmolck_Framework_Core::getInstance($this);
+$objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cars"));
+$strBaseUrl = $objCore->getHelperApplication()->getBaseUrl();
+
+/*
+ * OUTPUT
+ */
+?>
+<div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
+	<? if ($objCore->nCars > 0) : ?>
+		<div class="loadingmessage">
+			<?= $objCore->getHelperTranslator()->_("Loading...") ?>
+		</div>	
+		<div class="amount">
+			<?= sprintf($objCore->getHelperTranslator()->_("%s Hits"), $objCore->nCars) ?>
+		</div>
+		<div class="items">
+			<? foreach ($objCore->arrCars as $arrCar) : ?>	
+				<? ($arrCar['STEUR'] != 'differenzbesteuert' ? $strStar = '*': $strStar = '') ?>
+				<a name="<?= $arrCar['KNR'] ?>"></a>
+				<div class="item <?= $strOdd ?>" data-name="<?= $arrCar['KNR'] ?>" data-link="<?= $strBaseUrl ?>/mobile/database/detail/id/<?= $arrCar['KNR'] ?>">
+					<div class="image" title="<?= $arrCar['name'] ?> (<?= $arrCar['KNR'] ?>)">
+						<img src="<?= $arrCar['images'][0] ?>">
+					</div>
+					<div class="price">
+						<?= $arrCar['RP'] ?> EUR <?= $strStar ?>
+					</div>
+				</div>
+			<? endforeach; ?>
+		</div>
+		<div class="clearer">
+			&nbsp;
+		</div>
+		<? if (count($objCore->arrCars) >= 25) : ?>
+			<div class="amount">
+				<?= sprintf($objCore->getHelperTranslator()->_("%s Hits"), $objCore->nCars) ?>
+			</div>
+		<? endif; ?>	
+		<div>
+			* Umsatzsteuer ausweisbar
+		</div>
+	<? endif; ?>	
+	<div class="clearer">
+		&nbsp;
+	</div>
+	<?= $objCore->getHelperScripts()->renderViewScripts() ?>
+</div>
