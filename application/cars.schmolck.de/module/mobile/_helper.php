@@ -3,38 +3,6 @@
 /**
  * Mobile_Helper
  * 
- * FGC Fahrzeuggruppe-Code
- * FGT Fahrzeuggruppe-Text
- * KAT Kommissionsart-Text
- * KNR Kommissionsnummer
- * FGN Fahrgestellnummer
- * RP Richtpreis
- * FAB Fabrikat
- * FABT Fabrikat-Text
- * TYP Typ
- * PS
- * KW
- * CCM
- * EZ
- * KM
- * BS Betriebsstunden
- * FARBC Farbcode
- * FARB Farbe
- * FARBA Farbart
- * FARBAT Farbart-Text
- * POLSTC Polstercode
- * POLST Polster
- * POLSTA Polsterart
- * POLSTAT Polsterart-Text
- * GA Getriebeart
- * AA Antriebsart
- * ST Standort
- * AU Ausfuehrung
- * AUSTC Ausstattungscodes getrennt durch |
- * SAUST Sonderausstattung getrennt durch |
- * VERKB Fahrzeug-Verkaufsbezeichnung wie auf Rechnung
- * STEUR Besteuerung
- * 
  * @package cars.schmolck.de
  * @author Pascal Schmolck
  * @copyright 2013
@@ -45,13 +13,57 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 	const DATA_FILE = CARS_LOCATION_SYNCFILE;
 	const DB_TABLE = 'mod_cars';
 	const UPDATE_LIMIT = 1800;
+	const ZIP_FILE = MOBILE_LOCATION_ZIPFILE;
 
 	public function __construct(Schmolck_Framework_Core $objCore) {
 		parent::__construct($objCore);
 
 		$this->updateFromCSV();
+		$this->updateFromZIP();
 	}
 
+	/**
+	 * Update database table and images from ZIP file
+	 */
+	public function updateFromZIP() {
+		/*
+		 * CHECK 
+		 */
+		// - nothing to do if no ZIP file found
+		if (!$this->_checkZIPFileExists()) {
+			return;
+		}
+		
+		/*
+		 * UNPACK
+		 */
+		$this->_unpackZIPFile();
+		
+		/*
+		 * LOADING
+		 */
+		// - database tables
+		
+
+		//.......
+		
+	}
+	
+	/**
+	 * Check if ZIP file exists
+	 * 
+	 * @return boolean
+	 */
+	protected function _checkZIPFileExists() {
+		return file_exists(self::ZIP_FILE);
+	}
+	
+	protected function _unpackZIPFile(){
+		$objFile = new Schmolck_Tool_File_Zip();
+		$objFile->file = self::ZIP_FILE;
+		$objFile->unzip();
+	}	
+	
 	/**
 	 * Set car filter value
 	 * 
@@ -72,7 +84,6 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 	 */
 	public function getFilter($strName) {
 		$arrFilter = $this->restore('filter');
-		Schmolck_Tool_Debug::debug(print_r($arrFilter, true));		
 		return $arrFilter[$strName];
 	}
 	
