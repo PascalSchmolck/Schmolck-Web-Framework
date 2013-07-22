@@ -1,6 +1,6 @@
 2013.07.22
 **********
-[ ] [MOBILE] re-arrange contact persons according to request
+[x] [MOBILE] re-arrange contact persons according to request
 [x] [FRAMEWORK] improve layout handling for AJAX calls
 
 2013.07.11

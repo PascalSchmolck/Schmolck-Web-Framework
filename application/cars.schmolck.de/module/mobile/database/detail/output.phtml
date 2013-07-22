@@ -26,8 +26,8 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 					</div>
 					<div class="image">
 						<?=
-						$objCore->getHelperApi()->getElement("{$objCore->strId}_image", 'mobile/api/image', array(
-							'id' => $arrCar['KNR']
+						$objCore->getHelperApi()->getElement("{$objCore->strId}_image", 'cars/api/image', array(
+							 'id' => $arrCar['KNR']
 						));
 						?>				
 					</div>
@@ -77,67 +77,64 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 	</div>			
 
 	<div class="contact">
-		<h2>
+		<h1>
 			<?= $objCore->getHelperTranslator()->_("Contact Person") ?>
-		</h2>
+		</h1>
 		<div class="emmendingen">
-			<h3>
+			<h2>
 				Emmendingen	&amp; Vogtsburg
-			</h3>
-			<p>
-				<img src="apps/image/200/100/data/mobile/images/contact/mikemack.jpg">
-				<img src="apps/image/200/100/data/mobile/images/contact/andreasblakowski.jpg">
-			</p>
-			<p>
-				<a href="<?= $objCore->getHelperLink()->get("mailto:mike.mack@schmolck.de?subject={$strMailInfo}") ?>">
-					Mike Mack 
-				</a><br>			
-				Tel +49 7641 / 4602-115
-			</p>
-			<p>
-				<a href="<?= $objCore->getHelperLink()->get("mailto:andreas.blakowski@schmolck.de?subject={$strMailInfo}") ?>">
-					Andreas Blakowski 
-				</a><br>
-				Tel +49 7641 / 4602-114
-			</p>
-			<p>
-				<img src="apps/image/200/100/data/mobile/images/contact/juergenrinkenauer.jpg">
-				<img src="apps/image/200/100/data/mobile/images/contact/sebastianheiny.jpg">
-			</p>
-                        <p>
-				<a href="<?= $objCore->getHelperLink()->get("mailto:juergen.rinkenauer@schmolck.de?subject={$strMailInfo}") ?>">
-					Jürgen Rinkenauer
-				</a><br>
-				Tel +49 7641 / 4602-113 
-			</p>
-
-			<p>
+			</h2>
+			<div class="box">
+				<img src="apps/image/320/100/data/cars/images/contact/sebastianheiny.jpg"><br>
 				<a href="<?= $objCore->getHelperLink()->get("mailto:sebastian.heiny@schmolck.de?subject={$strMailInfo}") ?>">
 					Sebastian Heiny 
 				</a><br>	
 				Tel +49 7641 / 4602-116 
-			</p>
+			</div>
+			<div class="box">
+				<img src="apps/image/320/100/data/cars/images/contact/mikemack.jpg"><br>
+				<a href="<?= $objCore->getHelperLink()->get("mailto:mike.mack@schmolck.de?subject={$strMailInfo}") ?>">
+					Mike Mack 
+				</a><br>			
+				Tel +49 7641 / 4602-115
+			</div>
+			<div class="box">
+				<img src="apps/image/320/100/data/cars/images/contact/juergenrinkenauer.jpg"><br>
+				<a href="<?= $objCore->getHelperLink()->get("mailto:juergen.rinkenauer@schmolck.de?subject={$strMailInfo}") ?>">
+					Jürgen Rinkenauer
+				</a><br>
+				Tel +49 7641 / 4602-113 
+			</div>	
+			<div class="box">
+				<img src="apps/image/320/100/data/cars/images/contact/andreasblakowski.jpg"><br>
+				<a href="<?= $objCore->getHelperLink()->get("mailto:andreas.blakowski@schmolck.de?subject={$strMailInfo}") ?>">
+					Andreas Blakowski 
+				</a><br>
+				<strong>
+					Verkaufsleiter
+				</strong>
+				<br>
+				Tel +49 7641 / 4602-0	
+			</div>			
 		</div>
 		<div class="muellheim">
-			<h3>
+			<h2>
 				Müllheim
-			</h3>
-			<p>
-				<img src="apps/image/200/90/data/mobile/images/contact/lievenvanderhoofd.jpg">
-				<img src="apps/image/200/90/data/mobile/images/contact/michelmisiuk.jpg">				
-			</p>
-			<p>
+			</h2>
+			<div class="box">
+				<img src="apps/image/320/100/data/cars/images/contact/lievenvanderhoofd.jpg"><br>
 				<a href="<?= $objCore->getHelperLink()->get("mailto:lieven.vanderhoofd@schmolck.de?subject={$strMailInfo}") ?>">
 					Lieven van der Hoofd 
 				</a><br>
 				Tel +49 7631 / 3672-0 
-			</p>
-			<p>
+			</div>
+			<div class="box">
+				<img src="apps/image/320/100/data/cars/images/contact/michelmisiuk.jpg">	<br>
 				<a href="<?= $objCore->getHelperLink()->get("mailto:michel.misiuk@schmolck.de?subject={$strMailInfo}") ?>">
 					Michel Misiuk 
 				</a><br>
 				Tel +49 7631 / 3672-740  <br>
-			</p>
+			</div>	
 		</div>
 	</div>
 
