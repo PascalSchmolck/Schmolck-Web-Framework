@@ -469,7 +469,7 @@ class Schmolck_Framework_Core {
 	}
 
 	protected function _runLayout() {
-		if ($this->_bLayoutRendering) {
+		if ($this->_bLayoutRendering and !$this->getHelperApi()->checkAjaxCall()) {
 
 			/*
 			 * INIT
@@ -710,15 +710,9 @@ class Schmolck_Framework_Core {
 
 	protected function _runExceptionLayout(Exception $Exception) {
 		/*
-		 * CHECK
-		 */
-		if ($this->getHelperApi()->checkAjaxCall()) {
-			$this->setLayoutRendering(false);
-		}
-		/*
 		 * OUTPUT
 		 */
-		if ($this->_bLayoutRendering) {
+		if ($this->_bLayoutRendering and !$this->getHelperApi()->checkAjaxCall()) {
 			$this->_runLayout();
 		} else {
 			$this->_renderExceptionView($Exception);

@@ -1,3 +1,14 @@
+2013.07.22
+**********
+[ ] [MOBILE] re-arrange contact persons according to request
+[x] [FRAMEWORK] improve layout handling for AJAX calls
+
+2013.07.11
+**********
+[ ] [MOBILE] create database table creation sheet for mobile.de format
+[x] [MOBILE] implement ZIP-handler for ftp sync folder (csv & images)
+[x] [MOBILE] duplicate cars module for upcoming development
+
 2013.06.24
 **********
 [x] [CARS] improve layout of search results for smaller screens
