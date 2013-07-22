@@ -49,6 +49,12 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		$this->_moveUnpackedImages();
 		
 		/*
+		 * SPLITTING
+		 */
+		// - csv file
+		$this->_splitUnpackedCSV();
+		
+		/*
 		 * LOADING
 		 */
 		// - database tables
@@ -92,7 +98,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		 * PROCESSING
 		 */
 		// - get array of all source files
-		$arrFiles = scandir(dirname(self::ZIP_FILE_LOCATION));
+		$arrFiles = scandir($strSourceDir);
 		// - cycle through all source files
 		foreach ($arrFiles as $strFile) {
 			// - do not handle dirs
@@ -116,6 +122,55 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 				throw new Exception('Could not delete extracted car image after moving to proper location');
 			}			
 		}		
+	}
+	
+	protected function _splitUnpackedCSV() {
+		/*
+		 * PREPARATION
+		 */
+		$strSourceDir = dirname(self::ZIP_FILE_LOCATION);
+		
+		/*
+		 * SCANNING
+		 */
+		// - get array of all source files
+		$arrFiles = scandir($strSourceDir);
+		// - cycle through all source files
+		foreach ($arrFiles as $strFile) {
+			// - do not handle dirs
+			if (in_array($strFile, array(".",".."))) continue;
+			// - if we find a CSV file we take it and proceed
+			if (preg_match('/\.CSV$/i', $strFile)) {
+				$arrCSV[] = $strFile;
+			}
+		}		
+		
+		/*
+		 * CHECK
+		 */
+		if (count($arrCSV) < 1) {
+			throw new Exception('No CSV file found');
+		}
+		
+		/*
+		 * SPLITTING
+		 */
+		$strFile = $arrCSV[0];
+		Schmolck_Tool_Debug::debug($strFile);
+		
+		// - read CSV file
+		if (($handle = fopen("test.csv", "r")) !== FALSE) {
+			 while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+				  $num = count($data);
+				  echo "<p> $num Felder in Zeile $row: <br /></p>\n";
+				  $row++;
+				  for ($c=0; $c < $num; $c++) {
+						echo $data[$c] . "<br />\n";
+				  }
+			 }
+			 fclose($handle);
+		}
+		
 	}
 	
 	/**
