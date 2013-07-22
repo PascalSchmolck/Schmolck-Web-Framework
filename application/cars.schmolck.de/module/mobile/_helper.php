@@ -9,11 +9,14 @@
  */
 class Mobile_Helper extends Schmolck_Framework_Helper {
 
+	// - old (perhaps obsolete very soon)
 	const IMAGE_PATH = CARS_LOCATION_IMAGES;
 	const DATA_FILE = CARS_LOCATION_SYNCFILE;
 	const DB_TABLE = 'mod_cars';
 	const UPDATE_LIMIT = 1800;
-	const ZIP_FILE = MOBILE_LOCATION_ZIPFILE;
+	// - new
+	const ZIP_FILE_LOCATION = MOBILE_ZIP_FILE_LOCATION;
+	const ZIP_IMAGES_PATH = MOBILE_ZIP_IMAGES_PATH;
 
 	public function __construct(Schmolck_Framework_Core $objCore) {
 		parent::__construct($objCore);
@@ -40,6 +43,12 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		$this->_unpackZIPFile();
 		
 		/*
+		 * COPY
+		 */
+		// - images
+		$this->_moveUnpackedImages();
+		
+		/*
 		 * LOADING
 		 */
 		// - database tables
@@ -55,14 +64,59 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 	 * @return boolean
 	 */
 	protected function _checkZIPFileExists() {
-		return file_exists(self::ZIP_FILE);
+		return file_exists(self::ZIP_FILE_LOCATION);
 	}
 	
-	protected function _unpackZIPFile(){
+	/**
+	 * Unpack ZIP file
+	 */
+	protected function _unpackZIPFile() {
 		$objFile = new Schmolck_Tool_File_Zip();
-		$objFile->file = self::ZIP_FILE;
+		$objFile->file = self::ZIP_FILE_LOCATION;
 		$objFile->unzip();
 	}	
+	
+	/**
+	 * Move unpacked car images to proper location
+	 * 
+	 * @throws Exception
+	 */
+	protected function _moveUnpackedImages() {		
+		/*
+		 * PREPARATION
+		 */
+		$strSourceDir = dirname(self::ZIP_FILE_LOCATION);
+		$strDestinationDir = self::ZIP_IMAGES_PATH;
+				
+		/*
+		 * PROCESSING
+		 */
+		// - get array of all source files
+		$arrFiles = scandir(dirname(self::ZIP_FILE_LOCATION));
+		// - cycle through all source files
+		foreach ($arrFiles as $strFile) {
+			// - do not handle dirs
+			if (in_array($strFile, array(".",".."))) continue;
+			// - do not handle other files than *.JPG and *.jpg
+			if (!preg_match('/\.JPG$/i', $strFile)) continue;
+			// - if we copied this successfully, mark it for deletion
+			if (copy($strSourceDir.'/'.$strFile, $strDestinationDir.'/'.$strFile)) {
+				$arrDelete[] = $strSourceDir.'/'.$strFile;
+			} else {
+				throw new Exception('Could not move extracted car image to proper location');
+			}
+		}
+		
+		/*
+		 * CLEANING
+		 */
+		// - delete all successfully-copied files
+		foreach ($arrDelete as $strFile) {
+			if (!unlink($strFile)) {
+				throw new Exception('Could not delete extracted car image after moving to proper location');
+			}			
+		}		
+	}
 	
 	/**
 	 * Set car filter value

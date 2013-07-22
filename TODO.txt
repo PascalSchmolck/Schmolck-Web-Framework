@@ -1,7 +1,9 @@
 2013.07.22
 **********
+[ ] [MOBILE] extend ZIP-handler by CSV splitting functionality
 [x] [MOBILE] re-arrange contact persons according to request
 [x] [FRAMEWORK] improve layout handling for AJAX calls
+[x] [MOBILE] extend ZIP-handler by image copy functionality
 
 2013.07.11
 **********

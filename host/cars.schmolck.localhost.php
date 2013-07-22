@@ -109,4 +109,5 @@ define('CARS_LOCATION_SYNCFILE', 'http://cars.schmolck.de/data/cars/files/sync/I
 /*
  * MOBILE
  */
-define('MOBILE_LOCATION_ZIPFILE', 'data/mobile/files/sync/test.zip');
+define('MOBILE_ZIP_FILE_LOCATION', 'data/mobile/files/sync/test.zip');
+define('MOBILE_ZIP_IMAGES_PATH', 'data/mobile/images/sync');
