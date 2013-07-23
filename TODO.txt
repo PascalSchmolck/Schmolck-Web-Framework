@@ -1,3 +1,7 @@
+2013.07.23
+**********
+[x] [FRAMEWORK] improve debugging by adding handling for arrays
+
 2013.07.22
 **********
 [ ] [MOBILE] extend ZIP-handler by CSV splitting functionality
