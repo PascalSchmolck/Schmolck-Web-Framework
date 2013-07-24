@@ -15,246 +15,16 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 	const DB_TABLE = 'mod_cars';
 	const UPDATE_LIMIT = 1800;
 	// - new
-	const ZIP_FILE = MOBILE_ZIP_FILE;
-	const ZIP_IMAGES_PATH = MOBILE_ZIP_IMAGES_PATH;
-	const CSV_FILE_NAME = MOBILE_CSV_FILE_NAME;
-	const CSV_DELIMITER = MOBILE_CSV_DELIMITER;
-	const CSV_ENCLOSURE = MOBILE_CSV_ENCLOSURE;
-	const DATABASE_FILE = MOBILE_DATABASE_FILE;
-	const DATABASE_TABLE = MOBILE_DATABASE_TABLE;
+	const DATABASE_TABLE = MOBILE_DATABASE_TABLE;	
 
 	public function __construct(Schmolck_Framework_Core $objCore) {
 		parent::__construct($objCore);
 
-		$this->updateFromCSV();
-		$this->updateFromZIP();
-	}
-
-	/**
-	 * Update database table and images from ZIP file
-	 */
-	public function updateFromZIP() {
 		/*
-		 * CHECK 
+		 * IMPORT
 		 */
-		// - nothing to do if no ZIP file found
-		if (!$this->_checkZIPFileExists()) {
-			return;
-		}
-
-		/*
-		 * PROCESSING
-		 */
-		// - unpack uploaded ZIP file
-		$this->_unpackZIPFile();
-		// - move car images to proper location
-		$this->_moveUnpackedImages();
-//		// - split CSV file into separate files
-//		$this->_splitUnpackedCSV();
-		// - import data into database tables
-		$this->_importUnpackedCSV();
-		
-		
-	}
-	
-	/**
-	 * Check if ZIP file exists
-	 * 
-	 * @return boolean
-	 */
-	protected function _checkZIPFileExists() {
-		return file_exists(self::ZIP_FILE);
-	}
-	
-	/**
-	 * Unpack ZIP file
-	 */
-	protected function _unpackZIPFile() {
-		/*
-		 * UNZIPPING
-		 */
-		$objFile = new Schmolck_Tool_File_Zip();
-		$objFile->file = self::ZIP_FILE;
-		$objFile->unzip();
-		
-		/*
-		 * CLEANING
-		 */
-		// - rename ZIP file
-		if (APPLICATION_ENVIRONMENT != 'development') {
-			rename(self::ZIP_FILE, self::ZIP_FILE.'.bak');
-		}
-	}	
-	
-	/**
-	 * Move unpacked car images to proper location
-	 * 
-	 * @throws Exception
-	 */
-	protected function _moveUnpackedImages() {		
-		/*
-		 * PREPARATION
-		 */
-		$strSourceDir = dirname(self::ZIP_FILE);
-		$strDestinationDir = self::ZIP_IMAGES_PATH;
-				
-		/*
-		 * PROCESSING
-		 */
-		// - get array of all source files
-		$arrFiles = scandir($strSourceDir);
-		// - cycle through all source files
-		foreach ($arrFiles as $strFile) {
-			// - do not handle dirs
-			if (in_array($strFile, array(".",".."))) continue;
-			// - do not handle other files than *.JPG and *.jpg
-			if (!preg_match('/\.JPG$/i', $strFile)) continue;
-			// - if we copied this successfully, mark it for deletion
-			if (copy($strSourceDir.'/'.$strFile, $strDestinationDir.'/'.$strFile)) {
-				$arrDelete[] = $strSourceDir.'/'.$strFile;
-			} else {
-				throw new Exception('Could not move extracted car image to proper location');
-			}
-		}
-		
-		/*
-		 * CLEANING
-		 */
-		// - delete all successfully-copied files
-		foreach ($arrDelete as $strFile) {
-			if (!unlink($strFile)) {
-				throw new Exception('Could not delete extracted car image after moving to proper location');
-			}			
-		}		
-	}
-	
-//	protected function _splitUnpackedCSV() {
-//		/*
-//		 * PREPARATION
-//		 */
-//		$strSourceDir = dirname(self::ZIP_FILE);
-//		
-//		/*
-//		 * SCANNING
-//		 */
-//		// - get array of all source files
-//		$arrFiles = scandir($strSourceDir);
-//		// - cycle through all source files
-//		foreach ($arrFiles as $strFile) {
-//			// - do not handle dirs
-//			if (in_array($strFile, array(".",".."))) continue;
-//			// - if we find a CSV file we take it and proceed
-//			if (preg_match('/\.CSV$/i', $strFile)) {
-//				$arrCSV[] = $strFile;
-//			}
-//		}		
-//		
-//		/*
-//		 * CHECK
-//		 */
-//		if (count($arrCSV) < 1) {
-//			throw new Exception('No CSV file found');
-//		}
-//		
-//		/*
-//		 * SPLITTING
-//		 */
-//		$strPath = $strSourceDir;
-//		$strFile = self::CSV_FILE_NAME;
-//
-//		// - read CSV file
-//		if (($resHandler = fopen($strPath.'/'.$strFile, "r")) !== FALSE) {
-//			while (($strLine = fgets($resHandler)) !== FALSE) {
-//				// - explode into value array
-//				$arrValues = explode(self::CSV_DELIMITER, $strLine);
-//				
-//				// - determine car id
-//				$strCarId = $arrValues[1];
-//								
-//				// - determine first parameters
-//				$nLengthPosition1 = 0;
-//				$nStartPosition1 = $nLengthPosition1 + 1;
-//				$nLength1 = intval($this->_getEnclosureFreeCSVValue($arrValues[$nLengthPosition1]));
-//
-//				// - determine second parameters
-//				$nLengthPosition2 = $nStartPosition1 + $nLength1;
-//				$nStartPosition2 = $nLengthPosition2 + 1;				
-//				$nLength2 = intval($this->_getEnclosureFreeCSVValue($arrValues[$nLengthPosition2]));
-//				
-//				// - determine third parameters
-//				$nLengthPosition3 = $nLengthPosition2 + 1 + $nLength2;
-//				$nStartPosition3 = $nLengthPosition3 + 1;
-//				$nLength3 = intval($this->_getEnclosureFreeCSVValue($arrValues[$nLengthPosition3]));
-//
-//				// - calculate value arrays
-//				$arrValues1 = array_slice($arrValues, $nStartPosition1, $nLength1);
-//				$arrValues2 = array_merge(array($strCarId), array_slice($arrValues, $nStartPosition2, $nLength2));
-//				$arrValues3 = array_merge(array($strCarId), array_slice($arrValues, $nStartPosition3, $nLength3));
-//				
-//				// - write to separate database import files
-//				file_put_contents(self::DATABASE_IMPORT_FILE1, implode(self::CSV_DELIMITER, $arrValues1));
-//				file_put_contents(self::DATABASE_IMPORT_FILE2, implode(self::CSV_DELIMITER, $arrValues2));
-//				file_put_contents(self::DATABASE_IMPORT_FILE3, implode(self::CSV_DELIMITER, $arrValues3));
-//			}
-//			fclose($resHandler);
-//			
-//			// - remove source CSV file
-//			unlink($strPath.'/'.$strFile);
-//		}	
-//	}
-	
-	/*
-	 * Import data into database tables
-	 */
-	protected function _importUnpackedCSV() {
-		/*
-		 * INITIALISATION
-		 */
-		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
-		
-		/*
-		 * QUERY
-		 */
-		$strQuery = "
-			LOAD DATA LOCAL INFILE '".self::DATABASE_FILE."'
-			REPLACE
-			INTO TABLE `".self::DATABASE_TABLE."`
-			FIELDS TERMINATED BY '".self::CSV_DELIMITER."'
-			OPTIONALLY ENCLOSED BY '\"'
-			LINES TERMINATED BY '\n'
-		";
-		$objCore->getHelperDatabase()->query($strQuery);
-				
-		/*
-		 * CLEANING
-		 */
-		if (APPLICATION_ENVIRONMENT != 'development') {
-			rename(self::DATABASE_FILE, self::DATABASE_FILE.'.bak');
-		}
-		
-	}
-	
-	/**
-	 * Get CSV value without defined enclosure strings
-	 * 
-	 * @param string $strValue
-	 * @return string cleaned string
-	 */
-	protected function _getEnclosureFreeCSVValue($strValue) {
-		/*
-		 * PROCESSING
-		 */
-		// - if string longer than 2 characters
-		if (mb_strlen($strValue) > 2) {
-			// - remove first and last enclosure
-			$strValue1 = ltrim($strValue, self::CSV_ENCLOSURE);
-			$strValue2 = rtrim($strValue1, self::CSV_ENCLOSURE);
-		}
-		
-		/*
-		 * RETURN
-		 */
-		return $strValue2;
+		$objImportHelper = new Mobile_Import_Helper($objCore);
+		$objImportHelper->updateFromZIP();
 	}
 	
 	/**
@@ -543,97 +313,6 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		return $arrResult;
 	}
 
-	/**
-	 * Update database from CSV if required
-	 */
-	public function updateFromCSV() {
-		/*
-		 * INITIALISATION
-		 */
-		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
-
-		/*
-		 * SESSION
-		 */
-		// - only update if necessary
-		if ($this->_isUpToDate()) {
-			return;
-		}
-
-		/*
-		 * COPY
-		 */
-		$strTempFile = $this->_getTempFile();
-		copy(self::DATA_FILE, $strTempFile);
-
-		/*
-		 * CHECK
-		 */
-		// - determine columns
-		$resource = $objCore->getHelperDatabase()->query("SHOW COLUMNS FROM " . self::DB_TABLE);
-		$nColumns = mysql_num_rows($resource);
-
-		/*
-		 * UPDATE
-		 */
-		// - read file...
-		$handle = fopen($strTempFile, 'r');
-		while (!feof($handle)) {
-
-			// - ...line by line
-			$strLine = fgets($handle);
-			$arrData = explode(";", $strLine);
-			$nCounter++;
-
-			// - ignore empty lines
-			if (trim($strLine) == '') {
-				continue;
-			}
-
-			// - consider line only if it matches the amount of columns
-			if (count($arrData) == $nColumns) {
-				// - build insert query
-				$strQuery1 = "INSERT INTO `" . self::DB_TABLE . "` VALUES (";
-				$strQuery2 = "";
-				$strQuery3 = ")";
-
-				for ($i = 0; $i < $nColumns; $i++) {
-					$strQuery2 = $strQuery2 . "'" . mysql_real_escape_string(trim($arrData[$i])) . "', ";
-				}
-				$strQuery2 = substr($strQuery2, 0, -2);
-
-				// - clear table first
-				if (!$bEmptied) {
-					$objCore->getHelperDatabase()->query("TRUNCATE TABLE `" . self::DB_TABLE . "`");
-					$bEmptied = true;
-				}
-				// - insert
-				$objCore->getHelperDatabase()->query($strQuery1 . $strQuery2 . $strQuery3);
-			} else {
-				Schmolck_Tool_Debug::error('CSV file contains wrong column number in line ' . $nCounter, __FILE__, __LINE__);
-			}
-		}
-
-		/*
-		 * DEBUGGING
-		 */
-		Schmolck_Tool_Debug::notice('Cars database has been updated with file ' . $strTempFile);
-	}
-
-	protected function _isUpToDate() {
-		$strTempFile = $this->_getTempFile();
-		if (file_exists($strTempFile)) {
-			if ((time() - filemtime($strTempFile)) <= self::UPDATE_LIMIT) {
-				return true;
-			}
-		}
-	}
-
-	protected function _getTempFile() {
-		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
-		return $objCore->getHelperCache()->getFilePath(md5(self::DATA_FILE) . '.csv');
-	}
-
 	static function extractName($arrRow) {
 		if (preg_match("/Mercedes/i", $arrRow["FABT"])) {
 			return 'Mercedes-Benz ' . $arrRow['TYP'];
@@ -745,20 +424,20 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		 */
 		$strQuery = "
 			SELECT 
-				DISTINCT FABT 
+				DISTINCT D_marke 
 			FROM 
-				" . self::DB_TABLE . "
+				" . self::DATABASE_TABLE . "
 			WHERE
 				TRUE
-				AND FABT IS NOT NULL
-				AND FABT <> 'null'
-				AND FABT <> ''	
+				AND D_marke IS NOT NULL
+				AND D_marke <> 'null'
+				AND D_marke <> ''	
 			ORDER BY 
-				FABT
+				D_marke
 		";
 		$resource = $objCore->getHelperDatabase()->query($strQuery);
 		while ($arrRow = mysql_fetch_assoc($resource)) {
-			$arrResult[] = strtolower($arrRow["FABT"]);
+			$arrResult[] = strtolower($arrRow["D_marke"]);
 		}
 		return $arrResult;
 	}
@@ -804,20 +483,20 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		 */
 		$strQuery = "
 			SELECT 
-				DISTINCT RP 
+				DISTINCT K_preis
 			FROM 
-				" . self::DB_TABLE . "
+				" . self::DATABASE_TABLE . "
 			WHERE
 				TRUE
-				AND RP IS NOT NULL
-				AND RP <> 'null'
-				AND RP <> ''
+				AND K_preis IS NOT NULL
+				AND K_preis <> 'null'
+				AND K_preis <> ''
 			ORDER BY 
-				RP ASC
+				K_preis ASC
 		";
 		$resource = $objCore->getHelperDatabase()->query($strQuery);
 		while ($arrRow = mysql_fetch_assoc($resource)) {
-			$arrResult[] = $arrRow["RP"];
+			$arrResult[] = $arrRow["K_preis"];
 		}
 		return $arrResult;
 	}
@@ -890,4 +569,258 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		return $arrResult;
 	}
 
+}
+
+/**
+ * Mobile_Import_Helper
+ * 
+ * @package cars.schmolck.de
+ * @author Pascal Schmolck
+ * @copyright 2013
+ */
+class Mobile_Import_Helper extends Schmolck_Framework_Helper {
+
+	const ZIP_FILE = MOBILE_ZIP_FILE;
+	const ZIP_IMAGES_PATH = MOBILE_ZIP_IMAGES_PATH;
+	const CSV_FILE_NAME = MOBILE_CSV_FILE_NAME;
+	const CSV_DELIMITER = MOBILE_CSV_DELIMITER;
+	const CSV_ENCLOSURE = MOBILE_CSV_ENCLOSURE;
+	const DATABASE_FILE = MOBILE_DATABASE_FILE;
+	const DATABASE_TABLE = MOBILE_DATABASE_TABLE;
+	
+	public function __construct(Schmolck_Framework_Core $objCore) {
+		parent::__construct($objCore);
+
+		$this->updateFromZIP();
+	}	
+	
+	/**
+	 * Update database table and images from ZIP file
+	 */
+	public function updateFromZIP() {
+		/*
+		 * CHECK 
+		 */
+		// - nothing to do if no ZIP file found
+		if (!$this->_checkIfExists()) {
+			return;
+		}
+
+		/*
+		 * PROCESSING
+		 */
+		// - unpack uploaded ZIP file
+		$this->_unpackZIPFile();
+		// - move car images to proper location
+		$this->_moveUnpackedImages();
+//		// - split CSV file into separate files
+//		$this->_splitUnpackedCSV();
+		// - import data into database tables
+		$this->_importUnpackedCSV();
+		
+		/*
+		 * DEBUGGING
+		 */
+		Schmolck_Tool_Debug::notice('Mobile database has been updated with file: ' . self::DATABASE_TABLE);
+		
+	}
+	
+	/**
+	 * Check if ZIP file exists
+	 * 
+	 * @return boolean
+	 */
+	protected function _checkIfExists() {
+		return file_exists(self::ZIP_FILE);
+	}
+	
+	/**
+	 * Unpack ZIP file
+	 */
+	protected function _unpackZIPFile() {
+		/*
+		 * UNZIPPING
+		 */
+		$objFile = new Schmolck_Tool_File_Zip();
+		$objFile->file = self::ZIP_FILE;
+		$objFile->unzip();
+		
+		/*
+		 * CLEANING
+		 */
+		// - rename ZIP file
+		if (APPLICATION_ENVIRONMENT != 'development') {
+			rename(self::ZIP_FILE, self::ZIP_FILE.'.bak');
+		}
+	}	
+	
+	/**
+	 * Move unpacked car images to proper location
+	 * 
+	 * @throws Exception
+	 */
+	protected function _moveUnpackedImages() {		
+		/*
+		 * PREPARATION
+		 */
+		$strSourceDir = dirname(self::ZIP_FILE);
+		$strDestinationDir = self::ZIP_IMAGES_PATH;
+				
+		/*
+		 * PROCESSING
+		 */
+		// - get array of all source files
+		$arrFiles = scandir($strSourceDir);
+		// - cycle through all source files
+		foreach ($arrFiles as $strFile) {
+			// - do not handle dirs
+			if (in_array($strFile, array(".",".."))) continue;
+			// - do not handle other files than *.JPG and *.jpg
+			if (!preg_match('/\.JPG$/i', $strFile)) continue;
+			// - if we copied this successfully, mark it for deletion
+			if (copy($strSourceDir.'/'.$strFile, $strDestinationDir.'/'.$strFile)) {
+				$arrDelete[] = $strSourceDir.'/'.$strFile;
+			} else {
+				throw new Exception('Could not move extracted car image to proper location');
+			}
+		}
+		
+		/*
+		 * CLEANING
+		 */
+		// - delete all successfully-copied files
+		foreach ($arrDelete as $strFile) {
+			if (!unlink($strFile)) {
+				throw new Exception('Could not delete extracted car image after moving to proper location');
+			}			
+		}		
+	}
+	
+//	protected function _splitUnpackedCSV() {
+//		/*
+//		 * PREPARATION
+//		 */
+//		$strSourceDir = dirname(self::ZIP_FILE);
+//		
+//		/*
+//		 * SCANNING
+//		 */
+//		// - get array of all source files
+//		$arrFiles = scandir($strSourceDir);
+//		// - cycle through all source files
+//		foreach ($arrFiles as $strFile) {
+//			// - do not handle dirs
+//			if (in_array($strFile, array(".",".."))) continue;
+//			// - if we find a CSV file we take it and proceed
+//			if (preg_match('/\.CSV$/i', $strFile)) {
+//				$arrCSV[] = $strFile;
+//			}
+//		}		
+//		
+//		/*
+//		 * CHECK
+//		 */
+//		if (count($arrCSV) < 1) {
+//			throw new Exception('No CSV file found');
+//		}
+//		
+//		/*
+//		 * SPLITTING
+//		 */
+//		$strPath = $strSourceDir;
+//		$strFile = self::CSV_FILE_NAME;
+//
+//		// - read CSV file
+//		if (($resHandler = fopen($strPath.'/'.$strFile, "r")) !== FALSE) {
+//			while (($strLine = fgets($resHandler)) !== FALSE) {
+//				// - explode into value array
+//				$arrValues = explode(self::CSV_DELIMITER, $strLine);
+//				
+//				// - determine car id
+//				$strCarId = $arrValues[1];
+//								
+//				// - determine first parameters
+//				$nLengthPosition1 = 0;
+//				$nStartPosition1 = $nLengthPosition1 + 1;
+//				$nLength1 = intval($this->_getEnclosureFreeCSVValue($arrValues[$nLengthPosition1]));
+//
+//				// - determine second parameters
+//				$nLengthPosition2 = $nStartPosition1 + $nLength1;
+//				$nStartPosition2 = $nLengthPosition2 + 1;				
+//				$nLength2 = intval($this->_getEnclosureFreeCSVValue($arrValues[$nLengthPosition2]));
+//				
+//				// - determine third parameters
+//				$nLengthPosition3 = $nLengthPosition2 + 1 + $nLength2;
+//				$nStartPosition3 = $nLengthPosition3 + 1;
+//				$nLength3 = intval($this->_getEnclosureFreeCSVValue($arrValues[$nLengthPosition3]));
+//
+//				// - calculate value arrays
+//				$arrValues1 = array_slice($arrValues, $nStartPosition1, $nLength1);
+//				$arrValues2 = array_merge(array($strCarId), array_slice($arrValues, $nStartPosition2, $nLength2));
+//				$arrValues3 = array_merge(array($strCarId), array_slice($arrValues, $nStartPosition3, $nLength3));
+//				
+//				// - write to separate database import files
+//				file_put_contents(self::DATABASE_IMPORT_FILE1, implode(self::CSV_DELIMITER, $arrValues1));
+//				file_put_contents(self::DATABASE_IMPORT_FILE2, implode(self::CSV_DELIMITER, $arrValues2));
+//				file_put_contents(self::DATABASE_IMPORT_FILE3, implode(self::CSV_DELIMITER, $arrValues3));
+//			}
+//			fclose($resHandler);
+//			
+//			// - remove source CSV file
+//			unlink($strPath.'/'.$strFile);
+//		}	
+//	}
+	
+	/*
+	 * Import data into database tables
+	 */
+	protected function _importUnpackedCSV() {
+		/*
+		 * INITIALISATION
+		 */
+		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
+		
+		/*
+		 * QUERY
+		 */
+		$strQuery = "
+			LOAD DATA LOCAL INFILE '".self::DATABASE_FILE."'
+			REPLACE
+			INTO TABLE `".self::DATABASE_TABLE."`
+			FIELDS TERMINATED BY '".self::CSV_DELIMITER."'
+			OPTIONALLY ENCLOSED BY '\"'
+			LINES TERMINATED BY '\n'
+		";
+		$objCore->getHelperDatabase()->query($strQuery);
+				
+		/*
+		 * CLEANING
+		 */
+		if (APPLICATION_ENVIRONMENT != 'development') {
+			rename(self::DATABASE_FILE, self::DATABASE_FILE.'.bak');
+		}
+	}
+	
+	/**
+	 * Get CSV value without defined enclosure strings
+	 * 
+	 * @param string $strValue
+	 * @return string cleaned string
+	 */
+	protected function _getEnclosureFreeCSVValue($strValue) {
+		/*
+		 * PROCESSING
+		 */
+		// - if string longer than 2 characters
+		if (mb_strlen($strValue) > 2) {
+			// - remove first and last enclosure
+			$strValue1 = ltrim($strValue, self::CSV_ENCLOSURE);
+			$strValue2 = rtrim($strValue1, self::CSV_ENCLOSURE);
+		}
+		
+		/*
+		 * RETURN
+		 */
+		return $strValue2;
+	}	
 }
