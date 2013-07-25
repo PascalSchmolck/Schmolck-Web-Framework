@@ -1,6 +1,8 @@
 2013.07.25
 **********
-[ ] [MOBILE] change "mobile" module to use newly introduced database table
+[ ] [MOBILE] extend CSV import functionality by "length" checks
+[ ] [MOBILE] fix strangely formatted "Bemerkungen" in detail view
+[x] [MOBILE] change "mobile" module to use newly introduced database table
 
 2013.07.23
 **********

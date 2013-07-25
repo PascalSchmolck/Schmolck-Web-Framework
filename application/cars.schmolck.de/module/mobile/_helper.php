@@ -16,6 +16,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 	const UPDATE_LIMIT = 1800;
 	// - new
 	const DATABASE_TABLE = MOBILE_DATABASE_TABLE;	
+	const IMAGES_PATH = MOBILE_IMAGES_PATH;	
 
 	public function __construct(Schmolck_Framework_Core $objCore) {
 		parent::__construct($objCore);
@@ -62,118 +63,119 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		/*
 		 * PREPARATION
 		 */
-//		// - brand
-//		switch ($this->getFilter('brand')) {
-//			default:
-//				if (trim($this->getFilter('brand')) != '') {
-//					$strWhereBrand = "
-//						AND FABT LIKE '{$this->getFilter('brand')}'
-//					";
-//				}
-//				break;
-//			case 'all':
-//				$strWhereBrand = "
-//					AND FABT LIKE '%'
-//				";
-//				break;
-//			case 'others':
-//				$strWhereBrand = "
-//					AND FABT NOT LIKE 'Mercedes-Benz'
-//					AND FABT NOT LIKE 'Smart'
-//				";
-//				break;
-//		}
-//		// - model
-//		switch ($this->getFilter('model')) {
-//			case 'all':
-//				$strWhereModel = "
-//					AND TYP LIKE '%'
-//				";
-//				break;
-//			// - mercedes
-//			case "a":
-//				$strWhereModel = "
-//					AND typ LIKE 'A %'
-//				";
-//				break;
-//			case "b":
-//				$strWhereModel = "
-//					AND typ LIKE 'B %'
-//				";
-//				break;
-//			case "c":
-//				$strWhereModel = "
-//					AND
-//						( typ LIKE 'C %'
-//						OR typ LIKE 'CL %'
-//						)
-//				";
-//				break;
-//			case "e":
-//				$strWhereModel = "
-//					AND typ LIKE 'E %'
-//				";
-//				break;
-//			case "offroad":
-//				$strWhereModel = "
-//					AND
-//						( typ LIKE 'M %'
-//						OR typ LIKE 'ML %'
-//						OR typ LIKE 'G %'
-//						OR typ LIKE 'GL %'
-//						OR typ LIKE 'GLK %'
-//						)
-//				";
-//				break;
-//			case "clk":
-//				$strWhereModel = "
-//					AND typ LIKE 'CLK %'
-//				";
-//				break;
-//			case "slk":
-//				$strWhereModel = "
-//					AND typ LIKE 'SLK %'
-//				";
-//				break;
-//			case "others-mercedes":
-//				$strWhereModel = "
-//					AND typ NOT LIKE 'A %'
-//					AND typ NOT LIKE 'B %'
-//					AND typ NOT LIKE 'C %'
-//					AND typ NOT LIKE 'CL %'
-//					AND typ NOT LIKE 'E %'
-//					AND typ NOT LIKE 'CLK %'
-//					AND typ NOT LIKE 'SLK %'
-//					AND typ NOT LIKE 'M %'
-//					AND typ NOT LIKE 'ML %'
-//					AND typ NOT LIKE 'G %'
-//					AND typ NOT LIKE 'GL %'
-//					AND typ NOT LIKE 'GLK %'
-//				";
-//				break;
-//			// - smart
-//			case "f2":
-//				$strWhereModel = "
-//					AND typ LIKE '%FORTWO%'
-//				";
-//				break;
-//			case "f4":
-//				$strWhereModel = "
-//					AND typ LIKE '%FORFOUR%'
-//				";
-//				break;
-//			case "roadster":
-//				$strWhereModel = "
-//					AND typ LIKE '%ROADSTER%'
-//				";
-//				break;
-//			case "others-smart":
-//				$strWhereModel = "
-//					AND typ NOT LIKE '%FORTWO%'
-//					AND typ NOT LIKE '%FORFOUR%'
-//					AND typ NOT LIKE '%ROADSTER%'
-//				";
-//				break;			
+		// - brand
+		switch ($this->getFilter('brand')) {
+			default:
+				if (trim($this->getFilter('brand')) != '') {
+					$strWhereBrand = "
+						AND D_marke COLLATE UTF8_GENERAL_CI LIKE '{$this->getFilter('brand')}'
+					";
+				}
+				break;
+			case 'all':
+				$strWhereBrand = "
+					AND D_marke COLLATE UTF8_GENERAL_CI LIKE '%'
+				";
+				break;
+			case 'others':
+				$strWhereBrand = "
+					AND D_marke COLLATE UTF8_GENERAL_CI NOT LIKE 'Mercedes-Benz'
+					AND D_marke COLLATE UTF8_GENERAL_CI NOT LIKE 'Smart'
+				";
+				break;
+		}
+		// - model
+		switch ($this->getFilter('model')) {
+			case 'all':
+				$strWhereModel = "
+					AND E_modell LIKE '%'
+				";
+				break;
+			// - mercedes
+			case "a":
+				$strWhereModel = "
+					AND E_modell LIKE 'A %'
+				";
+				break;
+			case "b":
+				$strWhereModel = "
+					AND E_modell LIKE 'B %'
+				";
+				break;
+			case "c":
+				$strWhereModel = "
+					AND
+						( E_modell LIKE 'C %'
+						OR E_modell LIKE 'CL %'
+						)
+				";
+				break;
+			case "e":
+				$strWhereModel = "
+					AND E_modell LIKE 'E %'
+				";
+				break;
+			case "offroad":
+				$strWhereModel = "
+					AND
+						( E_modell LIKE 'M %'
+						OR E_modell LIKE 'ML %'
+						OR E_modell LIKE 'G %'
+						OR E_modell LIKE 'GL %'
+						OR E_modell LIKE 'GLK %'
+						)
+				";
+				break;
+			case "clk":
+				$strWhereModel = "
+					AND E_modell LIKE 'CLK %'
+				";
+				break;
+			case "slk":
+				$strWhereModel = "
+					AND E_modell LIKE 'SLK %'
+				";
+				break;
+			case "others-mercedes":
+				$strWhereModel = "
+					AND E_modell NOT LIKE 'A %'
+					AND E_modell NOT LIKE 'B %'
+					AND E_modell NOT LIKE 'C %'
+					AND E_modell NOT LIKE 'CL %'
+					AND E_modell NOT LIKE 'E %'
+					AND E_modell NOT LIKE 'CLK %'
+					AND E_modell NOT LIKE 'SLK %'
+					AND E_modell NOT LIKE 'M %'
+					AND E_modell NOT LIKE 'ML %'
+					AND E_modell NOT LIKE 'G %'
+					AND E_modell NOT LIKE 'GL %'
+					AND E_modell NOT LIKE 'GLK %'
+				";
+				break;
+			// - smart
+			case "f2":
+				$strWhereModel = "
+					AND E_modell LIKE '%FORTWO%'
+				";
+				break;
+			case "f4":
+				$strWhereModel = "
+					AND E_modell LIKE '%FORFOUR%'
+				";
+				break;
+			case "roadster":
+				$strWhereModel = "
+					AND E_modell LIKE '%ROADSTER%'
+				";
+				break;
+			case "others-smart":
+				$strWhereModel = "
+					AND E_modell NOT LIKE '%FORTWO%'
+					AND E_modell NOT LIKE '%FORFOUR%'
+					AND E_modell NOT LIKE '%ROADSTER%'
+				";
+				break;	
+		}
 //		// - type
 //		switch ($this->getFilter('type')) {
 //			default:
@@ -189,26 +191,26 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 //				";
 //				break;
 //		}
-//		// - price
-//		switch ($this->getFilter('price')) {
-//			default:
-//				if (trim($this->getFilter('price')) != '') {
-//					$strWherePrice = "
-//						AND RP <= {$this->getFilter('price')}
-//						AND RP > 1
-//					";
-//				} else {
-//					$strWherePrice = "
-//						AND RP > 1
-//					";
-//				}
-//				break;
-//			case 'all':
-//				$strWherePrice = "
-//					AND RP > 1
-//				";
-//				break;
-//		}
+		// - price
+		switch ($this->getFilter('price')) {
+			default:
+				if (trim($this->getFilter('price')) != '') {
+					$strWherePrice = "
+						AND K_preis <= {$this->getFilter('price')}
+						AND K_preis > 1
+					";
+				} else {
+					$strWherePrice = "
+						AND K_preis > 1
+					";
+				}
+				break;
+			case 'all':
+				$strWherePrice = "
+					AND K_preis > 1
+				";
+				break;
+		}
 //		// - km
 //		switch ($this->getFilter('km')) {
 //			default:
@@ -271,104 +273,103 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		";	
 		$resource = $objCore->getHelperDatabase()->query($strQuery);
 		while ($arrRow = mysql_fetch_assoc($resource)) {
-			$arrRow['NAME'] = $this->extractName($arrRow);
-			$arrRow['EZ'] = $this->extractEz($arrRow);
-			$arrRow['KM'] = $this->extractKm($arrRow);
-			$arrRow['PREIS'] = $this->extractPrice($arrRow);
-			$arrRow['COLOR'] = $arrRow['Q_farbe'];
-			$arrRow['images'] = $this->getImages($arrRow['KNR']);
-			$arrResult[] = $arrRow;
-		}
-		return $arrResult;
-	}
-
-	static function extractName($arrRow) {
-		if (preg_match("/Mercedes/i", $arrRow['D_marke'])) {
-			return 'Mercedes-Benz ' . $arrRow['E_modell'];
-		}
-
-		if (preg_match("/smart/i", $arrRow['D_marke'])) {
-			return 'smart ' . $arrRow['E_modell'];
-		}
-
-		if (preg_match("/Volkswagen/i", $arrRow['D_marke'])) {
-			return 'Volkswagen ' . $arrRow['E_modell'];
+			$arrResult[] = $this->_getMappedRow($arrRow);
 		}
 		
-		return $arrRow['D_marke'].' '.$arrRow['E_modell'];
+		/*
+		 * RETURN
+		 */
+		return $arrResult;
 	}
-
-	static public function extractEz($arrRow) {
-		return str_replace('.', '/', $arrRow["I_ez"]);
-	}
-
-	static public function extractKm($arrRow) {
-		return number_format($arrRow['J_kilometer'], 0, ',', ".");
-	}
-
-	static public function extractPrice($arrRow) {
-		return number_format($arrRow["K_preis"], 0, "", ".");
-	}
-
-	static public function extractColor($arrRow) {
-		$arrRow["Q_farbe"] = strtolower($arrRow["Q_farbe"]);
-		switch ($arrRow["Q_farbe"]) {
-			default:
-				return $arrRow["Q_farbe"];
-				break;
-			case "Mercedes-Benz":
-				return $arrRow["FARBC"] . " " . $arrRow["FARB"];
-				break;
-		}
-	}
-
-	static public function extractPolster($arrRow) {
-		$arrRow["POLST"] = ucfirst(strtolower($arrRow["POLST"]));
-		switch ($arrRow["FABT"]) {
-			default:
-				return $arrRow["POLST"];
-				break;
-			case "Mercedes-Benz":
-				return $arrRow["POLSTC"] . " " . $arrRow["POLST"];
-				break;
-		}
-	}
-
-	static public function extractAusstattung($arrRow) {
+	
+	public function querySingleCar($strId) {
 		/*
 		 * INITIALISATION
 		 */
-		$nCounter = 0;
-		$arrAusstattung = array();
-
+		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
+		
 		/*
-		 * EXTRACTION
+		 * PREPARATION
 		 */
-		$arrSaust = explode("|", $arrRow["SAUST"]);
-		$arrAustc = explode("|", $arrRow["AUSTC"]);
-
+		$strId = mysql_real_escape_string($strId);
+		
 		/*
-		 * PROCESSING
+		 * QUERY
 		 */
-		switch ($arrRow["FABT"]) {
-			default:
-				foreach ($arrSaust as $strEntry) {
-					$arrAusstattung[] = utf8_encode(trim($strEntry));
-					$nCounter++;
-				}
-				break;
-			case "Mercedes-Benz":
-				foreach ($arrSaust as $strEntry) {
-					if (!empty($arrAustc[$nCounter]) or !empty($strEntry)) {
-						$arrAusstattung[] = $arrAustc[$nCounter] . ' ' . utf8_encode(trim($strEntry));
-					}
-					$nCounter++;
-				}
-				break;
-		}
-		sort($arrAusstattung);
-		return $arrAusstattung;
+		$strQuery = "
+			SELECT 
+				* 
+			FROM 
+				".self::DATABASE_TABLE." 
+			WHERE 
+				A_satz_nummer='{$strId}' 
+			LIMIT 1
+		";
+		$resource = $objCore->getHelperDatabase()->query($strQuery);
+		while ($arrRow = mysql_fetch_assoc($resource)) {
+			$arrResult[] = $this->_getMappedRow($arrRow);
+		}		
+		
+		/*
+		 * RETURN
+		 */
+		return $arrResult;
 	}
+	
+	/**
+	 * Get mapped database query result row
+	 * 
+	 * @param array $arrRow database query row
+	 * @return array with mapped values
+	 */
+	protected function _getMappedRow($arrRow) {
+		$arrMap['id'] = $arrRow['A_satz_nummer'];
+		$arrMap['name'] = $this->_getMappedRowName($arrRow['D_marke'], $arrRow['E_modell']);
+		$arrMap['ez'] = $this->_getMappedRowEz($arrRow);
+		$arrMap['km'] = $this->_getMappedRowKm($arrRow);
+		$arrMap['kw'] = $arrRow['F_leistung'];
+		$arrMap['preis'] = $this->_getMappedRowPrice($arrRow['K_preis']);
+		$arrMap['mwst'] = $arrRow['L_mwst'];
+		$arrMap['color'] = $arrRow['Q_farbe'];
+		$arrMap['images'] = $this->getImages($arrMap['id']);
+		$arrMap['bemerkung'] = $this->_getMappedRowBemerkungen(utf8_encode($arrRow['Z_bemerkung']));
+		return $arrMap;
+	}
+
+	protected function _getMappedRowName($strMarke, $strModell) {
+		if (preg_match("/Mercedes/i", $strMarke)) {
+			return 'Mercedes-Benz ' . $strModell;
+		}
+
+		if (preg_match("/smart/i", $strMarke)) {
+			return 'smart ' . $strModell;
+		}
+
+		if (preg_match("/Volkswagen/i", $strMarke)) {
+			return 'Volkswagen ' . $strModell;
+		}
+		
+		return $strMarke.' '.$strModell;
+	}
+
+	protected function _getMappedRowEz($arrRow) {
+		return str_replace('.', '/', $arrRow["I_ez"]);
+	}
+
+	protected function _getMappedRowKm($arrRow) {
+		return number_format($arrRow['J_kilometer'], 0, ',', ".");
+	}
+
+	protected function _getMappedRowPrice($strPrice) {
+		return number_format($strPrice, 0, "", ".");
+	}
+	
+	protected function _getMappedRowBemerkungen($strNotes) {
+		$arrReplace = array(
+			'\\'	=> '<br>', 
+		);
+		return str_replace(array_keys($arrReplace), array_values($arrReplace), $strNotes);
+	}	
 
 	/**
 	 * Get all brands
@@ -409,24 +410,24 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 	 * 
 	 * @return array images
 	 */
-	public function getImages($strId) {		
-		if (file_exists(self::IMAGE_PATH . '/' . $strId . ',1.JPG') || substr(self::IMAGE_PATH, 0, 4) == 'http') {
+	public function getImages($strId) {	
+		if (file_exists(self::IMAGES_PATH . '/' . $strId . '_1.JPG') || substr(self::IMAGE_PATH, 0, 4) == 'http') {
 			return array(
-				self::IMAGE_PATH . '/' . $strId . ',1.JPG',
-				self::IMAGE_PATH . '/' . $strId . ',2.JPG',
-				self::IMAGE_PATH . '/' . $strId . ',3.JPG',
-				self::IMAGE_PATH . '/' . $strId . ',4.JPG',
-				self::IMAGE_PATH . '/' . $strId . ',5.JPG',
+				self::IMAGES_PATH . '/' . $strId . '_1.JPG',
+				self::IMAGES_PATH . '/' . $strId . '_2.JPG',
+				self::IMAGES_PATH . '/' . $strId . '_3.JPG',
+				self::IMAGES_PATH . '/' . $strId . '_4.JPG',
+				self::IMAGES_PATH . '/' . $strId . '_5.JPG',
 			);
-		} elseif (file_exists('data/cars/images/sync/dummy.jpg')) {
+		} elseif (file_exists('data/mobile/images/sync/dummy.jpg')) {
 			return array(
-				'data/cars/images/sync/dummy.jpg'
+				'data/mobile/images/sync/dummy.jpg'
 			);
 		} else {
 			return array(
-				'data/cars/images/dummy.jpg'
+				'data/mobile/images/dummy.jpg'
 			);
-		}
+		}		
 	}	
 
 	/**
@@ -543,7 +544,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 
 	const ZIP_FILE = MOBILE_ZIP_FILE;
-	const ZIP_IMAGES_PATH = MOBILE_ZIP_IMAGES_PATH;
+	const IMAGES_PATH = MOBILE_IMAGES_PATH;
 	const CSV_FILE_NAME = MOBILE_CSV_FILE_NAME;
 	const CSV_DELIMITER = MOBILE_CSV_DELIMITER;
 	const CSV_ENCLOSURE = MOBILE_CSV_ENCLOSURE;
@@ -626,7 +627,7 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 		 * PREPARATION
 		 */
 		$strSourceDir = dirname(self::ZIP_FILE);
-		$strDestinationDir = self::ZIP_IMAGES_PATH;
+		$strDestinationDir = self::IMAGES_PATH;
 				
 		/*
 		 * PROCESSING

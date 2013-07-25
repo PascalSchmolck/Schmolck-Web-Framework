@@ -33,19 +33,7 @@ $strParameterId = trim(strip_tags($_GET['id']));
 /*
  * DATA
  */
-$strQuery = sprintf("SELECT * FROM mod_cars WHERE knr='%s' LIMIT 1", mysql_real_escape_string($strParameterId));
-$resource = $objCore->getHelperDatabase()->query($strQuery);
-while ($arrRow = mysql_fetch_assoc($resource)) {
-	$arrRow['name'] = $objCars->extractName($arrRow);
-	$arrRow["EZ"] = $objCars->extractEz($arrRow);
-	$arrRow["KM"] = $objCars->extractKm($arrRow);
-	$arrRow["RP"] = $objCars->extractPrice($arrRow);
-	$arrRow["color"] = $objCars->extractColor($arrRow);
-	$arrRow["polster"] = $objCars->extractPolster($arrRow);
-	$arrRow["equip"] = $objCars->extractAusstattung($arrRow);
-	$arrResult[] = $arrRow;
-}
-$objCore->arrCars = $arrResult;
+$objCore->arrCars = $objCars->querySingleCar($strParameterId);
 
 /*
  * CHECK

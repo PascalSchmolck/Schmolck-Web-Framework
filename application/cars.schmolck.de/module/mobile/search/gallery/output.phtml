@@ -20,14 +20,15 @@ $strBaseUrl = $objCore->getHelperApplication()->getBaseUrl();
 		</div>
 		<div class="items">
 			<? foreach ($objCore->arrCars as $arrCar) : ?>	
-				<? ($arrCar['STEUR'] != 'differenzbesteuert' ? $strStar = '*': $strStar = '') ?>
-				<a name="<?= $arrCar['KNR'] ?>"></a>
-				<div class="item <?= $strOdd ?>" data-name="<?= $arrCar['KNR'] ?>" data-link="<?= $strBaseUrl ?>/mobile/database/detail/id/<?= $arrCar['KNR'] ?>">
-					<div class="image" title="<?= $arrCar['name'] ?> (<?= $arrCar['KNR'] ?>)">
+				
+				<a name="<?= $arrCar['id'] ?>"></a>
+				<div class="item <?= $strOdd ?>" data-name="<?= $arrCar['id'] ?>" data-link="<?= $strBaseUrl ?>/mobile/database/detail/id/<?= $arrCar['id'] ?>">
+					<div class="image" title="<?= $arrCar['name'] ?> (<?= $arrCar['id'] ?>)">
 						<img src="<?= $arrCar['images'][0] ?>">
 					</div>
+					<? ($arrCar['mwst'] == '1' ? $strStar = '*': $strStar = '') ?>
 					<div class="price">
-						<?= $arrCar['RP'] ?> EUR <?= $strStar ?>
+						<?= $strStar ?> <?= $arrCar['preis'] ?> EUR 
 					</div>
 				</div>
 			<? endforeach; ?>
@@ -41,7 +42,7 @@ $strBaseUrl = $objCore->getHelperApplication()->getBaseUrl();
 			</div>
 		<? endif; ?>	
 		<div>
-			* Umsatzsteuer ausweisbar
+			* <?= $objCore->getHelperTranslator()->_("VAT not deductable"); ?>
 		</div>
 	<? endif; ?>	
 	<div class="clearer">

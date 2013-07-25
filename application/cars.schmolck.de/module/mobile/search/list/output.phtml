@@ -22,31 +22,32 @@ $nCounter = 0;
 		<div class="list">
 			<? foreach ($objCore->arrCars as $arrCar) : ?>		
 				<? ($nCounter % 2 == 1) ? $strOdd = 'odd' : $strOdd = ''; ?> 
-				<a name="<?= $arrCar['KNR'] ?>"></a>
-				<div class="item <?= $strOdd ?>" data-name="<?= $arrCar['KNR'] ?>" data-link="<?= $strBaseUrl ?>/mobile/database/detail/id/<?= $arrCar['KNR'] ?>">
+				<a name="<?= $arrCar['id'] ?>"></a>
+				<div class="item <?= $strOdd ?>" data-name="<?= $arrCar['id'] ?>" data-link="<?= $strBaseUrl ?>/mobile/database/detail/id/<?= $arrCar['id'] ?>">
 					<div class="title">
-						<?= $arrCar['NAME'] ?>
+						<?= $arrCar['name'] ?>
 					</div>
 					<div class="data">
 						<div class="image">
 							<img src="<?= $arrCar['images'][0] ?>">
 						</div>
 						<div class="infos1">
-							<?= $arrCar['KNR'] ?> <br>						
+							<?= $arrCar['id'] ?> <br>						
 						</div>
 						<div class="infos2">
-							EZ <?= $arrCar['EZ'] ?> <br>
-							<?= $arrCar['KM'] ?> km <br>
+							EZ <?= $arrCar['ez'] ?> <br>
+							<?= $arrCar['km'] ?> km <br>
 						</div>
 						<div class="infos3">
-							<?= $arrCar['KW'] ?> kW (<?= $arrCar['PS'] ?> PS) <br>
-							<?= $arrCar['COLOR'] ?> <br>
+							<?= $arrCar['kw'] ?> kW <br>
+							<?= $arrCar['color'] ?> <br>
 						</div>
+						<? ($arrCar['mwst'] == '1' ? $strMwstNote = 'VAT not deductable': $strMwstNote = 'VAT deductable') ?>
 						<div class="price">
-							<?= $arrCar['PREIS'] ?> EUR<br>
+							<?= $arrCar['preis'] ?> EUR <br>
 							<div class="pricenote">
-								<?= $arrCar['STEUR'] ?>
-							</div>		
+								<?= $strMwstNote ?>
+							</div>							
 						</div>
 						<div class="clearer">
 							&nbsp;
