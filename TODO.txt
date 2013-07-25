@@ -1,17 +1,21 @@
+2013.07.25
+**********
+[ ] [MOBILE] change "mobile" module to use newly introduced database table
+
 2013.07.23
 **********
 [x] [FRAMEWORK] improve debugging by adding handling for arrays
 
 2013.07.22
 **********
-[ ] [MOBILE] extend "mobile" module helper by CSV import functionality
+[x] [MOBILE] extend "mobile" module helper by CSV import functionality
 [x] [MOBILE] re-arrange contact persons according to request
 [x] [FRAMEWORK] improve layout handling for AJAX calls
 [x] [MOBILE] extend ZIP-handler by image copy functionality
 
 2013.07.11
 **********
-[ ] [MOBILE] create database table creation sheet for mobile.de format
+[?] [MOBILE] create database table creation sheet for mobile.de format
 [x] [MOBILE] implement ZIP-handler for ftp sync folder (csv & images)
 [x] [MOBILE] duplicate cars module for upcoming development
 

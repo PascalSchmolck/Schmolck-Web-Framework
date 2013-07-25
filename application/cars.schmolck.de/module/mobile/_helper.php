@@ -62,221 +62,190 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		/*
 		 * PREPARATION
 		 */
-		// - brand
-		switch ($this->getFilter('brand')) {
-			default:
-				if (trim($this->getFilter('brand')) != '') {
-					$strWhereBrand = "
-						AND FABT LIKE '{$this->getFilter('brand')}'
-					";
-				}
-				break;
-			case 'all':
-				$strWhereBrand = "
-					AND FABT LIKE '%'
-				";
-				break;
-			case 'others':
-				$strWhereBrand = "
-					AND FABT NOT LIKE 'Mercedes-Benz'
-					AND FABT NOT LIKE 'Smart'
-				";
-				break;
-		}
-		// - model
-		switch ($this->getFilter('model')) {
-			case 'all':
-				$strWhereModel = "
-					AND TYP LIKE '%'
-				";
-				break;
-			// - mercedes
-			case "a":
-				$strWhereModel = "
-					AND typ LIKE 'A %'
-				";
-				break;
-			case "b":
-				$strWhereModel = "
-					AND typ LIKE 'B %'
-				";
-				break;
-			case "c":
-				$strWhereModel = "
-					AND
-						( typ LIKE 'C %'
-						OR typ LIKE 'CL %'
-						)
-				";
-				break;
-			case "e":
-				$strWhereModel = "
-					AND typ LIKE 'E %'
-				";
-				break;
-			case "offroad":
-				$strWhereModel = "
-					AND
-						( typ LIKE 'M %'
-						OR typ LIKE 'ML %'
-						OR typ LIKE 'G %'
-						OR typ LIKE 'GL %'
-						OR typ LIKE 'GLK %'
-						)
-				";
-				break;
-			case "clk":
-				$strWhereModel = "
-					AND typ LIKE 'CLK %'
-				";
-				break;
-			case "slk":
-				$strWhereModel = "
-					AND typ LIKE 'SLK %'
-				";
-				break;
-			case "others-mercedes":
-				$strWhereModel = "
-					AND typ NOT LIKE 'A %'
-					AND typ NOT LIKE 'B %'
-					AND typ NOT LIKE 'C %'
-					AND typ NOT LIKE 'CL %'
-					AND typ NOT LIKE 'E %'
-					AND typ NOT LIKE 'CLK %'
-					AND typ NOT LIKE 'SLK %'
-					AND typ NOT LIKE 'M %'
-					AND typ NOT LIKE 'ML %'
-					AND typ NOT LIKE 'G %'
-					AND typ NOT LIKE 'GL %'
-					AND typ NOT LIKE 'GLK %'
-				";
-				break;
-			// - smart
-			case "f2":
-				$strWhereModel = "
-					AND typ LIKE '%FORTWO%'
-				";
-				break;
-			case "f4":
-				$strWhereModel = "
-					AND typ LIKE '%FORFOUR%'
-				";
-				break;
-			case "roadster":
-				$strWhereModel = "
-					AND typ LIKE '%ROADSTER%'
-				";
-				break;
-			case "others-smart":
-				$strWhereModel = "
-					AND typ NOT LIKE '%FORTWO%'
-					AND typ NOT LIKE '%FORFOUR%'
-					AND typ NOT LIKE '%ROADSTER%'
-				";
-				break;			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+//		// - brand
+//		switch ($this->getFilter('brand')) {
 //			default:
-//				if (trim($this->getFilter('model')) != '') {
-//					$strWhereModel = "
-//						AND TYP LIKE '{$this->getFilter('model')} %'
+//				if (trim($this->getFilter('brand')) != '') {
+//					$strWhereBrand = "
+//						AND FABT LIKE '{$this->getFilter('brand')}'
 //					";
 //				}
 //				break;
+//			case 'all':
+//				$strWhereBrand = "
+//					AND FABT LIKE '%'
+//				";
+//				break;
+//			case 'others':
+//				$strWhereBrand = "
+//					AND FABT NOT LIKE 'Mercedes-Benz'
+//					AND FABT NOT LIKE 'Smart'
+//				";
+//				break;
+//		}
+//		// - model
+//		switch ($this->getFilter('model')) {
 //			case 'all':
 //				$strWhereModel = "
 //					AND TYP LIKE '%'
 //				";
 //				break;
-//			case 'others':
+//			// - mercedes
+//			case "a":
 //				$strWhereModel = "
-//					AND TYP NOT LIKE 'Mercedes-Benz'
-//					AND TYP NOT LIKE 'Smart'
+//					AND typ LIKE 'A %'
 //				";
 //				break;
-		}		
-		// - type
-		switch ($this->getFilter('type')) {
-			default:
-				if (trim($this->getFilter('type')) != '') {
-					$strWhereType = "
-						AND KAT LIKE '{$this->getFilter('type')}'
-					";
-				}
-				break;
-			case 'all':
-				$strWhereType = "
-					AND KAT LIKE '%'
-				";
-				break;
-		}
-		// - price
-		switch ($this->getFilter('price')) {
-			default:
-				if (trim($this->getFilter('price')) != '') {
-					$strWherePrice = "
-						AND RP <= {$this->getFilter('price')}
-						AND RP > 1
-					";
-				} else {
-					$strWherePrice = "
-						AND RP > 1
-					";
-				}
-				break;
-			case 'all':
-				$strWherePrice = "
-					AND RP > 1
-				";
-				break;
-		}
-		// - km
-		switch ($this->getFilter('km')) {
-			default:
-				if (trim($this->getFilter('km')) != '') {
-					$strWhereKm = "
-						AND KM <= '{$this->getFilter('km')}'
-					";
-				}
-				break;
-			case 'all':
-				continue;
-				break;
-		}	
-		// - ez
-		switch ($this->getFilter('ez')) {
-			default:
-				if (trim($this->getFilter('ez')) != '') {
-					$strWhereEz = "
-						AND EZ LIKE '{$this->getFilter('ez')}%'
-					";
-				}
-				break;
-			case 'all':
-				continue;
-				break;
-		}
+//			case "b":
+//				$strWhereModel = "
+//					AND typ LIKE 'B %'
+//				";
+//				break;
+//			case "c":
+//				$strWhereModel = "
+//					AND
+//						( typ LIKE 'C %'
+//						OR typ LIKE 'CL %'
+//						)
+//				";
+//				break;
+//			case "e":
+//				$strWhereModel = "
+//					AND typ LIKE 'E %'
+//				";
+//				break;
+//			case "offroad":
+//				$strWhereModel = "
+//					AND
+//						( typ LIKE 'M %'
+//						OR typ LIKE 'ML %'
+//						OR typ LIKE 'G %'
+//						OR typ LIKE 'GL %'
+//						OR typ LIKE 'GLK %'
+//						)
+//				";
+//				break;
+//			case "clk":
+//				$strWhereModel = "
+//					AND typ LIKE 'CLK %'
+//				";
+//				break;
+//			case "slk":
+//				$strWhereModel = "
+//					AND typ LIKE 'SLK %'
+//				";
+//				break;
+//			case "others-mercedes":
+//				$strWhereModel = "
+//					AND typ NOT LIKE 'A %'
+//					AND typ NOT LIKE 'B %'
+//					AND typ NOT LIKE 'C %'
+//					AND typ NOT LIKE 'CL %'
+//					AND typ NOT LIKE 'E %'
+//					AND typ NOT LIKE 'CLK %'
+//					AND typ NOT LIKE 'SLK %'
+//					AND typ NOT LIKE 'M %'
+//					AND typ NOT LIKE 'ML %'
+//					AND typ NOT LIKE 'G %'
+//					AND typ NOT LIKE 'GL %'
+//					AND typ NOT LIKE 'GLK %'
+//				";
+//				break;
+//			// - smart
+//			case "f2":
+//				$strWhereModel = "
+//					AND typ LIKE '%FORTWO%'
+//				";
+//				break;
+//			case "f4":
+//				$strWhereModel = "
+//					AND typ LIKE '%FORFOUR%'
+//				";
+//				break;
+//			case "roadster":
+//				$strWhereModel = "
+//					AND typ LIKE '%ROADSTER%'
+//				";
+//				break;
+//			case "others-smart":
+//				$strWhereModel = "
+//					AND typ NOT LIKE '%FORTWO%'
+//					AND typ NOT LIKE '%FORFOUR%'
+//					AND typ NOT LIKE '%ROADSTER%'
+//				";
+//				break;			
+//		// - type
+//		switch ($this->getFilter('type')) {
+//			default:
+//				if (trim($this->getFilter('type')) != '') {
+//					$strWhereType = "
+//						AND KAT LIKE '{$this->getFilter('type')}'
+//					";
+//				}
+//				break;
+//			case 'all':
+//				$strWhereType = "
+//					AND KAT LIKE '%'
+//				";
+//				break;
+//		}
+//		// - price
+//		switch ($this->getFilter('price')) {
+//			default:
+//				if (trim($this->getFilter('price')) != '') {
+//					$strWherePrice = "
+//						AND RP <= {$this->getFilter('price')}
+//						AND RP > 1
+//					";
+//				} else {
+//					$strWherePrice = "
+//						AND RP > 1
+//					";
+//				}
+//				break;
+//			case 'all':
+//				$strWherePrice = "
+//					AND RP > 1
+//				";
+//				break;
+//		}
+//		// - km
+//		switch ($this->getFilter('km')) {
+//			default:
+//				if (trim($this->getFilter('km')) != '') {
+//					$strWhereKm = "
+//						AND KM <= '{$this->getFilter('km')}'
+//					";
+//				}
+//				break;
+//			case 'all':
+//				continue;
+//				break;
+//		}	
+//		// - ez
+//		switch ($this->getFilter('ez')) {
+//			default:
+//				if (trim($this->getFilter('ez')) != '') {
+//					$strWhereEz = "
+//						AND EZ LIKE '{$this->getFilter('ez')}%'
+//					";
+//				}
+//				break;
+//			case 'all':
+//				continue;
+//				break;
+//		}
 		// - sorting
 		switch ($this->getFilter('sorting')) {
 			default:
 			case 'price':
 				$strSorting = "
-					RP ASC
+					K_preis ASC
 				";
 				break;
 			case 'km':
 				$strSorting = "
-					KM ASC
+					J_kilometer ASC
 				";
 				break;			
 		}			
@@ -288,7 +257,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 			SELECT 
 				* 
 			FROM 
-				" . self::DB_TABLE . "
+				" . self::DATABASE_TABLE . "
 			WHERE
 				TRUE
 				$strWhereBrand
@@ -302,57 +271,50 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		";	
 		$resource = $objCore->getHelperDatabase()->query($strQuery);
 		while ($arrRow = mysql_fetch_assoc($resource)) {
-			$arrRow['name'] = $this->extractName($arrRow);
-			$arrRow["EZ"] = $this->extractEz($arrRow);
-			$arrRow["KM"] = $this->extractKm($arrRow);
-			$arrRow["RP"] = $this->extractPrice($arrRow);
-			$arrRow["color"] = $this->extractColor($arrRow);
-			$arrRow["images"] = $this->getImages($arrRow['KNR']);
+			$arrRow['NAME'] = $this->extractName($arrRow);
+			$arrRow['EZ'] = $this->extractEz($arrRow);
+			$arrRow['KM'] = $this->extractKm($arrRow);
+			$arrRow['PREIS'] = $this->extractPrice($arrRow);
+			$arrRow['COLOR'] = $arrRow['Q_farbe'];
+			$arrRow['images'] = $this->getImages($arrRow['KNR']);
 			$arrResult[] = $arrRow;
 		}
 		return $arrResult;
 	}
 
 	static function extractName($arrRow) {
-		if (preg_match("/Mercedes/i", $arrRow["FABT"])) {
-			return 'Mercedes-Benz ' . $arrRow['TYP'];
+		if (preg_match("/Mercedes/i", $arrRow['D_marke'])) {
+			return 'Mercedes-Benz ' . $arrRow['E_modell'];
 		}
 
-		if (preg_match("/smart/i", $arrRow["FABT"])) {
-			return 'smart ' . $arrRow['TYP'];
+		if (preg_match("/smart/i", $arrRow['D_marke'])) {
+			return 'smart ' . $arrRow['E_modell'];
 		}
 
-		if (preg_match("/Volkswagen/i", $arrRow["FABT"])) {
-			return 'Volkswagen ' . $arrRow['TYP'];
+		if (preg_match("/Volkswagen/i", $arrRow['D_marke'])) {
+			return 'Volkswagen ' . $arrRow['E_modell'];
 		}
 		
-		return $arrRow['FABT'].' '.$arrRow['TYP'];
+		return $arrRow['D_marke'].' '.$arrRow['E_modell'];
 	}
 
 	static public function extractEz($arrRow) {
-		switch ($arrRow["EZ"]) {
-			case "0000-00-00":
-				return "-";
-				break;
-			default:
-				return (substr($arrRow["EZ"], 5, 2) . "/" . substr($arrRow["EZ"], 0, 4));
-				break;
-		}
+		return str_replace('.', '/', $arrRow["I_ez"]);
 	}
 
 	static public function extractKm($arrRow) {
-		return number_format($arrRow['KM'], 0, ',', ".");
+		return number_format($arrRow['J_kilometer'], 0, ',', ".");
 	}
 
 	static public function extractPrice($arrRow) {
-		return number_format($arrRow["RP"], 0, "", ".");
+		return number_format($arrRow["K_preis"], 0, "", ".");
 	}
 
 	static public function extractColor($arrRow) {
-		$arrRow["FARB"] = strtolower($arrRow["FARB"]);
-		switch ($arrRow["FABT"]) {
+		$arrRow["Q_farbe"] = strtolower($arrRow["Q_farbe"]);
+		switch ($arrRow["Q_farbe"]) {
 			default:
-				return $arrRow["FARB"];
+				return $arrRow["Q_farbe"];
 				break;
 			case "Mercedes-Benz":
 				return $arrRow["FARBC"] . " " . $arrRow["FARB"];
