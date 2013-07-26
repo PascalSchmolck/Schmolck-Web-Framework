@@ -560,7 +560,7 @@ class Schmolck_Framework_Core {
 		/*
 		 * PROCESSING
 		 */
-		if (!file_exists($strTempFile) || APPLICATION_ENVIRONMENT == 'development') {
+		if (!file_exists($strTempFile)) {
 			// - logging
 			Schmolck_Tool_Debug::info("Optimization of styles into $strTempFile");
 			// - optimize all styles into one string
@@ -614,7 +614,7 @@ class Schmolck_Framework_Core {
 		/*
 		 * PROCESSING
 		 */
-		if (!file_exists($strTempFile) || APPLICATION_ENVIRONMENT == 'development') {
+		if (!file_exists($strTempFile)) {
 			// - logging
 			Schmolck_Tool_Debug::info("Optimization of scripts into $strTempFile");
 			// - optimize all scripts into one string
