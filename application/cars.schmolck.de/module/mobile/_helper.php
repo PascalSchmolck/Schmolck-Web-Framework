@@ -475,6 +475,9 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 	const DATABASE_FILE = MOBILE_DATABASE_FILE;
 	const DATABASE_TABLE = MOBILE_DATABASE_TABLE;
 	
+	protected $_arrNewsImages;
+	protected $_bImportSuccess;
+	
 	public function __construct(Schmolck_Framework_Core $objCore) {
 		parent::__construct($objCore);
 
@@ -497,19 +500,71 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 		 * PROCESSING
 		 */
 		// - unpack uploaded ZIP file
-		$this->_unpackZIPFile();
+		$this->_unpackZipFile();
 		// - move car images to proper location
 		$this->_moveUnpackedImages();
 //		// - split CSV file into separate files
 //		$this->_splitUnpackedCSV();
 		// - import data into database tables
-		$this->_importUnpackedCSV();
+		$this->_importUnpackedCsv();
+
+		/*
+		 * CLEANING
+		 */
+		// - remove obsolete files
+		if ($this->_bImportSuccess) {
+			$this->_cleanObsoleteImages();
+			$this->_cleanObsoleteCsv();			
+			$this->_cleanObsoleteZip();			
+		}
 		
 		/*
 		 * DEBUGGING
 		 */
 		Schmolck_Tool_Debug::notice('Mobile database has been updated with file: ' . self::DATABASE_TABLE);
 		
+	}
+	
+	/*
+	 * Clean up obsolete import ZIP file
+	 */
+	protected function _cleanObsoleteZip() {
+		rename(self::ZIP_FILE, self::ZIP_FILE. '.bak');
+	}		
+	
+	/*
+	 * Clean up obsolete import CSV file
+	 */
+	protected function _cleanObsoleteCsv() {
+		unlink(self::DATABASE_FILE);
+	}	
+		
+	/*
+	 * Clean up obsolete car images
+	 */
+	protected function _cleanObsoleteImages() {
+		/*
+		 * PREPARATION
+		 */
+		$strPath = self::IMAGES_PATH;
+				
+		/*
+		 * PROCESSING
+		 */
+		// - get array of all files within image path
+		$arrFiles = scandir($strPath);
+		// - cycle through all files
+		foreach ($arrFiles as $strFile) {
+			// - do not handle dirs
+			if (in_array($strFile, array(".",".."))) continue;
+			// - do only delete files that have not been imported just before
+			if (in_array($strPath . '/' . $strFile, $this->_arrNewImages)) continue;
+			// - delete
+			unlink($strPath . '/' . $strFile);
+			
+			Schmolck_Tool_Debug::debug($strPath . '/' . $strFile);			
+		}
+				
 	}
 	
 	/**
@@ -524,21 +579,10 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 	/**
 	 * Unpack ZIP file
 	 */
-	protected function _unpackZIPFile() {
-		/*
-		 * UNZIPPING
-		 */
+	protected function _unpackZipFile() {
 		$objFile = new Schmolck_Tool_File_Zip();
 		$objFile->file = self::ZIP_FILE;
 		$objFile->unzip();
-		
-		/*
-		 * CLEANING
-		 */
-		// - rename ZIP file
-		if (APPLICATION_ENVIRONMENT != 'development') {
-			rename(self::ZIP_FILE, self::ZIP_FILE.'.bak');
-		}
 	}	
 	
 	/**
@@ -566,7 +610,8 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 			if (!preg_match('/\.JPG$/i', $strFile)) continue;
 			// - if we copied this successfully, mark it for deletion
 			if (copy($strSourceDir.'/'.$strFile, $strDestinationDir.'/'.$strFile)) {
-				$arrDelete[] = $strSourceDir.'/'.$strFile;
+				$this->_arrNewImages[] =  $strDestinationDir . '/' . $strFile;
+				$arrMovedImages[] = $strSourceDir . '/' . $strFile;
 			} else {
 				throw new Exception('Could not move extracted car image to proper location');
 			}
@@ -576,7 +621,7 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 		 * CLEANING
 		 */
 		// - delete all successfully-copied files
-		foreach ($arrDelete as $strFile) {
+		foreach ($arrMovedImages as $strFile) {
 			if (!unlink($strFile)) {
 				throw new Exception('Could not delete extracted car image after moving to proper location');
 			}			
@@ -681,11 +726,9 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 		$objCore->getHelperDatabase()->query($strQuery);
 				
 		/*
-		 * CLEANING
+		 * FLAGGING
 		 */
-		if (APPLICATION_ENVIRONMENT != 'development') {
-			rename(self::DATABASE_FILE, self::DATABASE_FILE.'.bak');
-		}
+		$this->_bImportSuccess = true;
 	}
 	
 	/**
