@@ -1,6 +1,7 @@
 2013.07.26
 **********
 [x] [FRAMEWORK] prevent unnecessary style and script compilation on development
+[x] [MOBILE] merge configuration from localhost to production server file
 [ ] [MOBILE] extend mobile database table columns and detail view informations
 [x] [MOBILE] fix missing translations
 [x] [MOBILE] impelement duplicate import prevention
