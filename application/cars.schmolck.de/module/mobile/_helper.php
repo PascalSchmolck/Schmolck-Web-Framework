@@ -380,28 +380,46 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 	}	
 	
 	/**
-	 * Get all images for one car
+	 * Get all available images for one car with given id
 	 * 
-	 * @return array images
+	 * @param string $strId car id
+	 * @return array of images
 	 */
 	public function getImages($strId) {	
-		if (file_exists(self::IMAGES_PATH . '/' . $strId . '_1.JPG') || substr(self::IMAGE_PATH, 0, 4) == 'http') {
-			return array(
-				self::IMAGES_PATH . '/' . $strId . '_1.JPG',
-				self::IMAGES_PATH . '/' . $strId . '_2.JPG',
-				self::IMAGES_PATH . '/' . $strId . '_3.JPG',
-				self::IMAGES_PATH . '/' . $strId . '_4.JPG',
-				self::IMAGES_PATH . '/' . $strId . '_5.JPG',
-			);
-		} elseif (file_exists('data/mobile/images/sync/dummy.jpg')) {
-			return array(
-				'data/mobile/images/sync/dummy.jpg'
-			);
-		} else {
+		/*
+		 * PREPARATION
+		 */
+		$strPath = self::IMAGES_PATH;
+				
+		/*
+		 * PROCESSING
+		 */
+		// - get array of all corresponding image files
+		$arrFiles = scandir($strPath);
+		// - cycle through all source files
+		foreach ($arrFiles as $strFile) {
+			// - do not handle dirs
+			if (in_array($strFile, array(".",".."))) continue;
+			// - do only collect files that match to "id_*.jpg"; e.g. "30080011_5.JPG"
+			if (!preg_match('/^'.$strId.'_[0-9]+\.JPG$/i', $strFile)) continue;
+			// - collect
+			$arrResult[] = $strPath.'/'.$strFile;
+		}
+		
+		/*
+		 * CHECK
+		 */
+		// - return dummy if no image file found
+		if (count($arrResult) == 0) {
 			return array(
 				'data/mobile/images/dummy.jpg'
 			);
-		}		
+		}
+		
+		/*
+		 * RETURN
+		 */
+		return $arrResult;
 	}	
 
 	/**
