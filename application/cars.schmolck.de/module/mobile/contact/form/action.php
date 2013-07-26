@@ -55,7 +55,7 @@ if ($objCore->strSend != '') {
 	 */
 	if (!$bError) {
 		try {
-			$objCore->getHelperMail()->send($objCore->strName, $objCore->strEmail, CARS_RECIPIENT_NAME, CARS_RECIPIENT_ADDRESS, $objCore->strSubject, $objCore->strMessage);
+			$objCore->getHelperMail()->send($objCore->strName, $objCore->strEmail, MOBILE_RECIPIENT_NAME, MOBILE_RECIPIENT_ADDRESS, $objCore->strSubject, $objCore->strMessage);
 			$objCore->strMessageMail = $objCore->getHelperTranslator()->_("Message has been sent. Thank you.");
 		} catch (Exception $objException) {
 			$objCore->strMessageMail = $objException->getMessage();

@@ -1,12 +1,13 @@
 2013.07.26
 **********
+[ ] [MOBILE] impelement duplicate import prevention
 [x] [MOBILE] implement import cleaning of obsolete files
 [x] [MOBILE] implement dynamic car image file detection
 [x] [MOBILE] improve method naming within mobile helper class and do cleanup
 
 2013.07.25
 **********
-[ ] [MOBILE] extend CSV import functionality by "length" checks
+[x] [MOBILE] extend CSV import functionality by "length" checks
 [ ] [MOBILE] fix strangely formatted "Bemerkungen" in detail view
 [x] [MOBILE] change "mobile" module to use newly introduced database table
 

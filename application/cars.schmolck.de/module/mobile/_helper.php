@@ -472,6 +472,7 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 	const CSV_FILE_NAME = MOBILE_CSV_FILE_NAME;
 	const CSV_DELIMITER = MOBILE_CSV_DELIMITER;
 	const CSV_ENCLOSURE = MOBILE_CSV_ENCLOSURE;
+	const CSV_LIMITS = MOBILE_CSV_LIMITS;
 	const DATABASE_FILE = MOBILE_DATABASE_FILE;
 	const DATABASE_TABLE = MOBILE_DATABASE_TABLE;
 	
@@ -705,12 +706,37 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 	
 	/*
 	 * Import data into database tables
+	 * 
+	 * @throws Exception if CSV file does not fit to the configured limit parameters
 	 */
 	protected function _importUnpackedCSV() {
 		/*
 		 * INITIALISATION
 		 */
 		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
+		
+		/*
+		 * CHECK
+		 */
+		// - check csv length parameters
+		$arrLimits = explode(',', self::CSV_LIMITS);
+		// - read csv file row by row
+		$strPath = dirname(self::ZIP_FILE);
+		$strFile = self::CSV_FILE_NAME;
+		if (($resHandler = fopen($strPath . '/' . $strFile, "r")) !== FALSE) {
+			while (($strLine = fgets($resHandler)) !== FALSE) {		
+				// - explode into value array
+				$arrValues = explode(self::CSV_DELIMITER, $strLine);
+				$nOffset = 0;
+				foreach ($arrLimits as $strLimit) {
+					// - throw exception if CSV does not fit every configured parameter
+					if ($this->_getEnclosureFreeCSVValue($arrValues[$nOffset]) != $strLimit) {
+						throw new Exception('CSV file does not fit to the limit parameter: '.$strLimit);
+					}
+					$nOffset = $nOffset + intval($strLimit) + 1;
+				}
+			}
+		}
 		
 		/*
 		 * QUERY
