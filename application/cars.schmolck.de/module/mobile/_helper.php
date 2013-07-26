@@ -333,9 +333,14 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 	protected function _getMappedRow($arrRow) {
 		$arrMap['id'] = $arrRow['A_satz_nummer'];
 		$arrMap['name'] = $this->_getMappedRowName($arrRow['D_marke'], $arrRow['E_modell']);
+		$arrMap['kategorie'] = $arrRow['C_kategorie'];
+		$arrMap['fahrzeug'] = $this->_getMappedRowFahrzeug($arrRow['V_neufahrzeug']);
 		$arrMap['ez'] = $this->_getMappedRowEz($arrRow);
 		$arrMap['km'] = $this->_getMappedRowKm($arrRow);
+		$arrMap['kraftstoff'] = $this->_getMappedRowKraftstoff($arrRow['DF_kraftstoffart']);
 		$arrMap['kw'] = $arrRow['F_leistung'];
+		$arrMap['getriebe'] = $this->_getMappedRowGetriebe($arrRow['DG_getriebeart']);
+		$arrMap['ccm'] = $arrRow['BA_ccm'];
 		$arrMap['preis'] = $this->_getMappedRowPrice($arrRow['K_preis']);
 		$arrMap['mwst'] = $arrRow['L_mwst'];
 		$arrMap['color'] = $arrRow['Q_farbe'];
@@ -359,6 +364,30 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		
 		return $strMarke.' '.$strModell;
 	}
+	
+	protected function _getMappedRowFahrzeug($strValue) {
+		/*
+		 * INITIALISATION
+		 */
+		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
+		
+		/*
+		 * PROCESSING
+		 */
+		switch ($strValue) {
+			case '0':
+				$strLabel = $objCore->getHelperTranslator()->_("Used Car");
+				break;
+			case '1':
+				$strLabel = $objCore->getHelperTranslator()->_("Brand New Car");
+				break;
+		}
+		
+		/*
+		 * OUTPUT
+		 */
+		return $strLabel;
+	}	
 
 	protected function _getMappedRowEz($arrRow) {
 		return str_replace('.', '/', $arrRow["I_ez"]);
@@ -367,7 +396,85 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 	protected function _getMappedRowKm($arrRow) {
 		return number_format($arrRow['J_kilometer'], 0, ',', ".");
 	}
-
+	
+	protected function _getMappedRowKraftstoff($strValue) {
+		/*
+		 * INITIALISATION
+		 */
+		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
+		
+		/*
+		 * PROCESSING
+		 */
+		switch ($strValue) {
+			default:
+				// - empty
+				break;
+			case '1':
+				$strLabel = $objCore->getHelperTranslator()->_("Petrol");
+				break;
+			case '2':
+				$strLabel = $objCore->getHelperTranslator()->_("Diesel");
+				break;
+			case '3':
+				$strLabel = $objCore->getHelperTranslator()->_("LPG");
+				break;
+			case '4':
+				$strLabel = $objCore->getHelperTranslator()->_("Natural Gas");
+				break;
+			case '5':
+				// - empty
+				break;
+			case '6':
+				$strLabel = $objCore->getHelperTranslator()->_("Electric");
+				break;
+			case '7':
+				$strLabel = $objCore->getHelperTranslator()->_("Hybrid");
+				break;
+			case '8':
+				$strLabel = $objCore->getHelperTranslator()->_("Hydrogen");
+				break;
+			case '9':
+				$strLabel = $objCore->getHelperTranslator()->_("Ethanol");
+				break;
+		}
+		
+		/*
+		 * OUTPUT
+		 */
+		return $strLabel;
+	}
+	
+	protected function _getMappedRowGetriebe($strValue) {
+		/*
+		 * INITIALISATION
+		 */
+		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
+		
+		/*
+		 * PROCESSING
+		 */
+		switch ($strValue) {
+			default:
+				// - empty
+				break;
+			case '1':
+				$strLabel = $objCore->getHelperTranslator()->_("Manual");
+				break;
+			case '2':
+				$strLabel = $objCore->getHelperTranslator()->_("Semi-Automatic");
+				break;
+			case '3':
+				$strLabel = $objCore->getHelperTranslator()->_("Automatic");
+				break;
+		}
+		
+		/*
+		 * OUTPUT
+		 */
+		return $strLabel;
+	}	
+	
 	protected function _getMappedRowPrice($strPrice) {
 		return number_format($strPrice, 0, "", ".");
 	}

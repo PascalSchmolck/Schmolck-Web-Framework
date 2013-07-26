@@ -36,7 +36,7 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 						?>
 					</div>
 					<div class="infos1">
-						<?= $arrCar['name'] ?> <br>
+						<?= $arrCar['fahrzeug'] ?>, <?= $arrCar['kategorie'] ?> <br>
 						<?= $arrCar['id'] ?> <br>						
 					</div>
 					<div class="infos2">
@@ -44,9 +44,11 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 						<?= $arrCar['km'] ?> km <br>
 					</div>
 					<div class="infos3">
+						<?= $arrCar['kraftstoff'] ?> <br>
 						<?= $arrCar['kw'] ?> kW <br>
-						<?= $arrCar['color'] ?> (<?= $objCore->getHelperTranslator()->_("Paint"); ?>) <br>
-						<?= $arrCar['polster'] ?> (<?= $objCore->getHelperTranslator()->_("Upholstery"); ?>) <br>
+						<?= $arrCar['getriebe'] ?> <br>
+<!--						<?= $arrCar['color'] ?> (<?= $objCore->getHelperTranslator()->_("Paint"); ?>) <br>
+						<?= $arrCar['polster'] ?> (<?= $objCore->getHelperTranslator()->_("Upholstery"); ?>) <br>-->
 					</div>
 					<div class="price">
 						<?= $arrCar['preis'] ?> EUR <br>

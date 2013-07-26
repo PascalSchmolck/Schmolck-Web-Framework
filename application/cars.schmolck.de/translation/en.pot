@@ -246,12 +246,64 @@ msgstr ""
 msgid "open in a larger map" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/mobile/search/gallery/output.phtml:45 
+#: ../application/cars.schmolck.de/module/mobile/database/detail/output.phtml:58 
 msgid "VAT not deductable" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/mobile/search/list/output.phtml:52 
+#: ../application/cars.schmolck.de/module/mobile/database/detail/output.phtml:60 
 msgid "VAT deductable" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:379 
+msgid "Used Car" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:382 
+msgid "Brand New Car" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:414 
+msgid "Petrol" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:417 
+msgid "Diesel" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:420 
+msgid "LPG" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:423 
+msgid "Natural Gas" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:429 
+msgid "Electric" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:432 
+msgid "Hybrid" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:435 
+msgid "Hydrogen" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:438 
+msgid "Ethanol" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:462 
+msgid "Manual" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:465 
+msgid "Semi-Automatic" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:468 
+msgid "Automatic" 
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/translation/api/switcher/action.php:8 

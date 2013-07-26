@@ -262,13 +262,66 @@ msgstr "Unternehmensgruppe Schmolck"
 msgid "open in a larger map"
 msgstr "in großer Ansicht öffnen"
 
-#: ../application/cars.schmolck.de/module/mobile/search/gallery/output.phtml:45
+#: ../application/cars.schmolck.de/module/mobile/database/detail/output.phtml:58
 msgid "VAT not deductable"
 msgstr "MwSt. nicht ausweisbar"
 
-#: ../application/cars.schmolck.de/module/mobile/search/list/output.phtml:52
+#: ../application/cars.schmolck.de/module/mobile/database/detail/output.phtml:60
 msgid "VAT deductable"
 msgstr "MwSt. ausweisbar"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:379
+msgid "Used Car"
+msgstr "Gebrauchtwagen"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:382
+msgid "Brand New Car"
+msgstr "Neufahrzeug"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:414
+msgid "Petrol"
+msgstr "Benzin"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:417
+msgid "Diesel"
+msgstr "Diesel"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:420
+msgid "LPG"
+msgstr "Autogas"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:423
+msgid "Natural Gas"
+msgstr "Erdgas"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:429
+#, fuzzy
+msgid "Electric"
+msgstr "Elektro"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:432
+msgid "Hybrid"
+msgstr "Hybrid"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:435
+msgid "Hydrogen"
+msgstr "Wasserstoff"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:438
+msgid "Ethanol"
+msgstr "Ethanol"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:462
+msgid "Manual"
+msgstr "Schaltgetriebe"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:465
+msgid "Semi-Automatic"
+msgstr "Halb-Automatik"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:468
+msgid "Automatic"
+msgstr "Automatik"
 
 #: ../application/cars.schmolck.de/module/translation/api/switcher/action.php:8
 msgid "Language Selector"
