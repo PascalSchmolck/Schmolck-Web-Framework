@@ -1,6 +1,7 @@
 2013.07.26
 **********
 [x] [FRAMEWORK] prevent unnecessary style and script compilation on development
+[x] [MOBILE] fix missing translations
 [x] [MOBILE] impelement duplicate import prevention
 [x] [MOBILE] implement import cleaning of obsolete files
 [x] [MOBILE] implement dynamic car image file detection

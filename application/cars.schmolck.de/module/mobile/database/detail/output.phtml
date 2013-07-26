@@ -48,11 +48,16 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 						<?= $arrCar['color'] ?> (<?= $objCore->getHelperTranslator()->_("Paint"); ?>) <br>
 						<?= $arrCar['polster'] ?> (<?= $objCore->getHelperTranslator()->_("Upholstery"); ?>) <br>
 					</div>
-					<? ($arrCar['mwst'] == '1' ? $strMwstNote = 'VAT not deductable': $strMwstNote = 'VAT deductable') ?>
 					<div class="price">
 						<?= $arrCar['preis'] ?> EUR <br>
 						<div class="pricenote">
-							<?= $strMwstNote ?>
+							<?
+							if ($arrCar['mwst'] == '1') {
+								 echo $objCore->getHelperTranslator()->_("VAT not deductable");
+							} else {
+								 echo $objCore->getHelperTranslator()->_("VAT deductable");
+							}
+							?>		
 						</div>		
 					</div>
 					<div class="qrcode2">

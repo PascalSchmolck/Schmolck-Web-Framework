@@ -38,6 +38,10 @@ msgstr ""
 msgid "Submit" 
 msgstr "" 
 
+#: ../application/cars.schmolck.de/module/cars/contact/sidebar/output.phtml:13 
+msgid "Contact Person" 
+msgstr "" 
+
 #: ../application/cars.schmolck.de/module/cars/database/detail/action.php:55 
 msgid "Sorry, the selected vehicle is no longer available." 
 msgstr "" 
@@ -48,10 +52,6 @@ msgstr ""
 
 #: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:45 
 msgid "Upholstery" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:81 
-msgid "Contact Person" 
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/cars/database/overview/output.phtml:6 
@@ -194,7 +194,7 @@ msgstr ""
 msgid "Please enter a subject" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/contact/api/form/output.phtml:40 
+#: ../application/cars.schmolck.de/module/contact/api/form/output.phtml:45 
 msgid "Subject" 
 msgstr "" 
 
@@ -246,6 +246,14 @@ msgstr ""
 msgid "open in a larger map" 
 msgstr "" 
 
+#: ../application/cars.schmolck.de/module/mobile/search/gallery/output.phtml:45 
+msgid "VAT not deductable" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/mobile/search/list/output.phtml:52 
+msgid "VAT deductable" 
+msgstr "" 
+
 #: ../application/cars.schmolck.de/module/translation/api/switcher/action.php:8 
 msgid "Language Selector" 
 msgstr "" 
@@ -254,15 +262,11 @@ msgstr ""
 msgid "Language / Sprache" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/template/2013.03/html.phtml:46 
-msgid "cars" 
-msgstr "" 
-
 #: ../application/cars.schmolck.de/template/2013.05/html.phtml:26 
 msgid "Home" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/template/2013.07/html.phtml:27 
-msgid "Menu" 
+#: ../application/cars.schmolck.de/template/2013.06/html.phtml:37 
+msgid "Navigation" 
 msgstr "" 
 

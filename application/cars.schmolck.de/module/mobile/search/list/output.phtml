@@ -42,11 +42,16 @@ $nCounter = 0;
 							<?= $arrCar['kw'] ?> kW <br>
 							<?= $arrCar['color'] ?> <br>
 						</div>
-						<? ($arrCar['mwst'] == '1' ? $strMwstNote = 'VAT not deductable': $strMwstNote = 'VAT deductable') ?>
 						<div class="price">
 							<?= $arrCar['preis'] ?> EUR <br>
 							<div class="pricenote">
-								<?= $strMwstNote ?>
+								<?
+								if ($arrCar['mwst'] == '1') {
+									 echo $objCore->getHelperTranslator()->_("VAT not deductable");
+								} else {
+									 echo $objCore->getHelperTranslator()->_("VAT deductable");
+								}
+								?>								
 							</div>							
 						</div>
 						<div class="clearer">

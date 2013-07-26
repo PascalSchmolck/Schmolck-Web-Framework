@@ -50,6 +50,10 @@ msgstr "Ihre Nachricht"
 msgid "Submit"
 msgstr "Abschicken"
 
+#: ../application/cars.schmolck.de/module/cars/contact/sidebar/output.phtml:13
+msgid "Contact Person"
+msgstr "Ansprechpartner"
+
 #: ../application/cars.schmolck.de/module/cars/database/detail/action.php:55
 msgid "Sorry, the selected vehicle is no longer available."
 msgstr "Verzeihung, das gewählte Fahrzeug ist nicht mehr vorhanden."
@@ -61,10 +65,6 @@ msgstr "Lack"
 #: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:45
 msgid "Upholstery"
 msgstr "Polster"
-
-#: ../application/cars.schmolck.de/module/cars/database/detail/output.phtml:81
-msgid "Contact Person"
-msgstr "Ansprechpartner"
 
 #: ../application/cars.schmolck.de/module/cars/database/overview/output.phtml:6
 msgid "Cars"
@@ -208,7 +208,7 @@ msgstr "Liste"
 msgid "Please enter a subject"
 msgstr "Bitte geben Sie einen Betreff an"
 
-#: ../application/cars.schmolck.de/module/contact/api/form/output.phtml:40
+#: ../application/cars.schmolck.de/module/contact/api/form/output.phtml:45
 msgid "Subject"
 msgstr "Betreff"
 
@@ -262,6 +262,14 @@ msgstr "Unternehmensgruppe Schmolck"
 msgid "open in a larger map"
 msgstr "in großer Ansicht öffnen"
 
+#: ../application/cars.schmolck.de/module/mobile/search/gallery/output.phtml:45
+msgid "VAT not deductable"
+msgstr "MwSt. nicht ausweisbar"
+
+#: ../application/cars.schmolck.de/module/mobile/search/list/output.phtml:52
+msgid "VAT deductable"
+msgstr "MwSt. ausweisbar"
+
 #: ../application/cars.schmolck.de/module/translation/api/switcher/action.php:8
 msgid "Language Selector"
 msgstr "Sprache Auswahl"
@@ -270,17 +278,19 @@ msgstr "Sprache Auswahl"
 msgid "Language / Sprache"
 msgstr "Language / Sprache"
 
-#: ../application/cars.schmolck.de/template/2013.03/html.phtml:46
-msgid "cars"
-msgstr "cars"
-
 #: ../application/cars.schmolck.de/template/2013.05/html.phtml:26
 msgid "Home"
 msgstr "Startseite"
 
-#: ../application/cars.schmolck.de/template/2013.07/html.phtml:27
-msgid "Menu"
-msgstr "Menü"
+#: ../application/cars.schmolck.de/template/2013.06/html.phtml:37
+msgid "Navigation"
+msgstr "Navigation"
+
+#~ msgid "cars"
+#~ msgstr "cars"
+
+#~ msgid "Menu"
+#~ msgstr "Menü"
 
 #~ msgid "You can post your questions to our team in the following languages​​"
 #~ msgstr "Sie können Ihre Fragen an unser Team in folgenden Sprachen stellen"
