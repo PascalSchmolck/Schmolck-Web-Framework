@@ -33,7 +33,7 @@ $strParameterId = trim(strip_tags($_GET['id']));
 /*
  * DATA
  */
-$objCore->arrCars = $objCars->querySingleCar($strParameterId);
+$objCore->arrCars = $objCars->queryCarsSingle($strParameterId);
 
 /*
  * CHECK

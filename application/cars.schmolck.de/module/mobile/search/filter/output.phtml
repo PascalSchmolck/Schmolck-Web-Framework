@@ -37,13 +37,6 @@ $arrModelsSmart = array(
 	"roadster" => $objCore->getHelperTranslator()->_("Roadster"),
 	"others-smart" => $objCore->getHelperTranslator()->_("Others"),
 );
-// - types
-$arrTypes = array(
-	'all' => $objCore->getHelperTranslator()->_("All"),
-	'geschaeftswagen' => $objCore->getHelperTranslator()->_("Company Cars"),
-	'jahreswagen' => $objCore->getHelperTranslator()->_("Jahreswagen"),
-	'gebrauchtwagen' => $objCore->getHelperTranslator()->_("Secondhand Cars"),
-);
 // - prices
 $arrPrices['all'] = $objCore->getHelperTranslator()->_("All");
 foreach ($objCore->arrPrices as $strPrice) {
@@ -51,20 +44,6 @@ foreach ($objCore->arrPrices as $strPrice) {
 		$strPrice = $strPrice - ($strPrice % 1000) + 1000;
 	}
 	$arrPrices[$strPrice] = number_format($strPrice, 0, "", ".") . ' EUR';
-}
-// - kms
-$arrKms['all'] = $objCore->getHelperTranslator()->_("All");
-foreach ($objCore->arrKms as $strKm) {
-	if ($strKm > 1000) {
-		$strKm = $strKm - ($strKm % 1000) + 1000;
-	}
-	$arrKms[$strKm] = number_format($strKm, 0, "", ".") . ' km';
-}
-// - kms
-$arrEzs['all'] = $objCore->getHelperTranslator()->_("All");
-foreach ($objCore->arrEzs as $strEz) {
-	$strYear = substr($strEz, 0, 4);
-	$arrEzs[$strYear] = $strYear;
 }
 // - sorting
 $arrSorting = array(

@@ -52,9 +52,11 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 	}
 	
 	/**
-	 * Query cars according to filters
+	 * Query cars according to set-up filters
+	 * 
+	 * @return array cars
 	 */
-	public function queryFilteredCars() {
+	public function queryCarsFiltered() {
 		/*
 		 * INITIALISATION
 		 */
@@ -282,7 +284,13 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		return $arrResult;
 	}
 	
-	public function querySingleCar($strId) {
+	/**
+	 * Query single car according to given id
+	 * 
+	 * @param string $strId
+	 * @return array with one single car entry
+	 */
+	public function queryCarsSingle($strId) {
 		/*
 		 * INITIALISATION
 		 */
@@ -370,40 +378,6 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		);
 		return str_replace(array_keys($arrReplace), array_values($arrReplace), $strNotes);
 	}	
-
-	/**
-	 * Get all brands
-	 * 
-	 * @return array brands
-	 */
-	public function getBrands() {
-		/*
-		 * INITIALISATION
-		 */
-		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
-
-		/*
-		 * DATA
-		 */
-		$strQuery = "
-			SELECT 
-				DISTINCT D_marke 
-			FROM 
-				" . self::DATABASE_TABLE . "
-			WHERE
-				TRUE
-				AND D_marke IS NOT NULL
-				AND D_marke <> 'null'
-				AND D_marke <> ''	
-			ORDER BY 
-				D_marke
-		";
-		$resource = $objCore->getHelperDatabase()->query($strQuery);
-		while ($arrRow = mysql_fetch_assoc($resource)) {
-			$arrResult[] = strtolower($arrRow["D_marke"]);
-		}
-		return $arrResult;
-	}
 	
 	/**
 	 * Get all images for one car
@@ -431,11 +405,11 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 	}	
 
 	/**
-	 * Get all distinc prices
+	 * Get all distinc prices for filtering
 	 * 
 	 * @return array prices
 	 */
-	public function getPrices() {
+	public function getFilterPrices() {
 		/*
 		 * INITIALISATION
 		 */
@@ -463,75 +437,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		}
 		return $arrResult;
 	}
-	
-	/**
-	 * Get all distinct km values
-	 * 
-	 * @return array km values
-	 */
-	public function getKms() {
-		/*
-		 * INITIALISATION
-		 */
-		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
-
-		/*
-		 * DATA
-		 */
-		$strQuery = "
-			SELECT 
-				DISTINCT KM 
-			FROM 
-				" . self::DB_TABLE . "
-			WHERE
-				TRUE
-				AND KM IS NOT NULL
-				AND KM <> 'null'
-				AND KM <> ''	
-			ORDER BY 
-				KM ASC
-		";
-		$resource = $objCore->getHelperDatabase()->query($strQuery);
-		while ($arrRow = mysql_fetch_assoc($resource)) {
-			$arrResult[] = $arrRow["KM"];
-		}
-		return $arrResult;
-	}
-	
-	/**
-	 * Get all distinct ez values
-	 * 
-	 * @return array ez values
-	 */
-	public function getEzs() {
-		/*
-		 * INITIALISATION
-		 */
-		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
-
-		/*
-		 * DATA
-		 */
-		$strQuery = "
-			SELECT 
-				DISTINCT EZ 
-			FROM 
-				" . self::DB_TABLE . "
-			WHERE
-				TRUE
-				AND EZ IS NOT NULL
-				AND EZ <> 'null'
-				AND EZ <> ''	
-			ORDER BY 
-				EZ ASC
-		";
-		$resource = $objCore->getHelperDatabase()->query($strQuery);
-		while ($arrRow = mysql_fetch_assoc($resource)) {
-			$arrResult[] = $arrRow["EZ"];
-		}
-		return $arrResult;
-	}
-
+		
 }
 
 /**

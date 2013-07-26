@@ -64,10 +64,8 @@ $objCars->setFilter('sorting', $objCore->strParameterSorting);
 /*
  * DATA
  */
-$objCore->nCount = count($objCars->queryFilteredCars());
-$objCore->arrPrices = $objCars->getPrices();
-$objCore->arrKms = $objCars->getKms();
-$objCore->arrEzs = $objCars->getEzs();
+$objCore->nCount = count($objCars->queryCarsFiltered());
+$objCore->arrPrices = $objCars->getFilterPrices();
 
 /*
  * SCRIPT

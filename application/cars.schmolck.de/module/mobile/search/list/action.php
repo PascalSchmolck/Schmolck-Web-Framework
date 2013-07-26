@@ -27,7 +27,7 @@ if ($objCore->nLimit == 0) {
 /*
  * DATA
  */
-$objCore->arrCars = $objCars->queryFilteredCars();
+$objCore->arrCars = $objCars->queryCarsFiltered();
 $objCore->nCars = count($objCore->arrCars);
 
 /*

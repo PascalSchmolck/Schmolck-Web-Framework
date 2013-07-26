@@ -1,3 +1,8 @@
+2013.07.26
+**********
+[ ] [MOBILE] implement dynamic car image file detection
+[x] [MOBILE] improve method naming within mobile helper class and do cleanup
+
 2013.07.25
 **********
 [ ] [MOBILE] extend CSV import functionality by "length" checks
