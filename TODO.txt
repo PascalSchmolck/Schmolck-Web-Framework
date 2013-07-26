@@ -1,6 +1,6 @@
 2013.07.26
 **********
-[ ] [MOBILE] impelement duplicate import prevention
+[x] [MOBILE] impelement duplicate import prevention
 [x] [MOBILE] implement import cleaning of obsolete files
 [x] [MOBILE] implement dynamic car image file detection
 [x] [MOBILE] improve method naming within mobile helper class and do cleanup

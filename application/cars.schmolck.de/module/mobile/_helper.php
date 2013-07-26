@@ -482,13 +482,13 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 	public function __construct(Schmolck_Framework_Core $objCore) {
 		parent::__construct($objCore);
 
-		$this->updateFromZIP();
+		$this->updateFromZip();
 	}	
 	
 	/**
 	 * Update database table and images from ZIP file
 	 */
-	public function updateFromZIP() {
+	public function updateFromZip() {
 		/*
 		 * CHECK 
 		 */
@@ -501,71 +501,29 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 		 * PROCESSING
 		 */
 		// - unpack uploaded ZIP file
-		$this->_unpackZipFile();
-		// - move car images to proper location
-		$this->_moveUnpackedImages();
-//		// - split CSV file into separate files
-//		$this->_splitUnpackedCSV();
+		$this->_updateFromZipUnpack();
 		// - import data into database tables
-		$this->_importUnpackedCsv();
+		$this->_updateFromZipCsv();
+		// - move car images to proper location
+		$this->_updateFromZipImages();
+		// - cleanup
+		$this->_updateFromZipCleaning();
 
-		/*
-		 * CLEANING
-		 */
-		// - remove obsolete files
-		if ($this->_bImportSuccess) {
-			$this->_cleanObsoleteImages();
-			$this->_cleanObsoleteCsv();			
-			$this->_cleanObsoleteZip();			
-		}
-		
 		/*
 		 * DEBUGGING
 		 */
 		Schmolck_Tool_Debug::notice('Mobile database has been updated with file: ' . self::DATABASE_TABLE);
-		
 	}
 	
 	/*
-	 * Clean up obsolete import ZIP file
+	 * Clean up after import process
 	 */
-	protected function _cleanObsoleteZip() {
-		rename(self::ZIP_FILE, self::ZIP_FILE. '.bak');
-	}		
-	
-	/*
-	 * Clean up obsolete import CSV file
-	 */
-	protected function _cleanObsoleteCsv() {
+	protected function _updateFromZipCleaning() {
+		/*
+		 * CLEANING
+		 */
+		// - database import file
 		unlink(self::DATABASE_FILE);
-	}	
-		
-	/*
-	 * Clean up obsolete car images
-	 */
-	protected function _cleanObsoleteImages() {
-		/*
-		 * PREPARATION
-		 */
-		$strPath = self::IMAGES_PATH;
-				
-		/*
-		 * PROCESSING
-		 */
-		// - get array of all files within image path
-		$arrFiles = scandir($strPath);
-		// - cycle through all files
-		foreach ($arrFiles as $strFile) {
-			// - do not handle dirs
-			if (in_array($strFile, array(".",".."))) continue;
-			// - do only delete files that have not been imported just before
-			if (in_array($strPath . '/' . $strFile, $this->_arrNewImages)) continue;
-			// - delete
-			unlink($strPath . '/' . $strFile);
-			
-			Schmolck_Tool_Debug::debug($strPath . '/' . $strFile);			
-		}
-				
 	}
 	
 	/**
@@ -580,10 +538,15 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 	/**
 	 * Unpack ZIP file
 	 */
-	protected function _unpackZipFile() {
+	protected function _updateFromZipUnpack() {
 		$objFile = new Schmolck_Tool_File_Zip();
 		$objFile->file = self::ZIP_FILE;
 		$objFile->unzip();
+		
+		/*
+		 * CLEANING & PREVENTION
+		 */
+		rename(self::ZIP_FILE, self::ZIP_FILE. '.bak');
 	}	
 	
 	/**
@@ -591,7 +554,7 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 	 * 
 	 * @throws Exception
 	 */
-	protected function _moveUnpackedImages() {		
+	protected function _updateFromZipImages() {		
 		/*
 		 * PREPARATION
 		 */
@@ -611,7 +574,7 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 			if (!preg_match('/\.JPG$/i', $strFile)) continue;
 			// - if we copied this successfully, mark it for deletion
 			if (copy($strSourceDir.'/'.$strFile, $strDestinationDir.'/'.$strFile)) {
-				$this->_arrNewImages[] =  $strDestinationDir . '/' . $strFile;
+				$this->arrNewImages[] =  $strDestinationDir . '/' . $strFile;
 				$arrMovedImages[] = $strSourceDir . '/' . $strFile;
 			} else {
 				throw new Exception('Could not move extracted car image to proper location');
@@ -626,6 +589,17 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 			if (!unlink($strFile)) {
 				throw new Exception('Could not delete extracted car image after moving to proper location');
 			}			
+		}		
+		// - delete all obsolete images
+		$arrDestinationFiles = scandir($strDestinationDir);
+		// - cycle through all files
+		foreach ($arrDestinationFiles as $strFile) {
+			// - do not handle dirs
+			if (in_array($strFile, array(".",".."))) continue;
+			// - do only delete files that have not been imported just before
+			if (in_array($strDestinationDir . '/' . $strFile, $this->arrNewImages)) continue;
+			// - delete
+			unlink($strDestinationDir . '/' . $strFile);
 		}		
 	}
 	
@@ -675,17 +649,17 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 //				// - determine first parameters
 //				$nLengthPosition1 = 0;
 //				$nStartPosition1 = $nLengthPosition1 + 1;
-//				$nLength1 = intval($this->_getEnclosureFreeCSVValue($arrValues[$nLengthPosition1]));
+//				$nLength1 = intval($this->_getEnclosureFreeValue($arrValues[$nLengthPosition1]));
 //
 //				// - determine second parameters
 //				$nLengthPosition2 = $nStartPosition1 + $nLength1;
 //				$nStartPosition2 = $nLengthPosition2 + 1;				
-//				$nLength2 = intval($this->_getEnclosureFreeCSVValue($arrValues[$nLengthPosition2]));
+//				$nLength2 = intval($this->_getEnclosureFreeValue($arrValues[$nLengthPosition2]));
 //				
 //				// - determine third parameters
 //				$nLengthPosition3 = $nLengthPosition2 + 1 + $nLength2;
 //				$nStartPosition3 = $nLengthPosition3 + 1;
-//				$nLength3 = intval($this->_getEnclosureFreeCSVValue($arrValues[$nLengthPosition3]));
+//				$nLength3 = intval($this->_getEnclosureFreeValue($arrValues[$nLengthPosition3]));
 //
 //				// - calculate value arrays
 //				$arrValues1 = array_slice($arrValues, $nStartPosition1, $nLength1);
@@ -709,7 +683,7 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 	 * 
 	 * @throws Exception if CSV file does not fit to the configured limit parameters
 	 */
-	protected function _importUnpackedCSV() {
+	protected function _updateFromZipCsv() {
 		/*
 		 * INITIALISATION
 		 */
@@ -730,7 +704,7 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 				$nOffset = 0;
 				foreach ($arrLimits as $strLimit) {
 					// - throw exception if CSV does not fit every configured parameter
-					if ($this->_getEnclosureFreeCSVValue($arrValues[$nOffset]) != $strLimit) {
+					if ($this->_getEnclosureFreeValue($arrValues[$nOffset]) != $strLimit) {
 						throw new Exception('CSV file does not fit to the limit parameter: '.$strLimit);
 					}
 					$nOffset = $nOffset + intval($strLimit) + 1;
@@ -750,11 +724,6 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 			LINES TERMINATED BY '\n'
 		";
 		$objCore->getHelperDatabase()->query($strQuery);
-				
-		/*
-		 * FLAGGING
-		 */
-		$this->_bImportSuccess = true;
 	}
 	
 	/**
@@ -763,7 +732,7 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 	 * @param string $strValue
 	 * @return string cleaned string
 	 */
-	protected function _getEnclosureFreeCSVValue($strValue) {
+	protected function _getEnclosureFreeValue($strValue) {
 		/*
 		 * PROCESSING
 		 */
