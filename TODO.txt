@@ -1,3 +1,7 @@
+2013.07.30
+**********
+[x] [MOBILE] adapt configuration to productive "media.zip" file and test
+
 2013.07.26
 **********
 [x] [FRAMEWORK] prevent unnecessary style and script compilation on development

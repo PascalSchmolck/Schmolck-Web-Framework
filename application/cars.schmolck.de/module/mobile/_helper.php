@@ -603,10 +603,16 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 		if (!$this->_checkIfExists()) {
 			return;
 		}
+		// - prevent duplicate processing
+		if ($this->restore('processing') == true) {
+			//return;
+		}
 
 		/*
 		 * PROCESSING
 		 */
+		// - set processing flag
+		$this->store('processing', true);
 		// - unpack uploaded ZIP file
 		$this->_updateFromZipUnpack();
 		// - import data into database tables
@@ -615,11 +621,13 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 		$this->_updateFromZipImages();
 		// - cleanup
 		$this->_updateFromZipCleaning();
+		// - unset processing flag
+		$this->store('processing', false);
 
 		/*
 		 * DEBUGGING
 		 */
-		Schmolck_Tool_Debug::notice('Mobile database has been updated with file: ' . self::DATABASE_TABLE);
+		Schmolck_Tool_Debug::notice('Mobile database has been updated with file: ' . self::ZIP_FILE);
 	}
 	
 	/*
