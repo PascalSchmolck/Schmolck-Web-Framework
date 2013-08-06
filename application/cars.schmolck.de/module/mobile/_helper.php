@@ -345,7 +345,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		$arrMap['mwst'] = $arrRow['L_mwst'];
 		$arrMap['color'] = $arrRow['Q_farbe'];
 		$arrMap['images'] = $this->getImages($arrMap['id']);
-		$arrMap['bemerkung'] = $this->_getMappedRowBemerkungen(utf8_encode($arrRow['Z_bemerkung']));
+		$arrMap['bemerkung'] = $this->_getMappedRowBemerkung(utf8_encode($arrRow['Z_bemerkung']));
 		return $arrMap;
 	}
 
@@ -479,11 +479,54 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		return number_format($strPrice, 0, "", ".");
 	}
 	
-	protected function _getMappedRowBemerkungen($strNotes) {
-		$arrReplace = array(
-			'\\'	=> '<br>', 
-		);
-		return str_replace(array_keys($arrReplace), array_values($arrReplace), $strNotes);
+	protected function _getMappedRowBemerkung($strNotes) {
+		/*
+		 * PREPARATION
+		 */
+		// - split into array according to "\" separations
+		$arrLines = explode("\\", $strNotes);
+		$bLastList = false;
+		$bCurrentList = false;
+		
+		/*
+		 * PROCESSING
+		 */
+		// - line by line
+		foreach ($arrLines as &$strLine) {
+			// **TEXT** => <strong>TEXT</strong>
+			$strLine = preg_replace('/\*\*([^\*\*]+)\*\*/i', '<strong>$1</strong>', $strLine);			
+			
+			// * TEXT => <li>TEXT</li>
+			if (substr($strLine, 0, 1) == '*') {
+				$strLine = preg_replace('/(\*)(.+)/i', '<li>$2</li>', $strLine);			
+
+				$bLastList = $bCurrentList;
+				$bCurrentList = true;
+			} else {
+				$bLastList = $bCurrentList;
+				$bCurrentList = false;
+			}
+			
+			/*
+			 * CHECK
+			 */
+			// - open listing if required
+			if ($bCurrentList && !$bLastList) {
+				$strLine = '<ul>' . $strLine;
+			}			
+			// - close listing if required
+			if (!$bCurrentList && $bLastList) {
+				$strLine = '</ul>' . $strLine;
+			}
+		}
+		
+
+		
+		/*
+		 * OUTPUT
+		 */
+		// - merge into string again
+		return implode('<br>', $arrLines);
 	}	
 	
 	/**
