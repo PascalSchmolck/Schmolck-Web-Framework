@@ -1,3 +1,7 @@
+2013.08.07
+**********
+[x] [MOBILE] fix image overlapping in list and gallery view of result set
+
 2013.07.30
 **********
 [x] [MOBILE] adapt configuration to productive "media.zip" file and test
