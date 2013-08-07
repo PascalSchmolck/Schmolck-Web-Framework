@@ -874,7 +874,7 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 		 * QUERY
 		 */
 		$strQuery = "
-			LOAD DATA LOCAL INFILE '".self::DATABASE_FILE."'
+			LOAD DATA INFILE '" . $objCore->getBasePath() . '/' . self::DATABASE_FILE . "'
 			REPLACE
 			INTO TABLE `".self::DATABASE_TABLE."`
 			FIELDS TERMINATED BY '".self::CSV_DELIMITER."'

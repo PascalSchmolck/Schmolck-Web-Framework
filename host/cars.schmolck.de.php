@@ -33,7 +33,7 @@ if (extension_loaded("zlib") && (ini_get("output_handler") != "ob_gzhandler")) {
  * 6 Informational: informational messages
  * 7 Debug: debug messages
  */
-define('DEBUG_LEVEL', 2);
+define('DEBUG_LEVEL', 3);
 
 /*
  * APPLICATION NAME

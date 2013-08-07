@@ -76,7 +76,8 @@ class Schmolck_Framework_Helper_Database extends Schmolck_Framework_Helper {
 		$resource = mysql_query($strSQL, $this->_connection);
 		if (!$resource) {
 			Schmolck_Tool_Debug::error(mysql_error());
-			throw new Schmolck_Tool_Exception("Database query failed");
+			Schmolck_Tool_Debug::error("SQL: " . $strSQL);
+			throw new Schmolck_Tool_Exception("Database query failed");		
 		}
 		return $resource;
 	}

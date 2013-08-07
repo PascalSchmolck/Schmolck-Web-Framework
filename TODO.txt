@@ -1,6 +1,8 @@
 2013.08.07
 **********
 [x] [MOBILE] fix image overlapping in list and gallery view of result set
+[ ] [MOBILE] fix CSV loading failure on production environment
+[x] [MOBILE] improve database debugging for CSV loading failures
 
 2013.07.30
 **********

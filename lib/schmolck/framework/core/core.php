@@ -16,6 +16,7 @@ class Schmolck_Framework_Core {
 	protected $_arrActionValues = array();
 	protected $_strModule;
 	protected $_strController;
+	protected $_strBasePath;
 	protected $_strAction;
 	protected $_strViewOutput;
 	protected $_strTrace;
@@ -58,6 +59,24 @@ class Schmolck_Framework_Core {
 	public function getViewOutput() {
 		return $this->_strViewOutput;
 	}
+	
+	/**
+	 * Get base path
+	 * 
+	 * @return string
+	 */
+	public function getBasePath() {
+		return $this->_strBasePath;
+	}	
+	
+	/**
+	 * Set base path
+	 * 
+	 * @param string $strBasePath
+	 */
+	public function setBasePath($strBasePath) {
+		$this->_strBasePath = str_replace("\\", "/", $strBasePath);
+	}	
 
 	/**
 	 * Get module name

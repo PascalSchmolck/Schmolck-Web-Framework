@@ -28,7 +28,7 @@ class Schmolck_Framework_Helper_Application extends Schmolck_Framework_Helper {
 	public function getPath() {
 		return self::PATH . '/' . $this->getName();
 	}
-
+	
 	/**
 	 * Get module path
 	 * 

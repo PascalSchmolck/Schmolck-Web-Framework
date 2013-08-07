@@ -79,6 +79,7 @@ foreach($arrQueryParameter as $entry){
  * CORE
  */
 $objCore = new Schmolck_Framework_Core();
+$objCore->setBasePath(dirname(__FILE__));
 $objCore->setModule($strModule);
 $objCore->setController($strController);
 $objCore->setAction($strAction);
