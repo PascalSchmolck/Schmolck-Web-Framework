@@ -1,7 +1,8 @@
 2013.08.07
 **********
+[ ] [MOBILE] test CSV loading with different failure options
 [x] [MOBILE] fix image overlapping in list and gallery view of result set
-[ ] [MOBILE] fix CSV loading failure on production environment
+[x] [MOBILE] fix CSV loading failure on production environment
 [x] [MOBILE] improve database debugging for CSV loading failures
 
 2013.07.30

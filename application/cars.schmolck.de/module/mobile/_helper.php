@@ -704,7 +704,9 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 		/*
 		 * CLEANING & PREVENTION
 		 */
-		rename(self::ZIP_FILE, self::ZIP_FILE. '.bak');
+		if (APPLICATION_ENVIRONMENT != 'development') {
+			rename(self::ZIP_FILE, self::ZIP_FILE. '.bak');
+		}
 	}	
 	
 	/**
@@ -848,6 +850,12 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
 		
 		/*
+		 * PREPARATION
+		 */
+		// - determine columns
+		$nColumns = mysql_num_rows($objCore->getHelperDatabase()->query("SHOW COLUMNS FROM " . self::DATABASE_TABLE));		
+		
+		/*
 		 * CHECK
 		 */
 		// - check csv length parameters
@@ -863,7 +871,7 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 				foreach ($arrLimits as $strLimit) {
 					// - throw exception if CSV does not fit every configured parameter
 					if ($this->_getEnclosureFreeValue($arrValues[$nOffset]) != $strLimit) {
-						throw new Exception('CSV file does not fit to the limit parameter: '.$strLimit);
+						throw new Exception('Database import file does not fit to the limit parameter: '.$strLimit);
 					}
 					$nOffset = $nOffset + intval($strLimit) + 1;
 				}
@@ -871,17 +879,54 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 		}
 		
 		/*
-		 * QUERY
+		 * PROCESSING
 		 */
-		$strQuery = "
-			LOAD DATA INFILE '" . $objCore->getBasePath() . '/' . self::DATABASE_FILE . "'
-			REPLACE
-			INTO TABLE `".self::DATABASE_TABLE."`
-			FIELDS TERMINATED BY '".self::CSV_DELIMITER."'
-			OPTIONALLY ENCLOSED BY '\"'
-			LINES TERMINATED BY '\n'
-		";
-		$objCore->getHelperDatabase()->query($strQuery);
+		// - read CSV file into database...
+		$nCounter = 0;
+		$handle = fopen($strPath . '/' . $strFile, 'r');
+		while (!feof($handle)) {
+
+			// - ...line by line
+			$strLine = fgets($handle);
+			$arrData = explode(self::CSV_DELIMITER, $strLine);
+			$nCounter++;
+
+			// - ignore empty lines
+			if (trim($strLine) == '') {
+				continue;
+			}
+
+			// - build insert query
+			$strQuery1 = "INSERT INTO `" . self::DATABASE_TABLE . "` VALUES (";
+			$strQuery2 = "";
+			$strQuery3 = ")";
+			for ($i = 0; $i < $nColumns; $i++) {
+				$strQuery2 = $strQuery2 . "'" . $this->_getEnclosureFreeValue($arrData[$i]) . "', ";
+			}
+			$strQuery2 = substr($strQuery2, 0, -2);
+
+			// - clear table first
+			if (!$bEmptied) {
+				$objCore->getHelperDatabase()->query("TRUNCATE TABLE `" . self::DATABASE_TABLE . "`");
+				$bEmptied = true;
+			}
+
+			// - insert
+			$objCore->getHelperDatabase()->query($strQuery1 . $strQuery2 . $strQuery3);
+		}		
+		
+//		/*
+//		 * QUERY
+//		 */
+//		$strQuery = "
+//			LOAD DATA INFILE '" . $objCore->getBasePath() . '/' . self::DATABASE_FILE . "'
+//			REPLACE
+//			INTO TABLE `".self::DATABASE_TABLE."`
+//			FIELDS TERMINATED BY '".self::CSV_DELIMITER."'
+//			OPTIONALLY ENCLOSED BY '\"'
+//			LINES TERMINATED BY '\n'
+//		";
+//		$objCore->getHelperDatabase()->query($strQuery);
 	}
 	
 	/**
