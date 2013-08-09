@@ -23,10 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mod_mobile_mobile`
+-- Table structure for table `mod_cars`
 --
 
-CREATE TABLE IF NOT EXISTS `mod_mobile_mobile` (
+CREATE TABLE IF NOT EXISTS `mod_cars` (
   `FGC` varchar(3) CHARACTER SET latin1 COLLATE latin1_german1_ci NOT NULL COMMENT 'Fahrzeuggruppe-Code',
   `FGT` varchar(25) CHARACTER SET latin1 COLLATE latin1_german1_ci NOT NULL COMMENT 'Fahrzeuggruppe-Text',
   `KAT` varchar(25) CHARACTER SET latin1 COLLATE latin1_german1_ci NOT NULL COMMENT 'Kommissionsart-Text',
