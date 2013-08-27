@@ -40,7 +40,7 @@ define('DEBUG_LEVEL', 7);
  * 
  * Corresponding to whatever 'application' inside the application folder
  */
-define('APPLICATION_NAME', 'cars.schmolck.de');
+define('APPLICATION_NAME', 'www.schmolck.de');
 
 /*
  * APPLICATION ENVIRONMENT
@@ -64,7 +64,7 @@ define('APPLICATION_LANGUAGE', 'de');
  * Define what template should be used. 
  * Depends on what template folders you have installed and running.
  */
-define('APPLICATION_TEMPLATE', '2013.06');
+define('APPLICATION_TEMPLATE', '2013.08');
 
 /*
  * EXCEPTION
@@ -80,10 +80,10 @@ define('EXCEPTION_ADDRESS', 'webmaster@schmolck.de');
  * 
  * Define the database connection settings here.
  */
-define('DATABASE_HOST', 'localhost');
-define('DATABASE_NAME', 'pascal_cars.schmolck.de');
-define('DATABASE_USERNAME', 'pascal');
-define('DATABASE_PASSWORD', 'test');
+//define('DATABASE_HOST', 'localhost');
+//define('DATABASE_NAME', 'pascal_cars.schmolck.de');
+//define('DATABASE_USERNAME', 'pascal');
+//define('DATABASE_PASSWORD', 'test');
 
 /*
  * PIWIK
@@ -97,29 +97,3 @@ define('PIWIK_TRACKING_ID', '');
  */
 define('MAIL_RECIPIENT_NAME', 'Pascal Schmolck');
 define('MAIL_RECIPIENT_ADDRESS', 'mail@pascalschmolck.de');
-
-/*
- * CARS
- */
-define('CARS_RECIPIENT_NAME', 'Pascal Schmolck');
-define('CARS_RECIPIENT_ADDRESS', 'mail@pascalschmolck.de');
-//define('CARS_LOCATION_IMAGES', 'http://cars.schmolck.de/data/cars/images/sync');
-//define('CARS_LOCATION_SYNCFILE', 'http://cars.schmolck.de/data/cars/files/sync/IFZ.csv');
-define('CARS_LOCATION_IMAGES', 'data/cars/images/sync');
-define('CARS_LOCATION_SYNCFILE', 'http://cars.schmolck.de/data/cars/files/sync/IFZ.csv');
-
-/*
- * MOBILE
- */
-// - database & import & images
-define('MOBILE_ZIP_FILE', 'data/mobile/files/sync/media.zip');
-define('MOBILE_CSV_FILE_NAME', 'media.csv');
-define('MOBILE_CSV_DELIMITER', ';');
-define('MOBILE_CSV_ENCLOSURE', '"');
-define('MOBILE_CSV_LIMITS', '203,5,16');
-define('MOBILE_IMAGES_PATH', 'data/mobile/images/sync');
-define('MOBILE_DATABASE_FILE', 'data/mobile/files/sync/media.csv');
-define('MOBILE_DATABASE_TABLE', 'mod_mobile_claris_20130724');
-// - contact form
-define('MOBILE_RECIPIENT_NAME', 'Pascal Schmolck');
-define('MOBILE_RECIPIENT_ADDRESS', 'mail@pascalschmolck.de');

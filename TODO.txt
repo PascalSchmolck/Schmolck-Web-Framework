@@ -1,5 +1,6 @@
 2013.08.27
 **********
+[x] [PORTAL] implement Schmolck portal
 [x] [FRAMEWORK] improve database and error reporting handling
 [x] [FRAMEWORK] improve browser caching capabilities
 [x] [CARS] implement case-insensitive car image retrieval
