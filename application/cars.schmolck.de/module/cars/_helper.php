@@ -559,30 +559,81 @@ class Cars_Helper extends Schmolck_Framework_Helper {
 		return $arrResult;
 	}
 	
-	/**
-	 * Get all images for one car
+/**
+	 * Get all available images for one car with given id
 	 * 
-	 * @return array images
+	 * @param string $strId car id
+	 * @return array of images
 	 */
-	public function getImages($strId) {		
-		if (file_exists(self::IMAGE_PATH . '/' . $strId . ',1.JPG') || substr(self::IMAGE_PATH, 0, 4) == 'http') {
-			return array(
-				self::IMAGE_PATH . '/' . $strId . ',1.JPG',
-				self::IMAGE_PATH . '/' . $strId . ',2.JPG',
-				self::IMAGE_PATH . '/' . $strId . ',3.JPG',
-				self::IMAGE_PATH . '/' . $strId . ',4.JPG',
-				self::IMAGE_PATH . '/' . $strId . ',5.JPG',
-			);
-		} elseif (file_exists('data/cars/images/sync/dummy.jpg')) {
-			return array(
-				'data/cars/images/sync/dummy.jpg'
-			);
-		} else {
+	public function getImages($strId) {	
+		/*
+		 * PREPARATION
+		 */
+		$strPath = self::IMAGE_PATH;
+				
+		/*
+		 * PROCESSING
+		 */
+		// - get array of all corresponding image files
+		$arrFiles = scandir($strPath);
+		// - cycle through all source files
+		foreach ($arrFiles as $strFile) {
+			// - do not handle dirs
+			if (in_array($strFile, array(".",".."))) continue;
+			// - do only collect files that match to "id,*.jpg"; e.g. "30080011,5.JPG"
+			if (!preg_match('/^'.$strId.',[0-9]+\.JPG$/i', $strFile)) continue;
+			// - collect
+			$arrResult[] = $strPath.'/'.$strFile;
+		}
+		
+		/*
+		 * CHECK
+		 */
+		// - return dummy if no image file found
+		if (count($arrResult) == 0) {
 			return array(
 				'data/cars/images/dummy.jpg'
 			);
 		}
+		
+		/*
+		 * RETURN
+		 */
+		return $arrResult;
 	}	
+	
+//	/**
+//	 * Get all images for one car
+//	 * 
+//	 * @return array images
+//	 */
+//	public function getImages($strId) {		
+//		if (file_exists(self::IMAGE_PATH . '/' . $strId . ',1.JPG') || substr(self::IMAGE_PATH, 0, 4) == 'http') {
+//			return array(
+//				self::IMAGE_PATH . '/' . $strId . ',1.JPG',
+//				self::IMAGE_PATH . '/' . $strId . ',2.JPG',
+//				self::IMAGE_PATH . '/' . $strId . ',3.JPG',
+//				self::IMAGE_PATH . '/' . $strId . ',4.JPG',
+//				self::IMAGE_PATH . '/' . $strId . ',5.JPG',
+//			);
+//                } elseif (file_exists(self::IMAGE_PATH . '/' . $strId . ',1.jpg') || substr(self::IMAGE_PATH, 0, 4) == 'http') {
+//			return array(
+//				self::IMAGE_PATH . '/' . $strId . ',1.jpg',
+//				self::IMAGE_PATH . '/' . $strId . ',2.jpg',
+//				self::IMAGE_PATH . '/' . $strId . ',3.jpg',
+//				self::IMAGE_PATH . '/' . $strId . ',4.jpg',
+//				self::IMAGE_PATH . '/' . $strId . ',5.jpg',
+//			);
+//		} elseif (file_exists('data/cars/images/sync/dummy.jpg')) {
+//			return array(
+//				'data/cars/images/sync/dummy.jpg'
+//			);
+//		} else {
+//			return array(
+//				'data/cars/images/dummy.jpg'
+//			);
+//		}
+//	}	
 
 	/**
 	 * Get all distinc prices
