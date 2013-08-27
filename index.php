@@ -10,6 +10,11 @@
  */
 
 /*
+ * ERROR REPORTING
+ */
+ini_set("error_reporting", E_ALL ^ E_NOTICE);
+
+/*
  * AUTOLOADER
  */
 function __autoload($strClass) {

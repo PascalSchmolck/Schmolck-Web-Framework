@@ -19,12 +19,20 @@ class Schmolck_Framework_Helper_Database extends Schmolck_Framework_Helper {
 	 * Initialise database settings
 	 */
 	public function init() {
+		/*
+		 * PREPARATION
+		 */
 		$this->_host = DATABASE_HOST;
 		$this->_name = DATABASE_NAME;
 		$this->_username = DATABASE_USERNAME;
 		$this->_password = DATABASE_PASSWORD;
-
-		$this->connect();
+		
+		/*
+		 * CHECK
+		 */
+		if ($this->_host != 'DATABASE_HOST' and $this->_name != 'DATABASE_NAME' and $this->_username != 'DATABASE_USERNAME' and $this->_password != 'DATABASE_PASSWORD') {
+			$this->connect();
+		}		
 	}
 
 	/**

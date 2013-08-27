@@ -72,7 +72,6 @@ class Cars_Helper extends Schmolck_Framework_Helper {
 	 */
 	public function getFilter($strName) {
 		$arrFilter = $this->restore('filter');
-		Schmolck_Tool_Debug::debug(print_r($arrFilter, true));		
 		return $arrFilter[$strName];
 	}
 	
