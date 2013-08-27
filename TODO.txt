@@ -1,6 +1,7 @@
 2013.08.27
 **********
-[ ] [CARS] test CSV loading with different failure options
+[x] [FRAMEWORK] improve browser caching capabilities
+[x] [CARS] implement case-insensitive car image retrieval
 
 2013.08.07
 **********

@@ -61,6 +61,14 @@ class Schmolck_Framework_Helper_Api extends Schmolck_Framework_Helper {
 				$this->_objCore->getAction();
 	}
 
+	/**
+	 * Get API element
+	 * 
+	 * @param string $strId element id
+	 * @param string $strApi api call structure
+	 * @param array $arrParameter GET parameters
+	 * @return string element
+	 */	
 	public function getElement($strId, $strApi, $arrParameter=array()) {
 		/*
 		 * BACKUP
@@ -107,6 +115,28 @@ class Schmolck_Framework_Helper_Api extends Schmolck_Framework_Helper {
 		 * OUTPUT
 		 */
 		return $strOutput;
+	}
+	
+	/**
+	 * Get API element call statements
+	 * 
+	 * @param string $strId element id
+	 * @param string $strApi api call structure
+	 * @param array $arrParameter GET parameters
+	 * @return string element call statements
+	 */
+	public function getElementCaller($strId, $strApi, $arrParameter=array()) {
+		return "
+			<div id=\"{$strId}\">
+				<script>
+					Schmolck_Framework_Helper_Api({
+						url: '{$strApi}',
+						id: '{$strId}',
+						data: '".http_build_query($arrParameter)."'
+					});
+				</script>
+			</div>
+		";
 	}
 
 }
