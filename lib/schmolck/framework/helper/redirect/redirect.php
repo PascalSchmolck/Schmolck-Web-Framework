@@ -13,5 +13,10 @@ class Schmolck_Framework_Helper_Redirect extends Schmolck_Framework_Helper {
 		header('Location: ' . $this->_objCore->getHelperApplication()->getBaseUrl() . '/' . $strParameter);
 		exit();
 	}
+	
+	public function external($strUrl) {
+		header('Location: ' . $strUrl);
+		exit();
+	}	
 
 }

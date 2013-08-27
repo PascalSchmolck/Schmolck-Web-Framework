@@ -9,4 +9,4 @@ $objCore->strId = $objCore->getHelperApi()->getId();
 /*
  * REDIRECT
  */
-//$objCore->getHelperRedirect()->local('cars/database/overview');
+$objCore->getHelperRedirect()->external('http://news.schmolck.de');
