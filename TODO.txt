@@ -1,3 +1,7 @@
+2013.08.28
+**********
+[x] [PORTAL] fix obsolete exception messages for non-existing pages
+
 2013.08.27
 **********
 [x] [PORTAL] hide new portal and redirect to news.schmolck.de
