@@ -1,5 +1,6 @@
 2013.08.28
 **********
+[x] [PORTAL] fix obsolete exception messages for non-existing host
 [x] [PORTAL] fix obsolete exception messages for non-existing pages
 
 2013.08.27
