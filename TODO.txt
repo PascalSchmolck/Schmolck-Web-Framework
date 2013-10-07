@@ -1,3 +1,7 @@
+2013.10.07
+**********
+[x] [CARS] fix temporarily missing www.cars.schmolck... host config
+
 2013.08.28
 **********
 [x] [PORTAL] fix obsolete exception messages for non-existing host
