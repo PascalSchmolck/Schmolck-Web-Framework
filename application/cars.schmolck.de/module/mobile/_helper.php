@@ -332,7 +332,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 	 */
 	protected function _getMappedRow($arrRow) {
 		$arrMap['id'] = $arrRow['A_satz_nummer'];
-		$arrMap['name'] = $this->_getMappedRowName($arrRow['D_marke'], $arrRow['E_modell']);
+		$arrMap['name'] = $this->_getMappedRowName($arrRow['D_marke'], utf8_encode($arrRow['E_modell']));
 		$arrMap['kategorie'] = $arrRow['C_kategorie'];
 		$arrMap['fahrzeug'] = $this->_getMappedRowFahrzeug($arrRow['V_neufahrzeug']);
 		$arrMap['ez'] = $this->_getMappedRowEz($arrRow);
@@ -582,6 +582,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		 * INITIALISATION
 		 */
 		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
+		$arrResult = array();
 
 		/*
 		 * DATA
@@ -704,9 +705,7 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 		/*
 		 * CLEANING & PREVENTION
 		 */
-		if (APPLICATION_ENVIRONMENT != 'development') {
-			rename(self::ZIP_FILE, self::ZIP_FILE. '.bak');
-		}
+		rename(self::ZIP_FILE, self::ZIP_FILE. '.bak');
 	}	
 	
 	/**

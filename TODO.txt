@@ -1,6 +1,7 @@
 2013.10.07
 **********
 [x] [CARS] fix temporarily missing www.cars.schmolck... host config
+[x] [CARS] fix utf8 encoding issue within car title
 
 2013.08.28
 **********
