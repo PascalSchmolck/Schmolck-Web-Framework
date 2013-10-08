@@ -597,6 +597,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 				AND K_preis IS NOT NULL
 				AND K_preis <> 'null'
 				AND K_preis <> ''
+				AND K_preis > 1
 			ORDER BY 
 				K_preis ASC
 		";

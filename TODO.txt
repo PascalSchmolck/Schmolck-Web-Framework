@@ -1,6 +1,8 @@
 2013.10.08
 **********
 [x] [CARS] fix car image handling for new mobile module
+[x] [CARS] hide "1 EUR" entry from mobile price filter 
+[x] [PORTAL] fix missing favicon.ico and favicon.png
 
 2013.10.07
 **********
