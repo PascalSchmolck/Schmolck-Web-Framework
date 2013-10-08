@@ -657,12 +657,12 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 		 */
 		// - set processing flag
 		$this->store('processing', true);
+		// - remove existing images
+		$this->_updateFromZipImages();		
 		// - unpack uploaded ZIP file
 		$this->_updateFromZipUnpack();
 		// - import data into database tables
 		$this->_updateFromZipCsv();
-		// - move car images to proper location
-		$this->_updateFromZipImages();
 		// - cleanup
 		$this->_updateFromZipCleaning();
 		// - unset processing flag
@@ -709,7 +709,7 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 	}	
 	
 	/**
-	 * Move unpacked car images to proper location
+	 * Remove all images
 	 * 
 	 * @throws Exception
 	 */
@@ -717,49 +717,22 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 		/*
 		 * PREPARATION
 		 */
-		$strSourceDir = dirname(self::ZIP_FILE);
-		$strDestinationDir = self::IMAGES_PATH;
-				
+		$strDir = dirname(self::ZIP_FILE);
+	
 		/*
 		 * PROCESSING
 		 */
 		// - get array of all source files
-		$arrFiles = scandir($strSourceDir);
+		$arrFiles = scandir($strDir);
 		// - cycle through all source files
 		foreach ($arrFiles as $strFile) {
 			// - do not handle dirs
 			if (in_array($strFile, array(".",".."))) continue;
 			// - do not handle other files than *.JPG and *.jpg
-			if (!preg_match('/\.JPG$/i', $strFile)) continue;
-			// - if we copied this successfully, mark it for deletion
-			if (copy($strSourceDir.'/'.$strFile, $strDestinationDir.'/'.$strFile)) {
-				$this->arrNewImages[] =  $strDestinationDir . '/' . $strFile;
-				$arrMovedImages[] = $strSourceDir . '/' . $strFile;
-			} else {
-				throw new Exception('Could not move extracted car image to proper location');
+			if (preg_match('/\.JPG$/i', $strFile)) {
+				unlink($strDir.'/'.$strFile);
 			}
-		}
-		
-		/*
-		 * CLEANING
-		 */
-		// - delete all successfully-copied files
-		foreach ($arrMovedImages as $strFile) {
-			if (!unlink($strFile)) {
-				throw new Exception('Could not delete extracted car image after moving to proper location');
-			}			
-		}		
-		// - delete all obsolete images
-		$arrDestinationFiles = scandir($strDestinationDir);
-		// - cycle through all files
-		foreach ($arrDestinationFiles as $strFile) {
-			// - do not handle dirs
-			if (in_array($strFile, array(".",".."))) continue;
-			// - do only delete files that have not been imported just before
-			if (in_array($strDestinationDir . '/' . $strFile, $this->arrNewImages)) continue;
-			// - delete
-			unlink($strDestinationDir . '/' . $strFile);
-		}		
+		}	
 	}
 	
 //	protected function _splitUnpackedCSV() {

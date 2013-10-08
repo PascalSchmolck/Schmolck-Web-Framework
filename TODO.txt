@@ -1,3 +1,7 @@
+2013.10.08
+**********
+[x] [CARS] fix car image handling for new mobile module
+
 2013.10.07
 **********
 [x] [CARS] fix temporarily missing www.cars.schmolck... host config
