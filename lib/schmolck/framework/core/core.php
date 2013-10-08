@@ -440,6 +440,11 @@ class Schmolck_Framework_Core {
 		if (file_exists($strFile)) {
 			require_once($strFile);
 		}
+		// - styles
+		$strFile = $this->getHelperApplication()->getModulePath() . "/{$this->getModule()}/styles.module.less";
+		if (file_exists($strFile)) {
+			$this->registerLayoutStyle($strFile);
+		}		
 		// - init
 		$strFile = $this->getHelperApplication()->getModulePath() . "/{$this->getModule()}/_init.php";
 		if (file_exists($strFile)) {
