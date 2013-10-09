@@ -5,36 +5,40 @@
 $objCore = Schmolck_Framework_Core::getInstance($this);
 $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Location"));
 ?>
-<h1>
-	<?= $objCore->getHelperTranslator()->_("Location") ?>
-</h1>
-<?=  $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
-<div style="float: right; text-align: right;">
-	<strong>
+<div id="<?= $objCore->getHelperApi()->getId() ?>" class="<?= $objCore->getHelperApi()->getStyleClass() ?>">
+	<h1>
+		<?= $objCore->getHelperTranslator()->_("Location") ?>
+	</h1>
+	<?=  $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
+	<img src="apps/image/512/90/data/contact/images/emmendingen.jpg">
+	<h2>
 		Schmolck GmbH &amp; Co. KG
-	</strong>
-	<br>
-	Am Elzdamm 2
-	<br>
-	79312 Emmendingen
-</div>		
-<p>			
-	<div class="screen">
-		<form method="get" action="https://maps.google.de/maps" target="_blank">
-			<input type="hidden" name="daddr" value="Am Elzdamm 2, 79312 Emmendingen">
-			<input type="text" name="saddr" title="<?= $objCore->getHelperTranslator()->_("Enter your address here") ?>" style="width: 45%;">
-			<input type="submit" value="<?= $objCore->getHelperTranslator()->_("Search") ?>" style="float: none;">
-		</form>
-	</div>
-</p>
-<p>
-	<iframe width="100%" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.de/maps/ms?msa=0&amp;msid=210111196947745233323.00046c60ab25feb767013&amp;hl=de&amp;ie=UTF8&amp;ll=47.963208,7.736156&amp;spn=0.296355,0.23316&amp;t=m&amp;iwloc=00046c60c37a60af797b4&amp;output=embed"></iframe>
-	<br>
-	<small>
-		<a href="https://maps.google.com/maps/ms?ie=UTF8&amp;msa=0&amp;msid=210111196947745233323.00046c60ab25feb767013&amp;t=h&amp;ll=47.963261,7.735748&amp;spn=0.441392,0.878906&amp;z=10&amp;source=embed" target="_blank">
-			<?= $objCore->getHelperTranslator()->_("Schmolck Group") ?>
+	</h2>
+	<p>
+		Autorisierter Mercedes-Benz Service und Vermittler <br>
+		der Daimler AG f&uuml;r Mercedes-Benz PKW, NFZ und smart <br>
+		Unimog-Service, Umwelttechnik
+	</p>
+	<p>
+		<a href="https://maps.google.de/maps?q=Am+Elzdamm+2,+Emmendingen&hl=de&ie=UTF8&sll=48.110862,7.851732&sspn=0.009843,0.017295&hnear=Am+Elzdamm+2,+79312+Emmendingen,+Freiburg,+Baden-W%C3%BCrttemberg&t=m&z=16" target="_blank">
+			Am Elzdamm 2 <br>
+			79312 Emmendingen	
+		</a>		
+	</p>
+	<p>
+		Tel +49 7641 / 4602-0 <br>
+		Fax +49 7641 / 4602-80 <br>
+	</p>
+	<p>
+		<?= $objCore->getHelperTranslator()->_("Mail") ?>
+		<a href="<?= $objCore->getHelperLink()->get('mailto:info.emmendingen@schmolck.de')?>">
+			<span class="screen">
+				Info Emmendingen
+			</span>
+			<span class="print">
+				info.emmendingen@schmolck.de
+			</span>
 		</a>
-		- 
-		<?= $objCore->getHelperTranslator()->_("open in a larger map") ?>
-	</small>
-</p>
+	</p>
+</div>
+

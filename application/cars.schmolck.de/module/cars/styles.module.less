@@ -283,52 +283,29 @@
 				}
 			}			
 			.contact {
-				@media only print { 
-				      display: none;
+				@media only print {
+					display: none;
 				}
-				margin-top: 20px;
-				table {
-				      width: 100%;
-				}
-				td {
-				      vertical-align: top;
-				      padding: 0;
-				}
-				.emmendingen {
-					clear: both;
-					.box {
-						@media handheld, only screen and (max-width: 768px) {
-							width: 22%;
-						}
-						@media handheld, only screen and (max-width: 480px) {
-							width: 20%;
-						}
-						@media handheld, only screen and (max-width: 320px) {
-							width: 40%;
-						}
-						width: 18%;
-						float: left;
-						margin-right: 20px;
-						margin-bottom: 20px;
+				clear: both;
+				.box {
+					@media only print {
+						width: 21.5%;
 					}
-				}
-				.muellheim {
-					clear: both;
-					.box {
-						@media handheld, only screen and (max-width: 768px) {
-							width: 22%;
-						}
-						@media handheld, only screen and (max-width: 480px) {
-							width: 20%;
-						}
-						@media handheld, only screen and (max-width: 320px) {
-							width: 40%;
-						}
-						width: 18%;
-						float: left;
-						margin-right: 20px;
-						margin-bottom: 20px;
+					@media handheld, only screen and (max-width: 1024px) {
+						width: 22.5%;
 					}
+					@media handheld, only screen and (max-width: 768px) {
+						width: 21.5%;
+					}
+					@media handheld, only screen and (max-width: 480px) {
+						width: 19.5%;
+					}
+					@media handheld, only screen and (max-width: 320px) {
+						width: 98%;
+					}
+					float: left;
+					margin: 10px;
+					width: 22.5%;
 				}
 			}
 		}

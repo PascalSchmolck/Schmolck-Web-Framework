@@ -14,40 +14,22 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cont
 		<?= $objCore->getHelperTranslator()->_("Contact") ?>
 	</h1>
 	<?=  $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
-	<img src="apps/image/512/90/data/contact/images/muellheim.jpg">
-	<h2>
-		Autohaus Schmolck GmbH & Co. KG 
-	</h2>
-	<p>
-		Autorisierter Mercedes-Benz Service und Vermittler <br>
-		der Daimler AG für Mercedes-Benz und smart <br>
-		Unimog Kundendienststation <br>
-	</p>
-	<p>
-		Kinzigstraße 5 <br>
-		79379 Müllheim 
-	</p>
-	<p>
-		Tel +49 7631 / 3672-0 <br>
-		Fax +49 7631 / 3672-80 <br>
-	</p>
-	<p>
-		<?= $objCore->getHelperTranslator()->_("Mail") ?>
-		<a href="<?= $objCore->getHelperLink()->get('mailto:info.muellheim@schmolck.de')?>">
-			<span class="screen">
-				Info Müllheim
-			</span>
-			<span class="print">
-				info.muellheim@schmolck.de
-			</span>
-		</a>
-	</p>
-	<div class="clearer">
-
-	</div>
-	<div class="screen">
-		<p>
-			<?= $objCore->getHelperApi()->getElement('email', 'contact/api/form') ?>				
-		</p>
+	<div class="contact">
+		<div class="muellheim">
+			<div class="box">
+				<img src="apps/image/320/100/data/mobile/images/contact/lievenvanderhoofd.jpg"><br>
+				<a href="<?= $objCore->getHelperLink()->get("mailto:lieven.vanderhoofd@schmolck.de?subject={$strMailInfo}") ?>">
+					Lieven van der Hoofd 
+				</a><br>
+				Tel +49 7631 / 3672-0 
+			</div>
+			<div class="box">
+				<img src="apps/image/320/100/data/mobile/images/contact/michelmisiuk.jpg">	<br>
+				<a href="<?= $objCore->getHelperLink()->get("mailto:michel.misiuk@schmolck.de?subject={$strMailInfo}") ?>">
+					Michel Misiuk 
+				</a><br>
+				Tel +49 7631 / 3672-740  <br>
+			</div>	
+		</div>
 	</div>
 </div>

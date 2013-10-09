@@ -14,39 +14,40 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cont
 		<?= $objCore->getHelperTranslator()->_("Contact") ?>
 	</h1>
 	<?=  $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
-	<img src="apps/image/512/90/data/contact/images/vogtsburg.jpg">
-	<h2>
-		Schmolck GmbH &amp; Co. KG
-	</h2>
-	<p>
-		Autorisierter Mercedes-Benz Service und Vermittler <br>
-		für Mercedes-Benz PKW und Transporter 
-	</p>
-	<p>
-		Bacchusstraße 19 <br>
-		79235 Vogtsburg-Bischoffingen 
-	</p>
-	<p>
-		Tel +49 7641 / 4602-0 <br>
-		Fax +49 7641 / 4602-80 <br>
-	</p>
-	<p>
-		<?= $objCore->getHelperTranslator()->_("Mail") ?>
-		<a href="<?= $objCore->getHelperLink()->get('mailto:info.bischoffingen@schmolck.de')?>">
-			<span class="screen">
-				Info Bischoffingen
-			</span>
-			<span class="print">
-				info.drexler@schmolck.de
-			</span>
-		</a>
-	</p>
-	<div class="clearer">
-
-	</div>
-	<div class="screen">
-		<p>
-			<?= $objCore->getHelperApi()->getElement('email', 'contact/api/form') ?>				
-		</p>
+	<div class="contact">
+		<div class="vogtsburg">
+			<div class="box">
+				<img src="apps/image/320/100/data/mobile/images/contact/sebastianheiny.jpg"><br>
+				<a href="<?= $objCore->getHelperLink()->get("mailto:sebastian.heiny@schmolck.de?subject={$strMailInfo}") ?>">
+					Sebastian Heiny 
+				</a><br>	
+				Tel +49 7641 / 4602-116 
+			</div>
+			<div class="box">
+				<img src="apps/image/320/100/data/mobile/images/contact/mikemack.jpg"><br>
+				<a href="<?= $objCore->getHelperLink()->get("mailto:mike.mack@schmolck.de?subject={$strMailInfo}") ?>">
+					Mike Mack 
+				</a><br>			
+				Tel +49 7641 / 4602-115
+			</div>
+			<div class="box">
+				<img src="apps/image/320/100/data/mobile/images/contact/juergenrinkenauer.jpg"><br>
+				<a href="<?= $objCore->getHelperLink()->get("mailto:juergen.rinkenauer@schmolck.de?subject={$strMailInfo}") ?>">
+					Jürgen Rinkenauer
+				</a><br>
+				Tel +49 7641 / 4602-113 
+			</div>	
+			<div class="box">
+				<img src="apps/image/320/100/data/mobile/images/contact/andreasblakowski.jpg"><br>
+				<a href="<?= $objCore->getHelperLink()->get("mailto:andreas.blakowski@schmolck.de?subject={$strMailInfo}") ?>">
+					Andreas Blakowski 
+				</a><br>
+				<strong>
+					Verkaufsleiter
+				</strong>
+				<br>
+				Tel +49 7641 / 4602-0	
+			</div>			
+		</div>
 	</div>
 </div>

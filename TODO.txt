@@ -1,3 +1,7 @@
+2013.10.09
+**********
+[x] [PORTAL] modify location and contact page according to feature requests
+
 2013.10.08
 **********
 [x] [CARS] fix car image handling for new mobile module

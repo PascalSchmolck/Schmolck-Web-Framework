@@ -1,20 +1,25 @@
-.api.contact {
-	img {
-		@media only print {
-			width: 45%;
-		}	
-		@media handheld, only screen and (max-width: 1024px) {
-			width: 50%;
-		}	
-		@media handheld, only screen and (max-width: 640px) {
-			width: 40%;
+.api.contact {	
+	.emmendingen, .muellheim, .vogtsburg{
+		clear: both;
+		.box {
+			@media only print {
+				width: 21.5%;
+			}
+			@media handheld, only screen and (max-width: 1024px) {
+				width: 22.5%;
+			}
+			@media handheld, only screen and (max-width: 768px) {
+				width: 21.5%;
+			}
+			@media handheld, only screen and (max-width: 480px) {
+				width: 19.5%;
+			}
+			@media handheld, only screen and (max-width: 320px) {
+				width: 98%;
+			}
+			float: left;
+			margin: 10px;
+			width: 22.5%;
 		}
-		@media handheld, only screen and (max-width: 480px) {
-			float: none;
-			display: block;
-			margin-bottom: 10px;
-			width: 100%;
-		}	
-		float: right;
 	}
 }
