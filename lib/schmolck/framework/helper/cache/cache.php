@@ -10,8 +10,8 @@
 class Schmolck_Framework_Helper_Cache extends Schmolck_Framework_Helper {
 
 	const PATH = 'tmp';
-	const LIMIT_CLEAN = 3600;  // seconds
-	const LIMIT_CACHE = 'H';  // date()
+	const LIMIT_CLEAN = 86400;  // seconds
+	const LIMIT_CACHE = 'd';  // date()
 
 	public function init() {
 		/*

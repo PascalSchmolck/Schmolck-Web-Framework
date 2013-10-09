@@ -1,6 +1,7 @@
 2013.10.09
 **********
 [x] [PORTAL] modify location and contact page according to feature requests
+[x] [FRAMEWORK] increase time limit for cleaning temporary folder
 
 2013.10.08
 **********
