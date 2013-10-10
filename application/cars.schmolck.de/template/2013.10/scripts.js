@@ -2,9 +2,9 @@ $(document).ready(function() {
 	/*
 	 * NAVIGATION
 	 */
-	$('.navigation .helper').click(function() {
-		$('.navigation .helper').hide();
-		$('.navigation .list').slideDown('fast');
+	$('.menu .helper').click(function() {
+		$('.menu .helper').hide();
+		$('.menu .list').slideDown('fast');
 		return false;
 	});
 	
