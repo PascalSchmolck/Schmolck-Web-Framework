@@ -273,14 +273,22 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 			ORDER BY
 				$strSorting
 		";	
-		$resource = $objCore->getHelperDatabase()->query($strQuery);
-		while ($arrRow = mysql_fetch_assoc($resource)) {
-			$arrResult[] = $this->_getMappedRow($arrRow);
-		}
 		
 		/*
-		 * RETURN
+		 * CACHE
 		 */
+		$strHash = md5($strQuery.date('Y.m.d-H.m'));	
+		if ($this->_getCache($strHash) == null) {
+
+			$resource = $objCore->getHelperDatabase()->query($strQuery);
+			while ($arrRow = mysql_fetch_assoc($resource)) {
+				$arrResult[] = $this->_getMappedRow($arrRow);
+			}
+
+			$this->_setCache($strHash, $arrResult);
+		} else {
+			$arrResult = $this->_getCache($strHash);
+		}
 		return $arrResult;
 	}
 	
@@ -601,11 +609,23 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 			ORDER BY 
 				K_preis ASC
 		";
-		$resource = $objCore->getHelperDatabase()->query($strQuery);
-		while ($arrRow = mysql_fetch_assoc($resource)) {
-			$arrResult[] = $arrRow["K_preis"];
+		
+		/*
+		 * CACHE
+		 */
+		$strHash = md5($strQuery.date('Y.m.d-H.m'));	
+		if ($this->_getCache($strHash) == null) {
+		
+			$resource = $objCore->getHelperDatabase()->query($strQuery);
+			while ($arrRow = mysql_fetch_assoc($resource)) {
+				$arrResult[] = $arrRow["K_preis"];
+			}
+			$this->_setCache($strHash, $arrResult);
+			
+		} else {
+			$arrResult = $this->_getCache($strHash);
 		}
-		return $arrResult;
+		return $arrResult;		
 	}
 		
 }

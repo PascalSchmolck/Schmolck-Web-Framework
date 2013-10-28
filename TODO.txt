@@ -1,5 +1,6 @@
 2013.10.15
 **********
+[x] [MOBILE] implement cache handling for better performance
 [x] [CARS] implement cache handling for better performance
 [x] [FRAMEWORK] implement SQL statement speed logging / debugging
 

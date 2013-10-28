@@ -46,14 +46,6 @@ class Cars_Helper extends Schmolck_Framework_Helper {
 	const DB_TABLE = 'mod_cars';
 	const UPDATE_LIMIT = 1800;
 	
-	protected $_bCache = true;
-	
-	
-//			/*
-//		 * CACHE
-//		 */
-//		if (!isset($this->_arrCache[$strSQL])) {
-
 	public function __construct(Schmolck_Framework_Core $objCore) {
 		parent::__construct($objCore);
 
