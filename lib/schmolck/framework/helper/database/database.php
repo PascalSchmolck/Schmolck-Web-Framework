@@ -14,7 +14,7 @@ class Schmolck_Framework_Helper_Database extends Schmolck_Framework_Helper {
 	protected $_username;
 	protected $_password;
 	protected $_connection;
-
+	
 	/**
 	 * Initialise database settings
 	 */
@@ -77,7 +77,12 @@ class Schmolck_Framework_Helper_Database extends Schmolck_Framework_Helper {
 	 * @return resource
 	 * @throws Schmolck_Tool_Exception
 	 */
-	public function query($strSQL) {
+	public function query($strSQL) {		
+		/*
+		 * LOG
+		 */
+		$this->_startDebugTimer();
+		
 		/*
 		 * QUERY
 		 */
@@ -87,7 +92,16 @@ class Schmolck_Framework_Helper_Database extends Schmolck_Framework_Helper {
 			Schmolck_Tool_Debug::error("SQL: " . $strSQL);
 			throw new Schmolck_Tool_Exception("Database query failed");		
 		}
+		
+		/*
+		 * LOG
+		 */
+		$this->_stopDebugTimer($strSQL);
+
+		/*
+		 * OUTPUT
+		 */
 		return $resource;
 	}
-
+	
 }

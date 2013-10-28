@@ -136,7 +136,8 @@ class Schmolck_Tool_Debug {
 		/*
 		 * MESSAGE
 		 */
-		$strLogMessage .= "{$strType}: {$objMessage}";
+		$strMessage = str_replace("\n", "", $objMessage);
+		$strLogMessage .= "{$strType}: {$strMessage}";
 
 		/*
 		 * OUTPUT

@@ -1,5 +1,9 @@
 2013.10.15
 **********
+[x] [FRAMEWORK] implement SQL statement speed logging / debugging
+
+2013.10.15
+**********
 [x] [CARS] move contact images to proper path within images folder
 [x] [MOBILE] move contact images to proper path within images folder
 
