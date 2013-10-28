@@ -91,7 +91,7 @@ class Schmolck_Framework_Helper_Database extends Schmolck_Framework_Helper {
 			Schmolck_Tool_Debug::error(mysql_error());
 			Schmolck_Tool_Debug::error("SQL: " . $strSQL);
 			throw new Schmolck_Tool_Exception("Database query failed");		
-		}
+		}		
 		
 		/*
 		 * LOG

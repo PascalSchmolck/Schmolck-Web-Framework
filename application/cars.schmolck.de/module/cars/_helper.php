@@ -45,6 +45,14 @@ class Cars_Helper extends Schmolck_Framework_Helper {
 	const DATA_FILE = CARS_LOCATION_SYNCFILE;
 	const DB_TABLE = 'mod_cars';
 	const UPDATE_LIMIT = 1800;
+	
+	protected $_bCache = true;
+	
+	
+//			/*
+//		 * CACHE
+//		 */
+//		if (!isset($this->_arrCache[$strSQL])) {
 
 	public function __construct(Schmolck_Framework_Core $objCore) {
 		parent::__construct($objCore);
@@ -201,16 +209,6 @@ class Cars_Helper extends Schmolck_Framework_Helper {
 				break;			
 			
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 //			default:
 //				if (trim($this->getFilter('model')) != '') {
 //					$strWhereModel = "
@@ -305,7 +303,7 @@ class Cars_Helper extends Schmolck_Framework_Helper {
 				";
 				break;			
 		}			
-
+		
 		/*
 		 * QUERY
 		 */
@@ -325,15 +323,27 @@ class Cars_Helper extends Schmolck_Framework_Helper {
 			ORDER BY
 				$strSorting
 		";	
-		$resource = $objCore->getHelperDatabase()->query($strQuery);
-		while ($arrRow = mysql_fetch_assoc($resource)) {
-			$arrRow['name'] = $this->extractName($arrRow);
-			$arrRow["EZ"] = $this->extractEz($arrRow);
-			$arrRow["KM"] = $this->extractKm($arrRow);
-			$arrRow["RP"] = $this->extractPrice($arrRow);
-			$arrRow["color"] = $this->extractColor($arrRow);
-			$arrRow["images"] = $this->getImages($arrRow['KNR']);
-			$arrResult[] = $arrRow;
+		
+		/*
+		 * CACHE
+		 */
+		$strHash = md5($strQuery.date('Y.m.d-H.m'));	
+		if ($this->_getCache($strHash) == null) {
+
+			$resource = $objCore->getHelperDatabase()->query($strQuery);
+			while ($arrRow = mysql_fetch_assoc($resource)) {
+				$arrRow['name'] = $this->extractName($arrRow);
+				$arrRow["EZ"] = $this->extractEz($arrRow);
+				$arrRow["KM"] = $this->extractKm($arrRow);
+				$arrRow["RP"] = $this->extractPrice($arrRow);
+				$arrRow["color"] = $this->extractColor($arrRow);
+				$arrRow["images"] = $this->getImages($arrRow['KNR']);
+				$arrResult[] = $arrRow;
+				
+				$this->_setCache($strHash, $arrResult);
+			}
+		} else {
+			$arrResult = $this->_getCache($strHash);
 		}
 		return $arrResult;
 	}
@@ -661,9 +671,21 @@ class Cars_Helper extends Schmolck_Framework_Helper {
 			ORDER BY 
 				RP ASC
 		";
-		$resource = $objCore->getHelperDatabase()->query($strQuery);
-		while ($arrRow = mysql_fetch_assoc($resource)) {
-			$arrResult[] = $arrRow["RP"];
+		
+		/*
+		 * CACHE
+		 */
+		$strHash = md5($strQuery.date('Y.m.d-H.m'));	
+		if ($this->_getCache($strHash) == null) {
+		
+			$resource = $objCore->getHelperDatabase()->query($strQuery);
+			while ($arrRow = mysql_fetch_assoc($resource)) {
+				$arrResult[] = $arrRow["RP"];
+			}
+			$this->_setCache($strHash, $arrResult);
+			
+		} else {
+			$arrResult = $this->_getCache($strHash);
 		}
 		return $arrResult;
 	}
@@ -695,11 +717,23 @@ class Cars_Helper extends Schmolck_Framework_Helper {
 			ORDER BY 
 				KM ASC
 		";
-		$resource = $objCore->getHelperDatabase()->query($strQuery);
-		while ($arrRow = mysql_fetch_assoc($resource)) {
-			$arrResult[] = $arrRow["KM"];
+		
+		/*
+		 * CACHE
+		 */
+		$strHash = md5($strQuery.date('Y.m.d-H.m'));	
+		if ($this->_getCache($strHash) == null) {
+		
+			$resource = $objCore->getHelperDatabase()->query($strQuery);
+			while ($arrRow = mysql_fetch_assoc($resource)) {
+				$arrResult[] = $arrRow["KM"];
+			}
+			$this->_setCache($strHash, $arrResult);
+			
+		} else {
+			$arrResult = $this->_getCache($strHash);
 		}
-		return $arrResult;
+		return $arrResult;		
 	}
 	
 	/**
@@ -729,11 +763,23 @@ class Cars_Helper extends Schmolck_Framework_Helper {
 			ORDER BY 
 				EZ ASC
 		";
-		$resource = $objCore->getHelperDatabase()->query($strQuery);
-		while ($arrRow = mysql_fetch_assoc($resource)) {
-			$arrResult[] = $arrRow["EZ"];
+		
+		/*
+		 * CACHE
+		 */
+		$strHash = md5($strQuery.date('Y.m.d-H.m'));	
+		if ($this->_getCache($strHash) == null) {
+		
+			$resource = $objCore->getHelperDatabase()->query($strQuery);
+			while ($arrRow = mysql_fetch_assoc($resource)) {
+				$arrResult[] = $arrRow["EZ"];
+			}
+			$this->_setCache($strHash, $arrResult);
+			
+		} else {
+			$arrResult = $this->_getCache($strHash);
 		}
-		return $arrResult;
+		return $arrResult;			
 	}
 
 }

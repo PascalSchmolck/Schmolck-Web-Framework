@@ -11,6 +11,7 @@ abstract class Schmolck_Framework_Helper {
 
 	protected $_objCore;
 	protected $_arrAttributes = array();
+	protected $_bCache = true;
 	
 	private $_nMicrotime;
 
@@ -52,6 +53,54 @@ abstract class Schmolck_Framework_Helper {
 	public function store($strKey, $strValue) {
 		Schmolck_Tool_Memory::store(get_class($this), $strKey, $strValue);
 	}
+	
+	/**
+	 * Set cache for given hash and value
+	 * 
+	 * @param type $strHash
+	 * @param type $strValue
+	 */
+	protected function _setCache($strHash, $strValue) {
+		if ($this->_bCache) {
+			/*
+			 * INITIALISATION
+			 */
+			$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
+			$strCacheFile = $objCore->getHelperCache()->getFilePath($strHash);
+			
+			/*
+			 * CACHE
+			 */
+			Schmolck_Tool_Debug::debug("CACHE: SET: $strHash");		
+			file_put_contents($strCacheFile, serialize($strValue));
+		}
+	}
+	
+	/**
+	 * Get cached value for given hash
+	 * 
+	 * @param type $strHash
+	 * @return type values
+	 */
+	protected function _getCache($strHash) {
+		if ($this->_bCache) {
+			/*
+			 * INITIALISATION
+			 */
+			$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
+			$strCacheFile = $objCore->getHelperCache()->getFilePath($strHash);
+			
+			/*
+			 * CHECK
+			 */
+			if (file_exists($strCacheFile)) {
+				Schmolck_Tool_Debug::debug("CACHE: GET: $strHash");		
+				return unserialize(file_get_contents($strCacheFile));
+			} else {
+				return null;
+			}
+		}		
+	}	
 	
 	/**
 	 * Start debug timer
