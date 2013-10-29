@@ -1,4 +1,8 @@
-2013.10.15
+2013.10.29
+**********
+[x] [MOBILE] fix breaking import when encountering duplicates
+
+2013.10.28
 **********
 [x] [MOBILE] implement cache handling for better performance
 [x] [CARS] implement cache handling for better performance

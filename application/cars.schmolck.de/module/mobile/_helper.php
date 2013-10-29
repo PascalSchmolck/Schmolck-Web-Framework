@@ -19,7 +19,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 	const IMAGES_PATH = MOBILE_IMAGES_PATH;	
 
 	public function __construct(Schmolck_Framework_Core $objCore) {
-		parent::__construct($objCore);
+		parent::__construct($objCore);		
 
 		/*
 		 * IMPORT
@@ -651,12 +651,6 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 	protected $_arrNewsImages;
 	protected $_bImportSuccess;
 	
-	public function __construct(Schmolck_Framework_Core $objCore) {
-		parent::__construct($objCore);
-
-		$this->updateFromZip();
-	}	
-	
 	/**
 	 * Update database table and images from ZIP file
 	 */
@@ -874,22 +868,22 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 		/*
 		 * PROCESSING
 		 */
-		// - read CSV file into database...
+		// Read CSV file into database...
 		$nCounter = 0;
 		$handle = fopen($strPath . '/' . $strFile, 'r');
 		while (!feof($handle)) {
 
-			// - ...line by line
+			// ...line by line
 			$strLine = fgets($handle);
 			$arrData = explode(self::CSV_DELIMITER, $strLine);
 			$nCounter++;
 
-			// - ignore empty lines
+			// Ignore empty lines
 			if (trim($strLine) == '') {
 				continue;
 			}
 
-			// - build insert query
+			// Build insert query
 			$strQuery1 = "INSERT INTO `" . self::DATABASE_TABLE . "` VALUES (";
 			$strQuery2 = "";
 			$strQuery3 = ")";
@@ -898,28 +892,20 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 			}
 			$strQuery2 = substr($strQuery2, 0, -2);
 
-			// - clear table first
+			// Clear table first
 			if (!$bEmptied) {
 				$objCore->getHelperDatabase()->query("TRUNCATE TABLE `" . self::DATABASE_TABLE . "`");
 				$bEmptied = true;
 			}
 
-			// - insert
-			$objCore->getHelperDatabase()->query($strQuery1 . $strQuery2 . $strQuery3);
+			// Insert rows with best-effort
+			try {
+				$objCore->getHelperDatabase()->query($strQuery1 . $strQuery2 . $strQuery3);
+			} catch (Exception $objException) {
+				// Log errors but proceed as if nothing happened
+				Schmolck_Tool_Debug::error($objException->getMessage());
+			}
 		}		
-		
-//		/*
-//		 * QUERY
-//		 */
-//		$strQuery = "
-//			LOAD DATA INFILE '" . $objCore->getBasePath() . '/' . self::DATABASE_FILE . "'
-//			REPLACE
-//			INTO TABLE `".self::DATABASE_TABLE."`
-//			FIELDS TERMINATED BY '".self::CSV_DELIMITER."'
-//			OPTIONALLY ENCLOSED BY '\"'
-//			LINES TERMINATED BY '\n'
-//		";
-//		$objCore->getHelperDatabase()->query($strQuery);
 	}
 	
 	/**
