@@ -3,19 +3,15 @@
  * INITIALISATION
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
-// - style
-$strStyleClass = $objCore->getHelperApi()->getStyleClass();
+$objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cars"));
 
 /*
  * OUTPUT
  */
 ?>
-<div id="<?= $objCore->strId ?>" class="<?= $strStyleClass ?>">
-	<?=
-	$objCore->getHelperApi()->getElement("{$objCore->strId}_filter", 'mobile/search/filter', array(
-		'resultID' => "{$objCore->strId}_result"
-	));
-	?>				
-
-	<?= $objCore->getHelperApi()->getElement("{$objCore->strId}_result", 'mobile/search/result') ?>				
+<div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
+	<h1>
+		<?= $objCore->getHelperTranslator()->_("Cars") ?>
+	</h1>
+	<?= $objCore->getHelperApi()->getElement('cars', 'mobile/search/overview') ?>				
 </div>

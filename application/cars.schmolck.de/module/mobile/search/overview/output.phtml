@@ -1,0 +1,19 @@
+<?php
+/*
+ * INITIALISATION
+ */
+$objCore = Schmolck_Framework_Core::getInstance($this);
+
+/*
+ * OUTPUT
+ */
+?>
+<div id="<?= $objCore->getHelperApi()->getId() ?>" class="<?= $objCore->getHelperApi()->getStyleClass() ?>">
+	<?=
+	$objCore->getHelperApi()->getElement("{$objCore->strId}_filter", 'mobile/search/filter', array(
+		'resultID' => "{$objCore->strId}_result"
+	));
+	?>				
+
+	<?= $objCore->getHelperApi()->getElement("{$objCore->strId}_result", 'mobile/search/result') ?>				
+</div>

@@ -1,5 +1,6 @@
 2013.10.29
 **********
+[x] [MOBILE] improve page structure
 [x] [MOBILE] fix breaking import when encountering duplicates
 
 2013.10.28
