@@ -1,5 +1,7 @@
 2013.10.29
 **********
+[x] [MOBILE] improve cache handling by using date of zip backup
+[x] [MOBILE] implement test for "-" within Claris-Id
 [x] [MOBILE] improve page structure
 [x] [MOBILE] fix breaking import when encountering duplicates
 

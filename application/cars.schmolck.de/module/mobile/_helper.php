@@ -17,6 +17,8 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 	// - new
 	const DATABASE_TABLE = MOBILE_DATABASE_TABLE;	
 	const IMAGES_PATH = MOBILE_IMAGES_PATH;	
+	const PRICE_MWST = MOBILE_PRICE_MWST;
+	const ZIP_BACKUP = MOBILE_ZIP_BACKUP;
 
 	public function __construct(Schmolck_Framework_Core $objCore) {
 		parent::__construct($objCore);		
@@ -276,18 +278,17 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		
 		/*
 		 * CACHE
-		 */
-		$strHash = md5($strQuery.date('Y.m.d-H.m'));	
-		if ($this->_getCache($strHash) == null) {
+		 */	
+		if ($this->_getCache($this->_getUpdateHash($strQuery)) == null) {
 
 			$resource = $objCore->getHelperDatabase()->query($strQuery);
 			while ($arrRow = mysql_fetch_assoc($resource)) {
 				$arrResult[] = $this->_getMappedRow($arrRow);
 			}
 
-			$this->_setCache($strHash, $arrResult);
+			$this->_setCache($this->_getUpdateHash($strQuery), $arrResult);
 		} else {
-			$arrResult = $this->_getCache($strHash);
+			$arrResult = $this->_getCache($this->_getUpdateHash($strQuery));
 		}
 		return $arrResult;
 	}
@@ -349,7 +350,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		$arrMap['kw'] = $arrRow['F_leistung'];
 		$arrMap['getriebe'] = $this->_getMappedRowGetriebe($arrRow['DG_getriebeart']);
 		$arrMap['ccm'] = $arrRow['BA_ccm'];
-		$arrMap['preis'] = $this->_getMappedRowPrice($arrRow['K_preis']);
+		$arrMap['preis'] = $this->_getMappedRowPrice($arrRow);
 		$arrMap['mwst'] = $arrRow['L_mwst'];
 		$arrMap['color'] = $arrRow['Q_farbe'];
 		$arrMap['images'] = $this->getImages($arrMap['id']);
@@ -483,8 +484,21 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		return $strLabel;
 	}	
 	
-	protected function _getMappedRowPrice($strPrice) {
-		return number_format($strPrice, 0, "", ".");
+	/**
+	 * Get mapped price according to MwSt. flag
+	 * 
+	 * @param array $arrRow
+	 * @return number
+	 */
+	protected function _getMappedRowPrice($arrRow) {
+		if ($arrRow['L_mwst'] == 0) {
+			$nPrice = ceil($arrRow['K_preis'] * (1 + self::PRICE_MWST/100));
+			$nPrice = intval($nPrice / 100);
+			$nPrice = $nPrice * 100;	
+		} else {
+			$nPrice = intval($arrRow['K_preis']);
+		}
+		return number_format($nPrice, 0, "", ".");
 	}
 	
 	protected function _getMappedRowBemerkung($strNotes) {
@@ -613,21 +627,32 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		/*
 		 * CACHE
 		 */
-		$strHash = md5($strQuery.date('Y.m.d-H.m'));	
-		if ($this->_getCache($strHash) == null) {
+		if ($this->_getCache($this->_getUpdateHash($strQuery)) == null) {
 		
 			$resource = $objCore->getHelperDatabase()->query($strQuery);
 			while ($arrRow = mysql_fetch_assoc($resource)) {
 				$arrResult[] = $arrRow["K_preis"];
 			}
-			$this->_setCache($strHash, $arrResult);
+			$this->_setCache($this->_getUpdateHash($strQuery), $arrResult);
 			
 		} else {
-			$arrResult = $this->_getCache($strHash);
+			$arrResult = $this->_getCache($this->_getUpdateHash($strQuery));
 		}
 		return $arrResult;		
 	}
-		
+	
+	/**
+	 * Get cache update hash according to key
+	 * 
+	 * @param string $strString key
+	 * @return string hash
+	 */
+	protected function _getUpdateHash($strString) {
+		if (file_exists(self::ZIP_BACKUP)) {
+			$strUpdateDate = filectime(self::ZIP_BACKUP);
+		}
+		return md5($strString.date('Y.m.d-H.m').$strUpdateDate);	
+	}		
 }
 
 /**
@@ -640,6 +665,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 
 	const ZIP_FILE = MOBILE_ZIP_FILE;
+	const ZIP_BACKUP = MOBILE_ZIP_BACKUP;
 	const IMAGES_PATH = MOBILE_IMAGES_PATH;
 	const CSV_FILE_NAME = MOBILE_CSV_FILE_NAME;
 	const CSV_DELIMITER = MOBILE_CSV_DELIMITER;
@@ -720,7 +746,7 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 		/*
 		 * CLEANING & PREVENTION
 		 */
-		rename(self::ZIP_FILE, self::ZIP_FILE. '.bak');
+		rename(self::ZIP_FILE, self::ZIP_BACKUP);
 	}	
 	
 	/**
@@ -878,8 +904,15 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 			$arrData = explode(self::CSV_DELIMITER, $strLine);
 			$nCounter++;
 
-			// Ignore empty lines
+			/*
+			 * CHECK
+			 */
+			// - ignore empty lines
 			if (trim($strLine) == '') {
+				continue;
+			}
+			// - ignore vehicles with "-" within Claris-Id
+			if (strpos($arrData[2], '-') > 0) {
 				continue;
 			}
 

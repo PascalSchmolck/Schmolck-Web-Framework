@@ -106,6 +106,7 @@ define('CARS_LOCATION_SYNCFILE', 'http://cars.schmolck.de/data/cars/files/sync/I
  */
 // - database & import & images
 define('MOBILE_ZIP_FILE', 'data/mobile/files/sync/media.zip');
+define('MOBILE_ZIP_BACKUP', 'data/mobile/files/sync/media.zip.bak');
 define('MOBILE_CSV_FILE_NAME', 'media.csv');
 define('MOBILE_CSV_DELIMITER', ';');
 define('MOBILE_CSV_ENCLOSURE', '"');
@@ -113,6 +114,7 @@ define('MOBILE_CSV_LIMITS', '203,5,16');
 define('MOBILE_IMAGES_PATH', 'data/mobile/files/sync');
 define('MOBILE_DATABASE_FILE', 'data/mobile/files/sync/media.csv');
 define('MOBILE_DATABASE_TABLE', 'mod_mobile_claris_20130724');
+define('MOBILE_PRICE_MWST', 19);
 // - contact form
 define('MOBILE_RECIPIENT_NAME', 'cars.schmolck.de');
 define('MOBILE_RECIPIENT_ADDRESS', 'info@schmolck.de');
