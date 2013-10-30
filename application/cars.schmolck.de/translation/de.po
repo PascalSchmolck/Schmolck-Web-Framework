@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.5\n"
+"X-Generator: Poedit 1.5.7\n"
 
 #: ../application/cars.schmolck.de/module/cars/contact/form/action.php:28
 msgid "Request for a vehicle"
@@ -216,10 +216,6 @@ msgstr "Betreff"
 msgid "Contact"
 msgstr "Kontakt"
 
-#: ../application/cars.schmolck.de/module/contact/emmendingen/index/output.phtml:37
-msgid "Mail"
-msgstr "Mail"
-
 #: ../application/cars.schmolck.de/module/exception/index/index/output.phtml:5
 msgid "Error message"
 msgstr "Fehlermeldung"
@@ -238,29 +234,13 @@ msgstr ""
 "Sollte dieser Fehler mehrmals auftreten, würden wir uns über eine kurze "
 "Benachrichtigung freuen"
 
-#: ../application/cars.schmolck.de/module/imprint/index/index/output.phtml:6
-msgid "Imprint"
-msgstr "Impressum"
-
 #: ../application/cars.schmolck.de/module/location/emmendingen/index/output.phtml:6
 msgid "Location"
 msgstr "Anfahrt"
 
-#: ../application/cars.schmolck.de/module/location/emmendingen/index/output.phtml:25
-msgid "Enter your address here"
-msgstr "Geben Sie hier Ihre Adresse ein"
-
-#: ../application/cars.schmolck.de/module/location/emmendingen/index/output.phtml:26
-msgid "Search"
-msgstr "Suche"
-
-#: ../application/cars.schmolck.de/module/location/emmendingen/index/output.phtml:35
-msgid "Schmolck Group"
-msgstr "Unternehmensgruppe Schmolck"
-
-#: ../application/cars.schmolck.de/module/location/emmendingen/index/output.phtml:38
-msgid "open in a larger map"
-msgstr "in großer Ansicht öffnen"
+#: ../application/cars.schmolck.de/module/location/emmendingen/index/output.phtml:33
+msgid "Mail"
+msgstr "Mail"
 
 #: ../application/cars.schmolck.de/module/mobile/database/detail/output.phtml:58
 msgid "VAT not deductable"
@@ -270,58 +250,62 @@ msgstr "MwSt. nicht ausweisbar"
 msgid "VAT deductable"
 msgstr "MwSt. ausweisbar"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:379
+#: ../application/cars.schmolck.de/module/mobile/search/filter/output.phtml:44
+msgid "Manual"
+msgstr "Schaltgetriebe"
+
+#: ../application/cars.schmolck.de/module/mobile/search/filter/output.phtml:45
+msgid "Semi-Automatic"
+msgstr "Halb-Automatik"
+
+#: ../application/cars.schmolck.de/module/mobile/search/filter/output.phtml:46
+msgid "Automatic"
+msgstr "Automatik"
+
+#: ../application/cars.schmolck.de/module/mobile/search/filter/output.phtml:116
+msgid "Transmission"
+msgstr "Getriebe"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:390
 msgid "Used Car"
 msgstr "Gebrauchtwagen"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:382
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:393
 msgid "Brand New Car"
 msgstr "Neufahrzeug"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:414
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:425
 msgid "Petrol"
 msgstr "Benzin"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:417
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:428
 msgid "Diesel"
 msgstr "Diesel"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:420
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:431
 msgid "LPG"
 msgstr "Autogas"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:423
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:434
 msgid "Natural Gas"
 msgstr "Erdgas"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:429
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:440
 #, fuzzy
 msgid "Electric"
 msgstr "Elektro"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:432
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:443
 msgid "Hybrid"
 msgstr "Hybrid"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:435
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:446
 msgid "Hydrogen"
 msgstr "Wasserstoff"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:438
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:449
 msgid "Ethanol"
 msgstr "Ethanol"
-
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:462
-msgid "Manual"
-msgstr "Schaltgetriebe"
-
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:465
-msgid "Semi-Automatic"
-msgstr "Halb-Automatik"
-
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:468
-msgid "Automatic"
-msgstr "Automatik"
 
 #: ../application/cars.schmolck.de/module/translation/api/switcher/action.php:8
 msgid "Language Selector"
@@ -335,9 +319,25 @@ msgstr "Language / Sprache"
 msgid "Home"
 msgstr "Startseite"
 
+#: ../application/cars.schmolck.de/template/2013.05/html.phtml:46
+msgid "Imprint"
+msgstr "Impressum"
+
 #: ../application/cars.schmolck.de/template/2013.06/html.phtml:37
 msgid "Navigation"
 msgstr "Navigation"
+
+#~ msgid "Enter your address here"
+#~ msgstr "Geben Sie hier Ihre Adresse ein"
+
+#~ msgid "Search"
+#~ msgstr "Suche"
+
+#~ msgid "Schmolck Group"
+#~ msgstr "Unternehmensgruppe Schmolck"
+
+#~ msgid "open in a larger map"
+#~ msgstr "in großer Ansicht öffnen"
 
 #~ msgid "cars"
 #~ msgstr "cars"

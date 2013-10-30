@@ -24,6 +24,7 @@ if ($objCore->strParameterReset) {
 	$_POST['brand'] = ' ';
 	$_POST['model'] = ' ';
 	$_POST['type'] = ' ';
+	$_POST['transmission'] = ' ';
 	$_POST['price'] = ' ';
 	$_POST['km'] = ' ';
 	$_POST['ez'] = ' ';
@@ -32,6 +33,7 @@ if ($objCore->strParameterReset) {
 $objCore->strParameterBrand = Schmolck_Tool_Memory::auto($objCore->strApi, 'brand', strip_tags($_POST['brand']));
 $objCore->strParameterModel = Schmolck_Tool_Memory::auto($objCore->strApi, 'model', strip_tags($_POST['model']));
 $objCore->strParameterType = Schmolck_Tool_Memory::auto($objCore->strApi, 'type', strip_tags($_POST['type']));
+$objCore->strParameterTransmission = Schmolck_Tool_Memory::auto($objCore->strApi, 'transmission', strip_tags($_POST['transmission']));
 $objCore->strParameterPrice = Schmolck_Tool_Memory::auto($objCore->strApi, 'price', strip_tags($_POST['price']));
 $objCore->strParameterKm = Schmolck_Tool_Memory::auto($objCore->strApi, 'km', strip_tags($_POST['km']));
 $objCore->strParameterEz = Schmolck_Tool_Memory::auto($objCore->strApi, 'ez', strip_tags($_POST['ez']));
@@ -43,6 +45,7 @@ $objCore->strParameterSorting = Schmolck_Tool_Memory::auto($objCore->strApi, 'so
 if (trim($objCore->strParameterBrand) 
 	or trim($objCore->strParameterModel) 
 	or trim($objCore->strParameterType) 
+	or trim($objCore->strParameterTransmission)
 	or trim($objCore->strParameterPrice)
 	or trim($objCore->strParameterKm)
 	or trim($objCore->strParameterEz)
@@ -56,6 +59,7 @@ if (trim($objCore->strParameterBrand)
 $objCars->setFilter('brand', $objCore->strParameterBrand);
 $objCars->setFilter('model', $objCore->strParameterModel);
 $objCars->setFilter('type', $objCore->strParameterType);
+$objCars->setFilter('transmission', $objCore->strParameterTransmission);
 $objCars->setFilter('price', $objCore->strParameterPrice);
 $objCars->setFilter('km', $objCore->strParameterKm);
 $objCars->setFilter('ez', $objCore->strParameterEz);
@@ -65,6 +69,7 @@ $objCars->setFilter('sorting', $objCore->strParameterSorting);
  * DATA
  */
 $objCore->nCount = count($objCars->queryCarsFiltered());
+$objCore->arrTransmissions = $objCars->getFilterTransmissions();
 $objCore->arrPrices = $objCars->getFilterPrices();
 
 /*

@@ -180,21 +180,21 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 				";
 				break;	
 		}
-//		// - type
-//		switch ($this->getFilter('type')) {
-//			default:
-//				if (trim($this->getFilter('type')) != '') {
-//					$strWhereType = "
-//						AND KAT LIKE '{$this->getFilter('type')}'
-//					";
-//				}
-//				break;
-//			case 'all':
-//				$strWhereType = "
-//					AND KAT LIKE '%'
-//				";
-//				break;
-//		}
+		// - type
+		switch ($this->getFilter('transmission')) {
+			default:
+				if (trim($this->getFilter('transmission')) != '') {
+					$strWhereTransmission = "
+						AND DG_getriebeart LIKE '{$this->getFilter('transmission')}'
+					";
+				}
+				break;
+			case 'all':
+				$strWhereTransmission = "
+					AND DG_getriebeart LIKE '%'
+				";
+				break;
+		}
 		// - price
 		switch ($this->getFilter('price')) {
 			default:
@@ -271,6 +271,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 				$strWhereType
 				$strWhereKm
 				$strWhereEz
+				$strWhereTransmission
 				$strWherePrice
 			ORDER BY
 				$strSorting
@@ -652,6 +653,50 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		}
 		return $arrResult;		
 	}
+	
+/**
+	 * Get all distinc transmissions for filtering
+	 * 
+	 * @return array transmissions
+	 */
+	public function getFilterTransmissions() {
+		/*
+		 * INITIALISATION
+		 */
+		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
+		$arrResult = array();
+
+		/*
+		 * DATA
+		 */
+		$strQuery = "
+			SELECT 
+				DISTINCT DG_getriebeart
+			FROM 
+				" . self::DATABASE_TABLE . "
+			WHERE
+				TRUE
+				AND DG_getriebeart IS NOT NULL
+			ORDER BY 
+				DG_getriebeart ASC
+		";
+		
+		/*
+		 * CACHE
+		 */
+		if ($this->_getCache($this->_getUpdateHash($strQuery)) == null) {
+		
+			$resource = $objCore->getHelperDatabase()->query($strQuery);
+			while ($arrRow = mysql_fetch_assoc($resource)) {
+				$arrResult[] = $arrRow["DG_getriebeart"];
+			}
+			$this->_setCache($this->_getUpdateHash($strQuery), $arrResult);
+			
+		} else {
+			$arrResult = $this->_getCache($this->_getUpdateHash($strQuery));
+		}
+		return $arrResult;		
+	}	
 	
 	/**
 	 * Get cache update hash according to key

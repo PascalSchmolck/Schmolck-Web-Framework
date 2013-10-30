@@ -1,5 +1,6 @@
 2013.10.30
 **********
+[x] [MOBILE] implement "transmission" filter within car filters
 [x] [MOBILE] add "PS" to car detail and list view
 
 2013.10.29

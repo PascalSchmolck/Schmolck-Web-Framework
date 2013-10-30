@@ -37,6 +37,14 @@ $arrModelsSmart = array(
 	"roadster" => $objCore->getHelperTranslator()->_("Roadster"),
 	"others-smart" => $objCore->getHelperTranslator()->_("Others"),
 );
+// - transmission
+// ’0-3’ (0=keine Angabe, 1=Schaltgetriebe, 2=Halbautomatik, 3=Automatik) 
+$arrTransmissions['all'] = $objCore->getHelperTranslator()->_("All");
+foreach ($objCore->arrTransmissions as $strTransmission) {
+	$arrTransmissions['1'] = $objCore->getHelperTranslator()->_("Manual");
+	$arrTransmissions['2'] = $objCore->getHelperTranslator()->_("Semi-Automatic");
+	$arrTransmissions['3'] = $objCore->getHelperTranslator()->_("Automatic");
+}
 // - prices
 $arrPrices['all'] = $objCore->getHelperTranslator()->_("All");
 foreach ($objCore->arrPrices as $strPrice) {
@@ -103,7 +111,19 @@ $arrSorting = array(
 			</select>
 		</div>
 		<? endif; ?>		
-		
+		<div class="box">
+			<label>
+				<?= $objCore->getHelperTranslator()->_("Transmission") ?>
+			</label>
+			<select name="transmission">
+				<? foreach ($arrTransmissions as $strValue => $strLabel) : ?>
+					<? ($objCore->strParameterTransmission == $strValue) ? $strSelected = 'selected' : $strSelected = ''; ?>
+					<option value="<?= $strValue ?>" <?= $strSelected ?>>
+						<?= $strLabel ?>
+					</option>
+				<? endforeach; ?>
+			</select>
+		</div>
 		<div class="box">
 			<label>
 				<?= $objCore->getHelperTranslator()->_("Price (max.)") ?>
