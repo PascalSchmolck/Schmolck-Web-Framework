@@ -348,6 +348,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		$arrMap['km'] = $this->_getMappedRowKm($arrRow);
 		$arrMap['kraftstoff'] = $this->_getMappedRowKraftstoff($arrRow['DF_kraftstoffart']);
 		$arrMap['kw'] = $arrRow['F_leistung'];
+		$arrMap['ps'] = $this->_getMappedRowPs($arrRow);
 		$arrMap['getriebe'] = $this->_getMappedRowGetriebe($arrRow['DG_getriebeart']);
 		$arrMap['ccm'] = $arrRow['BA_ccm'];
 		$arrMap['preis'] = $this->_getMappedRowPrice($arrRow);
@@ -501,6 +502,17 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		return number_format($nPrice, 0, "", ".");
 	}
 	
+	/**
+	 * Get mapped PS according to KW
+	 * 
+	 * @param array $arrRow
+	 * @return int ps
+	 */
+	protected function _getMappedRowPs($arrRow) {
+		$nPs = $arrRow['F_leistung'] * 1.36 ;
+		return number_format($nPs, 0, "", ".");
+	}	
+	
 	protected function _getMappedRowBemerkung($strNotes) {
 		/*
 		 * PREPARATION
@@ -651,7 +663,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		if (file_exists(self::ZIP_BACKUP)) {
 			$strUpdateDate = filectime(self::ZIP_BACKUP);
 		}
-		return md5($strString.date('Y.m.d-H.m').$strUpdateDate);	
+		return md5($strString.date('Y.m.d-H.i').$strUpdateDate);	
 	}		
 }
 
