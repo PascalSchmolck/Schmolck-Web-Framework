@@ -1,3 +1,7 @@
+2013.10.31
+**********
+[x] [MOBILE] fix non-working element updating on car filtering
+
 2013.10.30
 **********
 [x] [MOBILE] implement "transmission" filter within car filters
