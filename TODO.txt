@@ -1,3 +1,7 @@
+2013.11.07
+**********
+[x] [CARS] implement dynamic scaling of cars images
+
 2013.10.31
 **********
 [x] [MOBILE] fix non-working element updating on car filtering

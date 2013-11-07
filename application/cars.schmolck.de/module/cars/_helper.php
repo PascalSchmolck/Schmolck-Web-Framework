@@ -584,7 +584,7 @@ class Cars_Helper extends Schmolck_Framework_Helper {
 			// - do only collect files that match to "id,*.jpg"; e.g. "30080011,5.JPG"
 			if (!preg_match('/^'.$strId.',[0-9]+\.JPG$/i', $strFile)) continue;
 			// - collect
-			$arrResult[] = $strPath.'/'.$strFile;
+			$arrResult[] = 'apps/image/640/90/'.$strPath.'/'.$strFile;
 		}
 		
 		/*
