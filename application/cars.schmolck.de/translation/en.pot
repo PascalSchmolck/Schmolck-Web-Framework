@@ -1,5 +1,5 @@
 
-Notice: Undefined variable: result in C:\Users\Pascal\Webseiten\project\schmolck\framework\tools\xgettext.php on line 94
+Notice: Undefined variable: result in C:\Users\sps.SCHMOLCK\Webseiten\project\schmolck\framework\tools\xgettext.php on line 94
 #: ../application/cars.schmolck.de/module/cars/contact/form/action.php:28 
 msgid "Request for a vehicle" 
 msgstr "" 

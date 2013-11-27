@@ -17,7 +17,7 @@ $strStyleClass = $objCore->getHelperApi()->getStyleClass();
 				<img src="data/mobile/images/icons/gallery.png" title="<?= $objCore->getHelperTranslator()->_("Gallery") ?>">
 			</a>
 		</div>
-		<?= $objCore->getHelperApi()->getElement("{$objCore->strId}_result", 'mobile/search/list') ?>				
+		<?= $objCore->getHelperApi()->getElement("{$objCore->strId}_result", 'mobile/api/list') ?>				
 	<? endif; ?>
 	
 	<? if ($objCore->strParameterMode == 'gallery') : ?>
@@ -26,7 +26,7 @@ $strStyleClass = $objCore->getHelperApi()->getStyleClass();
 				<img src="data/mobile/images/icons/list.png" title="<?= $objCore->getHelperTranslator()->_("List") ?>">
 			</a>
 		</div>
-		<?= $objCore->getHelperApi()->getElement("{$objCore->strId}_result", 'mobile/search/gallery') ?>				
+		<?= $objCore->getHelperApi()->getElement("{$objCore->strId}_result", 'mobile/api/gallery') ?>				
 	<? endif; ?>
 	
 	<?= $objCore->getHelperScripts()->renderViewScripts() ?>
