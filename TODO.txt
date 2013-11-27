@@ -1,5 +1,6 @@
 2013.11.27
 **********
+[x] [MOBILE] fix "browser back issue" when returning from detail view
 [x] [MOBILE] improve module structure and stylesheet definition
 
 2013.11.07
