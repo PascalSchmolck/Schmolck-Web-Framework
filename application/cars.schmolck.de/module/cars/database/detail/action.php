@@ -30,6 +30,15 @@ QRcode::png($strBaseUrl.'/'.$strUri, $objCore->strQRImage);
 // - id
 $strParameterId = trim(strip_tags($_GET['id']));
 
+/******************************************************************************/
+/*
+ * REDIRECT
+ */
+// - transitional solution
+$objCore->getHelperRedirect()->local("mobile/database/detail/id/{$strParameterId}");
+
+/******************************************************************************/
+
 /*
  * DATA
  */

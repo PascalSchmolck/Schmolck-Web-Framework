@@ -1,3 +1,7 @@
+2013.12.02
+**********
+[x] [MOBILE] implement switch to new "mobile" database instead of "cars"
+
 2013.11.27
 **********
 [x] [MOBILE] add vehicle numbers to gallery view

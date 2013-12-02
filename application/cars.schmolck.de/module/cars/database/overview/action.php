@@ -9,6 +9,15 @@ $objCore->strId = $objCore->getHelperApi()->getId();
 $objCore->strUrl = $objCore->getHelperApplication()->getRequestUrl();
 $objCore->strStyleClass = $objCore->getHelperApi()->getStyleClass();
 
+/******************************************************************************/
+/*
+ * REDIRECT
+ */
+// - transitional solution
+$objCore->getHelperRedirect()->local("mobile");
+
+/******************************************************************************/
+
 /*
  * SCRIPT
  */
