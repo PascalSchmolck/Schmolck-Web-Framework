@@ -1,5 +1,6 @@
 2013.12.03
 **********
+[x] [MOBILE] add "filter" to reset label
 [x] [MOBILE] fix description styling on detail page for screen and print
 [x] [MOBILE] implement switch for "Gebrauchtwagen" and "Junge Sterne"
 

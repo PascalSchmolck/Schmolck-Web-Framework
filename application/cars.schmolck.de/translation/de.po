@@ -54,7 +54,7 @@ msgstr "Abschicken"
 msgid "Contact Person"
 msgstr "Ansprechpartner"
 
-#: ../application/cars.schmolck.de/module/cars/database/detail/action.php:55
+#: ../application/cars.schmolck.de/module/cars/database/detail/action.php:64
 msgid "Sorry, the selected vehicle is no longer available."
 msgstr "Verzeihung, das gewählte Fahrzeug ist nicht mehr vorhanden."
 
@@ -242,67 +242,79 @@ msgstr "Anfahrt"
 msgid "Mail"
 msgstr "Mail"
 
-#: ../application/cars.schmolck.de/module/mobile/database/detail/output.phtml:58
-msgid "VAT not deductable"
-msgstr "MwSt. nicht ausweisbar"
-
-#: ../application/cars.schmolck.de/module/mobile/database/detail/output.phtml:60
-msgid "VAT deductable"
-msgstr "MwSt. ausweisbar"
-
-#: ../application/cars.schmolck.de/module/mobile/search/filter/output.phtml:44
+#: ../application/cars.schmolck.de/module/mobile/api/filter/output.phtml:44
 msgid "Manual"
 msgstr "Schaltgetriebe"
 
-#: ../application/cars.schmolck.de/module/mobile/search/filter/output.phtml:45
+#: ../application/cars.schmolck.de/module/mobile/api/filter/output.phtml:45
 msgid "Semi-Automatic"
 msgstr "Halb-Automatik"
 
-#: ../application/cars.schmolck.de/module/mobile/search/filter/output.phtml:46
+#: ../application/cars.schmolck.de/module/mobile/api/filter/output.phtml:46
 msgid "Automatic"
 msgstr "Automatik"
 
-#: ../application/cars.schmolck.de/module/mobile/search/filter/output.phtml:116
+#: ../application/cars.schmolck.de/module/mobile/api/filter/output.phtml:116
 msgid "Transmission"
 msgstr "Getriebe"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:390
+#: ../application/cars.schmolck.de/module/mobile/api/filter/output.phtml:159
+msgid "Reset Filter"
+msgstr "Filter zurücksetzen"
+
+#: ../application/cars.schmolck.de/module/mobile/api/gallery/output.phtml:48
+msgid "VAT not deductable"
+msgstr "MwSt. nicht ausweisbar"
+
+#: ../application/cars.schmolck.de/module/mobile/api/list/output.phtml:55
+msgid "VAT deductable"
+msgstr "MwSt. ausweisbar"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:394
+msgid "Junge Sterne"
+msgstr ""
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:397
+msgid "jung@smart"
+msgstr ""
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:400
 msgid "Used Car"
 msgstr "Gebrauchtwagen"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:393
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:410
 msgid "Brand New Car"
 msgstr "Neufahrzeug"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:425
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:442
 msgid "Petrol"
 msgstr "Benzin"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:428
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:445
 msgid "Diesel"
 msgstr "Diesel"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:431
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:448
 msgid "LPG"
 msgstr "Autogas"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:434
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:451
 msgid "Natural Gas"
 msgstr "Erdgas"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:440
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:457
 msgid "Electric"
 msgstr "Elektro"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:443
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:460
 msgid "Hybrid"
 msgstr "Hybrid"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:446
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:463
 msgid "Hydrogen"
 msgstr "Wasserstoff"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:449
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:466
 msgid "Ethanol"
 msgstr "Ethanol"
 
