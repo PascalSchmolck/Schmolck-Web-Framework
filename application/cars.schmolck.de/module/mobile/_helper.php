@@ -545,8 +545,10 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		 */
 		// - line by line
 		foreach ($arrLines as &$strLine) {
+			$strLine = trim($strLine);
+			
 			// **TEXT** => <strong>TEXT</strong>
-			$strLine = preg_replace('/\*\*([^\*\*]+)\*\*/i', '<strong>$1</strong>', $strLine);			
+			$strLine = preg_replace('/\*\*([^\*\*]+)\*\*/i', '<strong>$1</strong><br>', $strLine);			
 			
 			// * TEXT => <li>TEXT</li>
 			if (substr($strLine, 0, 1) == '*') {
@@ -578,7 +580,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		 * OUTPUT
 		 */
 		// - merge into string again
-		return implode('<br>', $arrLines);
+		return implode('', $arrLines);
 	}	
 	
 	/**

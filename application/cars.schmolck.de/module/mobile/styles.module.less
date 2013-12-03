@@ -223,11 +223,13 @@
 			display: none;
 		}
 		float: right;
+		position: relative;
+		right: -10px;
+		top: -10px;
 	}
 	.image {
 		@media print {
-			width: 310px;
-			height: 233px;
+			width: 375px;
 		}
 		@media handheld, only screen and (max-width: 640px) {
 			float: none;
@@ -261,6 +263,8 @@
 			display: none;
 		}
 		margin-top: 10px;
+		position: relative;
+		left: -10px;
 	}
 	.clearer {
 		clear: both;
@@ -277,14 +281,6 @@
 		li {
 			strong {
 				font-size: 100%;
-			}
-			line-height: 0.125em;
-		}
-		.row1 {
-			@media all and (min-width : 481px) { 
-				float: left;
-				width: 50%;
-				padding-right: 10px;
 			}
 		}
 	}			

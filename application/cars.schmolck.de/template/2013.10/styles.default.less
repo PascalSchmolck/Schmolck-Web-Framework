@@ -213,6 +213,15 @@ img {
 	height: auto;
 	max-width: 100%;
 }
+ul {
+	@media handheld, only screen and (max-width: 480px) {
+		padding-left: 20px;
+	}
+	@media handheld, only screen and (max-width: 320px) {
+		padding-left: 15px;
+	}	
+	padding-left: 30px;
+}
 //------------------------------------------------------------------------------
 // Classes
 //------------------------------------------------------------------------------
