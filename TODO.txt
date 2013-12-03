@@ -1,3 +1,7 @@
+2013.12.03
+**********
+[x] [MOBILE] implement switch for "Gebrauchtwagen" and "Junge Sterne"
+
 2013.12.02
 **********
 [x] [MOBILE] implement switch to new "mobile" database instead of "cars"

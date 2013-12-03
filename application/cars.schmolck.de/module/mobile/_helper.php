@@ -344,7 +344,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		$arrMap['id'] = $arrRow['A_satz_nummer'];
 		$arrMap['name'] = $this->_getMappedRowName($arrRow['D_marke'], utf8_encode($arrRow['E_modell']));
 		$arrMap['kategorie'] = $arrRow['C_kategorie'];
-		$arrMap['fahrzeug'] = $this->_getMappedRowFahrzeug($arrRow['V_neufahrzeug']);
+		$arrMap['fahrzeug'] = $this->_getMappedRowFahrzeug($arrRow);
 		$arrMap['ez'] = $this->_getMappedRowEz($arrRow);
 		$arrMap['km'] = $this->_getMappedRowKm($arrRow);
 		$arrMap['kraftstoff'] = $this->_getMappedRowKraftstoff($arrRow['DF_kraftstoffart']);
@@ -376,7 +376,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		return $strMarke.' '.$strModell;
 	}
 	
-	protected function _getMappedRowFahrzeug($strValue) {
+	protected function _getMappedRowFahrzeug($arrRow) {
 		/*
 		 * INITIALISATION
 		 */
@@ -385,9 +385,26 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		/*
 		 * PROCESSING
 		 */
-		switch ($strValue) {
-			case '0':
-				$strLabel = $objCore->getHelperTranslator()->_("Used Car");
+		switch ($arrRow['V_neufahrzeug']) {
+			case '0':				
+				switch ($arrRow['U_jahreswagen']) {
+					case '1':
+						switch (strtolower($arrRow['D_marke'])) {
+							case 'mercedes-benz':
+								$strLabel = $objCore->getHelperTranslator()->_("Junge Sterne");
+								break;
+							case 'smart':
+								$strLabel = $objCore->getHelperTranslator()->_("jung@smart");
+								break;
+							default:
+								$strLabel = $objCore->getHelperTranslator()->_("Used Car");
+								break;
+						}
+						break;
+					default:
+						$strLabel = $objCore->getHelperTranslator()->_("Used Car");
+						break;
+				}				
 				break;
 			case '1':
 				$strLabel = $objCore->getHelperTranslator()->_("Brand New Car");
