@@ -1,5 +1,6 @@
 2013.12.09
 **********
+[x] [MOBILE] implement proper page title for contact sub-pages
 [x] [MOBILE] replace "Lieven van der Hoofd" by "Michael Berger"
 
 2013.12.03
