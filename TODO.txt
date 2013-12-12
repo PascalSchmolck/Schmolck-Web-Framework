@@ -1,3 +1,7 @@
+2013.12.12
+**********
+[x] [LAYOUT] update default styles to current status
+
 2013.12.09
 **********
 [x] [MOBILE] implement proper page title for contact sub-pages
