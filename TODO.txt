@@ -1,3 +1,7 @@
+2013.12.20
+**********
+[x] [MOBILE] extend mobile database structure to current mobile.de format
+
 2013.12.12
 **********
 [x] [LAYOUT] update default styles to current status
