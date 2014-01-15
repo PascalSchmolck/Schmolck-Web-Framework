@@ -1032,11 +1032,12 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 			// - remove first and last enclosure
 			$strValue1 = ltrim($strValue, self::CSV_ENCLOSURE);
 			$strValue2 = rtrim($strValue1, self::CSV_ENCLOSURE);
+			$strValue3 = mysql_real_escape_string($strValue2);
 		}
 		
 		/*
 		 * RETURN
 		 */
-		return $strValue2;
+		return $strValue3;
 	}	
 }

@@ -1,3 +1,7 @@
+2014.01.15
+**********
+[x] [MOBILE] fix SQL escaping issue when importing media.zip file
+
 2013.12.20
 **********
 [x] [MOBILE] extend mobile database structure to current mobile.de format
