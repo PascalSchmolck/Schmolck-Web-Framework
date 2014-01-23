@@ -1,3 +1,8 @@
+2014.01.23
+**********
+[x] [PROJECT] cleanup of obsolete cars module into cars.backup
+[x] [PROJECT] cleanup of obsolete data/images/ into images/ folder
+
 2014.01.15
 **********
 [x] [MOBILE] fix SQL escaping issue when importing media.zip file

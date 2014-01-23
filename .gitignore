@@ -1,5 +1,4 @@
 /nbproject/private/
 /tmp/*
-/data/cars/images/sync/*
-/data/mobile/images/sync/*
+/data/cars.backup/*
 /data/mobile/files/sync/*
