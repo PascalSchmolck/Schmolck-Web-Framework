@@ -385,31 +385,38 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		/*
 		 * PROCESSING
 		 */
-		switch ($arrRow['V_neufahrzeug']) {
-			case '0':				
-				switch ($arrRow['U_jahreswagen']) {
-					case '1':
-						switch (strtolower($arrRow['D_marke'])) {
-							case 'mercedes-benz':
-								$strLabel = $objCore->getHelperTranslator()->_("Junge Sterne");
-								break;
-							case 'smart':
-								$strLabel = $objCore->getHelperTranslator()->_("jung@smart");
-								break;
-							default:
-								$strLabel = $objCore->getHelperTranslator()->_("Used Car");
-								break;
-						}
-						break;
-					default:
-						$strLabel = $objCore->getHelperTranslator()->_("Used Car");
-						break;
-				}				
+		// - Neufahrzeug?
+		if ($arrRow['V_neufahrzeug'] == '1') {
+			$strLabel = $objCore->getHelperTranslator()->_("Brand New Car");
+		}
+		// - Jahreswagen?
+		if ($arrRow['U_jahreswagen'] == '1') {
+			$strLabel = $objCore->getHelperTranslator()->_("Jahreswagen");
+		}
+		// - Gütesiegel?
+		switch (strtolower($arrRow['D_marke'])) {
+			case 'mercedes-benz':
+				if ($arrRow['DQ_qualitaetssiegel'] == '6') {
+					$strLabel = $objCore->getHelperTranslator()->_("Junger Stern");
+				} 											
 				break;
-			case '1':
-				$strLabel = $objCore->getHelperTranslator()->_("Brand New Car");
+			case 'smart':
+				if ($arrRow['DQ_qualitaetssiegel'] != '') {
+					$strLabel = $objCore->getHelperTranslator()->_("jung@smart");
+				} 
 				break;
 		}
+		// - Gebrauchtwagen?
+		if ($strLabel == '') {
+			$strLabel = $objCore->getHelperTranslator()->_("Used Car");
+		}
+		
+		/*
+		 * DEBUG
+		 */
+//		if ($arrRow['A_satz_nummer'] == '20130354') {
+//			$strLabel = $arrRow['DQ_qualitaetssiegel'];
+//		}
 		
 		/*
 		 * OUTPUT

@@ -1,3 +1,7 @@
+2014.02.24
+**********
+[x] [MOBILE] fix wrong evaluation of "Junge Sterne" attribute
+
 2014.01.23
 **********
 [x] [PROJECT] cleanup of obsolete cars module into cars.backup
