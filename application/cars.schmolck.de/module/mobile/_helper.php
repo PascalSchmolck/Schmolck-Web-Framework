@@ -18,7 +18,6 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 	const DATABASE_TABLE = MOBILE_DATABASE_TABLE;	
 	const IMAGES_PATH = MOBILE_IMAGES_PATH;	
 	const PRICE_MWST = MOBILE_PRICE_MWST;
-	const ZIP_BACKUP = MOBILE_ZIP_BACKUP;
 
 	public function __construct(Schmolck_Framework_Core $objCore) {
 		parent::__construct($objCore);		
@@ -731,10 +730,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 	 * @return string hash
 	 */
 	protected function _getUpdateHash($strString) {
-		if (file_exists(self::ZIP_BACKUP)) {
-			$strUpdateDate = filectime(self::ZIP_BACKUP);
-		}
-		return md5($strString.date('Y.m.d-H.i').$strUpdateDate);	
+		return md5($strString.date('Y.m.d-H'));	
 	}		
 }
 
@@ -748,7 +744,6 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 
 	const ZIP_FILE = MOBILE_ZIP_FILE;
-	const ZIP_BACKUP = MOBILE_ZIP_BACKUP;
 	const IMAGES_PATH = MOBILE_IMAGES_PATH;
 	const CSV_FILE_NAME = MOBILE_CSV_FILE_NAME;
 	const CSV_DELIMITER = MOBILE_CSV_DELIMITER;
@@ -773,25 +768,31 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 		}
 		// - prevent duplicate processing
 		if ($this->restore('processing') == true) {
-			//return;
+			if (APPLICATION_ENVIRONMENT != 'development') {
+				return;
+			}
 		}
 
 		/*
 		 * PROCESSING
 		 */
-		// - set processing flag
-		$this->store('processing', true);
-		// - remove existing images
-		$this->_updateFromZipImages();		
-		// - unpack uploaded ZIP file
-		$this->_updateFromZipUnpack();
-		// - import data into database tables
-		$this->_updateFromZipCsv();
-		// - cleanup
-		$this->_updateFromZipCleaning();
-		// - unset processing flag
-		$this->store('processing', false);
-
+		try {
+			// - set processing flag
+			$this->store('processing', true);
+			// - remove existing images
+			$this->_updateFromZipImages();		
+			// - unpack uploaded ZIP file
+			$this->_updateFromZipUnpack();
+			// - import data into database tables
+			$this->_updateFromZipCsv();
+			// - cleanup
+			$this->_updateFromZipCleaning();
+			// - unset processing flag
+			$this->store('processing', false);
+		} catch (Exception $objException) {
+			throw new Exception('Database update failed: ' . $objException->getMessage() );
+		}
+		
 		/*
 		 * DEBUGGING
 		 */
@@ -803,10 +804,27 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 	 */
 	protected function _updateFromZipCleaning() {
 		/*
+		 * BACKUP
+		 */			
+		// - backup current zip file
+		rename(self::ZIP_FILE, self::ZIP_FILE . '.' . date("Ymd") . '.bak');		
+		
+		/*
 		 * CLEANING
 		 */
-		// - database import file
-		unlink(self::DATABASE_FILE);
+		// - remove database import file
+		unlink(self::DATABASE_FILE);		
+		// - remove old backup files
+		$strDir = dirname(self::ZIP_FILE);
+		$arrFiles = scandir($strDir);
+		foreach ($arrFiles as $strFile) {
+			if (in_array($strFile, array(".",".."))) continue;
+			if (preg_match('/\.bak$/i', $strFile)) {
+				if ((time() - filectime($strDir.'/'.$strFile)) > ' 2628000') { // older than 1 month in ms
+					unlink($strDir.'/'.$strFile);
+				}
+			}
+		}			
 	}
 	
 	/**
@@ -825,11 +843,6 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 		$objFile = new Schmolck_Tool_File_Zip();
 		$objFile->file = self::ZIP_FILE;
 		$objFile->unzip();
-		
-		/*
-		 * CLEANING & PREVENTION
-		 */
-		rename(self::ZIP_FILE, self::ZIP_BACKUP);
 	}	
 	
 	/**
@@ -858,81 +871,6 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 			}
 		}	
 	}
-	
-//	protected function _splitUnpackedCSV() {
-//		/*
-//		 * PREPARATION
-//		 */
-//		$strSourceDir = dirname(self::ZIP_FILE);
-//		
-//		/*
-//		 * SCANNING
-//		 */
-//		// - get array of all source files
-//		$arrFiles = scandir($strSourceDir);
-//		// - cycle through all source files
-//		foreach ($arrFiles as $strFile) {
-//			// - do not handle dirs
-//			if (in_array($strFile, array(".",".."))) continue;
-//			// - if we find a CSV file we take it and proceed
-//			if (preg_match('/\.CSV$/i', $strFile)) {
-//				$arrCSV[] = $strFile;
-//			}
-//		}		
-//		
-//		/*
-//		 * CHECK
-//		 */
-//		if (count($arrCSV) < 1) {
-//			throw new Exception('No CSV file found');
-//		}
-//		
-//		/*
-//		 * SPLITTING
-//		 */
-//		$strPath = $strSourceDir;
-//		$strFile = self::CSV_FILE_NAME;
-//
-//		// - read CSV file
-//		if (($resHandler = fopen($strPath.'/'.$strFile, "r")) !== FALSE) {
-//			while (($strLine = fgets($resHandler)) !== FALSE) {
-//				// - explode into value array
-//				$arrValues = explode(self::CSV_DELIMITER, $strLine);
-//				
-//				// - determine car id
-//				$strCarId = $arrValues[1];
-//								
-//				// - determine first parameters
-//				$nLengthPosition1 = 0;
-//				$nStartPosition1 = $nLengthPosition1 + 1;
-//				$nLength1 = intval($this->_getEnclosureFreeValue($arrValues[$nLengthPosition1]));
-//
-//				// - determine second parameters
-//				$nLengthPosition2 = $nStartPosition1 + $nLength1;
-//				$nStartPosition2 = $nLengthPosition2 + 1;				
-//				$nLength2 = intval($this->_getEnclosureFreeValue($arrValues[$nLengthPosition2]));
-//				
-//				// - determine third parameters
-//				$nLengthPosition3 = $nLengthPosition2 + 1 + $nLength2;
-//				$nStartPosition3 = $nLengthPosition3 + 1;
-//				$nLength3 = intval($this->_getEnclosureFreeValue($arrValues[$nLengthPosition3]));
-//
-//				// - calculate value arrays
-//				$arrValues1 = array_slice($arrValues, $nStartPosition1, $nLength1);
-//				$arrValues2 = array_merge(array($strCarId), array_slice($arrValues, $nStartPosition2, $nLength2));
-//				$arrValues3 = array_merge(array($strCarId), array_slice($arrValues, $nStartPosition3, $nLength3));
-//				
-//				// - write to separate database import files
-//				file_put_contents(self::DATABASE_IMPORT_FILE1, implode(self::CSV_DELIMITER, $arrValues1));
-//				file_put_contents(self::DATABASE_IMPORT_FILE2, implode(self::CSV_DELIMITER, $arrValues2));
-//				file_put_contents(self::DATABASE_IMPORT_FILE3, implode(self::CSV_DELIMITER, $arrValues3));
-//			}
-//			fclose($resHandler);
-//			
-//			// - remove source CSV file
-//			unlink($strPath.'/'.$strFile);
-//		}	
-//	}
 	
 	/*
 	 * Import data into database tables

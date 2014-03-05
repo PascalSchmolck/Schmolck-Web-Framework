@@ -94,19 +94,18 @@ define('MAIL_RECIPIENT_ADDRESS', 'info@schmolck.de');
 /*
  * CARS
  */
-define('CARS_RECIPIENT_NAME', 'cars.schmolck.de');
-define('CARS_RECIPIENT_ADDRESS', 'info@schmolck.de');
-//define('CARS_LOCATION_IMAGES', 'http://www.schmolck.de/data/public/images/vehicles');
-//define('CARS_LOCATION_SYNCFILE', 'http://www.schmolck.de/data/private/vehicles/IFZ.csv');
-define('CARS_LOCATION_IMAGES', 'data/cars/images/sync');
-define('CARS_LOCATION_SYNCFILE', 'http://cars.schmolck.de/data/cars/files/sync/IFZ.csv');
+//define('CARS_RECIPIENT_NAME', 'cars.schmolck.de');
+//define('CARS_RECIPIENT_ADDRESS', 'info@schmolck.de');
+////define('CARS_LOCATION_IMAGES', 'http://www.schmolck.de/data/public/images/vehicles');
+////define('CARS_LOCATION_SYNCFILE', 'http://www.schmolck.de/data/private/vehicles/IFZ.csv');
+//define('CARS_LOCATION_IMAGES', 'data/cars/images/sync');
+//define('CARS_LOCATION_SYNCFILE', 'http://cars.schmolck.de/data/cars/files/sync/IFZ.csv');
 
 /*
  * MOBILE
  */
 // - database & import & images
 define('MOBILE_ZIP_FILE', 'data/mobile/files/sync/media.zip');
-define('MOBILE_ZIP_BACKUP', 'data/mobile/files/sync/media.zip.bak');
 define('MOBILE_CSV_FILE_NAME', 'media.csv');
 define('MOBILE_CSV_DELIMITER', ';');
 define('MOBILE_CSV_ENCLOSURE', '"');
