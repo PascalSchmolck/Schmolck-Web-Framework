@@ -3,7 +3,7 @@
 /*
  * INCLUSION
  */
-require_once 'lib/phpqrcode/phpqrcode.php';
+require_once 'library/phpqrcode/phpqrcode.php';
 
 /*
  * INITIALISATION

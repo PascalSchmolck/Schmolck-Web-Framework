@@ -19,7 +19,7 @@ ini_set("error_reporting", E_ALL ^ E_NOTICE);
  */
 function __autoload($strClass) {
 	// - prepare
-	$strFilePath = 'lib';
+	$strFilePath = 'library';
 
 	// - parse
 	$arrParts = explode('_', $strClass);
