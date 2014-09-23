@@ -1,3 +1,7 @@
+2014.09.23
+**********
+[x] [PROJECT] add robots.txt, browserconfig.xml and sitemap.xml for less log errors
+
 2014.06.12
 **********
 [x] [PROJECT] add new contact person "Benedikt Pohl"
