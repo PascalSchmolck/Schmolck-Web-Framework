@@ -1,6 +1,7 @@
 2014.09.23
 **********
 [x] [PROJECT] add robots.txt, browserconfig.xml and sitemap.xml for less log errors
+[x] [MOBILE] fix wrong MySQL statements for filtering car modells
 
 2014.06.12
 **********

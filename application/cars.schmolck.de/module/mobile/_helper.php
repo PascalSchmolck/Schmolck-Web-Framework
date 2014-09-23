@@ -91,97 +91,97 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		switch ($this->getFilter('model')) {
 			case 'all':
 				$strWhereModel = "
-					AND E_modell LIKE '%'
+					AND E_modell COLLATE UTF8_GENERAL_CI LIKE '%'
 				";
 				break;
 			// - mercedes
 			case "a":
 				$strWhereModel = "
-					AND E_modell LIKE 'A %'
+					AND E_modell COLLATE UTF8_GENERAL_CI LIKE 'A %'
 				";
 				break;
 			case "b":
 				$strWhereModel = "
-					AND E_modell LIKE 'B %'
+					AND E_modell COLLATE UTF8_GENERAL_CI LIKE 'B %'
 				";
 				break;
 			case "c":
 				$strWhereModel = "
 					AND
-						( E_modell LIKE 'C %'
-						OR E_modell LIKE 'CL %'
+						( E_modell COLLATE UTF8_GENERAL_CI LIKE 'C %'
+						OR E_modell COLLATE UTF8_GENERAL_CI LIKE 'CL %'
 						)
 				";
 				break;
 			case "e":
 				$strWhereModel = "
-					AND E_modell LIKE 'E %'
+					AND E_modell COLLATE UTF8_GENERAL_CI LIKE 'E %'
 				";
 				break;
 			case "offroad":
 				$strWhereModel = "
 					AND
-						( E_modell LIKE 'M %'
-						OR E_modell LIKE 'ML %'
-						OR E_modell LIKE 'G %'
-						OR E_modell LIKE 'GL %'
-						OR E_modell LIKE 'GLK %'
+						( E_modell COLLATE UTF8_GENERAL_CI LIKE 'M %'
+						OR E_modell COLLATE UTF8_GENERAL_CI LIKE 'ML %'
+						OR E_modell COLLATE UTF8_GENERAL_CI LIKE 'G %'
+						OR E_modell COLLATE UTF8_GENERAL_CI LIKE 'GL %'
+						OR E_modell COLLATE UTF8_GENERAL_CI LIKE 'GLK %'
 						)
 				";
 				break;
 			case "clk":
 				$strWhereModel = "
-					AND E_modell LIKE 'CLK %'
+					AND E_modell COLLATE UTF8_GENERAL_CI LIKE 'CLK %'
 				";
 				break;
 			case "slk":
 				$strWhereModel = "
-					AND E_modell LIKE 'SLK %'
+					AND E_modell COLLATE UTF8_GENERAL_CI LIKE 'SLK %'
 				";
 				break;
 			case "others-mercedes":
 				$strWhereModel = "
-					AND E_modell NOT LIKE 'A %'
-					AND E_modell NOT LIKE 'B %'
-					AND E_modell NOT LIKE 'C %'
-					AND E_modell NOT LIKE 'CL %'
-					AND E_modell NOT LIKE 'E %'
-					AND E_modell NOT LIKE 'CLK %'
-					AND E_modell NOT LIKE 'SLK %'
-					AND E_modell NOT LIKE 'M %'
-					AND E_modell NOT LIKE 'ML %'
-					AND E_modell NOT LIKE 'G %'
-					AND E_modell NOT LIKE 'GL %'
-					AND E_modell NOT LIKE 'GLK %'
+					AND E_modell COLLATE UTF8_GENERAL_CI NOT LIKE 'A %'
+					AND E_modell COLLATE UTF8_GENERAL_CI NOT LIKE 'B %'
+					AND E_modell COLLATE UTF8_GENERAL_CI NOT LIKE 'C %'
+					AND E_modell COLLATE UTF8_GENERAL_CI NOT LIKE 'CL %'
+					AND E_modell COLLATE UTF8_GENERAL_CI NOT LIKE 'E %'
+					AND E_modell COLLATE UTF8_GENERAL_CI NOT LIKE 'CLK %'
+					AND E_modell COLLATE UTF8_GENERAL_CI NOT LIKE 'SLK %'
+					AND E_modell COLLATE UTF8_GENERAL_CI NOT LIKE 'M %'
+					AND E_modell COLLATE UTF8_GENERAL_CI NOT LIKE 'ML %'
+					AND E_modell COLLATE UTF8_GENERAL_CI NOT LIKE 'G %'
+					AND E_modell COLLATE UTF8_GENERAL_CI NOT LIKE 'GL %'
+					AND E_modell COLLATE UTF8_GENERAL_CI NOT LIKE 'GLK %'
 				";
 				break;
 			// - smart
 			case "f2":
 				$strWhereModel = "
-					AND E_modell LIKE '%FORTWO%'
+					AND E_modell COLLATE UTF8_GENERAL_CI LIKE '%FORTWO%'
 				";
 				break;
 			case "f4":
 				$strWhereModel = "
-					AND E_modell LIKE '%FORFOUR%'
+					AND E_modell COLLATE UTF8_GENERAL_CI LIKE '%FORFOUR%'
 				";
 				break;
 			case "roadster":
 				$strWhereModel = "
-					AND E_modell LIKE '%ROADSTER%'
+					AND E_modell COLLATE UTF8_GENERAL_CI LIKE '%ROADSTER%'
 				";
 				break;
 			case "others-smart":
 				$strWhereModel = "
-					AND E_modell NOT LIKE '%FORTWO%'
-					AND E_modell NOT LIKE '%FORFOUR%'
-					AND E_modell NOT LIKE '%ROADSTER%'
+					AND E_modell COLLATE UTF8_GENERAL_CI NOT LIKE '%FORTWO%'
+					AND E_modell COLLATE UTF8_GENERAL_CI NOT LIKE '%FORFOUR%'
+					AND E_modell COLLATE UTF8_GENERAL_CI NOT LIKE '%ROADSTER%'
 				";
 				break;	
 		}
 		// - type
 		switch ($this->getFilter('transmission')) {
-			default:
+			default:					
 				if (trim($this->getFilter('transmission')) != '') {
 					$strWhereTransmission = "
 						AND DG_getriebeart LIKE '{$this->getFilter('transmission')}'
