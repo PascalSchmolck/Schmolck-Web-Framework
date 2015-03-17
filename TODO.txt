@@ -1,3 +1,8 @@
+2015.03.17
+**********
+[x] [PROJECT] add url redirect if http://www.schmolck.de/cars has been called
+[x] [MOBILE] add url redirect if wrong www.cars... url has been called
+
 2014.09.23
 **********
 [x] [PROJECT] add robots.txt, browserconfig.xml and sitemap.xml for less log errors
