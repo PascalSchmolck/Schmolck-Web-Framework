@@ -1,6 +1,7 @@
 2015.03.19
 **********
 [x] [PROJECT] change pictures for contact (Emmendingen, Vogtsburg, Müllheim)
+[x] [PROJECT] fix wrong QR-Code placement print output
 
 2015.03.17
 **********
