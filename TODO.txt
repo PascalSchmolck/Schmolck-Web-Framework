@@ -2,6 +2,7 @@
 **********
 [x] [PROJECT] change pictures for contact (Emmendingen, Vogtsburg, Müllheim)
 [x] [PROJECT] fix wrong QR-Code placement print output
+[x] [PROJECT] fix wrong line separation within car description
 
 2015.03.17
 **********

@@ -553,6 +553,9 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		foreach ($arrLines as &$strLine) {
 			$strLine = trim($strLine);
 			
+                        // - disregard empty lines
+                        if ($strLine == '') continue;
+                        
 			// **TEXT** => <strong>TEXT</strong>
 			$strLine = preg_replace('/\*\*([^\*\*]+)\*\*/i', '<strong>$1</strong><br>', $strLine);			
 			
