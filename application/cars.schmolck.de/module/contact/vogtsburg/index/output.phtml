@@ -10,44 +10,36 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cont
  */
 ?>
 <div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
-	<h1>
-		<?= $objCore->getHelperTranslator()->_("Contact") ?>
-	</h1>
-	<?=  $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
-	<div class="contact">
-		<div class="vogtsburg">
-			<div class="box">
-				<img src="apps/image/320/100/images/cars.schmolck.de/contact/sebastianheiny.jpg"><br>
-				<a href="<?= $objCore->getHelperLink()->get("mailto:sebastian.heiny@schmolck.de?subject={$strMailInfo}") ?>">
-					Sebastian Heiny 
-				</a><br>	
-				Tel +49 7641 / 4602-116 
-			</div>
-			<div class="box">
-				<img src="apps/image/320/100/images/cars.schmolck.de/contact/mikemack.jpg"><br>
-				<a href="<?= $objCore->getHelperLink()->get("mailto:mike.mack@schmolck.de?subject={$strMailInfo}") ?>">
-					Mike Mack 
-				</a><br>			
-				Tel +49 7641 / 4602-115
-			</div>
-			<div class="box">
-				<img src="apps/image/320/100/images/cars.schmolck.de/contact/juergenrinkenauer.jpg"><br>
-				<a href="<?= $objCore->getHelperLink()->get("mailto:juergen.rinkenauer@schmolck.de?subject={$strMailInfo}") ?>">
-					Jürgen Rinkenauer
-				</a><br>
-				Tel +49 7641 / 4602-113 
-			</div>	
-			<div class="box">
-				<img src="apps/image/320/100/images/cars.schmolck.de/contact/andreasblakowski.jpg"><br>
-				<a href="<?= $objCore->getHelperLink()->get("mailto:andreas.blakowski@schmolck.de?subject={$strMailInfo}") ?>">
-					Andreas Blakowski 
-				</a><br>
-				<strong>
-					Verkaufsleiter
-				</strong>
-				<br>
-				Tel +49 7641 / 4602-0	
-			</div>			
-		</div>
-	</div>
+    <h1>
+        <?= $objCore->getHelperTranslator()->_("Contact") ?>
+    </h1>
+    <?= $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
+    <div class="contact">
+        <div class="vogtsburg">
+            <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-emmendingen.jpg"><br>
+            <h2>
+                Unsere Junge Sterne Verkaufsberater
+                für Emmendingen und Vogtsburg
+            </h2>            
+            <table border="0" width="100%">
+                <tr>
+                    <td width="30%">
+                        <a href="<?= $objCore->getHelperLink()->get("mailto:mike.mack@schmolck.de?subject={$strMailInfo}") ?>">Mike Mack</a>
+                    </td>
+                    <td width="27%">
+                        <a href="<?= $objCore->getHelperLink()->get("mailto:sebastian.heiny@schmolck.de?subject={$strMailInfo}") ?>">Sebastian Heiny</a>
+                    </td>
+                    <td>
+                        <a href="<?= $objCore->getHelperLink()->get("mailto:juergen.rinkenauer@schmolck.de?subject={$strMailInfo}") ?>">Jürgen Rinkenauer</a>
+                    </td>
+                    <td>
+                        <a href="<?= $objCore->getHelperLink()->get("mailto:andreas.blakowski@schmolck.de?subject={$strMailInfo}") ?>">Andreas Blakowski</a>
+                    </td>
+                </tr>
+            </table>
+            <h3>
+                Telefon 07641 4602-0
+            </h3>
+        </div>
+    </div>
 </div>

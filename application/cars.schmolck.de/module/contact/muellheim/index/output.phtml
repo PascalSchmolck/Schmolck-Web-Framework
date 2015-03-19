@@ -10,33 +10,34 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cont
  */
 ?>
 <div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
-	<h1>
-		<?= $objCore->getHelperTranslator()->_("Contact") ?>
-	</h1>
-	<?=  $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
-	<div class="contact">
-		<div class="muellheim">
-			<div class="box">
-				<img src="apps/image/320/100/images/cars.schmolck.de/contact/michaelberger.jpg"><br>
-				<a href="<?= $objCore->getHelperLink()->get("mailto:michael.berger@schmolck.de?subject={$strMailInfo}") ?>">
-					Michael Berger
-				</a><br>
-				Tel +49 7631 / 3672-0 
-			</div>
-			<div class="box">
-				<img src="apps/image/320/100/images/cars.schmolck.de/contact/michelmisiuk.jpg">	<br>
-				<a href="<?= $objCore->getHelperLink()->get("mailto:michel.misiuk@schmolck.de?subject={$strMailInfo}") ?>">
-					Michel Misiuk 
-				</a><br>
-				Tel +49 7631 / 3672-740  <br>
-			</div>	
-			<div class="box">
-				<img src="apps/image/320/100/images/cars.schmolck.de/contact/benediktpohl.jpg">	<br>
-				<a href="<?= $objCore->getHelperLink()->get("mailto:benedikt.pohl@schmolck.de?subject={$strMailInfo}") ?>">
-					Benedikt Pohl
-				</a><br>
-				Tel +49 7631 / 3672-741  <br>
-			</div>			
-		</div>
-	</div>
+    <h1>
+        <?= $objCore->getHelperTranslator()->_("Contact") ?>
+    </h1>
+    <?= $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
+    <div class="contact">
+        <div class="muellheim">
+            <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-muellheim.jpg"><br>
+            <h2>
+                Unsere Junge Sterne Verkaufsberater
+                für M&uuml;llheim
+            </h2>            
+            <table border="0" width="100%">
+                <tr>
+                    <td width="50%">
+                        <a href="<?= $objCore->getHelperLink()->get("mailto:benedikt.pohl@schmolck.de?subject={$strMailInfo}") ?>">
+                            Benedikt Pohl
+                        </a>
+                    </td>
+                    <td>
+                        <a href="<?= $objCore->getHelperLink()->get("mailto:michel.misiuk@schmolck.de?subject={$strMailInfo}") ?>">
+                            Michel Misiuk 
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            <h3>
+                Telefon 07631 3672-0
+            </h3>
+        </div>
+    </div>
 </div>

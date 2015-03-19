@@ -9,145 +9,74 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
  */
 ?>
 <div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
-	<div class="detail">
+    <div class="detail">
 
-		<? foreach ($objCore->arrCars as $arrCar) : ?>		
-			<h1>
-				<?= $arrCar['name'] ?>
-			</h1>
-			<div class="item" data-link="<?= $objCore->strParameterUrl ?>/id/<?= $arrCar['id'] ?>">
-				<div class="title">
-					<? $objCore->getHelperHtml()->setPageTitle($arrCar['name'] . ' (' . $arrCar['id'] . ')'); ?>
-					<? $strMailInfo = $_SERVER['HTTP_HOST'] . ' - ' . sprintf($objCore->getHelperTranslator()->_("Request for the vehicle %s"), $arrCar['id']); ?>
-				</div>
-				<div class="data">
-					<div class="qrcode1">
-						<img src="<?= $objCore->strQRImage ?>">
-					</div>
-					<div class="image">
-						<?=
-						$objCore->getHelperApi()->getElement(
-							"{$objCore->strId}_image", 
-							'mobile/api/image', 
-							array(
-								'id' => $arrCar['id']
-							)
-						);
-						?>
-					</div>
-					<div class="infos1">
-						<?= $arrCar['fahrzeug'] ?> <br>
-						<?= $arrCar['kategorie'] ?> <br>
-						<?= $arrCar['id'] ?> <br>						
-					</div>
-					<div class="infos2">
-						EZ <?= $arrCar['ez'] ?> <br>
-						<?= $arrCar['km'] ?> km <br>
-					</div>
-					<div class="infos3">
-						<?= $arrCar['kraftstoff'] ?> <br>
-						<?= $arrCar['kw'] ?> kW (<?= $arrCar['ps'] ?> PS)<br>
-						<?= $arrCar['getriebe'] ?> <br>
-<!--						<?= $arrCar['color'] ?> (<?= $objCore->getHelperTranslator()->_("Paint"); ?>) <br>
-						<?= $arrCar['polster'] ?> (<?= $objCore->getHelperTranslator()->_("Upholstery"); ?>) <br>-->
-					</div>
-					<div class="price">
-						<?= $arrCar['preis'] ?> EUR <br>
-						<div class="pricenote">
-							<?
-							if ($arrCar['mwst'] == '1') {
-								 echo $objCore->getHelperTranslator()->_("VAT not deductable");
-							} else {
-								 echo $objCore->getHelperTranslator()->_("VAT deductable");
-							}
-							?>		
-						</div>		
-					</div>
-					<div class="qrcode2">
-						<img src="<?= $objCore->strQRImage ?>">
-					</div>
-					<div class="clearer">
-						&nbsp;
-					</div>
-					<div class="equipment">
-						<?= $arrCar['bemerkung'] ?>
-					</div>	
-					<div class="clearer">
-						&nbsp;
-					</div>
-				</div>
-			</div>
-		<? endforeach; ?>
-	</div>			
+        <? foreach ($objCore->arrCars as $arrCar) : ?>		
+            <h1>
+                <?= $arrCar['name'] ?>
+            </h1>
+            <div class="item" data-link="<?= $objCore->strParameterUrl ?>/id/<?= $arrCar['id'] ?>">
+                <div class="title">
+                    <? $objCore->getHelperHtml()->setPageTitle($arrCar['name'] . ' (' . $arrCar['id'] . ')'); ?>
+                    <? $strMailInfo = $_SERVER['HTTP_HOST'] . ' - ' . sprintf($objCore->getHelperTranslator()->_("Request for the vehicle %s"), $arrCar['id']); ?>
+                </div>
+                <div class="data">
+                    <div class="qrcode1">
+                        <img src="<?= $objCore->strQRImage ?>">
+                    </div>
+                    <div class="image">
+                        <?=
+                        $objCore->getHelperApi()->getElement(
+                                "{$objCore->strId}_image", 'mobile/api/image', array(
+                            'id' => $arrCar['id']
+                                )
+                        );
+                        ?>
+                    </div>
+                    <div class="infos1">
+                        <?= $arrCar['fahrzeug'] ?> <br>
+                        <?= $arrCar['kategorie'] ?> <br>
+                        <?= $arrCar['id'] ?> <br>						
+                    </div>
+                    <div class="infos2">
+                        EZ <?= $arrCar['ez'] ?> <br>
+                        <?= $arrCar['km'] ?> km <br>
+                    </div>
+                    <div class="infos3">
+                        <?= $arrCar['kraftstoff'] ?> <br>
+                        <?= $arrCar['kw'] ?> kW (<?= $arrCar['ps'] ?> PS)<br>
+                        <?= $arrCar['getriebe'] ?> <br>
+    <!--						<?= $arrCar['color'] ?> (<?= $objCore->getHelperTranslator()->_("Paint"); ?>) <br>
+                        <?= $arrCar['polster'] ?> (<?= $objCore->getHelperTranslator()->_("Upholstery"); ?>) <br>-->
+                    </div>
+                    <div class="price">
+                        <?= $arrCar['preis'] ?> EUR <br>
+                        <div class="pricenote">
+                            <?
+                            if ($arrCar['mwst'] == '1') {
+                                echo $objCore->getHelperTranslator()->_("VAT not deductable");
+                            } else {
+                                echo $objCore->getHelperTranslator()->_("VAT deductable");
+                            }
+                            ?>		
+                        </div>		
+                    </div>
+                    <div class="qrcode2">
+                        <img src="<?= $objCore->strQRImage ?>">
+                    </div>
+                    <div class="clearer">
+                        &nbsp;
+                    </div>
+                    <div class="equipment">
+                        <?= $arrCar['bemerkung'] ?>
+                    </div>	
+                    <div class="clearer">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        <? endforeach; ?>
+    </div>			
 
-	<div class="contact">
-		<h1>
-			<?= $objCore->getHelperTranslator()->_("Contact Person") ?>
-		</h1>
-		<div class="emmendingen">
-			<h2>
-				Emmendingen	&amp; Vogtsburg
-			</h2>
-			<div class="box">
-				<img src="apps/image/320/100/images/cars.schmolck.de/contact/sebastianheiny.jpg"><br>
-				<a href="<?= $objCore->getHelperLink()->get("mailto:sebastian.heiny@schmolck.de?subject={$strMailInfo}") ?>">
-					Sebastian Heiny 
-				</a><br>	
-				Tel +49 7641 / 4602-116 
-			</div>
-			<div class="box">
-				<img src="apps/image/320/100/images/cars.schmolck.de/contact/mikemack.jpg"><br>
-				<a href="<?= $objCore->getHelperLink()->get("mailto:mike.mack@schmolck.de?subject={$strMailInfo}") ?>">
-					Mike Mack 
-				</a><br>			
-				Tel +49 7641 / 4602-115
-			</div>
-			<div class="box">
-				<img src="apps/image/320/100/images/cars.schmolck.de/contact/juergenrinkenauer.jpg"><br>
-				<a href="<?= $objCore->getHelperLink()->get("mailto:juergen.rinkenauer@schmolck.de?subject={$strMailInfo}") ?>">
-					Jürgen Rinkenauer
-				</a><br>
-				Tel +49 7641 / 4602-113 
-			</div>	
-			<div class="box">
-				<img src="apps/image/320/100/images/cars.schmolck.de/contact/andreasblakowski.jpg"><br>
-				<a href="<?= $objCore->getHelperLink()->get("mailto:andreas.blakowski@schmolck.de?subject={$strMailInfo}") ?>">
-					Andreas Blakowski 
-				</a><br>
-				<strong>
-					Verkaufsleiter
-				</strong>
-				<br>
-				Tel +49 7641 / 4602-0	
-			</div>			
-		</div>
-		<div class="muellheim">
-			<h2>
-				Müllheim
-			</h2>
-			<div class="box">
-				<img src="apps/image/320/100/images/cars.schmolck.de/contact/michaelberger.jpg"><br>
-				<a href="<?= $objCore->getHelperLink()->get("mailto:michael.berger@schmolck.de?subject={$strMailInfo}") ?>">
-					Michael Berger
-				</a><br>
-				Tel +49 7631 / 3672-0 
-			</div>
-			<div class="box">
-				<img src="apps/image/320/100/images/cars.schmolck.de/contact/michelmisiuk.jpg">	<br>
-				<a href="<?= $objCore->getHelperLink()->get("mailto:michel.misiuk@schmolck.de?subject={$strMailInfo}") ?>">
-					Michel Misiuk 
-				</a><br>
-				Tel +49 7631 / 3672-740  <br>
-			</div>	
-			<div class="box">
-				<img src="apps/image/320/100/images/cars.schmolck.de/contact/benediktpohl.jpg">	<br>
-				<a href="<?= $objCore->getHelperLink()->get("mailto:benedikt.pohl@schmolck.de?subject={$strMailInfo}") ?>">
-					Benedikt Pohl
-				</a><br>
-				Tel +49 7631 / 3672-741  <br>
-			</div>			
-		</div>
-	</div>
-
-	<?= $objCore->getHelperScripts()->renderViewScripts() ?>
+    <?= $objCore->getHelperScripts()->renderViewScripts() ?>
 </div>
