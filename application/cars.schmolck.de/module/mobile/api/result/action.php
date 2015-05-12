@@ -12,7 +12,7 @@ $objCore->strApi = $objCore->getHelperApi()->getIdentifier();
 /*
  * PARAMETER
  */
-$objCore->strParameterMode = Schmolck_Tool_Memory::auto($objCore->strApi, 'mode', strip_tags($_POST['mode']));
+$objCore->strParameterMode = Schmolck_Tool_Memory::auto($objCore->getModule(), 'mode', strip_tags($_POST['mode']));
 if ($objCore->strParameterMode == '') {
 	$objCore->strParameterMode = 'list';
 }

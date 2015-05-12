@@ -51,7 +51,74 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		$arrFilter = $this->restore('filter');
 		return $arrFilter[$strName];
 	}
-	
+        
+   /**
+    * Get filter options for brands
+    */
+   public function getFilterOptionsBrands() {
+      /*
+       * INITIALISATION
+       */
+      $objCore = Schmolck_Framework_Core::getInstance($this->_objCore);            
+
+      /*
+       * OUTPUT
+       */
+      return array(
+         'all' => $objCore->getHelperTranslator()->_("All"),
+         'mercedes-benz' => $objCore->getHelperTranslator()->_("Mercedes-Benz"),
+         'smart' => $objCore->getHelperTranslator()->_("smart"),
+         'others' => $objCore->getHelperTranslator()->_("Others"),
+      );
+   }
+
+   /**
+    * Get filter model options depending on given brand
+    * 
+    * @param string $strBrand brand
+    * @return array
+    */
+   public function getFilterOptionsModels($strBrand) {
+      /*
+       * INITIALISATION
+       */
+      $objCore = Schmolck_Framework_Core::getInstance($this->_objCore);            
+
+      /*
+       * OUTPUT
+       */
+      switch ($strBrand) {
+         case 'all':
+         case 'mercedes-benz':
+            return array(
+              "all" => $objCore->getHelperTranslator()->_("All"),
+              "a" => $objCore->getHelperTranslator()->_("A-Class"),
+              "b" => $objCore->getHelperTranslator()->_("B-Class"),
+              "c" => $objCore->getHelperTranslator()->_("C-Class"),
+              "e" => $objCore->getHelperTranslator()->_("E-Class"),
+              "clk" => $objCore->getHelperTranslator()->_("CLK"),
+              "slk" => $objCore->getHelperTranslator()->_("SLK"),
+              "offroad" => $objCore->getHelperTranslator()->_("Offroad"),
+              "others-mercedes" => $objCore->getHelperTranslator()->_("Others"),
+            );
+            break;
+         case 'smart':
+            return array(
+               "all" => $objCore->getHelperTranslator()->_("All"),
+               "f2" => $objCore->getHelperTranslator()->_("Fortwo"),
+               "f4" => $objCore->getHelperTranslator()->_("Forfour"),
+               "roadster" => $objCore->getHelperTranslator()->_("Roadster"),
+               "others-smart" => $objCore->getHelperTranslator()->_("Others"),
+            );                    
+            break;
+     }
+            
+      /*
+       * FALLBACK
+       */
+      return array();
+   }        
+        
 	/**
 	 * Query cars according to set-up filters
 	 * 

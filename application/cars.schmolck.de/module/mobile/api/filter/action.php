@@ -15,7 +15,7 @@ $objCars = new Mobile_Helper($objCore);
  * PARAMETER
  */
 // - GET
-$objCore->strParameterResultID = Schmolck_Tool_Memory::auto($objCore->strApi, 'resultID', strip_tags($_POST['resultID']));
+$objCore->strParameterResultID = Schmolck_Tool_Memory::auto($objCore->getModule(), 'resultID', strip_tags($_POST['resultID']));
 // - POST
 $objCore->strParameterSend = strip_tags($_POST['send']);
 $objCore->strParameterReset = strip_tags($_POST['reset']);
@@ -30,14 +30,14 @@ if ($objCore->strParameterReset) {
 	$_POST['ez'] = ' ';
 	$_POST['sorting'] = 'price';
 }
-$objCore->strParameterBrand = Schmolck_Tool_Memory::auto($objCore->strApi, 'brand', strip_tags($_POST['brand']));
-$objCore->strParameterModel = Schmolck_Tool_Memory::auto($objCore->strApi, 'model', strip_tags($_POST['model']));
-$objCore->strParameterType = Schmolck_Tool_Memory::auto($objCore->strApi, 'type', strip_tags($_POST['type']));
-$objCore->strParameterTransmission = Schmolck_Tool_Memory::auto($objCore->strApi, 'transmission', strip_tags($_POST['transmission']));
-$objCore->strParameterPrice = Schmolck_Tool_Memory::auto($objCore->strApi, 'price', strip_tags($_POST['price']));
-$objCore->strParameterKm = Schmolck_Tool_Memory::auto($objCore->strApi, 'km', strip_tags($_POST['km']));
-$objCore->strParameterEz = Schmolck_Tool_Memory::auto($objCore->strApi, 'ez', strip_tags($_POST['ez']));
-$objCore->strParameterSorting = Schmolck_Tool_Memory::auto($objCore->strApi, 'sorting', strip_tags($_POST['sorting']));
+$objCore->strParameterBrand = Schmolck_Tool_Memory::auto($objCore->getModule(), 'brand', strip_tags($_POST['brand']));
+$objCore->strParameterModel = Schmolck_Tool_Memory::auto($objCore->getModule(), 'model', strip_tags($_POST['model']));
+$objCore->strParameterType = Schmolck_Tool_Memory::auto($objCore->getModule(), 'type', strip_tags($_POST['type']));
+$objCore->strParameterTransmission = Schmolck_Tool_Memory::auto($objCore->getModule(), 'transmission', strip_tags($_POST['transmission']));
+$objCore->strParameterPrice = Schmolck_Tool_Memory::auto($objCore->getModule(), 'price', strip_tags($_POST['price']));
+$objCore->strParameterKm = Schmolck_Tool_Memory::auto($objCore->getModule(), 'km', strip_tags($_POST['km']));
+$objCore->strParameterEz = Schmolck_Tool_Memory::auto($objCore->getModule(), 'ez', strip_tags($_POST['ez']));
+$objCore->strParameterSorting = Schmolck_Tool_Memory::auto($objCore->getModule(), 'sorting', strip_tags($_POST['sorting']));
 
 /*
  * PREPARATION

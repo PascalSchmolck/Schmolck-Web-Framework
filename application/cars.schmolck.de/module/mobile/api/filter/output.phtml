@@ -2,7 +2,10 @@
 /*
  * INITIALISATION
  */
+// - core
 $objCore = Schmolck_Framework_Core::getInstance($this);
+// - cars
+$objCars = new Mobile_Helper($objCore);
 // - style
 $strStyleClass = $objCore->getHelperApi()->getStyleClass();
 // - button
@@ -12,31 +15,10 @@ $strButtonLabel = sprintf($objCore->getHelperTranslator()->_("Display %s hits"),
  * PREPARATION
  */
 // - brands
-$arrBrands = array(
-	'all' => $objCore->getHelperTranslator()->_("All"),
-	'mercedes-benz' => $objCore->getHelperTranslator()->_("Mercedes-Benz"),
-	'smart' => $objCore->getHelperTranslator()->_("smart"),
-	'others' => $objCore->getHelperTranslator()->_("Others"),
-);
+$arrBrands = $objCars->getFilterOptionsBrands();
 // - models
-$arrModelsMercedes = array(
-	"all" => $objCore->getHelperTranslator()->_("All"),
-	"a" => $objCore->getHelperTranslator()->_("A-Class"),
-	"b" => $objCore->getHelperTranslator()->_("B-Class"),
-	"c" => $objCore->getHelperTranslator()->_("C-Class"),
-	"e" => $objCore->getHelperTranslator()->_("E-Class"),
-	"clk" => $objCore->getHelperTranslator()->_("CLK"),
-	"slk" => $objCore->getHelperTranslator()->_("SLK"),
-	"offroad" => $objCore->getHelperTranslator()->_("Offroad"),
-	"others-mercedes" => $objCore->getHelperTranslator()->_("Others"),
-);
-$arrModelsSmart = array(
-	"all" => $objCore->getHelperTranslator()->_("All"),
-	"f2" => $objCore->getHelperTranslator()->_("Fortwo"),
-	"f4" => $objCore->getHelperTranslator()->_("Forfour"),
-	"roadster" => $objCore->getHelperTranslator()->_("Roadster"),
-	"others-smart" => $objCore->getHelperTranslator()->_("Others"),
-);
+$arrModelsMercedes = $objCars->getFilterOptionsModels('mercedes-benz');
+$arrModelsSmart = $objCars->getFilterOptionsModels('smart');
 // - transmission
 // ’0-3’ (0=keine Angabe, 1=Schaltgetriebe, 2=Halbautomatik, 3=Automatik) 
 $arrTransmissions['all'] = $objCore->getHelperTranslator()->_("All");

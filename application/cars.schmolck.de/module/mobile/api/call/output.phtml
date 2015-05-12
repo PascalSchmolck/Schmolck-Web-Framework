@@ -1,0 +1,57 @@
+<?php
+/*
+ * INITIALISATION
+ */
+$objCore = Schmolck_Framework_Core::getInstance($this);
+$objCars = new Mobile_Helper($objCore);
+$strVersion = '1.0.0';
+?>
+<h1>
+   CALL API
+</h1>
+<h2>
+   Version
+</h2>
+<?=$strVersion?>
+<h2>
+   Parameter
+</h2>
+<h3>
+   mode
+</h3>
+<ul>
+   <li>silent</li>
+   <li>redirect</li>
+</ul>
+<h3>
+   brand
+</h3>
+<ul>
+   <?php
+   foreach ($objCars->getFilterOptionsBrands() as $key => $value) {
+      echo "<li>$key</li>";
+   }
+   ?>
+</ul>
+<h3>
+   model
+</h3>
+<ul>
+   <?php
+   foreach ($objCars->getFilterOptionsBrands() as $brand => $brandLabel) {
+      echo "<li><strong>$brand</strong></li>";
+      echo "<ul>";
+      foreach ($objCars->getFilterOptionsModels($brand) as $model => $modelLabel) {
+         echo "<li>$model</li>";
+      }      
+      echo "</ul>";
+   }
+   ?>
+</ul>
+
+<h2>
+   Example
+</h2>
+<a href="mobile/api/call/mode/silent/brand/mercedes-benz/model/all">
+   mobile/api/call/mode/silent/brand/mercedes-benz/model/all
+</a>
