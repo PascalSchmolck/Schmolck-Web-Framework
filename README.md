@@ -6,6 +6,7 @@ Web framework based on PHP, HTML, JS and LESS.
 
 2015.05.15
 **********
+[MOBILE] adapt XML message for automatic lead management
 [FRAMEWORK] clean up for upload to global repository
 [PROJECT] integrate mobile contact form into generic contact page
 [MOBILE] fix XML message feature
