@@ -1,5 +1,6 @@
 2015.05.15
 **********
+[x] [MOBILE] fix output for filter options for brand 'others'
 [x] [MOBILE] fix header output for JSON api
 
 2015.05.12

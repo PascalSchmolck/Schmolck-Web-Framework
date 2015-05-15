@@ -111,6 +111,11 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
                "others-smart" => $objCore->getHelperTranslator()->_("Others"),
             );                    
             break;
+         case 'others':
+            return array(
+               "all" => $objCore->getHelperTranslator()->_("All"),
+            );        
+            break;
      }
             
       /*
