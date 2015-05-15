@@ -112,5 +112,7 @@ define('MOBILE_DATABASE_FILE', 'data/mobile/files/sync/media.csv');
 define('MOBILE_DATABASE_TABLE', 'mod_mobile_claris_20131220');
 define('MOBILE_PRICE_MWST', 19);
 // - contact form
-define('MOBILE_RECIPIENT_NAME', 'cars.schmolck.de');
+define('MOBILE_SENDER_NAME', 'cars.schmolck.de');
+define('MOBILE_SENDER_ADDRESS', 'webmaster@schmolck.de');
+define('MOBILE_RECIPIENT_NAME', 'verkauf@schmolck.de');
 define('MOBILE_RECIPIENT_ADDRESS', 'verkauf@schmolck.de');

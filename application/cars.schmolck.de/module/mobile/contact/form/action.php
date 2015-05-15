@@ -65,7 +65,7 @@ if ($objCore->strSend != '') {
          $objCore->strMessage = $objCore->strMessage . '   \n\n\n   <pre>' . $strXmlMessage . '</pre>';         
          
          // - send mail
-			$objCore->getHelperMail()->send($objCore->strName, $objCore->strEmail, MOBILE_RECIPIENT_NAME, MOBILE_RECIPIENT_ADDRESS, $objCore->strSubject, $objCore->strMessage);
+			$objCore->getHelperMail()->send(MOBILE_SENDER_NAME, MOBILE_SENDER_ADDRESS, MOBILE_RECIPIENT_NAME, MOBILE_RECIPIENT_ADDRESS, $objCore->strSubject, $objCore->strMessage);
 			$objCore->strMessageMail = $objCore->getHelperTranslator()->_("Message has been sent. Thank you.");
 		} catch (Exception $objException) {
 			$objCore->strMessageMail = $objException->getMessage();
