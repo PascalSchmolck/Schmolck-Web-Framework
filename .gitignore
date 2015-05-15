@@ -2,4 +2,5 @@
 /backup/*
 /data/*
 /host/*.php
+/nbproject/*
 /tmp/*
