@@ -12,7 +12,7 @@ class Schmolck_Framework_Helper_Application extends Schmolck_Framework_Helper {
 	const PATH = 'application';
 
 	/**
-	 * Get application name
+	 * Get current application name
 	 * 
 	 * @return string lower case name
 	 */
@@ -21,7 +21,7 @@ class Schmolck_Framework_Helper_Application extends Schmolck_Framework_Helper {
 	}
 
 	/**
-	 * Get application path
+	 * Get current application path
 	 * 
 	 * @return string lower case host path
 	 */
@@ -30,16 +30,25 @@ class Schmolck_Framework_Helper_Application extends Schmolck_Framework_Helper {
 	}
 	
 	/**
-	 * Get module path
+	 * Get current module path
 	 * 
 	 * @return string module path
 	 */
 	public function getModulePath() {
 		return $this->getPath() . '/module';
 	}
+   
+   /**
+    * Get current action path
+    * 
+    * @return string action path
+    */
+   public function getActionPath() {
+      return $this->getModulePath() . '/' . $this->getRequestUri();
+   }
 
 	/**
-	 * Get template path
+	 * Get current template path
 	 * 
 	 * @return string template path
 	 */

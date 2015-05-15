@@ -4,7 +4,9 @@
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
 $objCars = new Mobile_Helper($objCore);
-$strVersion = '1.0.0';
+$strVersionPath = $objCore->getHelperApplication()->getActionPath();
+$strVersionFile = 'version.txt';
+$strVersion = strip_tags(file_get_contents($strVersionPath . '/' . $strVersionFile));
 ?>
 <h1>
    CALL API

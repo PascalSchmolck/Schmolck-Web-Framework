@@ -34,6 +34,10 @@ try {
  * OUTPUT
  */
 if (!empty($strParameterFunction)) {
-   echo json_encode($arrResult);
+   $strJSON = json_encode($arrResult);
+   header("Content-Type: application/json; charset=utf-8");
+   header("Content-Transfer-Encoding: 8bit");
+   header("Content-Length: ".strlen($strJSON));
+   echo $strJSON;
    exit();
 }

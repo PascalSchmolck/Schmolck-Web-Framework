@@ -1,5 +1,11 @@
 <?php
-$strVersion = '1.0.0';
+/*
+ * INITIALISATION
+ */
+$objCore = Schmolck_Framework_Core::getInstance($this);
+$strVersionPath = $objCore->getHelperApplication()->getActionPath();
+$strVersionFile = 'version.txt';
+$strVersion = strip_tags(file_get_contents($strVersionPath . '/' . $strVersionFile));
 ?>
 <h1>
    JSON API
