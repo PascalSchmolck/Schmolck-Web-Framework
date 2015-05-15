@@ -1,5 +1,5 @@
 /nbproject/private/
 /backup/*
 /data/*
-/host/*
+/host/*.php
 /tmp/*
