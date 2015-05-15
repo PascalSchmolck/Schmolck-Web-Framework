@@ -95,8 +95,8 @@ define('PIWIK_TRACKING_ID', '');
 /*
  * MAIL
  */
-define('MAIL_RECIPIENT_NAME', 'Pascal Schmolck');
-define('MAIL_RECIPIENT_ADDRESS', 'mail@pascalschmolck.de');
+define('MAIL_RECIPIENT_NAME', 'cars.schmolck.de');
+define('MAIL_RECIPIENT_ADDRESS', 'verkauf@schmolck.de');
 
 /*
  * MOBILE
@@ -112,5 +112,5 @@ define('MOBILE_DATABASE_FILE', 'data/mobile/files/sync/media.csv');
 define('MOBILE_DATABASE_TABLE', 'mod_mobile_claris_20131220');
 define('MOBILE_PRICE_MWST', 19);
 // - contact form
-define('MOBILE_RECIPIENT_NAME', 'Pascal Schmolck');
-define('MOBILE_RECIPIENT_ADDRESS', 'mail@pascalschmolck.de');
+define('MOBILE_RECIPIENT_NAME', 'cars.schmolck.de');
+define('MOBILE_RECIPIENT_ADDRESS', 'verkauf@schmolck.de');

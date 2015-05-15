@@ -57,7 +57,7 @@ define('APPLICATION_LANGUAGE', 'de');
  * Define what template should be used. 
  * Depends on what template folders you have installed and running.
  */
-define('APPLICATION_TEMPLATE', '2013.10');
+define('APPLICATION_TEMPLATE', '2013.12');
 
 /*
  * EXCEPTION
@@ -89,14 +89,13 @@ define('PIWIK_TRACKING_ID', '3');
  * MAIL
  */
 define('MAIL_RECIPIENT_NAME', 'cars.schmolck.de');
-define('MAIL_RECIPIENT_ADDRESS', 'info@schmolck.de');
+define('MAIL_RECIPIENT_ADDRESS', 'verkauf@schmolck.de');
 
 /*
  * MOBILE
  */
 // - database & import & images
 define('MOBILE_ZIP_FILE', 'data/mobile/files/sync/media.zip');
-define('MOBILE_ZIP_BACKUP', 'data/mobile/files/sync/media.zip.bak');
 define('MOBILE_CSV_FILE_NAME', 'media.csv');
 define('MOBILE_CSV_DELIMITER', ';');
 define('MOBILE_CSV_ENCLOSURE', '"');
@@ -107,4 +106,4 @@ define('MOBILE_DATABASE_TABLE', 'mod_mobile_claris_20131220');
 define('MOBILE_PRICE_MWST', 19);
 // - contact form
 define('MOBILE_RECIPIENT_NAME', 'cars.schmolck.de');
-define('MOBILE_RECIPIENT_ADDRESS', 'info@schmolck.de');
+define('MOBILE_RECIPIENT_ADDRESS', 'verkauf@schmolck.de');

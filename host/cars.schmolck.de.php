@@ -89,7 +89,7 @@ define('PIWIK_TRACKING_ID', '3');
  * MAIL
  */
 define('MAIL_RECIPIENT_NAME', 'cars.schmolck.de');
-define('MAIL_RECIPIENT_ADDRESS', 'info@schmolck.de');
+define('MAIL_RECIPIENT_ADDRESS', 'verkauf@schmolck.de');
 
 /*
  * MOBILE
@@ -106,4 +106,4 @@ define('MOBILE_DATABASE_TABLE', 'mod_mobile_claris_20131220');
 define('MOBILE_PRICE_MWST', 19);
 // - contact form
 define('MOBILE_RECIPIENT_NAME', 'cars.schmolck.de');
-define('MOBILE_RECIPIENT_ADDRESS', 'info@schmolck.de');
+define('MOBILE_RECIPIENT_ADDRESS', 'verkauf@schmolck.de');
