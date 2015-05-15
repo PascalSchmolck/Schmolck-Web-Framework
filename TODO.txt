@@ -1,5 +1,6 @@
 2015.05.15
 **********
+[x] [PROJECT] integrate mobile contact form into generic contact page
 [x] [MOBILE] fix XML message feature
 [x] [MOBILE] integrate XML message for automatic lead management
 [x] [MOBILE] add request form to detail page
