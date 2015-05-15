@@ -1,12 +1,10 @@
 <?php
 
 /**
- * Schmolck framework - PHP Framework
+ * Schmolck Web Framework
  * 
- * @
  * @author Pascal Schmolck <mail@pascalschmolck.de>
- * @copyright (c) 2013, Pascal Schmolck
- * @package Schmolck framework
+ * @license This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/
  */
 
 /*
