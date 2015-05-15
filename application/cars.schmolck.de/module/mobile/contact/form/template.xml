@@ -1,0 +1,11 @@
+<lead>
+   <vehicle>
+      <internalId>#id</internalId>
+   </vehicle>
+   <potentialBuyer>
+      <name>#name</name>
+      <email>#email</email>
+      <message>#message</message>
+   </potentialBuyer>
+   <source>SCHMOLCK</source>
+</lead>
