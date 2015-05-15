@@ -40,4 +40,7 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cont
             </h3>
         </div>
     </div>
+   <div class="form">
+      <?= $objCore->getHelperApi()->getElement("{$objCore->strId}_form", 'contact/api/form') ?>				
+   </div>
 </div>

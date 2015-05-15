@@ -1,5 +1,6 @@
 2015.05.15
 **********
+[x] [PROJECT] embed contact form
 [x] [PROJECT] ignore host directory for sensible configuration data
 [x] [PROJECT] clean up obsolete cars module and corresponding files
 [x] [PROJECT] clean up obsolete www.schmolck.de project
