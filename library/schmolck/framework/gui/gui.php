@@ -3,9 +3,8 @@
 /**
  * Schmolck_Framework_Gui
  * 
- * @package Schmolck framework
+ * @package Schmolck Web Framework
  * @author Pascal Schmolck
- * @copyright 2013
  */
 abstract class Schmolck_Framework_Gui {
 

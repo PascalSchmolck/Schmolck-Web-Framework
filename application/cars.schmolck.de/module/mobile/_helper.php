@@ -5,7 +5,6 @@
  * 
  * @package cars.schmolck.de
  * @author Pascal Schmolck
- * @copyright 2013
  */
 class Mobile_Helper extends Schmolck_Framework_Helper {
 
@@ -814,7 +813,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
  * 
  * @package cars.schmolck.de
  * @author Pascal Schmolck
- * @copyright 2013
+
  */
 class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 

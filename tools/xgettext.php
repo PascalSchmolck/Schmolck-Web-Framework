@@ -3,10 +3,10 @@
 /**
  * xgettext
  * 
- * @package Schmolck framework
+ * @package Schmolck Web Framework
  * @author Pascal Schmolck
- * @copyright 2013
  */
+
 /*
  * CHECKS
  */

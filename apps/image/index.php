@@ -3,9 +3,8 @@
 /**
  * Image Compression App
  * 
- * @package Schmolck framework
+ * @package Schmolck Web Framework
  * @author Pascal Schmolck
- * @copyright 2013
  */
 
 error_reporting(0);

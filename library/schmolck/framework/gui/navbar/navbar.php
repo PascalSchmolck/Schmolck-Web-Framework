@@ -3,9 +3,8 @@
 /**
  * Schmolck_Framework_Gui_Navbar
  * 
- * @package Schmolck framework
+ * @package Schmolck Web Framework
  * @author Pascal Schmolck
- * @copyright 2013
  */
 class Schmolck_Framework_Gui_Navbar extends Schmolck_Framework_Gui {
 

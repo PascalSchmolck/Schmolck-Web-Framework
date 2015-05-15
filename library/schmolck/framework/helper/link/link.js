@@ -2,9 +2,8 @@
 /**
  * Schmolck_Framework_Helper_Link
  * 
- * @package Schmolck framework
+ * @package Schmolck Web Framework
  * @author Pascal Schmolck
- * @copyright 2013
  */
 
 function Schmolck_Framework_Helper_Link(strString) {

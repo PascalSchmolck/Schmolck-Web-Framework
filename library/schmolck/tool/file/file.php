@@ -5,7 +5,6 @@
  * 
  * @package Schmolck
  * @author Pascal Schmolck
- * @copyright 2013
  */
 class Schmolck_Tool_File {
 

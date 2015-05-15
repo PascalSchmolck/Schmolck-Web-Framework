@@ -3,9 +3,8 @@
 /**
  * Schmolck_Framework_Helper_Html
  * 
- * @package Schmolck framework
+ * @package Schmolck Web Framework
  * @author Pascal Schmolck
- * @copyright 2013
  */
 class Schmolck_Framework_Helper_Html extends Schmolck_Framework_Helper {
 
