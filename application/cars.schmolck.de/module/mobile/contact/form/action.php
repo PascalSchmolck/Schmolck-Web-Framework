@@ -69,10 +69,18 @@ if ($objCore->strSend != '') {
          $strXmlFile = $objCore->getHelperApplication()->getActionPath() . '/' . 'template.xml';
          $strXmlMessage = str_replace(array_keys($arrReplace), array_values($arrReplace), file_get_contents($strXmlFile));
          // - create final message
-         $objCore->strMessage = $objCore->strMessage . '\n \nXML-CODE: <pre>' . $strXmlMessage . '</pre>';
+         $objCore->strMessage = $objCore->strMessage
+                 . PHP_EOL
+                 . PHP_EOL
+                 . 'XML-CODE:'
+                 . PHP_EOL
+                 . '<pre>'
+                 . $strXmlMessage
+                 . '</pre>';
          // - send mail
-         $objCore->getHelperMail()->send(MOBILE_SENDER_NAME, MOBILE_SENDER_ADDRESS, MOBILE_RECIPIENT_NAME, MOBILE_RECIPIENT_ADDRESS, $objCore->strSubject, $objCore->strMessage);
+         $objCore->getHelperMail()->send(MOBILE_SENDER_NAME, MOBILE_SENDER_ADDRESS, MOBILE_RECIPIENT_NAME, MOBILE_RECIPIENT_ADDRESS, $objCore->strSubject, $objCore->strMessage, Schmolck_Framework_Helper_Mail::MODE_PLAIN);
          $objCore->strMessageMail = $objCore->getHelperTranslator()->_("Message has been sent. Thank you.");
+         Schmolck_Tool_Debug::info("MAIL: {$objCore->strMessage}", __FILE__, __LINE__);
       } catch (Exception $objException) {
          $objCore->strMessageMail = $objException->getMessage();
       }
