@@ -49,7 +49,7 @@ switch ($strParameterMode) {
       break;
    // mobile/api/caller/mode/redirect
    case 'redirect':
-      $objCore->getHelperRedirect()->local('mobile/database');      
+      $objCore->getHelperRedirect()->local('mobile/database');
       break;
 }
 
