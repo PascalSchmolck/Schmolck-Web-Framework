@@ -1,6 +1,7 @@
 <lead>
    <vehicle>
       <internalId>#id</internalId>
+      <price>#price</price>
    </vehicle>
    <potentialBuyer>
       <name>#name</name>
