@@ -33,7 +33,7 @@ if (extension_loaded("zlib") && (ini_get("output_handler") != "ob_gzhandler")) {
  * 6 Informational: informational messages
  * 7 Debug: debug messages
  */
-define('DEBUG_LEVEL', 3);
+define('DEBUG_LEVEL', 7);
 
 /*
  * APPLICATION NAME
@@ -49,7 +49,7 @@ define('APPLICATION_NAME', 'cars.schmolck.de');
  * testing: on testing environment
  * production: on production server
  */
-define('APPLICATION_ENVIRONMENT', 'production');
+define('APPLICATION_ENVIRONMENT', 'development');
 
 /*
  * APPLICATION LANGUAGE
@@ -73,7 +73,7 @@ define('APPLICATION_TEMPLATE', '2013.12');
  * which e-mail address should be used for notification mails.
  */
 define('EXCEPTION_MODULE', 'exception');
-define('EXCEPTION_ADDRESS', 'webmaster@domain.com');
+define('EXCEPTION_ADDRESS', 'webmaster@schmolck.de');
 
 /*
  * DATABASE CONNECTION
@@ -95,8 +95,8 @@ define('PIWIK_TRACKING_ID', '');
 /*
  * MAIL
  */
-define('MAIL_RECIPIENT_NAME', 'sample.domain.com');
-define('MAIL_RECIPIENT_ADDRESS', 'mail@domain.com');
+define('MAIL_RECIPIENT_NAME', 'cars.schmolck.de');
+define('MAIL_RECIPIENT_ADDRESS', 'verkauf@schmolck.de');
 
 /*
  * MOBILE
