@@ -22,7 +22,7 @@ $strBaseUrl = $objCore->getHelperApplication()->getBaseUrl();
 			<? foreach ($objCore->arrCars as $arrCar) : ?>	
 				
 				<a name="<?= $arrCar['id'] ?>"></a>
-				<div class="item <?= $strOdd ?>" data-name="<?= $arrCar['id'] ?>" data-link="<?= $strBaseUrl ?>/mobile/database/detail/id/<?= $arrCar['id'] ?>">
+				<div class="item <?= $strOdd ?>" data-name="<?= $arrCar['id'] ?>" data-link="<?= $strBaseUrl ?>/mobile/page/detail/id/<?= $arrCar['id'] ?>">
 					<div class="image" title="<?= $arrCar['name'] ?>">
 						<img src="apps/image/200/90/<?= $arrCar['images'][0] ?>">
 					</div>

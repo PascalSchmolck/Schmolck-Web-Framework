@@ -8,4 +8,4 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 /*
  * REDIRECT
  */
-$objCore->getHelperRedirect()->local('contact/emmendingen');
+$objCore->getHelperRedirect()->local('contact/page/emmendingen');

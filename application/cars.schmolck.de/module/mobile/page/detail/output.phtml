@@ -23,7 +23,7 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
             <div class="data">
                <div class="image">
                   <?=
-                  $objCore->getHelperApi()->getElement("{$objCore->strId}_image", 'mobile/api/image', array(
+                  $objCore->getHelperApi()->getElement("{$objCore->strId}_image", 'mobile/element/image', array(
                       'id' => $arrCar['id']
                   ));
                   ?>
@@ -79,7 +79,7 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
          Anfrage
       </h2>
       <?=
-      $objCore->getHelperApi()->getElement("{$objCore->strId}_form", 'mobile/contact/form', array(
+      $objCore->getHelperApi()->getElement("{$objCore->strId}_form", 'mobile/element/form', array(
           'id' => $arrCar['id']
       ))
       ?>				

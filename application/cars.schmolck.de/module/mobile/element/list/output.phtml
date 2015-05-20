@@ -23,7 +23,7 @@ $nCounter = 0;
 			<? foreach ($objCore->arrCars as $arrCar) : ?>		
 				<? ($nCounter % 2 == 1) ? $strOdd = 'odd' : $strOdd = ''; ?> 
 				<a name="<?= $arrCar['id'] ?>"></a>
-				<div class="item <?= $strOdd ?>" data-name="<?= $arrCar['id'] ?>" data-link="<?= $strBaseUrl ?>/mobile/database/detail/id/<?= $arrCar['id'] ?>">
+				<div class="item <?= $strOdd ?>" data-name="<?= $arrCar['id'] ?>" data-link="<?= $strBaseUrl ?>/mobile/page/detail/id/<?= $arrCar['id'] ?>">
 					<div class="title">
 						<?= $arrCar['name'] ?>
 					</div>

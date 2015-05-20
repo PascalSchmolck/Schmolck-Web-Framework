@@ -44,12 +44,12 @@ $objCars->setFilter('model', $strParameterModel);
  * REDIRECT
  */
 switch ($strParameterMode) {
-   // mobile/api/caller/mode/silent
+   // mobile/api/call/mode/silent
    case 'silent':
       break;
-   // mobile/api/caller/mode/redirect
+   // mobile/api/call/mode/redirect
    case 'redirect':
-      $objCore->getHelperRedirect()->local('mobile/database');
+      $objCore->getHelperRedirect()->local('mobile');
       break;
 }
 

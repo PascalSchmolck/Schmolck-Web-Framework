@@ -17,7 +17,7 @@ $strStyleClass = $objCore->getHelperApi()->getStyleClass();
 				<img src="images/cars.schmolck.de/mobile/icons/gallery.png" title="<?= $objCore->getHelperTranslator()->_("Gallery") ?>">
 			</a>
 		</div>
-		<?= $objCore->getHelperApi()->getElement("{$objCore->strId}_result", 'mobile/api/list') ?>				
+		<?= $objCore->getHelperApi()->getElement("{$objCore->strId}_result", 'mobile/element/list') ?>				
 	<? endif; ?>
 	
 	<? if ($objCore->strParameterMode == 'gallery') : ?>
@@ -26,7 +26,7 @@ $strStyleClass = $objCore->getHelperApi()->getStyleClass();
 				<img src="images/cars.schmolck.de/mobile/icons/list.png" title="<?= $objCore->getHelperTranslator()->_("List") ?>">
 			</a>
 		</div>
-		<?= $objCore->getHelperApi()->getElement("{$objCore->strId}_result", 'mobile/api/gallery') ?>				
+		<?= $objCore->getHelperApi()->getElement("{$objCore->strId}_result", 'mobile/element/gallery') ?>				
 	<? endif; ?>
 	
 	<?= $objCore->getHelperScripts()->renderViewScripts() ?>

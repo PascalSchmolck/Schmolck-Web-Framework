@@ -6,15 +6,15 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 // - menu
 $objCore->menu = array(
 	array(
-		'link' => 'contact/emmendingen',
+		'link' => 'contact/page/emmendingen',
 		'label' => 'Emmendingen'
 	),
 	array(
-		'link' => 'contact/muellheim',
+		'link' => 'contact/page/muellheim',
 		'label' => 'Müllheim'
 	),
 	array(
-		'link' => 'contact/vogtsburg',
+		'link' => 'contact/page/vogtsburg',
 		'label' => 'Vogtsburg'
 	)
 );

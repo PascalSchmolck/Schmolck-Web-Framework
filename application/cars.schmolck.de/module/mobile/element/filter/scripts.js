@@ -40,7 +40,7 @@ $(document).ready(function() {
 		var objResult = $('#SchmolckRESULTID');
 		if (objResult) {
 			Schmolck_Framework_Helper_Api({
-				url: 'mobile/api/result',
+				url: 'mobile/element/result',
 				id: 'SchmolckRESULTID'
 			});
 		}
