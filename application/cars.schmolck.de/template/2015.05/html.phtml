@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <!--
+      Memory Peak Usage: <?= Schmolck_Tool_File::convertBytes(memory_get_peak_usage()) ?>
+      -->		
+      <base href="<?= $objCore->getHelperApplication()->getBaseUrl() ?>">
+      <meta charset="utf-8"/>
+      <title>
+         <?= $strPageTitle ?> Schmolck Pkw Verkauf
+      </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" type="text/css" href="apps/style/<?= $objCore->getLayoutStyleFile() ?>" media="all"/>
+      <script type="text/javascript" src="apps/script/<?= $objCore->getLayoutScriptFile() ?>"></script>		
+   </head>
+   <body role="document">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+         <div class="container">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href=""><img src="images/cars.schmolck.de/template/logo/white.png" width="100"/></a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+               <ul class="nav navbar-nav">
+                  <li>
+                     <a href="http://www.schmolck.de">
+                        <?= ($objCore->getHelperTranslator()->_("Home")) ?>
+                     </a>
+                  </li>
+                  <li>
+                     <a href="mobile">
+                        <?= ($objCore->getHelperTranslator()->_("Cars")) ?>
+                     </a>
+                  </li>
+                  <li>
+                     <a href="location">
+                        <?= ($objCore->getHelperTranslator()->_("Location")) ?>
+                     </a>
+                  </li>
+                  <li>
+                     <a href="contact">
+                        <?= ($objCore->getHelperTranslator()->_("Contact")) ?>
+                     </a>
+                  </li>
+               </ul>
+            </div><!--/.nav-collapse -->
+         </div>
+      </nav>
+
+      <?php if ($objCore->getHelperMessage()->getMessage() != '') : ?>
+         <div id="message" class="container slideDown">
+            <div class="container">
+               <div class="text">
+                  <?= $objCore->getHelperMessage()->popMessage() ?>
+               </div>
+            </div>
+         </div>
+      <?php endif; ?>
+
+      <div id="main" class="container" role="main">
+         <?= $this->renderViewHtml() ?>
+      </div>
+
+
+      <? if (!in_array($objCore->getModule(), array('contact', 'location'))) : ?>
+      <div id="contact" class="print">
+         <div class="container">
+            <table>
+               <tr>
+                  <td>
+                     <h3>
+                        Schmolck GmbH &amp; Co. KG
+                     </h3>
+                     <p>
+                        Am Elzdamm 2 <br>
+                        79312 Emmendingen
+                     </p>
+                     <p>
+                        Bacchusstraße 19 <br>
+                        79235 Vogtsburg-Bischoffingen 
+                     </p>
+                     <p>
+                        Tel +49 7641 / 4602-0 <br>
+                        Fax +49 7641 / 4602-80 <br>
+                     </p>
+                     <p>
+                        <a href="<?= $objCore->getHelperLink()->get('mailto:info.emmendingen@schmolck.de') ?>">
+                           info.emmendingen@schmolck.de
+                        </a>
+                     </p>	
+                  </td>
+                  <td style="text-align: right;">
+                     <h3>
+                        Autohaus Schmolck GmbH & Co. KG 
+                     </h3>
+                     <p>
+                        Kinzigstraße 5 <br>
+                        79379 Müllheim 
+                     </p>
+                     <p>
+                        Tel +49 7631 / 3672-0 <br>
+                        Fax +49 7631 / 3672-80 <br>
+                     </p>
+                     <p>
+                        <a href="<?= $objCore->getHelperLink()->get('mailto:info.muellheim@schmolck.de') ?>">
+                           info.muellheim@schmolck.de
+                        </a>
+                     </p>
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+      <? endif; ?>
+
+      <div id="footer">
+         <div class="container">				
+            <div class="links">
+               <ul>
+                  <li>
+                     <a href="http://news.schmolck.de/newsletter">
+                        Newsletter
+                     </a>								
+                  </li>	
+                  <li>
+                     <a href="http://news.schmolck.de/category/unternehmen/unternehmen-ausbildung/">
+                        Ausbildung
+                     </a>								
+                  </li>							
+                  <li>
+                     <a href="http://news.schmolck.de/category/standorte/">
+                        Standorte
+                     </a>								
+                  </li>				
+                  <li>
+                     <a href="http://news.schmolck.de/allgemeine-geschaftsbedingungen/">
+                        AGB
+                     </a>								
+                  </li>							
+                  <li>
+                     <a href="http://news.schmolck.de/impressum">
+                        Impressum
+                     </a>								
+                  </li>
+                  <li>
+                     &copy; <?= date('Y') ?> Schmolck
+                  </li>
+               </ul>
+            </div>											
+         </div>
+      </div>
+
+      <? if (PIWIK_TRACKING_ID != '') : ?>
+      <!-- Piwik -->
+      <script type="text/javascript">
+         var _paq = _paq || [];
+         _paq.push(["trackPageView"]);
+         _paq.push(["enableLinkTracking"]);
+
+         (function () {
+            var u = (("https:" == document.location.protocol) ? "https" : "http") + "://piwik.schmolck.de/piwik/";
+            _paq.push(["setTrackerUrl", u + "piwik.php"]);
+            _paq.push(["setSiteId", "<?= PIWIK_TRACKING_ID ?>"]);
+            var d = document, g = d.createElement("script"), s = d.getElementsByTagName("script")[0];
+            g.type = "text/javascript";
+            g.defer = true;
+            g.async = true;
+            g.src = u + "piwik.js";
+            s.parentNode.insertBefore(g, s);
+         })();
+      </script>
+      <!-- End Piwik Code -->		
+      <? endif; ?>
+   </body>	
+</html>
