@@ -35,13 +35,13 @@ class Schmolck_Framework_Helper_Menu extends Schmolck_Framework_Helper {
 		 */
 		foreach ($arrMenu as $arrEntry) {
 			if ($strCurrentUri == $arrEntry['link']) {
-				$strEntryClass = 'current';
+				$strEntryClass = 'active';
 			} else {
 				$strEntryClass = '';
 			}			
 			$strEntryHtml .= "
-				<li>
-					<a href=\"{$arrEntry['link']}\" class=\"{$strEntryClass}\">
+				<li role=\"presentation\" class=\"{$strEntryClass}\">
+					<a href=\"{$arrEntry['link']}\">
 						{$arrEntry['label']}
 					</a>
 				</li>
@@ -52,11 +52,9 @@ class Schmolck_Framework_Helper_Menu extends Schmolck_Framework_Helper {
 		 * OUTPUT
 		 */
 		return "
-			<div class=\"{$strClass}\">
-				<ul>
-					{$strEntryHtml}
-				</ul>
-			</div>
+         <ul class=\"nav nav-tabs {$strClass}\" role=\"tablist\">              
+            {$strEntryHtml}
+         </ul>
 		";
 	}
 }

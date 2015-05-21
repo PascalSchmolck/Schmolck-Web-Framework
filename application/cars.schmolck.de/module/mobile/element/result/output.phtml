@@ -12,20 +12,35 @@ $strStyleClass = $objCore->getHelperApi()->getStyleClass();
 ?>
 <div id="<?= $objCore->strId ?>" class="<?= $strStyleClass ?>">
 	<? if ($objCore->strParameterMode == 'list') : ?>
-		<div class="links">
-			<a href="#" data-mode="gallery">
-				<img src="images/cars.schmolck.de/mobile/icons/gallery.png" title="<?= $objCore->getHelperTranslator()->_("Gallery") ?>">
-			</a>
-		</div>
+
+      <ul class="nav nav-tabs" role="tablist">
+         <li role="presentation" class="active">
+            <a href="#" data-mode="list">
+               <?= $objCore->getHelperTranslator()->_("List") ?>
+            </a>
+         </li>
+         <li role="presentation">
+            <a href="#" data-mode="gallery">
+               <?= $objCore->getHelperTranslator()->_("Gallery") ?>
+            </a>
+         </li>
+      </ul>
 		<?= $objCore->getHelperApi()->getElement("{$objCore->strId}_result", 'mobile/element/list') ?>				
 	<? endif; ?>
 	
 	<? if ($objCore->strParameterMode == 'gallery') : ?>
-		<div class="links">
-			<a href="#" data-mode="list">				
-				<img src="images/cars.schmolck.de/mobile/icons/list.png" title="<?= $objCore->getHelperTranslator()->_("List") ?>">
-			</a>
-		</div>
+      <ul class="nav nav-tabs" role="tablist">
+         <li role="presentation">
+            <a href="#" data-mode="list">
+               <?= $objCore->getHelperTranslator()->_("List") ?>
+            </a>
+         </li>
+         <li role="presentation" class="active">
+            <a href="#" data-mode="gallery">
+               <?= $objCore->getHelperTranslator()->_("Gallery") ?>
+            </a>
+         </li>
+      </ul>
 		<?= $objCore->getHelperApi()->getElement("{$objCore->strId}_result", 'mobile/element/gallery') ?>				
 	<? endif; ?>
 	

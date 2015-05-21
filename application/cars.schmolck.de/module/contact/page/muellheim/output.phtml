@@ -4,42 +4,36 @@
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
 $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Contact") . " - Müllheim");
-
-/*
-  <?=file_get_contents($objCore->getBaseUrl() . '/contact/element/form'); ?>
- */
+$arrSeller = array(
+    'Benedikt Pohl' => 'benedikt.pohl@schmolck.de',
+    'Michel Misiuk' => 'michel.misiuk@schmolck.de',
+);
 ?>
 <div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
-    <h1>
-        <?= $objCore->getHelperTranslator()->_("Contact") ?>
-    </h1>
-    <?= $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
-    <div class="contact">
-        <div class="muellheim">
-            <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-muellheim.jpg"><br>
-            <h2>
-                Unsere Junge Sterne Verkaufsberater
-                für M&uuml;llheim
-            </h2>            
-            <table border="0" width="100%">
-                <tr>
-                    <td width="50%">
-                        <a href="<?= $objCore->getHelperLink()->get("mailto:benedikt.pohl@schmolck.de?subject={$strMailInfo}") ?>">
-                            Benedikt Pohl
-                        </a>
-                    </td>
-                    <td>
-                        <a href="<?= $objCore->getHelperLink()->get("mailto:michel.misiuk@schmolck.de?subject={$strMailInfo}") ?>">
-                            Michel Misiuk 
-                        </a>
-                    </td>
-                </tr>
-            </table>
-            <h3>
-                Telefon 07631 3672-0
-            </h3>
-        </div>
-    </div>
+   <h1>
+      <?= $objCore->getHelperTranslator()->_("Contact") ?>
+   </h1> 
+   <?= $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
+   <div class="contact">
+      <div class="row">
+         <div class="col-md-8">
+            <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-muellheim.jpg">
+         </div>
+         <div class="col-sm-4">
+            <div class="list-group">
+               <?php foreach ($arrSeller as $name => $email) : ?>	
+                  <a href="<?= $objCore->getHelperLink()->get("mailto:{$email}?subject={$strMailInfo}") ?>" class="list-group-item"><?= $name ?></a>
+               <?php endforeach; ?>
+            </div>
+         </div>
+      </div>
+      <h2>
+         Unsere Junge Sterne Verkaufsberater für Müllheim
+      </h2>
+      <h3>
+         Telefon 07631 3672-0
+      </h3>
+   </div>
    <div class="form">
       <?= $objCore->getHelperApi()->getElement("{$objCore->strId}_form", 'mobile/element/form') ?>				
    </div>

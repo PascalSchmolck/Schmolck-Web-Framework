@@ -18,6 +18,7 @@ $objCore->registerLayoutScript($strTemplatePath . '/scripts.js');
  * STYLES
  */
 $objCore->registerLayoutStyle('library/bower_components/bootstrap/dist/css/bootstrap.min.css');
+$objCore->registerLayoutStyle('library/bower_components/bootstrap/dist/css/bootstrap-theme.min.css');
 //$objCore->registerLayoutStyle($strTemplatePath . '/styles.default.less');
 $objCore->registerLayoutStyle($strTemplatePath . '/styles.less');
 

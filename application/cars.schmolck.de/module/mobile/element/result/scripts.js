@@ -4,7 +4,7 @@ $(document).ready(function() {
 	/*
 	 * LINKS
 	 */
-	$('#SchmolckID .links a').each(function() {
+	$('#SchmolckID ul a').each(function() {
 		// - action
 		$(this).click(function() {
 			SchmolckID_send($(this).data('mode'));

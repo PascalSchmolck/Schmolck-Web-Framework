@@ -84,21 +84,7 @@
 }
 //------------------------------------------------------------------------------
 .mobile.element.result {
-    margin-top: 30px;
-    width: 100%;
-    .links {
-        @media print {
-            display: none;
-        }
-        font-size: 85%;
-        float: right;
-        a {
-            padding-left: 10px;
-        }
-        img {
-            width: 24px;
-        }
-    }
+    
 }
 //------------------------------------------------------------------------------
 .mobile.element.filter {
@@ -108,29 +94,11 @@
     select {
         width: 100%
     }
-    .box {
-        @media only screen and (min-width: 769px) {
-            width: 140px;
-        }       
-        @media handheld, only screen and (max-width: 768px) {
-            width: 45%;
-        }
-        @media handheld, only screen and (max-width: 480px) {
-            width: 100%;
-        }
-        float: left;
-        margin-right: 20px;
-    }
     .infos {
         margin: 10px 0;
     }
-    .buttons {
-        @media print {
-            display: none;
-        }
-        .highlight {
-            float: right;
-        }
+    .button {
+       width: 100%;
     }
 }
 //------------------------------------------------------------------------------
@@ -174,16 +142,16 @@
             height: 112px;
         }
         @media handheld, only screen and (min-width: 769px) {
-            width: 180px;
-            height: 135px;
+            width: 175px;
+            height: 130px;
         }
         @media handheld, only screen and (max-width: 768px) {
-            width: 163px;
-            height: 123px;
+            width: 155px;
+            height: 120px;
         }
         @media handheld, only screen and (max-width: 480px) {
-            width: 125px;
-            height: 94px;
+            width: 120px;
+            height: 92px;
         }
         @media handheld, only screen and (max-width: 320px) {
             width: 115px;

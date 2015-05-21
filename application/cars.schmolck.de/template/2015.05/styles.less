@@ -2,37 +2,6 @@
 body {
    background-color: #fff;
 }
-h1, h2, h3, h4, h5, h6 {
-   line-height: 1.5em;	
-   font-weight: normal;
-   padding: 0;
-   margin: 0;
-   margin-top: 10px;
-   margin-bottom: 5px;
-   color: #000;
-}
-h1 {
-   @media handheld, only screen and (min-width: 481px) {
-      font-size: 250%;
-   }
-   @media handheld, only screen and (max-width: 480px) {
-      font-size: 200%;
-   }
-   @media handheld, only screen and (max-width: 320px) {
-      font-size: 150%;
-   }
-   font-family: inherit;
-}
-h2 {
-   @media handheld, only screen and (max-width: 480px) {
-      font-size: 150%;
-   }
-   font-size: 180%;
-}
-h3 {
-   font-weight: bold;
-   font-size: 130%;
-}
 form {
    width: 100%;
    p {
@@ -163,6 +132,10 @@ img {
    background-color: #000;
 }
 /* Application */
+.clearer {
+    clear: both;
+    height: 0;
+}
 .print {
    @media only screen {
       visibility:hidden;
@@ -181,6 +154,10 @@ img {
    background-image: url('../../../images/cars.schmolck.de/template/loading.gif');
    background-repeat: no-repeat;
    background-position: center center;
+}
+.logo {
+   margin-top: 20px;
+   float: right;
 }
 #message{
    @media print {
@@ -204,39 +181,21 @@ img {
    line-height: 1.5em;
 
    .menu {
+      @media handheld, only screen and (max-width: 768px) {
+         font-size: 85%;
+      }
+      @media handheld, only screen and (max-width: 480px) {
+         font-size: 75%;
+      }
+      @media handheld, only screen and (max-width: 320px) {
+         font-size: 65%;
+      }      
       @media only print {
          visibility: hidden;
          display: none;
       }
       letter-spacing: 0.1em;
-      border-bottom: 1px solid #e1e1e1;
       margin-bottom: 20px;
-
-      ul {
-         list-style-type:none;
-         margin:0;
-         padding:0;
-         overflow:hidden;
-         li {
-            @media handheld, only screen and (max-width: 320px) {
-               padding: 5px 10px;
-               padding-left: 0;
-            }
-            float: left;
-            padding: 8px 20px;
-            padding-left: 0;
-
-            a {
-               display:block;
-               &.current {
-                  font-weight: bold;
-               }
-            }
-            ul {
-               display: none;
-            }
-         }		
-      }
    }
 }
 #footer {
