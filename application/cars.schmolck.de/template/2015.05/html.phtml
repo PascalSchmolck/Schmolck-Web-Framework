@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
    <head>
       <!--
       Memory Peak Usage: <?= Schmolck_Tool_File::convertBytes(memory_get_peak_usage()) ?>
@@ -9,8 +9,8 @@
       <title>
          <?= $strPageTitle ?> Schmolck Pkw Verkauf
       </title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" type="text/css" href="apps/style/<?= $objCore->getLayoutStyleFile() ?>" media="all"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+      <link rel="stylesheet" type="text/css" href="apps/style/<?= $objCore->getLayoutStyleFile() ?>" media="all">
       <script type="text/javascript" src="apps/script/<?= $objCore->getLayoutScriptFile() ?>"></script>		
    </head>
    <body role="document">
@@ -52,20 +52,14 @@
          </div>
       </nav>
 
-      <?php if ($objCore->getHelperMessage()->getMessage() != '') : ?>
-         <div id="message" class="container slideDown">
-            <div class="container">
-               <div class="text">
-                  <?= $objCore->getHelperMessage()->popMessage() ?>
-               </div>
-            </div>
-         </div>
-      <?php endif; ?>
-
       <div id="main" class="container" role="main">
+         <?php if ($objCore->getHelperMessage()->getMessage() != '') : ?>
+            <div class="alert alert-warning" role="alert">
+               <?= $objCore->getHelperMessage()->popMessage() ?>
+            </div>
+         <?php endif; ?>
          <?= $this->renderViewHtml() ?>
       </div>
-
 
       <? if (!in_array($objCore->getModule(), array('contact', 'location'))) : ?>
       <div id="contact" class="print">
@@ -122,21 +116,6 @@
          <div class="container">				
             <div class="links">
                <ul>
-                  <li>
-                     <a href="http://news.schmolck.de/newsletter">
-                        Newsletter
-                     </a>								
-                  </li>	
-                  <li>
-                     <a href="http://news.schmolck.de/category/unternehmen/unternehmen-ausbildung/">
-                        Ausbildung
-                     </a>								
-                  </li>							
-                  <li>
-                     <a href="http://news.schmolck.de/category/standorte/">
-                        Standorte
-                     </a>								
-                  </li>				
                   <li>
                      <a href="http://news.schmolck.de/allgemeine-geschaftsbedingungen/">
                         AGB
