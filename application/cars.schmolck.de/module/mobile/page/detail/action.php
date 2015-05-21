@@ -41,7 +41,7 @@ $objCore->arrCars = $objCars->queryCarsSingle($strParameterId);
 // - check if database result empty
 if (count($objCore->arrCars) == 0) {
 	$objCore->getHelperMessage()->setMessage($objCore->getHelperTranslator()->_("Sorry, the selected vehicle is no longer available."));
-	$objCore->getHelperRedirect()->local('mobile/database');
+	$objCore->getHelperRedirect()->local('mobile');
 }
 
 /*
