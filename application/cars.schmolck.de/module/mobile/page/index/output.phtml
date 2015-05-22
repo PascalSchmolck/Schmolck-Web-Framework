@@ -10,8 +10,10 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cars
  */
 ?>
 <div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
-		<h1>
-			<?= $objCore->getHelperTranslator()->_("Cars") ?>
-		</h1>	
-	<?= $objCore->getHelperApi()->getElement('cars', 'mobile/element/search') ?>				
+   <div class="page-header">
+      <h1>
+         <?= $objCore->getHelperTranslator()->_("Cars") ?>
+      </h1>
+   </div>
+   <?= $objCore->getHelperApi()->getElement('cars', 'mobile/element/search') ?>				
 </div>

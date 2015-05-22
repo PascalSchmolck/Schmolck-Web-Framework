@@ -1,12 +1,11 @@
 <?php
 $objCore = Schmolck_Framework_Core::getInstance($this);
+$objCore->strPageTitle = $objCore->getHelperTranslator()->_("Ups, sorry...");
 
 $strSubject = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 $strBody = $objCore->getHelperTranslator()->_("Error message") . ': ' . $Exception->getMessage();
+
 ?>
-<h1>
-	<?= $objCore->getHelperTranslator()->_("Ups, sorry..."); ?>
-</h1>
 <h2>
 	<?= $objCore->getHelperTranslator()->_("...an error occured!"); ?>
 </h2>
@@ -16,7 +15,7 @@ $strBody = $objCore->getHelperTranslator()->_("Error message") . ': ' . $Excepti
 		<?= EXCEPTION_ADDRESS ?>
 	</a>
 </p>
-<p class="errors">
+<p class="alert alert-danger">
 	<strong>
 		<?= $objCore->getHelperTranslator()->_("Error message"); ?>
 	</strong>:

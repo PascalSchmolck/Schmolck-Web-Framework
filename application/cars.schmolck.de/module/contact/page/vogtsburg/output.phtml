@@ -4,6 +4,7 @@
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
 $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Contact") . " - Emmendingen");
+$objCore->strPageTitle = $objCore->getHelperTranslator()->_("Contact");
 $arrSeller = array(
     'Mike Mack' => 'mike.mack@schmolck.de',
     'Sebastian Heiny' => 'sebastian.heiny@schmolck.de',
@@ -12,9 +13,6 @@ $arrSeller = array(
 );
 ?>
 <div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
-   <h1>
-      <?= $objCore->getHelperTranslator()->_("Contact") ?>
-   </h1> 
    <?= $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
    <div class="contact">
       <div class="row">

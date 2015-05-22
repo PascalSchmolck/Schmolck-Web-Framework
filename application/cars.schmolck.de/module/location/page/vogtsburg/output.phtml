@@ -4,11 +4,9 @@
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
 $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Location"));
+$objCore->strPageTitle = $objCore->getHelperTranslator()->_("Location");
 ?>
 <div id="<?= $objCore->getHelperApi()->getId() ?>" class="<?= $objCore->getHelperApi()->getStyleClass() ?>">
-	<h1>
-		<?= $objCore->getHelperTranslator()->_("Location") ?>
-	</h1>
 	<?=  $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
 	<img src="apps/image/512/90/images/cars.schmolck.de/location/vogtsburg.jpg">
 	<h2>
