@@ -11,12 +11,8 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 <div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
    <div class="detail">
 
-      <? foreach ($objCore->arrCars as $arrCar) : ?>		
-      <div class="page-header">
-         <h1>
-            <?= $arrCar['name'] ?>
-         </h1>
-      </div>      
+      <?php foreach ($objCore->arrCars as $arrCar) : ?>		
+      <?php $objCore->strPageTitle = $arrCar['name'] ?>
       <div class="item" data-link="<?= $objCore->strParameterUrl ?>/id/<?= $arrCar['id'] ?>">
          <div class="title">
             <? $objCore->getHelperHtml()->setPageTitle($arrCar['name'] . ' (' . $arrCar['id'] . ')'); ?>
@@ -74,7 +70,7 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
             </div>
          </div>
       </div>
-      <? endforeach; ?>
+      <?php endforeach; ?>
    </div>			
    <div class="request">
       <h2>

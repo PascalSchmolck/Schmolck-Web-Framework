@@ -4,16 +4,12 @@
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
 $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cars"));
+$objCore->strPageTitle = $objCore->getHelperTranslator()->_("Cars");
 
 /*
  * OUTPUT
  */
 ?>
 <div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
-   <div class="page-header">
-      <h1>
-         <?= $objCore->getHelperTranslator()->_("Cars") ?>
-      </h1>
-   </div>
    <?= $objCore->getHelperApi()->getElement('cars', 'mobile/element/search') ?>				
 </div>
