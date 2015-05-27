@@ -43,7 +43,7 @@ class Schmolck_Framework_Helper_Api extends Schmolck_Framework_Helper {
 	 * @return string class
 	 */
 	public function getStyleClass() {
-		return  'api '.
+		return  ''.
 				$this->_objCore->getModule() . ' ' .
 				$this->_objCore->getController() . ' ' .
 				$this->_objCore->getAction();

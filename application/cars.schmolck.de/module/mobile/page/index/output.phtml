@@ -5,11 +5,13 @@
 $objCore = Schmolck_Framework_Core::getInstance($this);
 $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cars"));
 $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Cars");
+$objCore->strStyleId = $objCore->getHelperApi()->getStyleClass();
+$objCore->strStyleClass = $objCore->getHelperApi()->getStyleClass();
 
 /*
  * OUTPUT
  */
 ?>
-<div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
+<div id="<?= $objCore->strStyleId ?>" class="<?= $objCore->strStyleClass ?>">
    <?= $objCore->getHelperApi()->getElement('cars', 'mobile/element/search') ?>				
 </div>

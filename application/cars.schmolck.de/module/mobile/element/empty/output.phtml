@@ -1,0 +1,44 @@
+<?php
+/*
+ * INITIALISATION
+ */
+$objCore = Schmolck_Framework_Core::getInstance($this);
+$objCore->strStyleId = $objCore->getHelperApi()->getId();
+$objCore->strStyleClass = $objCore->getHelperApi()->getStyleClass();
+// - filter
+$objCars = new Mobile_Helper($objCore);
+$strBrand = $objCars->getFilter('brand');
+$strModel = $objCars->getFilter('model');
+$strTransmission = $objCars->getFilter('transmission');
+$strPrice = $objCars->getFilter('price');
+
+/*
+ * PREPARATION
+ */
+$strMessage .= 'Sehr geehrte Damen und Herren,' . PHP_EOL . PHP_EOL;
+$strMessage .= 'ich interessiere mich für ein Fahrzeug mit folgenden Kriterien: ' . PHP_EOL . PHP_EOL;
+$strMessage .= $objCore->getHelperTranslator()->_("Brand") . ': ' . $strBrand . PHP_EOL;
+$strMessage .= $objCore->getHelperTranslator()->_("Model") . ': ' . $strModel. PHP_EOL;
+$strMessage .= $objCore->getHelperTranslator()->_("Transmission") . ': ' . $strTransmission. PHP_EOL;
+$strMessage .= $objCore->getHelperTranslator()->_("Price") . ': ' . $strPrice. PHP_EOL . PHP_EOL;
+$strMessage .= 'Über eine Rückmeldung würde ich mich freuen.' . PHP_EOL . PHP_EOL;
+$strMessage .= 'Mit freundlichen Grüßen' . PHP_EOL . PHP_EOL;
+
+/*
+ * OUTPUT
+ */
+?>
+<div id="<?= $objCore->strStyleId ?>" class="<?= $objCore->strStyleClass ?>">
+   <div class="jumbotron">
+      <h2>
+         Ihr Wunschfahrzeug ist nicht dabei?
+      </h2>
+      <p>
+         Gerne suchen wir Ihnen das passende aus unserem Herstellerbestand mit über 5.000 Fahrzeugen heraus. Kontaktieren Sie uns!
+      </p>
+   </div>
+   <?= $objCore->getHelperApi()->getElementCaller("{$objCore->strStyleId}_form", 'mobile/element/form', array(
+       'message' => $strMessage
+   )) ?>   
+   <?= $objCore->getHelperScripts()->renderViewScripts() ?>
+</div>
