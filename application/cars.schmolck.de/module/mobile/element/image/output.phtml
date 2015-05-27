@@ -10,10 +10,10 @@ $strStyleClass = $objCore->getHelperApi()->getStyleClass();
  */
 ?>
 <div id="<?= $objCore->strId ?>" class="<?= $strStyleClass ?>">	
-    <img src="<?= $objCore->arrImages[$objCore->nNumber] ?>" data-next="<?= $objCore->nNumber + 1 ?>">
+    <img src="<?= $objCore->arrImages[$objCore->nNumber] ?>" data-next="<?= $objCore->nNumber + 1 ?>" class="img-thumbnail">
     <div style="display: none;">
        <? foreach ($objCore->arrImages as $strImage) : ?>	
-	  <img src="<?= $strImage ?>">
+	  <img src="<?= $strImage ?>" class="img-thumbnail">
        <? endforeach; ?>
     </div>	
     <?= $objCore->getHelperScripts()->renderViewScripts() ?>

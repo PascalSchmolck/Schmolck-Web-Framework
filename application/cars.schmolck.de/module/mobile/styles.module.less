@@ -1,274 +1,276 @@
 .mobile.element.list {
-    .list {
-        background-color: #f1f1f1;
-    }
-    .item {
-        @media print {
-            padding: 10px 0;
-        }
-        @media handheld, only screen and (max-width: 320px) {
-            margin-bottom: 0;
-        }
-        padding: 15px 20px;
-        margin: 10px 0;
+   .list {
+      background-color: #f1f1f1;
+   }
+   .item {
+      @media print {
+         padding: 10px 0;
+      }
+      @media handheld, only screen and (max-width: 320px) {
+         margin-bottom: 0;
+      }
+      padding: 15px 20px;
+      margin: 10px 0;
 
-        &.odd {
-            background-color: #fff;
-        }
-        &:hover {
-            cursor: pointer;
-            opacity: 0.75;
-            filter:alpha(opacity=75);
-        }
-    }
-    .title {
-        font-size: 135%;
-        font-weight: bold;
-        padding-bottom: 20px;
-    }
-    .image {
-        @media handheld, only screen and (max-width: 480px) {
-            width: 205px;
-            height: 154px;
-        }
-        @media handheld, only screen and (max-width: 320px) {
-            width: 100px;
-            height: 75px;
-            float: right;
-            padding-right: 0;
-        }
-        float: left;
-        width: 150px;
-        height: 113px;
-        padding-right: 20px;
-        overflow: hidden;
-    }
-    .infos1 {
-        @media handheld, only screen and (max-width: 320px) {
-            float: none;
-        }
-        float: left;
-        font-weight: bold;
-        padding-right: 30px;
-        padding-bottom: 20px;
-    }
-    .infos2 {
-        @media handheld, only screen and (max-width: 320px) {
-            float: none;
-        }
-        float: left;
-        padding-right: 30px;
-        padding-bottom: 20px;
-    }
-    .infos3 {
-        float: left;
-        padding-right: 30px;
-        padding-bottom: 20px;
-    }
-    .price {
-        text-align: right;
-        float: right;
-        padding-top: 5px;
-        font-size: 150%;
-        .pricenote {
-            @media handheld, only screen and (max-width: 768px) {
-                font-size: 55%;
-            }	
-            font-size: 45%;
-        }
-    }
-    .clearer {
-        clear: both;
-        height: 0;
-    }
+      &.odd {
+         background-color: #fff;
+      }
+      &:hover {
+         cursor: pointer;
+         opacity: 0.75;
+         filter:alpha(opacity=75);
+      }
+   }
+   .title {
+      font-size: 135%;
+      font-weight: bold;
+      padding-bottom: 20px;
+   }
+   .image {
+      @media handheld, only screen and (max-width: 480px) {
+         width: 205px;
+         height: 154px;
+      }
+      @media handheld, only screen and (max-width: 320px) {
+         width: 100px;
+         height: 75px;
+         float: right;
+         padding-right: 0;
+      }
+      float: left;
+      width: 150px;
+      height: 113px;
+      padding-right: 20px;
+      overflow: hidden;
+   }
+   .infos1 {
+      @media handheld, only screen and (max-width: 320px) {
+         float: none;
+      }
+      float: left;
+      font-weight: bold;
+      padding-right: 30px;
+      padding-bottom: 20px;
+   }
+   .infos2 {
+      @media handheld, only screen and (max-width: 320px) {
+         float: none;
+      }
+      float: left;
+      padding-right: 30px;
+      padding-bottom: 20px;
+   }
+   .infos3 {
+      float: left;
+      padding-right: 30px;
+      padding-bottom: 20px;
+   }
+   .price {
+      text-align: right;
+      float: right;
+      padding-top: 5px;
+      font-size: 150%;
+      .pricenote {
+         @media handheld, only screen and (max-width: 768px) {
+            font-size: 55%;
+         }	
+         font-size: 45%;
+      }
+   }
+   .clearer {
+      clear: both;
+      height: 0;
+   }
 }
 //------------------------------------------------------------------------------
 .mobile.element.result {
-    
+
 }
 //------------------------------------------------------------------------------
 .mobile.element.filter {
-    label {
-        font-size: 80%;
-    }
-    select {
-        width: 100%
-    }
-    .infos {
-        margin: 10px 0;
-    }
-    .button {
-       width: 100%;
-    }
+   label {
+      font-size: 80%;
+   }
+   select {
+      width: 100%
+   }
+   .infos {
+      margin: 10px 0;
+   }
+   .button {
+      width: 100%;
+   }
 }
 //------------------------------------------------------------------------------
 .mobile.element.image {
-    max-width: 100%;
+   max-width: 100%;
 
-    &:hover {
-        cursor: pointer;
-    }
+   &:hover {
+      cursor: pointer;
+   }
 }
 //------------------------------------------------------------------------------
 .mobile.element.gallery {
-    margin-top: 30px;
-    width: 100%;
-    .amount {
-        padding: 10px 0;
-        font-size: 130%;
-    }	
-    .item {
-        float: left;
-        height: auto;
-        margin: 5px;
-        &:hover {
-            cursor: pointer;
-            opacity: 0.75;
-            filter:alpha(opacity=75);
-        }
-        .id {
-            float: left;
-            font-size: 75%;
-        }
-        .price {
-            text-align: right;
-            font-size: 85%;
-            font-weight: bold;
-        }
-    }
-    .image {
-        @media print {
-            width: 150px;
-            height: 112px;
-        }
-        @media handheld, only screen and (min-width: 769px) {
-            width: 175px;
-            height: 130px;
-        }
-        @media handheld, only screen and (max-width: 768px) {
-            width: 155px;
-            height: 120px;
-        }
-        @media handheld, only screen and (max-width: 480px) {
-            width: 120px;
-            height: 92px;
-        }
-        @media handheld, only screen and (max-width: 320px) {
-            width: 115px;
-            height: 86px;
-        }
-        overflow: hidden;
-    }
+   margin-top: 30px;
+   width: 100%;
+   .amount {
+      padding: 10px 0;
+      font-size: 130%;
+   }	
+   .item {
+      float: left;
+      height: auto;
+      margin: 5px;
+      &:hover {
+         cursor: pointer;
+         opacity: 0.75;
+         filter:alpha(opacity=75);
+      }
+      .id {
+         margin-left: 5px;
+         float: left;
+         font-size: 75%;
+      }
+      .price {
+         margin-right: 5px; 
+         text-align: right;
+         font-size: 85%;
+         font-weight: bold;
+      }
+   }
+   .image {
+      @media print {
+         width: 150px;
+         height: 112px;
+      }
+      @media handheld, only screen and (min-width: 769px) {
+         width: 175px;
+         height: 130px;
+      }
+      @media handheld, only screen and (max-width: 768px) {
+         width: 155px;
+         height: 120px;
+      }
+      @media handheld, only screen and (max-width: 480px) {
+         width: 120px;
+         height: 92px;
+      }
+      @media handheld, only screen and (max-width: 320px) {
+         width: 115px;
+         height: 86px;
+      }
+      margin-bottom: 5px;
+   }
 }
 //------------------------------------------------------------------------------
 .mobile.element.search {
-    &.loading {
-        .amount {
-            display: none;
-        }
-        .loadingmessage {
-            font-size: 130%;
-            display: block;
-        }
-    }
-    .loadingmessage {
-        display: none;
-    }
-    .amount {
-        font-size: 130%;
-    }
+   &.loading {
+      .amount {
+         display: none;
+      }
+      .loadingmessage {
+         font-size: 130%;
+         display: block;
+      }
+   }
+   .loadingmessage {
+      display: none;
+   }
+   .amount {
+      font-size: 130%;
+   }
 }
 //------------------------------------------------------------------------------
 .mobile.page.detail {
-    width: 100%;
-    .navigation {
-        margin-bottom: 10px;
-    }
-    .item {
-        @media print {
-            padding: 10px 0;
-        }
-    }
-    .image {
-        @media handheld, only screen and (max-width: 640px) {
-            float: none;
-        }	
-        float: left;
-        width: 500px;
-        height: auto;
-        max-width: 100%;
-        margin-right: 20px;
-    }
-    .infos1 {
-        font-size: 110%;
-        font-weight: bold;
-        padding-bottom: 20px;
-    }
-    .infos2 {
-        padding-bottom: 20px;
-    }
-    .infos3 {
-        padding-bottom: 20px;
-    }
-    .price {
-        padding-top: 5px;
-        font-size: 150%;
-        .pricenote {
-            font-size: 60%;
-        }
-    }
-    .qrcode {
-        margin-top: 10px;
-        position: relative;
-        left: -10px;
-    }
-    .clearer {
-        clear: both;
-        height: 0;
-    }
-    .equipment {
-        @media print { 
-            font-size: 90%;
-        }
-        margin-top: 20px;
-        strong {
-            font-size: 120%;
-        }
-        li {
-            strong {
-                font-size: 100%;
-            }
-        }
-    }			
-    .contact {
-        @media only print {
-            display: none;
-        }
-        clear: both;
-        .box {
-            @media only print {
-                width: 21.5%;
-            }
-            @media handheld, only screen and (max-width: 1024px) {
-                width: 22.5%;
-            }
-            @media handheld, only screen and (max-width: 768px) {
-                width: 21.5%;
-            }
-            @media handheld, only screen and (max-width: 480px) {
-                width: 19.5%;
-            }
-            @media handheld, only screen and (max-width: 320px) {
-                width: 98%;
-            }
-            float: left;
-            margin: 10px;
+   width: 100%;
+   .navigation {
+      margin-bottom: 10px;
+   }
+   .item {
+      @media print {
+         padding: 10px 0;
+      }
+   }
+   .image {
+      @media handheld, only screen and (max-width: 640px) {
+         float: none;
+      }	
+      float: left;
+      width: 500px;
+      height: auto;
+      max-width: 100%;
+      margin-right: 20px;
+   }
+   .infos1 {
+      font-size: 110%;
+      font-weight: bold;
+      padding-bottom: 20px;
+   }
+   .infos2 {
+      padding-bottom: 20px;
+   }
+   .infos3 {
+      padding-bottom: 20px;
+   }
+   .price {
+      padding-top: 5px;
+      font-size: 150%;
+      .pricenote {
+         font-size: 60%;
+      }
+   }
+   .qrcode {
+      margin-top: 10px;
+      position: relative;
+      left: -10px;
+   }
+   .clearer {
+      clear: both;
+      height: 0;
+   }
+   .equipment {
+      @media print { 
+         font-size: 90%;
+      }
+      margin-top: 20px;
+      strong {
+         font-size: 120%;
+      }
+      li {
+         strong {
+            font-size: 100%;
+         }
+      }
+   }			
+   .contact {
+      @media only print {
+         display: none;
+      }
+      clear: both;
+      .box {
+         @media only print {
+            width: 21.5%;
+         }
+         @media handheld, only screen and (max-width: 1024px) {
             width: 22.5%;
-        }
-    }
-    .request {
-       width: 98%;
-       margin-top: 50px;
-    }
+         }
+         @media handheld, only screen and (max-width: 768px) {
+            width: 21.5%;
+         }
+         @media handheld, only screen and (max-width: 480px) {
+            width: 19.5%;
+         }
+         @media handheld, only screen and (max-width: 320px) {
+            width: 98%;
+         }
+         float: left;
+         margin: 10px;
+         width: 22.5%;
+      }
+   }
+   .request {
+      width: 98%;
+      margin-top: 50px;
+   }
 }
 //------------------------------------------------------------------------------
