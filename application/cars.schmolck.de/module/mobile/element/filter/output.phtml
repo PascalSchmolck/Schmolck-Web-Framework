@@ -6,8 +6,6 @@
 $objCore = Schmolck_Framework_Core::getInstance($this);
 // - cars
 $objCars = new Mobile_Helper($objCore);
-// - style
-$strStyleClass = $objCore->getHelperApi()->getStyleClass();
 // - button
 $strButtonLabel = sprintf($objCore->getHelperTranslator()->_("Display %s hits"), $objCore->nCount);
 
@@ -45,7 +43,7 @@ $arrSorting = array(
  * OUTPUT
  */
 ?>
-<div id="<?= $objCore->strId ?>" class="<?= $strStyleClass ?>">
+<div id="<?= $objCore->getHelperApi()->getStyleId() ?>" class="<?= $objCore->getHelperApi()->getStyleClass() ?>">
    <div class="panel panel-default">
       <div class="panel-body">
          <form>

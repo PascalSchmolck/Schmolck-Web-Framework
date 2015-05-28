@@ -11,7 +11,7 @@ $nCounter = 0;
  * OUTPUT
  */
 ?>
-<div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
+<div id="<?= $objCore->getHelperApi()->getStyleId() ?>" class="<?= $objCore->getHelperApi()->getStyleClass() ?>">
     <? if ($objCore->nCars > 0) : ?>
         <div class="loadingmessage">
             <?= $objCore->getHelperTranslator()->_("Loading...") ?>

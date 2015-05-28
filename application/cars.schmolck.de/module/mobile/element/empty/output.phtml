@@ -3,8 +3,6 @@
  * INITIALISATION
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
-$objCore->strStyleId = $objCore->getHelperApi()->getId();
-$objCore->strStyleClass = $objCore->getHelperApi()->getStyleClass();
 // - filter
 $objCars = new Mobile_Helper($objCore);
 $strBrand = $objCars->getFilter('brand');
@@ -30,7 +28,7 @@ $strMessage .= $objCore->getHelperTranslator()->_("With best regards") . PHP_EOL
  * OUTPUT
  */
 ?>
-<div id="<?= $objCore->strStyleId ?>" class="<?= $objCore->strStyleClass ?>">
+<div id="<?= $objCore->getHelperApi()->getStyleId() ?>" class="<?= $objCore->getHelperApi()->getStyleClass() ?>">
     <div class="jumbotron">
         <h2>
             <?= $objCore->getHelperTranslator()->_("Your dream car is not listed?") ?>

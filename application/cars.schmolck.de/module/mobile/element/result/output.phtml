@@ -3,14 +3,12 @@
  * INITIALISATION
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
-$strStyleId = $objCore->getHelperApi()->getId();
-$strStyleClass = $objCore->getHelperApi()->getStyleClass();
 
 /*
  * OUTPUT
  */
 ?>
-<div id="<?= $strStyleId ?>" class="<?= $strStyleClass ?>">
+<div id="<?= $objCore->getHelperApi()->getStyleId() ?>" class="<?= $objCore->getHelperApi()->getStyleClass() ?>">
 
     <? if ($objCore->strParameterMode == 'list') : ?>
         <ul class="nav nav-tabs" role="tablist">

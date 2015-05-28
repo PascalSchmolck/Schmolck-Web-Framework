@@ -36,6 +36,15 @@ class Schmolck_Framework_Helper_Api extends Schmolck_Framework_Helper {
 			return 'id' . md5($this->_objCore->getHelperApplication()->getRequestUrl() . session_id());
 		}
 	}
+    
+    /**
+	 * Get api CSS id
+	 * 
+	 * @return string id
+	 */
+	public function getStyleId() {
+		return  $this->getId();
+	}
 
 	/**
 	 * Get api CSS class

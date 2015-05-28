@@ -10,7 +10,7 @@ $arrSeller = array(
     'Michel Misiuk' => 'michel.misiuk@schmolck.de',
 );
 ?>
-<div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
+<div id="<?= $objCore->getHelperApi()->getStyleId() ?>" class="<?= $objCore->getHelperApi()->getStyleClass() ?>">
     <?= $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
     <div class="contact">
         <div class="row">

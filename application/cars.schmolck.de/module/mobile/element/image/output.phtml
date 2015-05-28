@@ -9,7 +9,7 @@ $strStyleClass = $objCore->getHelperApi()->getStyleClass();
  * OUTPUT
  */
 ?>
-<div id="<?= $objCore->strId ?>" class="<?= $strStyleClass ?>">	
+<div id="<?= $objCore->getHelperApi()->getStyleId() ?>" class="<?= $objCore->getHelperApi()->getStyleClass() ?>">
     <img src="<?= $objCore->arrImages[$objCore->nNumber] ?>" data-next="<?= $objCore->nNumber + 1 ?>" class="img-thumbnail">
     <div style="display: none;">
        <? foreach ($objCore->arrImages as $strImage) : ?>	

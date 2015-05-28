@@ -15,7 +15,7 @@ if ($objCore->bAutoSubject) {
  * OUTPUT
  */
 ?>
-<div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
+<div id="<?= $objCore->getHelperApi()->getStyleId() ?>" class="<?= $objCore->getHelperApi()->getStyleClass() ?>">
     <form method="post">
         <? if ($objCore->strMessageMail != '') { ?>
             <div class="alert alert-info" role="alert">
