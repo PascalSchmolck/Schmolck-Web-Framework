@@ -68,6 +68,14 @@ msgstr ""
 msgid "Mail" 
 msgstr "" 
 
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:21 
+msgid "Dear Sirs," 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:22 
+msgid "I am interested in a vehicle with the following criteria:" 
+msgstr "" 
+
 #: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:23 
 msgid "Brand" 
 msgstr "" 
@@ -82,6 +90,26 @@ msgstr ""
 
 #: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:26 
 msgid "Price" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:27 
+msgid "With best regards" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:36 
+msgid "Your dream car is not listed?" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:39 
+msgid "It would be a pleasure for us to find your dream car." 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:42 
+msgid "Please, contact us!" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:47 
+msgid "Search request" 
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:12 

@@ -80,6 +80,14 @@ msgstr "Anfahrt"
 msgid "Mail"
 msgstr "Mail"
 
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:21
+msgid "Dear Sirs,"
+msgstr "Sehr geehrte Damen und Herren,"
+
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:22
+msgid "I am interested in a vehicle with the following criteria:"
+msgstr "ich interessiere mich für ein Fahrzeug mit folgenden Kriterien:"
+
 #: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:23
 msgid "Brand"
 msgstr "Marke"
@@ -95,6 +103,28 @@ msgstr "Getriebe"
 #: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:26
 msgid "Price"
 msgstr "Preis"
+
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:27
+msgid "With best regards"
+msgstr "Mit freundlichen Grüßen"
+
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:36
+msgid "Your dream car is not listed?"
+msgstr "Ihr Wunschfahrzeug ist nicht dabei?"
+
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:39
+msgid "It would be a pleasure for us to find your dream car."
+msgstr ""
+"Gerne suchen wir Ihnen das passende aus unserem Herstellerbestand mit über "
+"5.000 Fahrzeugen heraus."
+
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:42
+msgid "Please, contact us!"
+msgstr "Kontaktieren Sie uns!"
+
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:47
+msgid "Search request"
+msgstr "Suchanfrage"
 
 #: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:12
 msgid "Display %s hits"
@@ -253,9 +283,8 @@ msgid "Jahreswagen"
 msgstr "Jahreswagen"
 
 #: ../application/cars.schmolck.de/module/mobile/_helper.php:470
-#, fuzzy
 msgid "Junger Stern"
-msgstr "Junge Sterne"
+msgstr "Junger Sterne"
 
 #: ../application/cars.schmolck.de/module/mobile/_helper.php:475
 msgid "jung@smart"

@@ -18,30 +18,35 @@ $arrOptions = $objCars->getFilterOptionsModels($strBrand);
 /*
  * PREPARATION
  */
-$strMessage .= 'Sehr geehrte Damen und Herren,' . PHP_EOL . PHP_EOL;
-$strMessage .= 'ich interessiere mich für ein Fahrzeug mit folgenden Kriterien: ' . PHP_EOL . PHP_EOL;
+$strMessage .= $objCore->getHelperTranslator()->_("Dear Sirs,") . PHP_EOL . PHP_EOL;
+$strMessage .= $objCore->getHelperTranslator()->_("I am interested in a vehicle with the following criteria:") . PHP_EOL . PHP_EOL;
 $strMessage .= $objCore->getHelperTranslator()->_("Brand") . ': ' . $arrBrands[$strBrand] . PHP_EOL;
-$strMessage .= $objCore->getHelperTranslator()->_("Model") . ': ' . $arrOptions[$strModel]. PHP_EOL;
+$strMessage .= $objCore->getHelperTranslator()->_("Model") . ': ' . $arrOptions[$strModel] . PHP_EOL;
 //$strMessage .= $objCore->getHelperTranslator()->_("Transmission") . ': ' . $strTransmission. PHP_EOL;
 $strMessage .= $objCore->getHelperTranslator()->_("Price") . ': ' . number_format($strPrice, 0, "", ".") . ' EUR' . PHP_EOL . PHP_EOL;
-$strMessage .= 'Über eine Rückmeldung würde ich mich freuen.' . PHP_EOL . PHP_EOL;
-$strMessage .= 'Mit freundlichen Grüßen' . PHP_EOL . PHP_EOL;
+$strMessage .= $objCore->getHelperTranslator()->_("With best regards") . PHP_EOL . PHP_EOL;
 
 /*
  * OUTPUT
  */
 ?>
 <div id="<?= $objCore->strStyleId ?>" class="<?= $objCore->strStyleClass ?>">
-   <div class="jumbotron">
-      <h2>
-         Ihr Wunschfahrzeug ist nicht dabei?
-      </h2>
-      <p>
-         Gerne suchen wir Ihnen das passende aus unserem Herstellerbestand mit über 5.000 Fahrzeugen heraus. Kontaktieren Sie uns!
-      </p>
-   </div>
-   <?= $objCore->getHelperApi()->getElement("{$objCore->strStyleId}_form", 'mobile/element/form', array(
-       'message' => $strMessage
-   )) ?>   
-   <?= $objCore->getHelperScripts()->renderViewScripts() ?>
+    <div class="jumbotron">
+        <h2>
+            <?= $objCore->getHelperTranslator()->_("Your dream car is not listed?") ?>
+        </h2>
+        <p>
+            <?= $objCore->getHelperTranslator()->_("It would be a pleasure for us to find your dream car.") ?>          
+        </p>
+        <p>
+            <?= $objCore->getHelperTranslator()->_("Please, contact us!") ?>          
+        </p>
+    </div>
+    <?=
+    $objCore->getHelperApi()->getElement("{$objCore->strStyleId}_form", 'mobile/element/form', array(
+        'subject' => $objCore->getHelperTranslator()->_("Search request"),
+        'message' => $strMessage
+    ))
+    ?>   
+    <?= $objCore->getHelperScripts()->renderViewScripts() ?>
 </div>
