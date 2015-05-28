@@ -11,28 +11,28 @@ $arrSeller = array(
 );
 ?>
 <div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
-   <?= $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
-   <div class="contact">
-      <div class="row">
-         <div class="col-md-8">
-            <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-muellheim.jpg" class="img-thumbnail">
-         </div>
-         <div class="col-sm-4">
-            <div class="list-group">
-               <?php foreach ($arrSeller as $name => $email) : ?>	
-                  <a href="<?= $objCore->getHelperLink()->get("mailto:{$email}?subject={$strMailInfo}") ?>" class="list-group-item"><?= $name ?></a>
-               <?php endforeach; ?>
+    <?= $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
+    <div class="contact">
+        <div class="row">
+            <div class="col-md-8">
+                <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-muellheim.jpg" class="img-thumbnail">
             </div>
-         </div>
-      </div>
-      <h2>
-         Unsere Junge Sterne Verkaufsberater für Müllheim
-      </h2>
-      <h3>
-         Telefon 07631 3672-0
-      </h3>
-   </div>
-   <div class="form">
-      <?= $objCore->getHelperApi()->getElement("{$objCore->strId}_form", 'mobile/element/form') ?>				
-   </div>
+            <div class="col-sm-4">
+                <div class="list-group">
+                    <?php foreach ($arrSeller as $name => $email) : ?>	
+                        <a href="<?= $objCore->getHelperLink()->get("mailto:{$email}?subject={$strMailInfo}") ?>" class="list-group-item"><?= $name ?></a>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+        <h2>
+            Unsere Junge Sterne Verkaufsberater für Müllheim
+        </h2>
+        <h3>
+            Telefon 07631 3672-0
+        </h3>
+    </div>
+    <div class="form">
+        <?= $objCore->getHelperApi()->getElement("{$objCore->strId}_form", 'mobile/element/form') ?>				
+    </div>
 </div>

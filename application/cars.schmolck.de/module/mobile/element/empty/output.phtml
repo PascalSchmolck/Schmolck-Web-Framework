@@ -40,7 +40,7 @@ $strMessage .= 'Mit freundlichen Grüßen' . PHP_EOL . PHP_EOL;
          Gerne suchen wir Ihnen das passende aus unserem Herstellerbestand mit über 5.000 Fahrzeugen heraus. Kontaktieren Sie uns!
       </p>
    </div>
-   <?= $objCore->getHelperApi()->getElementCaller("{$objCore->strStyleId}_form", 'mobile/element/form', array(
+   <?= $objCore->getHelperApi()->getElement("{$objCore->strStyleId}_form", 'mobile/element/form', array(
        'message' => $strMessage
    )) ?>   
    <?= $objCore->getHelperScripts()->renderViewScripts() ?>

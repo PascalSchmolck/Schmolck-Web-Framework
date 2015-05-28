@@ -64,30 +64,54 @@ class Schmolck_Framework_Helper_Api extends Schmolck_Framework_Helper {
 	 * Get API element
 	 * 
 	 * @param string $strId element id
-	 * @param string $strApi api call structure
-	 * @param array $arrParameter GET parameters
+	 * @param string $strUrl element url (including GET parameter)
+	 * @param array $arrParameter POST parameter
 	 * @return string element
 	 */	
-	public function getElement($strId, $strApi, $arrParameter=array()) {
+	public function getElement($strId, $strUrl, $arrParameter=array()) {
 		/*
 		 * BACKUP
 		 */
 		$arrOldGET = $_GET;
 		$arrOldPOST = $_POST;
 		
-		/*
-		 * INITIALISATION
-		 */
-		$arrApi = explode('/', $strApi);
-		$strModule = $arrApi[0];
-		$strController = $arrApi[1];
-		$strAction = $arrApi[2];
+        /*
+         * PARSING 
+         */
+        $nCounter = 0;
+        $_GET = array();
+        $arrQueryParameter = explode('/', $strUrl);
+        foreach ($arrQueryParameter as $entry) {
+           switch ($nCounter) {
+              case 0:
+                 $strModule = $entry;
+                 break;
+              case 1:
+                 $strController = $entry;
+                 break;
+              case 2:
+                 $strAction = $entry;
+                 break;
+              default:
+                 if ($nCounter % 2 != 0) {
+                    $key = $entry;
+                 } else {
+                    $value = $entry;
+                    // - remove trailing ?
+                    if (substr($value, strlen($value) - 1, strlen($value)) == '?') {
+                       $value = substr($value, 0, strlen($value) - 1);
+                    }
+                    $_GET[$key] = $value;
+                 }
+                 break;
+           }
+           $nCounter++;
+        }
 		
 		/*
 		 * PARAMETER
 		 */
-		$_GET = $arrParameter;
-		$_POST = array();
+		$_POST = $arrParameter;
 		$_POST['_ajax'] = 'true';
 		$_POST['_id'] = $strId;
 		

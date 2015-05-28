@@ -16,18 +16,18 @@ ini_set("error_reporting", E_ALL ^ E_NOTICE);
  */
 
 function __autoload($strClass) {
-   // - prepare
-   $strFilePath = 'library';
+    // - prepare
+    $strFilePath = 'library';
 
-   // - parse
-   $arrParts = explode('_', $strClass);
-   foreach ($arrParts as $strPart) {
-      $strFilePath .= "/{$strPart}";
-      $strFileName = "{$strPart}.php";
-   }
+    // - parse
+    $arrParts = explode('_', $strClass);
+    foreach ($arrParts as $strPart) {
+        $strFilePath .= "/{$strPart}";
+        $strFileName = "{$strPart}.php";
+    }
 
-   // - include
-   require_once(strtolower($strFilePath . '/' . $strFileName));
+    // - include
+    require_once(strtolower($strFilePath . '/' . $strFileName));
 }
 
 /*
@@ -46,30 +46,30 @@ $arrQueryParameter = explode("/", $strUrlQuery);
 $nCounter = 0;
 $_GET = array();
 foreach ($arrQueryParameter as $entry) {
-   switch ($nCounter) {
-      case 0:
-         $strModule = $entry;
-         break;
-      case 1:
-         $strController = $entry;
-         break;
-      case 2:
-         $strAction = $entry;
-         break;
-      default:
-         if ($nCounter % 2 != 0) {
-            $key = $entry;
-         } else {
-            $value = $entry;
-            // - remove trailing ?
-            if (substr($value, strlen($value) - 1, strlen($value)) == '?') {
-               $value = substr($value, 0, strlen($value) - 1);
+    switch ($nCounter) {
+        case 0:
+            $strModule = $entry;
+            break;
+        case 1:
+            $strController = $entry;
+            break;
+        case 2:
+            $strAction = $entry;
+            break;
+        default:
+            if ($nCounter % 2 != 0) {
+                $key = $entry;
+            } else {
+                $value = $entry;
+                // - remove trailing ?
+                if (substr($value, strlen($value) - 1, strlen($value)) == '?') {
+                    $value = substr($value, 0, strlen($value) - 1);
+                }
+                $_GET[$key] = $value;
             }
-            $_GET[$key] = $value;
-         }
-         break;
-   }
-   $nCounter++;
+            break;
+    }
+    $nCounter++;
 }
 ($strModule == '') ? $strModule = 'index' : null;
 ($strController == '') ? $strController = 'index' : null;

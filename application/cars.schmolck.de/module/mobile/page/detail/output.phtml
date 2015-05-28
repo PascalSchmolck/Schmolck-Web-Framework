@@ -9,79 +9,71 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
  */
 ?>
 <div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
-   <div class="detail">
+    <div class="detail">
 
-      <?php foreach ($objCore->arrCars as $arrCar) : ?>		
-      <?php $objCore->strPageTitle = $arrCar['name'] ?>
-      <div class="item" data-link="<?= $objCore->strParameterUrl ?>/id/<?= $arrCar['id'] ?>">
-         <div class="title">
-            <? $objCore->getHelperHtml()->setPageTitle($arrCar['name'] . ' (' . $arrCar['id'] . ')'); ?>
-            <? $strMailInfo = $_SERVER['HTTP_HOST'] . ' - ' . sprintf($objCore->getHelperTranslator()->_("Request for the vehicle %s"), $arrCar['id']); ?>
-         </div>
-         <div class="data">
-            <div class="image">
-               <?=
-               $objCore->getHelperApi()->getElement("{$objCore->strId}_image", 'mobile/element/image', array(
-                   'id' => $arrCar['id']
-               ));
-               ?>
+        <?php foreach ($objCore->arrCars as $arrCar) : ?>		
+            <?php $objCore->strPageTitle = $arrCar['name'] ?>
+            <div class="item" data-link="<?= $objCore->strParameterUrl ?>/id/<?= $arrCar['id'] ?>">
+                <div class="title">
+                    <? $objCore->getHelperHtml()->setPageTitle($arrCar['name'] . ' (' . $arrCar['id'] . ')'); ?>
+                    <? $strMailInfo = $_SERVER['HTTP_HOST'] . ' - ' . sprintf($objCore->getHelperTranslator()->_("Request for the vehicle %s"), $arrCar['id']); ?>
+                </div>
+                <div class="data">
+                    <div class="image">
+                        <?= $objCore->getHelperApi()->getElement("{$objCore->strId}_image", "mobile/element/image/id/{$arrCar['id']}"); ?>
+                    </div>
+                    <div class="inforow">
+                        <div class="infos1">
+                            <?= $arrCar['fahrzeug'] ?> <br>
+                            <?= $arrCar['kategorie'] ?> <br>
+                            <?= $arrCar['id'] ?> <br>						
+                        </div>
+                        <div class="infos2">
+                            EZ <?= $arrCar['ez'] ?> <br>
+                            <?= $arrCar['km'] ?> km <br>
+                        </div>
+                        <div class="infos3">
+                            <?= $arrCar['kraftstoff'] ?> <br>
+                            <?= $arrCar['kw'] ?> kW (<?= $arrCar['ps'] ?> PS)<br>
+                            <?= $arrCar['getriebe'] ?> <br>
+         <!--						<?= $arrCar['color'] ?> (<?= $objCore->getHelperTranslator()->_("Paint"); ?>) <br>
+                            <?= $arrCar['polster'] ?> (<?= $objCore->getHelperTranslator()->_("Upholstery"); ?>) <br>-->
+                        </div>
+                        <div class="price">
+                            <?= $arrCar['preis'] ?> EUR <br>
+                            <div class="pricenote">
+                                <?
+                                if ($arrCar['mwst'] == '1') {
+                                    echo $objCore->getHelperTranslator()->_("VAT not deductable");
+                                } else {
+                                    echo $objCore->getHelperTranslator()->_("VAT deductable");
+                                }
+                                ?>		
+                            </div>		
+                        </div>
+                        <div class="qrcode">
+                            <img src="<?= $objCore->strQRImage ?>">
+                        </div>
+                    </div>
+                    <div class="clearer">
+                        &nbsp;
+                    </div>
+                    <div class="equipment">
+                        <?= $arrCar['bemerkung'] ?>
+                    </div>	
+                    <div class="clearer">
+                        &nbsp;
+                    </div>
+                </div>
             </div>
-            <div class="inforow">
-               <div class="infos1">
-                  <?= $arrCar['fahrzeug'] ?> <br>
-                  <?= $arrCar['kategorie'] ?> <br>
-                  <?= $arrCar['id'] ?> <br>						
-               </div>
-               <div class="infos2">
-                  EZ <?= $arrCar['ez'] ?> <br>
-                  <?= $arrCar['km'] ?> km <br>
-               </div>
-               <div class="infos3">
-                  <?= $arrCar['kraftstoff'] ?> <br>
-                  <?= $arrCar['kw'] ?> kW (<?= $arrCar['ps'] ?> PS)<br>
-                  <?= $arrCar['getriebe'] ?> <br>
-<!--						<?= $arrCar['color'] ?> (<?= $objCore->getHelperTranslator()->_("Paint"); ?>) <br>
-                  <?= $arrCar['polster'] ?> (<?= $objCore->getHelperTranslator()->_("Upholstery"); ?>) <br>-->
-               </div>
-               <div class="price">
-                  <?= $arrCar['preis'] ?> EUR <br>
-                  <div class="pricenote">
-                     <?
-                     if ($arrCar['mwst'] == '1') {
-                     echo $objCore->getHelperTranslator()->_("VAT not deductable");
-                     } else {
-                     echo $objCore->getHelperTranslator()->_("VAT deductable");
-                     }
-                     ?>		
-                  </div>		
-               </div>
-               <div class="qrcode">
-                  <img src="<?= $objCore->strQRImage ?>">
-               </div>
-            </div>
-            <div class="clearer">
-               &nbsp;
-            </div>
-            <div class="equipment">
-               <?= $arrCar['bemerkung'] ?>
-            </div>	
-            <div class="clearer">
-               &nbsp;
-            </div>
-         </div>
-      </div>
-      <?php endforeach; ?>
-   </div>			
-   <div class="request screen">
-      <h2>
-         Anfrage
-      </h2>
-      <?=
-      $objCore->getHelperApi()->getElement("{$objCore->strId}_form", 'mobile/element/form', array(
-          'id' => $arrCar['id']
-      ))
-      ?>				
-   </div>
+        <?php endforeach; ?>
+    </div>			
+    <div class="request screen">
+        <h2>
+            Anfrage
+        </h2>
+        <?= $objCore->getHelperApi()->getElement("{$objCore->strId}_form", "mobile/element/form/id/{$arrCar['id']}") ?>				
+    </div>
 
-   <?= $objCore->getHelperScripts()->renderViewScripts() ?>
+    <?= $objCore->getHelperScripts()->renderViewScripts() ?>
 </div>

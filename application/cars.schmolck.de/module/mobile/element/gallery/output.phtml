@@ -11,47 +11,47 @@ $strBaseUrl = $objCore->getHelperApplication()->getBaseUrl();
  */
 ?>
 <div id="<?= $objCore->strId ?>" class="<?= $objCore->strStyleClass ?>">
-   <? if ($objCore->nCars > 0) : ?>
-      <div class="loadingmessage">
-         <?= $objCore->getHelperTranslator()->_("Loading...") ?>
-      </div>	
-      <!--		<div class="amount">
-      <?= sprintf($objCore->getHelperTranslator()->_("%s Hits"), $objCore->nCars) ?>
-            </div>-->
-      <div class="items">
-         <? foreach ($objCore->arrCars as $arrCar) : ?>	
+    <? if ($objCore->nCars > 0) : ?>
+        <div class="loadingmessage">
+            <?= $objCore->getHelperTranslator()->_("Loading...") ?>
+        </div>	
+        <!--		<div class="amount">
+        <?= sprintf($objCore->getHelperTranslator()->_("%s Hits"), $objCore->nCars) ?>
+              </div>-->
+        <div class="items">
+            <? foreach ($objCore->arrCars as $arrCar) : ?>	
 
-            <a name="<?= $arrCar['id'] ?>"></a>
-            <div class="item <?= $strOdd ?>" data-name="<?= $arrCar['id'] ?>" data-link="<?= $strBaseUrl ?>/mobile/page/detail/id/<?= $arrCar['id'] ?>">              
-               <div class="image" title="<?= $arrCar['name'] ?>">
-                  <img src="apps/image/200/90/<?= $arrCar['images'][0] ?>" class="img-thumbnail">
-               </div>
-               <div class="id">
-                  <?= $arrCar['id'] ?>
-               </div>
-               <? ($arrCar['mwst'] == '1' ? $strStar = '*' : $strStar = '') ?>
-               <div class="price">
-                  <?= $strStar ?> <?= $arrCar['preis'] ?> EUR 
-               </div>
+                <a name="<?= $arrCar['id'] ?>"></a>
+                <div class="item <?= $strOdd ?>" data-name="<?= $arrCar['id'] ?>" data-link="<?= $strBaseUrl ?>/mobile/page/detail/id/<?= $arrCar['id'] ?>">              
+                    <div class="image" title="<?= $arrCar['name'] ?>">
+                        <img src="apps/image/200/90/<?= $arrCar['images'][0] ?>" class="img-thumbnail">
+                    </div>
+                    <div class="id">
+                        <?= $arrCar['id'] ?>
+                    </div>
+                    <? ($arrCar['mwst'] == '1' ? $strStar = '*' : $strStar = '') ?>
+                    <div class="price">
+                        <?= $strStar ?> <?= $arrCar['preis'] ?> EUR 
+                    </div>
+                </div>
+            <? endforeach; ?>
+        </div>
+        <div class="clearer">
+            &nbsp;
+        </div>
+        <? if (count($objCore->arrCars) >= 25) : ?>
+            <div class="amount">
+                <?= sprintf($objCore->getHelperTranslator()->_("%s Hits"), $objCore->nCars) ?>
             </div>
-         <? endforeach; ?>
-      </div>
-      <div class="clearer">
-         &nbsp;
-      </div>
-      <? if (count($objCore->arrCars) >= 25) : ?>
-         <div class="amount">
-            <?= sprintf($objCore->getHelperTranslator()->_("%s Hits"), $objCore->nCars) ?>
-         </div>
-      <? endif; ?>	
-      <div>
-         * <?= $objCore->getHelperTranslator()->_("VAT not deductable"); ?>
-      </div>
-   <? else: ?>	
-      <?= $objCore->getHelperApi()->getElement("{$objCore->strId}_empty", 'mobile/element/empty') ?>				
-   <? endif; ?>		
-   <div class="clearer">
-      &nbsp;
-   </div>
-   <?= $objCore->getHelperScripts()->renderViewScripts() ?>
+        <? endif; ?>	
+        <div>
+            * <?= $objCore->getHelperTranslator()->_("VAT not deductable"); ?>
+        </div>
+    <? else: ?>	
+        <?= $objCore->getHelperApi()->getElement("{$objCore->strId}_empty", 'mobile/element/empty') ?>				
+    <? endif; ?>		
+    <div class="clearer">
+        &nbsp;
+    </div>
+    <?= $objCore->getHelperScripts()->renderViewScripts() ?>
 </div>
