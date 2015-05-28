@@ -20,7 +20,7 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
                 </div>
                 <div class="data">
                     <div class="image">
-                        <?= $objCore->getHelperApi()->getElement("{$objCore->strId}_image", "mobile/element/image/id/{$arrCar['id']}"); ?>
+                        <?= $objCore->getHelperApi()->getElement("{$objCore->strId}_image", "mobile/element/carousel/id/{$arrCar['id']}"); ?>
                     </div>
                     <div class="inforow">
                         <div class="infos1">
@@ -44,9 +44,9 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
                             <div class="pricenote">
                                 <?
                                 if ($arrCar['mwst'] == '1') {
-                                    echo $objCore->getHelperTranslator()->_("VAT not deductable");
+                                echo $objCore->getHelperTranslator()->_("VAT not deductable");
                                 } else {
-                                    echo $objCore->getHelperTranslator()->_("VAT deductable");
+                                echo $objCore->getHelperTranslator()->_("VAT deductable");
                                 }
                                 ?>		
                             </div>		

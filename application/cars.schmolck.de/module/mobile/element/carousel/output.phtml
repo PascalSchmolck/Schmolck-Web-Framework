@@ -1,0 +1,40 @@
+<?php
+/*
+ * INITIALISATION
+ */
+$objCore = Schmolck_Framework_Core::getInstance($this);
+$strStyleId = $objCore->getHelperApi()->getStyleId();
+$strStyleClass = $objCore->getHelperApi()->getStyleClass();
+
+/*
+ * OUTPUT
+ */
+?>
+<div id="<?= $strStyleId ?>" class="<?= $strStyleClass ?> carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <?php $nCounter = 0; ?>
+        <?php $strActive = 'active'; ?>
+        <?php foreach ($objCore->arrImages as $strImage) : ?>	
+            <li data-target="#<?= $strStyleId ?>" data-slide-to="<?= $nCounter ?>" class="<?= $strActive ?>"></li>
+            <?php $nCounter++; ?>            
+            <?php $strActive = ''; ?>            
+        <?php endforeach; ?>            
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <?php $nCounter = 0; ?>
+        <?php $strActive = 'active'; ?>
+        <?php foreach ($objCore->arrImages as $strImage) : ?>	
+            <div class="item <?= $strActive ?>">
+                <img src="<?= $strImage ?>" class="img-thumbnail" data-holder-rendered="true">
+            </div>
+            <?php $strActive = ''; ?>            
+        <?php endforeach; ?>            
+    </div>
+    <a class="left carousel-control" href="#<?= $strStyleId ?>" role="button" data-slide="prev">
+        <span aria-hidden="true"></span>
+    </a>
+    <a class="right carousel-control" href="#<?= $strStyleId ?>" role="button" data-slide="next">
+        <span aria-hidden="true"></span>
+    </a>
+    <?= $objCore->getHelperScripts()->renderViewScripts() ?>
+</div>
