@@ -3,46 +3,46 @@
  * INITIALISATION
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
-// - style
+$strStyleId = $objCore->getHelperApi()->getId();
 $strStyleClass = $objCore->getHelperApi()->getStyleClass();
 
 /*
  * OUTPUT
  */
 ?>
-<div id="<?= $objCore->strId ?>" class="<?= $strStyleClass ?>">
-	<? if ($objCore->strParameterMode == 'list') : ?>
+<div id="<?= $strStyleId ?>" class="<?= $strStyleClass ?>">
 
-      <ul class="nav nav-tabs" role="tablist">
-         <li role="presentation" class="active">
-            <a href="#" data-mode="list">
-               <?= $objCore->getHelperTranslator()->_("List") ?>
-            </a>
-         </li>
-         <li role="presentation">
-            <a href="#" data-mode="gallery">
-               <?= $objCore->getHelperTranslator()->_("Gallery") ?>
-            </a>
-         </li>
-      </ul>
-		<?= $objCore->getHelperApi()->getElement("{$objCore->strId}_result", 'mobile/element/list') ?>				
-	<? endif; ?>
-	
-	<? if ($objCore->strParameterMode == 'gallery') : ?>
-      <ul class="nav nav-tabs" role="tablist">
-         <li role="presentation">
-            <a href="#" data-mode="list">
-               <?= $objCore->getHelperTranslator()->_("List") ?>
-            </a>
-         </li>
-         <li role="presentation" class="active">
-            <a href="#" data-mode="gallery">
-               <?= $objCore->getHelperTranslator()->_("Gallery") ?>
-            </a>
-         </li>
-      </ul>
-		<?= $objCore->getHelperApi()->getElement("{$objCore->strId}_result", 'mobile/element/gallery') ?>				
-	<? endif; ?>
-	
-	<?= $objCore->getHelperScripts()->renderViewScripts() ?>
+    <? if ($objCore->strParameterMode == 'list') : ?>
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+                <a href="#" data-mode="list">
+                    <?= $objCore->getHelperTranslator()->_("List") ?>
+                </a>
+            </li>
+            <li role="presentation">
+                <a href="#" data-mode="gallery">
+                    <?= $objCore->getHelperTranslator()->_("Gallery") ?>
+                </a>
+            </li>
+        </ul>
+        <?= $objCore->getHelperApi()->getElement("{$objCore->strId}_result", 'mobile/element/list') ?>				
+    <? endif; ?>
+
+    <? if ($objCore->strParameterMode == 'gallery') : ?>
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation">
+                <a href="#" data-mode="list">
+                    <?= $objCore->getHelperTranslator()->_("List") ?>
+                </a>
+            </li>
+            <li role="presentation" class="active">
+                <a href="#" data-mode="gallery">
+                    <?= $objCore->getHelperTranslator()->_("Gallery") ?>
+                </a>
+            </li>
+        </ul>
+        <?= $objCore->getHelperApi()->getElement("{$objCore->strId}_result", 'mobile/element/gallery') ?>				
+    <? endif; ?>
+
+    <?= $objCore->getHelperScripts()->renderViewScripts() ?>
 </div>
