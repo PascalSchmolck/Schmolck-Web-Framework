@@ -11,15 +11,18 @@ $strBrand = $objCars->getFilter('brand');
 $strModel = $objCars->getFilter('model');
 $strTransmission = $objCars->getFilter('transmission');
 $strPrice = $objCars->getFilter('price');
+// - options
+$arrBrands = $objCars->getFilterOptionsBrands();
+$arrOptions = $objCars->getFilterOptionsModels($strBrand);
 
 /*
  * PREPARATION
  */
 $strMessage .= 'Sehr geehrte Damen und Herren,' . PHP_EOL . PHP_EOL;
 $strMessage .= 'ich interessiere mich für ein Fahrzeug mit folgenden Kriterien: ' . PHP_EOL . PHP_EOL;
-$strMessage .= $objCore->getHelperTranslator()->_("Brand") . ': ' . $strBrand . PHP_EOL;
-$strMessage .= $objCore->getHelperTranslator()->_("Model") . ': ' . $strModel. PHP_EOL;
-$strMessage .= $objCore->getHelperTranslator()->_("Transmission") . ': ' . $strTransmission. PHP_EOL;
+$strMessage .= $objCore->getHelperTranslator()->_("Brand") . ': ' . $arrBrands[$strBrand] . PHP_EOL;
+$strMessage .= $objCore->getHelperTranslator()->_("Model") . ': ' . $arrOptions[$strModel]. PHP_EOL;
+//$strMessage .= $objCore->getHelperTranslator()->_("Transmission") . ': ' . $strTransmission. PHP_EOL;
 $strMessage .= $objCore->getHelperTranslator()->_("Price") . ': ' . $strPrice. PHP_EOL . PHP_EOL;
 $strMessage .= 'Über eine Rückmeldung würde ich mich freuen.' . PHP_EOL . PHP_EOL;
 $strMessage .= 'Mit freundlichen Grüßen' . PHP_EOL . PHP_EOL;
