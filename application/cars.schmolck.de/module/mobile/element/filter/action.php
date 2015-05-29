@@ -50,7 +50,7 @@ if (trim($objCore->strParameterBrand)
 	or trim($objCore->strParameterKm)
 	or trim($objCore->strParameterEz)
 	or $objCore->strParameterSorting != 'price') {
-	$objCore->bResetLink = true;
+//	$objCore->bResetLink = true;
 }
 
 /*
