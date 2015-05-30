@@ -16,7 +16,7 @@ $(document).ready(function() {
 	* AJAX
 	*/
 	SchmolckID_send = function(strMode) {
-		Schmolck_Framework_Helper_Api({
+		Schmolck_Framework_Helper_Element({
 			url: 'SchmolckURL',
 			id: 'SchmolckID',
 			data: 'mode='+strMode

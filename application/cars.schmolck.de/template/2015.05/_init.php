@@ -9,7 +9,7 @@ $strTemplatePath = $objCore->getHelperApplication()->getTemplatePath();
 $objCore->registerLayoutScript('library/bower_components/jquery/dist/jquery.min.js');
 $objCore->registerLayoutScript('library/bower_components/bootstrap/dist/js/bootstrap.min.js');
 // - framework scripts
-$objCore->registerLayoutScript('library/schmolck/framework/helper/api/api.js');
+$objCore->registerLayoutScript('library/schmolck/framework/helper/element/element.js');
 $objCore->registerLayoutScript('library/schmolck/framework/helper/link/link.js');
 // - layout scripts
 $objCore->registerLayoutScript($strTemplatePath . '/scripts.js');

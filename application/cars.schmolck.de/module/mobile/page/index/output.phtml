@@ -10,6 +10,6 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Cars");
  * OUTPUT
  */
 ?>
-<div id="<?= $objCore->getHelperApi()->getStyleId() ?>" class="<?= $objCore->getHelperApi()->getStyleClass() ?>">
-    <?= $objCore->getHelperApi()->getElement('cars', 'mobile/element/search') ?>				
+<div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
+    <?= $objCore->getHelperElement()->getElement('cars', 'mobile/element/search') ?>				
 </div>

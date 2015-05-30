@@ -6,7 +6,7 @@ $strSubject = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 $strBody = $objCore->getHelperTranslator()->_("Error message") . ': ' . $Exception->getMessage();
 
 ?>
-<div id="<?= $objCore->getHelperApi()->getStyleId() ?>" class="<?= $objCore->getHelperApi()->getStyleClass() ?>">
+<div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
     <h2>
         <?= $objCore->getHelperTranslator()->_("...an error occured!"); ?>
     </h2>

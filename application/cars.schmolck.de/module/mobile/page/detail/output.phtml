@@ -8,7 +8,7 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
  * OUTPUT
  */
 ?>
-<div id="<?= $objCore->getHelperApi()->getStyleId() ?>" class="<?= $objCore->getHelperApi()->getStyleClass() ?>">
+<div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
     <div class="detail">
 
         <?php foreach ($objCore->arrCars as $arrCar) : ?>		
@@ -20,7 +20,7 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
                 </div>
                 <div class="data">
                     <div class="image">
-                        <?= $objCore->getHelperApi()->getElement("{$objCore->strId}_image", "mobile/element/carousel/id/{$arrCar['id']}"); ?>
+                        <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_image", "mobile/element/carousel/id/{$arrCar['id']}"); ?>
                     </div>
                     <div class="inforow">
                         <div class="infos1">
@@ -72,7 +72,7 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
         <h2>
             Anfrage
         </h2>
-        <?= $objCore->getHelperApi()->getElement("{$objCore->strId}_form", "mobile/element/form/id/{$arrCar['id']}") ?>				
+        <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_form", "mobile/element/form/id/{$arrCar['id']}") ?>				
     </div>
 
     <?= $objCore->getHelperScripts()->renderViewScripts() ?>

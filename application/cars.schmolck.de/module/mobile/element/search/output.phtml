@@ -8,18 +8,18 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
  * OUTPUT
  */
 ?>
-<div id="<?= $objCore->getHelperApi()->getStyleId() ?>" class="<?= $objCore->getHelperApi()->getStyleClass() ?>">
+<div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
 
    <div class="row">
       <div class="col-md-2">
          <?=
-         $objCore->getHelperApi()->getElementCaller("{$objCore->strId}_filter", 'mobile/element/filter', array(
+         $objCore->getHelperElement()->getElementCaller("{$objCore->strId}_filter", 'mobile/element/filter', array(
              'resultID' => "{$objCore->strId}_result"
          ));
          ?>				
       </div>
       <div class="col-md-10">
-         <?= $objCore->getHelperApi()->getElementCaller("{$objCore->strId}_result", 'mobile/element/result') ?>				
+         <?= $objCore->getHelperElement()->getElementCaller("{$objCore->strId}_result", 'mobile/element/result') ?>				
       </div>
    </div>
 </div>

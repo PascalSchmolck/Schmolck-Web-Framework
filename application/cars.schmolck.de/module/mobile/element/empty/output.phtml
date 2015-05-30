@@ -28,7 +28,7 @@ $strMessage .= $objCore->getHelperTranslator()->_("With best regards") . PHP_EOL
  * OUTPUT
  */
 ?>
-<div id="<?= $objCore->getHelperApi()->getStyleId() ?>" class="<?= $objCore->getHelperApi()->getStyleClass() ?>">
+<div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
     <div class="jumbotron">
         <h2>
             <?= $objCore->getHelperTranslator()->_("Your dream car is not listed?") ?>
@@ -41,7 +41,7 @@ $strMessage .= $objCore->getHelperTranslator()->_("With best regards") . PHP_EOL
         </p>
     </div>
     <?=
-    $objCore->getHelperApi()->getElement("{$objCore->strStyleId}_form", 'mobile/element/form', array(
+    $objCore->getHelperElement()->getElement("{$objCore->strStyleId}_form", 'mobile/element/form', array(
         'subject' => $objCore->getHelperTranslator()->_("Search request"),
         'message' => $strMessage
     ))

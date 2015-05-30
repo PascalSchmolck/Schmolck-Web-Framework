@@ -2,7 +2,7 @@
 
 // INITIALISATION
 $objCore = Schmolck_Framework_Core::getInstance($this);
-$objCore->strId = $objCore->getHelperApi()->getId();
+$objCore->strId = $objCore->getHelperElement()->getId();
 
 // Redirect...
 if ($objCore->getHelperApplication()->getBaseUrl() == 'http://www.cars.schmolck.de') { 

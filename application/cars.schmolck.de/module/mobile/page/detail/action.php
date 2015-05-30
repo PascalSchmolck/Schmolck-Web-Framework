@@ -10,9 +10,9 @@ require_once 'library/phpqrcode/phpqrcode.php';
  */
 // - core
 $objCore = Schmolck_Framework_Core::getInstance($this);
-$objCore->strId = $objCore->getHelperApi()->getId();
+$objCore->strId = $objCore->getHelperElement()->getId();
 $objCore->strUrl = $objCore->getHelperApplication()->getRequestUrl();
-$objCore->strStyleClass = $objCore->getHelperApi()->getStyleClass();
+$objCore->strStyleClass = $objCore->getHelperElement()->getStyleClass();
 // - cars
 $objCars = new Mobile_Helper($objCore);
 

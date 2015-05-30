@@ -6,7 +6,7 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Location"));
 $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Location");
 ?>
-<div id="<?= $objCore->getHelperApi()->getStyleId() ?>" class="<?= $objCore->getHelperApi()->getStyleClass() ?>">
+<div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
    <?= $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
    <img src="apps/image/512/90/images/cars.schmolck.de/location/muellheim.jpg" class="img-thumbnail">
    <h2>

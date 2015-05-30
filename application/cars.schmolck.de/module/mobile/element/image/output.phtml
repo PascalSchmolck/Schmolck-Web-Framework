@@ -3,13 +3,13 @@
  * INITIALISATION
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
-$strStyleClass = $objCore->getHelperApi()->getStyleClass();
+$strStyleClass = $objCore->getHelperElement()->getStyleClass();
 
 /*
  * OUTPUT
  */
 ?>
-<div id="<?= $objCore->getHelperApi()->getStyleId() ?>" class="<?= $objCore->getHelperApi()->getStyleClass() ?>">
+<div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
     <img src="<?= $objCore->arrImages[$objCore->nNumber] ?>" data-next="<?= $objCore->nNumber + 1 ?>" class="img-thumbnail">
     <div style="display: none;">
        <? foreach ($objCore->arrImages as $strImage) : ?>	

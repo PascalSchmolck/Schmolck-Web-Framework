@@ -7,13 +7,13 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 // - title
 $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Language Selector"));
 // - parameters
-$objCore->strId = $objCore->getHelperApi()->getId();
+$objCore->strId = $objCore->getHelperElement()->getId();
 $objCore->strUrl = $objCore->getHelperApplication()->getRequestUrl();
 
 /*
  * AJAX HANDLING
  */
-if ($objCore->getHelperApi()->checkAjaxCall()) {
+if ($objCore->getHelperElement()->checkAjaxCall()) {
 	$strLanguage = trim(strip_tags($_POST['language']));
 	if ($strLanguage != '') {
 		$objCore->getHelperTranslator()->setLanguage($strLanguage);

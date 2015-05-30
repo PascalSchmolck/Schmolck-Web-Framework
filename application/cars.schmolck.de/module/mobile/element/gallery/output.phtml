@@ -10,7 +10,7 @@ $strBaseUrl = $objCore->getHelperApplication()->getBaseUrl();
  * OUTPUT
  */
 ?>
-<div id="<?= $objCore->getHelperApi()->getStyleId() ?>" class="<?= $objCore->getHelperApi()->getStyleClass() ?>">
+<div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
     <? if ($objCore->nCars > 0) : ?>
         <div class="loadingmessage">
             <?= $objCore->getHelperTranslator()->_("Loading...") ?>
@@ -48,7 +48,7 @@ $strBaseUrl = $objCore->getHelperApplication()->getBaseUrl();
             * <?= $objCore->getHelperTranslator()->_("VAT not deductable"); ?>
         </div>
     <? else: ?>	
-        <?= $objCore->getHelperApi()->getElement("{$objCore->strId}_empty", 'mobile/element/empty') ?>				
+        <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_empty", 'mobile/element/empty') ?>				
     <? endif; ?>		
     <div class="clearer">
         &nbsp;

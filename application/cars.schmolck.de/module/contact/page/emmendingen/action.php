@@ -5,4 +5,4 @@
  */
 // - core
 $objCore = Schmolck_Framework_Core::getInstance($this);
-$objCore->strStyleClass = $objCore->getHelperApi()->getStyleClass();
+$objCore->strStyleClass = $objCore->getHelperElement()->getStyleClass();

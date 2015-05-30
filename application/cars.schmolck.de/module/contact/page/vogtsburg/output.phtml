@@ -12,7 +12,7 @@ $arrSeller = array(
     'Andreas Blakowski' => 'andreas.blakowski@schmolck.de'
 );
 ?>
-<div id="<?= $objCore->getHelperApi()->getStyleId() ?>" class="<?= $objCore->getHelperApi()->getStyleClass() ?>">
+<div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
     <?= $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
     <div class="contact">
         <div class="row">
@@ -36,6 +36,6 @@ $arrSeller = array(
         </h3>
     </div>
     <div class="form">
-        <?= $objCore->getHelperApi()->getElement("{$objCore->strId}_form", 'mobile/element/form') ?>				
+        <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_form", 'mobile/element/form') ?>				
     </div>
 </div>

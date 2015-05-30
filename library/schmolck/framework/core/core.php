@@ -148,7 +148,7 @@ class Schmolck_Framework_Core {
         $this->_arrHelpers['link'] = new Schmolck_Framework_Helper_Link($this);
         $this->_arrHelpers['mail'] = new Schmolck_Framework_Helper_Mail($this);
         $this->_arrHelpers['menu'] = new Schmolck_Framework_Helper_Menu($this);
-        $this->_arrHelpers['api'] = new Schmolck_Framework_Helper_Api($this);
+        $this->_arrHelpers['element'] = new Schmolck_Framework_Helper_Element($this);
     }
 
     /**
@@ -269,12 +269,12 @@ class Schmolck_Framework_Core {
     }
 
     /**
-     * Get api helper
+     * Get element helper
      * 
-     * @return \Schmolck_Framework_Helper_Api
+     * @return \Schmolck_Framework_Helper_Element
      */
-    public function &getHelperApi() {
-        return $this->_arrHelpers['api'];
+    public function &getHelperElement() {
+        return $this->_arrHelpers['element'];
     }
 
     /**
@@ -492,7 +492,7 @@ class Schmolck_Framework_Core {
 
     protected function _runLayout() {
 
-        if ($this->_bLayoutRendering and ! $this->getHelperApi()->checkAjaxCall()) {
+        if ($this->_bLayoutRendering and ! $this->getHelperElement()->checkAjaxCall()) {
 
             /*
              * INIT
@@ -731,7 +731,7 @@ class Schmolck_Framework_Core {
         /*
          * OUTPUT
          */
-        if ($this->_bLayoutRendering and ! $this->getHelperApi()->checkAjaxCall()) {
+        if ($this->_bLayoutRendering and ! $this->getHelperElement()->checkAjaxCall()) {
             $this->_runLayout();
         } else {
             $this->_renderExceptionView($Exception);

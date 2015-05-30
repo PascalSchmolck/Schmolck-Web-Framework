@@ -4,7 +4,7 @@
  * INITIALISATION
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
-$objCore->strId = $objCore->getHelperApi()->getId();
+$objCore->strId = $objCore->getHelperElement()->getId();
 $objCore->strUrl = $objCore->getHelperApplication()->getRequestUrl();
 
 /*
