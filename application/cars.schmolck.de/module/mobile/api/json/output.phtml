@@ -4,26 +4,30 @@
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
 $strVersionPath = $objCore->getHelperApplication()->getActionPath();
-$strVersionFile = 'version.txt';
-$strVersion = strip_tags(file_get_contents($strVersionPath . '/' . $strVersionFile));
 ?>
 <h1>
-   JSON API
+    JSON API 2.0.0
 </h1>
 <h2>
-   Version
-</h2>
-<?=$strVersion?>
-<h2>
-   Parameter
+    Functions
 </h2>
 <h3>
-   functions
+    Filter
 </h3>
 <ul>
-   <li>
-      <a href="mobile/api/json/function/getFilterOptions">
-         getFilterOptions
-      </a>
-      </li>
+    <li>
+        <a href="mobile/api/json/function/getFilterOptions">
+            getFilterOptions
+        </a>
+    </li>
+</ul>
+<h3>
+    Result
+</h3>
+<ul>
+    <li>
+        <a href="mobile/api/json/function/getCarsFiltered">
+            getCarsFiltered
+        </a>
+    </li>
 </ul>
