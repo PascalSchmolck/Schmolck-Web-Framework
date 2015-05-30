@@ -497,6 +497,7 @@ class Schmolck_Framework_Core {
             /*
              * INIT
              */
+            $this->_runLayoutPreInit();            
             $strPath = $this->getHelperApplication()->getTemplatePath();
             $strFile = "{$strPath}/_init.php";
             if (file_exists($strFile)) {
@@ -528,6 +529,14 @@ class Schmolck_Framework_Core {
             $this->_runView();
             $this->renderViewHtml();
         }
+    }
+    
+    protected function _runLayoutPreInit() {
+        /*
+         * SCRIPTS
+         */
+        $this->registerLayoutScript('library/schmolck/framework/helper/element/element.js');
+        $this->registerLayoutScript('library/schmolck/framework/helper/link/link.js');
     }
 
     protected function _runView() {
