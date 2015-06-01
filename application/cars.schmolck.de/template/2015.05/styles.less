@@ -10,14 +10,8 @@ form {
     }
     select {
         height: 25px;
-
     }
     input {
-        @media handheld, only screen and (max-width: 768px) {
-            font-size: 90%;
-        }	
-        border: 1px solid #ccc;
-        font-family: inherit;
         padding: 5px;
         margin: 0;
         width: 100%;
@@ -37,17 +31,7 @@ form {
         &[type="checkbox"] {
             width: auto;
         }
-
-        &[type="submit"] {
-            float: right;
-        }
-
-        &.button {
-            &.submit {
-                float: right;
-            }
-        }
-
+/*
         &[type="submit"], &input[type="button"], &input[type="reset"], &.button {
             margin-top: 10px;
             width: auto;
@@ -88,7 +72,7 @@ form {
             &.highlight {
                 color: darkorange;
             }
-        }
+        }*/
         &[type="text"] {
             font-size: 90%;
             line-height: 1.5em;

@@ -16,8 +16,23 @@ $arrSeller = array(
         <div class="row">
             <div class="col-md-8">
                 <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-muellheim.jpg" class="img-thumbnail">
+                <h2>
+                    Unsere Junge Sterne Verkaufsberater für Müllheim
+                </h2>
             </div>
             <div class="col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Telefon
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <h4>
+                            07631 3672-0
+                        </h4>
+                    </div>
+                </div>
                 <div class="list-group">
                     <?php foreach ($arrSeller as $name => $email) : ?>	
                         <a href="<?= $objCore->getHelperLink()->get("mailto:{$email}?subject={$strMailInfo}") ?>" class="list-group-item"><?= $name ?></a>
@@ -25,14 +40,12 @@ $arrSeller = array(
                 </div>
             </div>
         </div>
-        <h2>
-            Unsere Junge Sterne Verkaufsberater für Müllheim
-        </h2>
-        <h3>
-            Telefon 07631 3672-0
-        </h3>
     </div>
-    <div class="form">
-        <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_form", 'mobile/element/form') ?>				
+    <div class="row">
+        <div class="col-md-8">        
+            <div class="form">
+                <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_form", 'mobile/element/form') ?>		
+            </div>
+        </div>
     </div>
 </div>
