@@ -20,11 +20,9 @@ $arrModelsSmart = $objCars->getFilterOptionsModels('smart');
 // - transmission
 // ’0-3’ (0=keine Angabe, 1=Schaltgetriebe, 2=Halbautomatik, 3=Automatik) 
 $arrTransmissions['all'] = $objCore->getHelperTranslator()->_("All");
-foreach ($objCore->arrTransmissions as $strTransmission) {
-    $arrTransmissions['1'] = $objCore->getHelperTranslator()->_("Manual");
-    $arrTransmissions['2'] = $objCore->getHelperTranslator()->_("Semi-Automatic");
-    $arrTransmissions['3'] = $objCore->getHelperTranslator()->_("Automatic");
-}
+$arrTransmissions['1'] = $objCore->getHelperTranslator()->_("Manual");
+//$arrTransmissions['2'] = $objCore->getHelperTranslator()->_("Semi-Automatic");
+$arrTransmissions['3'] = $objCore->getHelperTranslator()->_("Automatic");
 // - prices
 $arrPrices['all'] = $objCore->getHelperTranslator()->_("All");
 foreach ($objCore->arrPrices as $strPrice) {
@@ -45,11 +43,16 @@ $arrSorting = array(
 ?>
 <div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
     <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <?= $objCore->getHelperTranslator()->_("Filter") ?>
+            </h3>
+        </div>
         <div class="panel-body">
             <form>
                 <input type="hidden" name="send" value="1">
                 <div class="box">
-                    <label>
+                    <label for="brand">
                         <?= $objCore->getHelperTranslator()->_("Brand") ?>
                     </label>
                     <select name="brand">
@@ -64,7 +67,7 @@ $arrSorting = array(
 
                 <? if ($objCore->strParameterBrand == 'mercedes-benz'): ?>
                 <div class="box">
-                    <label>
+                    <label for="model">
                         <?= $objCore->getHelperTranslator()->_("Model") ?>
                     </label>
                     <select name="model">
@@ -80,7 +83,7 @@ $arrSorting = array(
 
                 <? if ($objCore->strParameterBrand == 'smart'): ?>
                 <div class="box">
-                    <label>
+                    <label for="model">
                         <?= $objCore->getHelperTranslator()->_("Model") ?>
                     </label>
                     <select name="model">
@@ -94,7 +97,7 @@ $arrSorting = array(
                 </div>
                 <? endif; ?>		
                 <div class="box">
-                    <label>
+                    <label for="transmission">
                         <?= $objCore->getHelperTranslator()->_("Transmission") ?>
                     </label>
                     <select name="transmission">
@@ -107,7 +110,7 @@ $arrSorting = array(
                     </select>
                 </div>
                 <div class="box">
-                    <label>
+                    <label for="price">
                         <?= $objCore->getHelperTranslator()->_("Price (max.)") ?>
                     </label>
                     <select name="price">
@@ -120,7 +123,7 @@ $arrSorting = array(
                     </select>
                 </div>
                 <div class="box">
-                    <label>
+                    <label for="sorting">
                         <?= $objCore->getHelperTranslator()->_("Sorting") ?>
                     </label>
                     <select name="sorting">
@@ -136,8 +139,10 @@ $arrSorting = array(
                     &nbsp;
                 </div>
                 <div class="buttons">
+                    <input type="hidden" name="counter" value="<?= $objCore->nCount ?>">
                     <input type="hidden" name="reset">
-                    <input class="btn btn-xs btn-default" type="reset" value="<?= $objCore->getHelperTranslator()->_("Reset Filter") ?>" title="<?= $objCore->getHelperTranslator()->_("Reset all filter values") ?>">
+                    <input class="btn btn-primary" type="button" value="<?= $objCore->nCount ?> <?= $objCore->getHelperTranslator()->_("Results") ?>" title="<?= $objCore->getHelperTranslator()->_("Show results") ?>">
+                    <input class="btn btn-default" type="reset" value="<?= $objCore->getHelperTranslator()->_("Reset") ?>" title="<?= $objCore->getHelperTranslator()->_("Reset all filter values") ?>">
                 </div>
 
                 <? if ($objCore->nCount < 1) : ?>

@@ -20,15 +20,15 @@ $objCore->strParameterResultID = Schmolck_Tool_Memory::auto($objCore->getModule(
 $objCore->strParameterSend = strip_tags($_POST['send']);
 $objCore->strParameterReset = strip_tags($_POST['reset']);
 if ($objCore->strParameterReset) {
-	$strReload = 'true';
-	$_POST['brand'] = ' ';
-	$_POST['model'] = ' ';
-	$_POST['type'] = ' ';
-	$_POST['transmission'] = ' ';
-	$_POST['price'] = ' ';
-	$_POST['km'] = ' ';
-	$_POST['ez'] = ' ';
-	$_POST['sorting'] = 'price';
+    $strReload = 'true';
+    $_POST['brand'] = ' ';
+    $_POST['model'] = ' ';
+    $_POST['type'] = ' ';
+    $_POST['transmission'] = ' ';
+    $_POST['price'] = ' ';
+    $_POST['km'] = ' ';
+    $_POST['ez'] = ' ';
+    $_POST['sorting'] = 'price';
 }
 $objCore->strParameterBrand = Schmolck_Tool_Memory::auto($objCore->getModule(), 'brand', strip_tags($_POST['brand']));
 $objCore->strParameterModel = Schmolck_Tool_Memory::auto($objCore->getModule(), 'model', strip_tags($_POST['model']));
@@ -42,14 +42,14 @@ $objCore->strParameterSorting = Schmolck_Tool_Memory::auto($objCore->getModule()
 /*
  * PREPARATION
  */
-if (trim($objCore->strParameterBrand) 
-	or trim($objCore->strParameterModel) 
-	or trim($objCore->strParameterType) 
-	or trim($objCore->strParameterTransmission)
-	or trim($objCore->strParameterPrice)
-	or trim($objCore->strParameterKm)
-	or trim($objCore->strParameterEz)
-	or $objCore->strParameterSorting != 'price') {
+if (trim($objCore->strParameterBrand)
+        or trim($objCore->strParameterModel)
+        or trim($objCore->strParameterType)
+        or trim($objCore->strParameterTransmission)
+        or trim($objCore->strParameterPrice)
+        or trim($objCore->strParameterKm)
+        or trim($objCore->strParameterEz)
+        or $objCore->strParameterSorting != 'price') {
 //	$objCore->bResetLink = true;
 }
 
@@ -76,7 +76,7 @@ $objCore->arrPrices = $objCars->getFilterPrices();
  * SCRIPT
  */
 $objCore->getHelperScripts()->registerViewScriptReplace(array(
-	'SchmolckID' => $objCore->strId,
-	'SchmolckURL' => $objCore->strUrl,
-	'SchmolckRESULTID' => $objCore->strParameterResultID,
+    'SchmolckID' => $objCore->strId,
+    'SchmolckURL' => $objCore->strUrl,
+    'SchmolckRESULTID' => $objCore->strParameterResultID,
 ));

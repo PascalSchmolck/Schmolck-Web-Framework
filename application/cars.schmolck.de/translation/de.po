@@ -30,23 +30,23 @@ msgstr "Bitte geben Sie Ihre Nachricht ein"
 msgid "Message has been sent. Thank you."
 msgstr "Die Nachricht wurde verschickt. Dankeschön."
 
-#: ../application/cars.schmolck.de/module/contact/api/form/output.phtml:25
+#: ../application/cars.schmolck.de/module/contact/api/form/output.phtml:26
 msgid "Name"
 msgstr "Name"
 
-#: ../application/cars.schmolck.de/module/contact/api/form/output.phtml:35
+#: ../application/cars.schmolck.de/module/contact/api/form/output.phtml:36
 msgid "E-Mail"
 msgstr "E-Mail"
 
-#: ../application/cars.schmolck.de/module/contact/api/form/output.phtml:45
+#: ../application/cars.schmolck.de/module/contact/api/form/output.phtml:46
 msgid "Subject"
 msgstr "Betreff"
 
-#: ../application/cars.schmolck.de/module/contact/api/form/output.phtml:55
+#: ../application/cars.schmolck.de/module/contact/api/form/output.phtml:56
 msgid "Your message"
 msgstr "Ihre Nachricht"
 
-#: ../application/cars.schmolck.de/module/contact/api/form/output.phtml:64
+#: ../application/cars.schmolck.de/module/contact/api/form/output.phtml:65
 msgid "Submit"
 msgstr "Abschicken"
 
@@ -62,11 +62,11 @@ msgstr "Verzeihung..."
 msgid "Error message"
 msgstr "Fehlermeldung"
 
-#: ../application/cars.schmolck.de/module/exception/index/index/output.phtml:10
+#: ../application/cars.schmolck.de/module/exception/index/index/output.phtml:11
 msgid "...an error occured!"
 msgstr "...es hat sich ein Fehler eingeschlichen!"
 
-#: ../application/cars.schmolck.de/module/exception/index/index/output.phtml:13
+#: ../application/cars.schmolck.de/module/exception/index/index/output.phtml:14
 msgid "If this error occurs repeatedly, we would appreciate a short message"
 msgstr ""
 "Sollte dieser Fehler mehrmals auftreten, würden wir uns über eine kurze "
@@ -80,91 +80,95 @@ msgstr "Anfahrt"
 msgid "Mail"
 msgstr "Mail"
 
-#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:21
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:19
 msgid "Dear Sirs,"
 msgstr "Sehr geehrte Damen und Herren,"
 
-#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:22
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:20
 msgid "I am interested in a vehicle with the following criteria:"
 msgstr "ich interessiere mich für ein Fahrzeug mit folgenden Kriterien:"
 
-#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:23
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:21
 msgid "Brand"
 msgstr "Marke"
 
-#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:24
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:22
 msgid "Model"
 msgstr "Modell"
 
-#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:25
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:23
 msgid "Transmission"
 msgstr "Getriebe"
 
-#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:26
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:24
 msgid "Price"
 msgstr "Preis"
 
-#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:27
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:25
 msgid "With best regards"
 msgstr "Mit freundlichen Grüßen"
 
-#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:36
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:34
 msgid "Your dream car is not listed?"
 msgstr "Ihr Wunschfahrzeug ist nicht dabei?"
 
-#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:39
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:37
 msgid "It would be a pleasure for us to find your dream car."
 msgstr ""
 "Gerne suchen wir Ihnen das passende aus unserem Herstellerbestand mit über "
 "5.000 Fahrzeugen heraus."
 
-#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:42
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:40
 msgid "Please, contact us!"
 msgstr "Kontaktieren Sie uns!"
 
-#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:47
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:45
 msgid "Search request"
 msgstr "Suchanfrage"
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:12
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:10
 msgid "Display %s hits"
 msgstr "%s Treffer anzeigen"
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:24
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:22
 msgid "All"
 msgstr "Alle"
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:26
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:23
 msgid "Manual"
 msgstr "Schaltgetriebe"
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:27
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:24
 msgid "Semi-Automatic"
 msgstr "Halb-Automatik"
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:28
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:25
 msgid "Automatic"
 msgstr "Automatik"
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:41
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:37
 msgid "Kilometer"
 msgstr "Kilometer"
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:113
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:48
+msgid "Filter"
+msgstr "Filter"
+
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:114
 msgid "Price (max.)"
 msgstr "Preis (max.)"
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:126
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:127
 msgid "Sorting"
 msgstr "Sortierung"
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:143
-msgid "Reset Filter"
-msgstr "Filter zurücksetzen"
-
 #: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:144
-msgid "Reset all filter values"
-msgstr "Alle Filterwerte zurücksetzen"
+msgid "Results"
+msgstr "Ergebnisse"
+
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:145
+msgid "Reset"
+msgstr "Zurücksetzen"
 
 #: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:150
 msgid "No matches found."
@@ -202,11 +206,11 @@ msgstr "MwSt. nicht ausweisbar"
 msgid "VAT deductable"
 msgstr "MwSt. ausweisbar"
 
-#: ../application/cars.schmolck.de/module/mobile/element/result/output.phtml:19
+#: ../application/cars.schmolck.de/module/mobile/element/result/output.phtml:17
 msgid "List"
 msgstr "Liste"
 
-#: ../application/cars.schmolck.de/module/mobile/element/result/output.phtml:24
+#: ../application/cars.schmolck.de/module/mobile/element/result/output.phtml:22
 msgid "Gallery"
 msgstr "Galerie"
 
@@ -346,6 +350,9 @@ msgstr "Impressum"
 msgid "Navigation"
 msgstr "Navigation"
 
+#~ msgid "Reset all filter values"
+#~ msgstr "Alle Filterwerte zurücksetzen"
+
 #~ msgid "Request for a vehicle"
 #~ msgstr "Anfrage zu den Fahrzeugen"
 
@@ -357,9 +364,6 @@ msgstr "Navigation"
 
 #~ msgid "Secondhand Cars"
 #~ msgstr "Gebrauchtwagen"
-
-#~ msgid "Reset"
-#~ msgstr "Zurücksetzen"
 
 #~ msgid "Or get in %s contact %s with us and we will find a car for you."
 #~ msgstr ""
