@@ -281,7 +281,7 @@ class Schmolck_Framework_Core {
      * Initialize server settings
      */
     protected function _initSettings() {
-        require(Schmolck_Framework_Helper_Host::getSettings());
+        require(Schmolck_Framework_Helper_Host::getConfigFile());
     }
 
     /**
