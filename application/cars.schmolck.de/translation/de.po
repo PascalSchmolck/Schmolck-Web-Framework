@@ -218,13 +218,9 @@ msgstr "Galerie"
 msgid "Sorry, the selected vehicle is no longer available."
 msgstr "Verzeihung, das gewählte Fahrzeug ist nicht mehr vorhanden."
 
-#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:39
-msgid "Paint"
-msgstr "Lack"
-
-#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:40
-msgid "Upholstery"
-msgstr "Polster"
+#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:30
+msgid "Overview"
+msgstr "Übersicht"
 
 #: ../application/cars.schmolck.de/module/mobile/_helper.php:68
 msgid "Mercedes-Benz"
@@ -288,7 +284,7 @@ msgstr "Jahreswagen"
 
 #: ../application/cars.schmolck.de/module/mobile/_helper.php:470
 msgid "Junger Stern"
-msgstr "Junger Sterne"
+msgstr "Junger Stern"
 
 #: ../application/cars.schmolck.de/module/mobile/_helper.php:475
 msgid "jung@smart"
@@ -349,6 +345,12 @@ msgstr "Impressum"
 #: ../application/cars.schmolck.de/template/2013.06/html.phtml:37
 msgid "Navigation"
 msgstr "Navigation"
+
+#~ msgid "Paint"
+#~ msgstr "Lack"
+
+#~ msgid "Upholstery"
+#~ msgstr "Polster"
 
 #~ msgid "Reset all filter values"
 #~ msgstr "Alle Filterwerte zurücksetzen"

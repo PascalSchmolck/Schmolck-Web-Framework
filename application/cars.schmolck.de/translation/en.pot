@@ -204,12 +204,8 @@ msgstr ""
 msgid "Sorry, the selected vehicle is no longer available." 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:39 
-msgid "Paint" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:40 
-msgid "Upholstery" 
+#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:30 
+msgid "Overview" 
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/mobile/_helper.php:68 
