@@ -11,112 +11,109 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 <div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
 
     <?php foreach ($objCore->arrCars as $arrCar) : ?>		
-        <?php $objCore->strPageTitle = $arrCar['name'] ?>
+        <?php $strCarName = $arrCar['name'] . ' (' . $arrCar['id'] . ')'?>
+        <?php $objCore->strPageTitle = $strCarName ?>
         <div class="item" data-link="<?= $objCore->strParameterUrl ?>/id/<?= $arrCar['id'] ?>">
             <div class="title">
-                <? $objCore->getHelperHtml()->setPageTitle($arrCar['name'] . ' (' . $arrCar['id'] . ')'); ?>
+                <? $objCore->getHelperHtml()->setPageTitle($strCarName); ?>
                 <? $strMailInfo = $_SERVER['HTTP_HOST'] . ' - ' . sprintf($objCore->getHelperTranslator()->_("Request for the vehicle %s"), $arrCar['id']); ?>
             </div>
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <div class="image">
                         <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_image", "mobile/element/carousel/id/{$arrCar['id']}"); ?>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">
-                                <?= $objCore->getHelperTranslator()->_("Overview"); ?>
-                            </h3>
-                        </div>
-                        <div class="panel-body">
-                            <h4>
-                                <?= $arrCar['id'] ?>
-                            </h4>                                
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th><?= $arrCar['fahrzeug'] ?></th>
-                                        <th><?= $arrCar['kategorie'] ?></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>EZ <?= $arrCar['ez'] ?></td>
-                                        <td><?= $arrCar['km'] ?> km </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <?= $arrCar['kw'] ?> kW (<?= $arrCar['ps'] ?> PS)
-                                        </td>
-                                        <td>
-                                            <?= $arrCar['kraftstoff'] ?>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <?= $arrCar['getriebe'] ?> 
-                                        </td>
-                                        <td>
-                                            <?= $arrCar['color'] ?> 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="qrcode">
-                                                <img src="<?= $objCore->strQRImage ?>">
-                                            </div>
-                                        </td>
-                                        <td class="price">
-                                            <?= $arrCar['preis'] ?> EUR <br>
-                                            <div class="pricenote">
-                                                <?
-                                                if ($arrCar['mwst'] == '1') {
-                                                echo $objCore->getHelperTranslator()->_("VAT not deductable");
-                                                } else {
-                                                echo $objCore->getHelperTranslator()->_("VAT deductable");
-                                                }
-                                                ?>		
-                                            </div>		
-                                        </td>
-                                        
-                                    </tr>
+                <div class="col-md-6">
+             
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th><?= $arrCar['fahrzeug'] ?></th>
+                                <th><?= $arrCar['kategorie'] ?></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>EZ <?= $arrCar['ez'] ?></td>
+                                <td><?= $arrCar['km'] ?> km </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <?= $arrCar['kw'] ?> kW (<?= $arrCar['ps'] ?> PS)
+                                </td>
+                                <td>
+                                    <?= $arrCar['kraftstoff'] ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <?= $arrCar['getriebe'] ?> 
+                                </td>
+                                <td>
+                                    <?= $arrCar['color'] ?> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="qrcode">
+                                        <img src="<?= $objCore->strQRImage ?>">
+                                    </div>
+                                </td>
+                                <td class="price">
+                                    <?= $arrCar['preis'] ?> EUR <br>
+                                    <div class="pricenote">
+                                        <?
+                                        if ($arrCar['mwst'] == '1') {
+                                            echo $objCore->getHelperTranslator()->_("VAT not deductable");
+                                        } else {
+                                            echo $objCore->getHelperTranslator()->_("VAT deductable");
+                                        }
+                                        ?>		
+                                    </div>		
+                                </td>
 
-                                </tbody>
-                            </table>
+                            </tr>
 
-                        </div>
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-6">
+                <?= $arrCar['bemerkung'] ?>
+            </div>	
+            <div class="col-md-6 screen">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">
-                            Beschreibung
+                            <?= $objCore->getHelperTranslator()->_("Contact"); ?>
                         </h3>
                     </div>
                     <div class="panel-body">
-                        <?= $arrCar['bemerkung'] ?>
+                        
+                        <h5>
+                            Unsere Junge Sterne Verkaufsberater
+                            für Emmendingen und Vogtsburg
+                        </h5>
+                        <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-emmendingen.jpg" class="img-thumbnail">
+
+
+                        <h5>
+                            Unsere Junge Sterne Verkaufsberater für Müllheim
+                        </h5>
+                        <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-muellheim.jpg" class="img-thumbnail">                        
+                        
+                        <p class="request">
+                            <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_form", "mobile/element/form/id/{$arrCar['id']}") ?>				
+                        </p>
+
                     </div>
                 </div>
-            </div>	
-        </div>
-
-    <?php endforeach; ?>
-
-    <div class="request screen">
-        <div class="row">
-            <div class="col-md-8">  
-                <h2>
-                    Anfrage
-                </h2>
-                <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_form", "mobile/element/form/id/{$arrCar['id']}") ?>				
             </div>
         </div>
-    </div>
+    <?php endforeach; ?>
+
     <?= $objCore->getHelperScripts()->renderViewScripts() ?>
 </div>
