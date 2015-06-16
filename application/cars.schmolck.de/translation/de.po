@@ -54,6 +54,18 @@ msgstr "Abschicken"
 msgid "Contact"
 msgstr "Kontakt"
 
+#: ../application/cars.schmolck.de/module/contact/page/emmendingen/output.phtml:7
+msgid "Our sales consultants for Emmendingen and Vogtsburg"
+msgstr "Unsere Verkaufsberater für Emmendingen und Vogtsburg"
+
+#: ../application/cars.schmolck.de/module/contact/page/emmendingen/output.phtml:36
+msgid "Address"
+msgstr "Anschrift"
+
+#: ../application/cars.schmolck.de/module/contact/page/muellheim/output.phtml:7
+msgid "Our sales consultants for Müllheim"
+msgstr "Unsere Verkaufsberater für Müllheim"
+
 #: ../application/cars.schmolck.de/module/exception/index/index/output.phtml:3
 msgid "Ups, sorry..."
 msgstr "Verzeihung..."
@@ -218,10 +230,6 @@ msgstr "Galerie"
 msgid "Sorry, the selected vehicle is no longer available."
 msgstr "Verzeihung, das gewählte Fahrzeug ist nicht mehr vorhanden."
 
-#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:30
-msgid "Overview"
-msgstr "Übersicht"
-
 #: ../application/cars.schmolck.de/module/mobile/_helper.php:68
 msgid "Mercedes-Benz"
 msgstr "Mercedes-Benz"
@@ -345,6 +353,9 @@ msgstr "Impressum"
 #: ../application/cars.schmolck.de/template/2013.06/html.phtml:37
 msgid "Navigation"
 msgstr "Navigation"
+
+#~ msgid "Overview"
+#~ msgstr "Übersicht"
 
 #~ msgid "Paint"
 #~ msgstr "Lack"

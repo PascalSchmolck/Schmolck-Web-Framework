@@ -4,7 +4,7 @@
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
 $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Contact") . " - Müllheim");
-$objCore->strPageTitle = $objCore->getHelperTranslator()->_("Contact");
+$objCore->strPageTitle = $objCore->getHelperTranslator()->_("Our sales consultants for Müllheim");
 $arrSeller = array(
     'Benedikt Pohl' => 'benedikt.pohl@schmolck.de',
     'Michel Misiuk' => 'michel.misiuk@schmolck.de',
@@ -15,36 +15,47 @@ $arrSeller = array(
     <div class="contact">
         <div class="row">
             <div class="col-md-8">
-                <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-muellheim.jpg" class="img-thumbnail">
-                <h2>
-                    Unsere Junge Sterne Verkaufsberater für Müllheim
-                </h2>
+                <img src="apps/image/1024/90/images/cars.schmolck.de/contact/pkw-verkauf-muellheim.jpg" class="img-thumbnail">
+                <table class="names" width="100%">
+                    <tr>
+                        <?php foreach ($arrSeller as $name => $email) : ?>	
+                            <td>
+                                <a href="<?= $objCore->getHelperLink()->get("mailto:{$email}?subject={$strMailInfo}") ?>"><?= $name ?></a>
+                            </td>
+                        <?php endforeach; ?>
+                    </tr>
+                </table>                
             </div>
             <div class="col-sm-4">
+
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">
-                            Telefon
+                            <?= $objCore->getHelperTranslator()->_("Address") ?>
                         </h3>
                     </div>
                     <div class="panel-body">
-                        <h4>
-                            07631 3672-0
-                        </h4>
+                        <a href="location/page/muellheim" class="screen">
+                            <img src="apps/image/1024/90/images/cars.schmolck.de/location/muellheim.jpg" class="img-thumbnail">
+                        </a>
+                        <p>
+                            <strong>Autohaus Schmolck GmbH & Co. KG</strong> <br>
+                            Kinzigstraße 5 <br>
+                            79379 Müllheim <br>
+                            <br>
+                            Tel +49 7631 / 3672-0 <br>
+                            Fax +49 7631 / 3672-80 <br>
+                        </p>
                     </div>
                 </div>
-                <div class="list-group">
-                    <?php foreach ($arrSeller as $name => $email) : ?>	
-                        <a href="<?= $objCore->getHelperLink()->get("mailto:{$email}?subject={$strMailInfo}") ?>" class="list-group-item"><?= $name ?></a>
-                    <?php endforeach; ?>
-                </div>
+
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8">        
-            <div class="form">
-                <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_form", 'mobile/element/form') ?>		
+        <div class="row">
+            <div class="col-md-8">        
+                <div class="form screen">
+                    <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_form", 'mobile/element/form') ?>		
+                </div>
             </div>
         </div>
     </div>

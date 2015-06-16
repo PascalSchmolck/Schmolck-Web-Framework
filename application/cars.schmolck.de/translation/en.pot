@@ -1,5 +1,5 @@
 
-Notice: Undefined variable: result in E:\Webseiten\GitHub\Schmolck-Web-Framework\tools\xgettext.php on line 94
+Notice: Undefined variable: result in U:\Dokumente\Arbeit\Webseiten\GitHub\Schmolck-Web-Framework\tools\xgettext.php on line 94
 #: ../application/cars.schmolck.de/module/contact/api/form/action.php:25 
 msgid "Please enter your name name" 
 msgstr "" 
@@ -42,6 +42,18 @@ msgstr ""
 
 #: ../application/cars.schmolck.de/module/contact/page/emmendingen/output.phtml:6 
 msgid "Contact" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/contact/page/emmendingen/output.phtml:7 
+msgid "Our sales consultants for Emmendingen and Vogtsburg" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/contact/page/emmendingen/output.phtml:36 
+msgid "Address" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/contact/page/muellheim/output.phtml:7 
+msgid "Our sales consultants for Müllheim" 
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/exception/index/index/output.phtml:3 
@@ -202,10 +214,6 @@ msgstr ""
 
 #: ../application/cars.schmolck.de/module/mobile/page/detail/action.php:43 
 msgid "Sorry, the selected vehicle is no longer available." 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:30 
-msgid "Overview" 
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/mobile/_helper.php:68 
