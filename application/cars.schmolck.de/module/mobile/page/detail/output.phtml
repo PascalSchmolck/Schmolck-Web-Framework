@@ -11,7 +11,7 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 <div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
 
     <?php foreach ($objCore->arrCars as $arrCar) : ?>		
-        <?php $strCarName = $arrCar['name'] . ' (' . $arrCar['id'] . ')' ?>
+        <?php $strCarName = $arrCar['name'] . ' <sup>(' . $arrCar['id'] . ')</sup>' ?>
         <?php $objCore->strPageTitle = $strCarName ?>
         <div class="item" data-link="<?= $objCore->strParameterUrl ?>/id/<?= $arrCar['id'] ?>">
             <div class="title">
@@ -19,12 +19,10 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
                 <? $strMailInfo = $_SERVER['HTTP_HOST'] . ' - ' . sprintf($objCore->getHelperTranslator()->_("Request for the vehicle %s"), $arrCar['id']); ?>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <div class="image">
                         <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_image", "mobile/element/carousel/id/{$arrCar['id']}"); ?>
                     </div>
-                </div>
-                <div class="col-md-6">
 
                     <table class="table table-striped">
                         <thead>
@@ -77,45 +75,47 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 
                         </tbody>
                     </table>
+
+                    <?= $arrCar['bemerkung'] ?>
+                </div>
+                <div class="col-md-4">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                <?= $objCore->getHelperTranslator()->_("Contact"); ?>
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+
+
+                            <a href="contact/page/emmendingen">
+                                <h5>
+                                    Emmendingen
+                                </h5>
+                                <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-emmendingen.jpg" class="img-thumbnail">
+                            </a>
+
+
+                            <a href="contact/page/muellheim">
+                                <h5>
+                                    Müllheim
+                                </h5>
+                                <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-muellheim.jpg" class="img-thumbnail">                        
+                            </a>
+
+                            <p class="request">
+                                <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_form", "mobile/element/form/id/{$arrCar['id']}") ?>				
+                            </p>
+
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <?= $arrCar['bemerkung'] ?>
-            </div>	
-            <div class="col-md-6 screen">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">
-                            <?= $objCore->getHelperTranslator()->_("Contact"); ?>
-                        </h3>
-                    </div>
-                    <div class="panel-body">
 
-                        <h5>
-                            Unsere Junge Sterne Verkaufsberater
-                            für Emmendingen und Vogtsburg
-                        </h5>
-                        <a href="contact/page/emmendingen">
-                            <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-emmendingen.jpg" class="img-thumbnail">
-                        </a>
-
-                        <h5>
-                            Unsere Junge Sterne Verkaufsberater für Müllheim
-                        </h5>
-                        <a href="contact/page/muellheim">
-                            <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-muellheim.jpg" class="img-thumbnail">                        
-                        </a>
-
-                        <p class="request">
-                            <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_form", "mobile/element/form/id/{$arrCar['id']}") ?>				
-                        </p>
-
-                    </div>
-                </div>
-            </div>
-        </div>
     <?php endforeach; ?>
 
     <?= $objCore->getHelperScripts()->renderViewScripts() ?>
