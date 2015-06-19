@@ -86,9 +86,9 @@ msgstr ""
 
 #: ../application/cars.schmolck.de/module/location/page/emmendingen/output.phtml:6
 msgid "Location"
-msgstr "Anfahrt"
+msgstr "Standort"
 
-#: ../application/cars.schmolck.de/module/location/page/emmendingen/output.phtml:31
+#: ../application/cars.schmolck.de/module/location/page/emmendingen/output.phtml:32
 msgid "Mail"
 msgstr "Mail"
 
@@ -353,6 +353,10 @@ msgstr "Impressum"
 #: ../application/cars.schmolck.de/template/2013.06/html.phtml:37
 msgid "Navigation"
 msgstr "Navigation"
+
+#: ../application/cars.schmolck.de/template/2015.05/html.phtml:42
+msgid "Locations"
+msgstr "Standorte"
 
 #~ msgid "Overview"
 #~ msgstr "Übersicht"

@@ -76,7 +76,7 @@ msgstr ""
 msgid "Location" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/location/page/emmendingen/output.phtml:31 
+#: ../application/cars.schmolck.de/module/location/page/emmendingen/output.phtml:32 
 msgid "Mail" 
 msgstr "" 
 
@@ -338,5 +338,9 @@ msgstr ""
 
 #: ../application/cars.schmolck.de/template/2013.06/html.phtml:37 
 msgid "Navigation" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/template/2015.05/html.phtml:42 
+msgid "Locations" 
 msgstr "" 
 

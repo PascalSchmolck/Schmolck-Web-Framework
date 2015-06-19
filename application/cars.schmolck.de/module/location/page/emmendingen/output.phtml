@@ -3,8 +3,8 @@
  * INITIALISATION
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
-$objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Location"));
-$objCore->strPageTitle = $objCore->getHelperTranslator()->_("Location");
+$objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Locations"));
+$objCore->strPageTitle = $objCore->getHelperTranslator()->_("Locations");
 ?>
 <div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
     <?= $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
@@ -21,10 +21,8 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Location");
                 Unimog-Service, Umwelttechnik
             </p>
             <p>
-                <a href="https://maps.google.de/maps?q=Am+Elzdamm+2,+Emmendingen&hl=de&ie=UTF8&sll=48.110862,7.851732&sspn=0.009843,0.017295&hnear=Am+Elzdamm+2,+79312+Emmendingen,+Freiburg,+Baden-W%C3%BCrttemberg&t=m&z=16" target="_blank">
-                    Am Elzdamm 2 <br>
-                    79312 Emmendingen	
-                </a>		
+                Am Elzdamm 2 <br>
+                79312 Emmendingen	
             </p>
             <p>
                 Tel +49 7641 / 4602-0 <br>
@@ -41,6 +39,9 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Location");
                     </span>
                 </a>
             </p>
+            <div class="form screen">
+                <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_form", 'mobile/element/form') ?>		
+            </div>
         </div>
         <div class="col-md-6 maps">
             <iframe width="100%"
