@@ -73,7 +73,7 @@ msgid "If this error occurs repeatedly, we would appreciate a short message"
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/location/page/emmendingen/output.phtml:6 
-msgid "Location" 
+msgid "Locations" 
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/location/page/emmendingen/output.phtml:32 
@@ -320,6 +320,10 @@ msgstr ""
 msgid "Ethanol" 
 msgstr "" 
 
+#: ../application/cars.schmolck.de/module/static/page/imprint/output.phtml:6 
+msgid "Imprint" 
+msgstr "" 
+
 #: ../application/cars.schmolck.de/module/translation/element/switcher/action.php:8 
 msgid "Language Selector" 
 msgstr "" 
@@ -332,15 +336,15 @@ msgstr ""
 msgid "Home" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/template/2013.05/html.phtml:46 
-msgid "Imprint" 
+#: ../application/cars.schmolck.de/template/2013.05/html.phtml:36 
+msgid "Location" 
 msgstr "" 
 
 #: ../application/cars.schmolck.de/template/2013.06/html.phtml:37 
 msgid "Navigation" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/template/2015.05/html.phtml:42 
-msgid "Locations" 
+#: ../application/cars.schmolck.de/template/2015.05/html.phtml:37 
+msgid "Vehicle Search" 
 msgstr "" 
 

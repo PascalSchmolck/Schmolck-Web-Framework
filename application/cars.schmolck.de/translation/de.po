@@ -85,8 +85,8 @@ msgstr ""
 "Benachrichtigung freuen"
 
 #: ../application/cars.schmolck.de/module/location/page/emmendingen/output.phtml:6
-msgid "Location"
-msgstr "Standort"
+msgid "Locations"
+msgstr "Standorte"
 
 #: ../application/cars.schmolck.de/module/location/page/emmendingen/output.phtml:32
 msgid "Mail"
@@ -334,6 +334,10 @@ msgstr "Wasserstoff"
 msgid "Ethanol"
 msgstr "Ethanol"
 
+#: ../application/cars.schmolck.de/module/static/page/imprint/output.phtml:6
+msgid "Imprint"
+msgstr "Impressum"
+
 #: ../application/cars.schmolck.de/module/translation/element/switcher/action.php:8
 msgid "Language Selector"
 msgstr "Sprache Auswahl"
@@ -346,17 +350,17 @@ msgstr "Language / Sprache"
 msgid "Home"
 msgstr "Startseite"
 
-#: ../application/cars.schmolck.de/template/2013.05/html.phtml:46
-msgid "Imprint"
-msgstr "Impressum"
+#: ../application/cars.schmolck.de/template/2013.05/html.phtml:36
+msgid "Location"
+msgstr "Standort"
 
 #: ../application/cars.schmolck.de/template/2013.06/html.phtml:37
 msgid "Navigation"
 msgstr "Navigation"
 
-#: ../application/cars.schmolck.de/template/2015.05/html.phtml:42
-msgid "Locations"
-msgstr "Standorte"
+#: ../application/cars.schmolck.de/template/2015.05/html.phtml:37
+msgid "Vehicle Search"
+msgstr "Fahrzeugsuche"
 
 #~ msgid "Overview"
 #~ msgstr "Übersicht"
@@ -389,9 +393,6 @@ msgstr "Standorte"
 
 #~ msgid "Enter your address here"
 #~ msgstr "Geben Sie hier Ihre Adresse ein"
-
-#~ msgid "Search"
-#~ msgstr "Suche"
 
 #~ msgid "Schmolck Group"
 #~ msgstr "Unternehmensgruppe Schmolck"
