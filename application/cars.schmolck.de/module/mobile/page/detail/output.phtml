@@ -11,7 +11,8 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 <div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
 
     <?php foreach ($objCore->arrCars as $arrCar) : ?>		
-        <?php $strCarName = $arrCar['name'] . ' <sup>(' . $arrCar['id'] . ')</sup>' ?>
+        <?php // $strCarName = $arrCar['name'] . ' <sup>(' . $arrCar['id'] . ')</sup>' ?>
+        <?php $strCarName = $arrCar['name'] ?>
         <?php $objCore->strPageTitle = $strCarName ?>
         <div class="item" data-link="<?= $objCore->strParameterUrl ?>/id/<?= $arrCar['id'] ?>">
             <div class="title">
@@ -19,7 +20,7 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
                 <? $strMailInfo = $_SERVER['HTTP_HOST'] . ' - ' . sprintf($objCore->getHelperTranslator()->_("Request for the vehicle %s"), $arrCar['id']); ?>
             </div>
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-6 infos">
                     <div class="image">
                         <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_image", "mobile/element/carousel/id/{$arrCar['id']}"); ?>
                     </div>
@@ -63,9 +64,9 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
                                     <div class="pricenote">
                                         <?
                                         if ($arrCar['mwst'] == '1') {
-                                            echo $objCore->getHelperTranslator()->_("VAT not deductable");
+                                        echo $objCore->getHelperTranslator()->_("VAT not deductable");
                                         } else {
-                                            echo $objCore->getHelperTranslator()->_("VAT deductable");
+                                        echo $objCore->getHelperTranslator()->_("VAT deductable");
                                         }
                                         ?>		
                                     </div>		
@@ -78,7 +79,7 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 
                     <?= $arrCar['bemerkung'] ?>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6 contact">
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -88,21 +89,27 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
                         </div>
                         <div class="panel-body">
 
+                            <table width="100%">
+                                <tr>
+                                    <td>
+                                        <a href="contact/page/emmendingen">
+                                            <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-emmendingen.jpg" class="img-thumbnail" title="Emmendingen und Vogtsburg">
+                                        </a>
+                                    </td>
+                                    <td class="spacing">
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        <a href="contact/page/muellheim">
+                                            <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-muellheim.jpg" class="img-thumbnail" title="Müllheim">                        
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
 
-                            <a href="contact/page/emmendingen">
-                                <h5>
-                                    Emmendingen
-                                </h5>
-                                <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-emmendingen.jpg" class="img-thumbnail">
-                            </a>
 
 
-                            <a href="contact/page/muellheim">
-                                <h5>
-                                    Müllheim
-                                </h5>
-                                <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-muellheim.jpg" class="img-thumbnail">                        
-                            </a>
+
 
                             <p class="request">
                                 <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_form", "mobile/element/form/id/{$arrCar['id']}") ?>				

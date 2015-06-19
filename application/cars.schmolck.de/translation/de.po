@@ -52,7 +52,7 @@ msgstr "Abschicken"
 
 #: ../application/cars.schmolck.de/module/contact/page/emmendingen/output.phtml:6
 msgid "Contact"
-msgstr "Kontakt"
+msgstr "Ansprechpartner"
 
 #: ../application/cars.schmolck.de/module/contact/page/emmendingen/output.phtml:7
 msgid "Our sales consultants for Emmendingen and Vogtsburg"
