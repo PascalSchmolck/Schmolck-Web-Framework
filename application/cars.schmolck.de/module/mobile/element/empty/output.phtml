@@ -7,7 +7,7 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 $objCars = new Mobile_Helper($objCore);
 $strBrand = $objCars->getFilter('brand');
 $strModel = $objCars->getFilter('model');
-$strTransmission = $objCars->getFilter('transmission');
+$strTransmission = $objCars->getMappedRowTransmission($objCars->getFilter('transmission'));
 $strPrice = $objCars->getFilter('price');
 // - options
 $arrBrands = $objCars->getFilterOptionsBrands();
@@ -16,13 +16,13 @@ $arrOptions = $objCars->getFilterOptionsModels($strBrand);
 /*
  * PREPARATION
  */
-$strMessage .= $objCore->getHelperTranslator()->_("Dear Sirs,") . PHP_EOL . PHP_EOL;
+//$strMessage .= $objCore->getHelperTranslator()->_("Dear Sirs,") . PHP_EOL . PHP_EOL;
 $strMessage .= $objCore->getHelperTranslator()->_("I am interested in a vehicle with the following criteria:") . PHP_EOL . PHP_EOL;
 $strMessage .= $objCore->getHelperTranslator()->_("Brand") . ': ' . $arrBrands[$strBrand] . PHP_EOL;
 $strMessage .= $objCore->getHelperTranslator()->_("Model") . ': ' . $arrOptions[$strModel] . PHP_EOL;
-//$strMessage .= $objCore->getHelperTranslator()->_("Transmission") . ': ' . $strTransmission. PHP_EOL;
+$strMessage .= $objCore->getHelperTranslator()->_("Transmission") . ': ' . $strTransmission. PHP_EOL;
 $strMessage .= $objCore->getHelperTranslator()->_("Price") . ': ' . number_format(doubleval($strPrice), 0, "", ".") . ' EUR' . PHP_EOL . PHP_EOL;
-$strMessage .= $objCore->getHelperTranslator()->_("With best regards") . PHP_EOL . PHP_EOL;
+//$strMessage .= $objCore->getHelperTranslator()->_("With best regards") . PHP_EOL . PHP_EOL;
 
 /*
  * OUTPUT

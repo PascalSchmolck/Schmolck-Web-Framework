@@ -25,7 +25,7 @@ $strStyleClass = $objCore->getHelperElement()->getStyleClass();
         <?php $strActive = 'active'; ?>
         <?php foreach ($objCore->arrImages as $strImage) : ?>	
             <div class="item <?= $strActive ?>">
-                <img src="<?= $strImage ?>" class="img-thumbnail" data-holder-rendered="true">
+                <img src="<?= $strImage ?>" data-holder-rendered="true">
             </div>
             <?php $strActive = ''; ?>            
         <?php endforeach; ?>            

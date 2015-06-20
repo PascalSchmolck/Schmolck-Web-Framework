@@ -28,3 +28,8 @@ $objCore->registerLayoutStyle($strTemplatePath . '/styles.less');
 if ($objCore->getHelperHtml()->getPageTitle() != '') {
 	$strPageTitle = $objCore->getHelperHtml()->getPageTitle() . ' | ';
 }
+
+/*
+ * NAVBAR
+ */
+$arrNavbarClass[$objCore->getModule()] = 'active';

@@ -1,12 +1,6 @@
 /******************************************************************************/
 /* HTML */
 /******************************************************************************/
-body {
-    background-color: #000;
-    background-image: url("../../../images/cars.schmolck.de/template/background/black-blue.png");
-    background-repeat: repeat-x;
-    background-position: bottom;
-}
 h1 {
     @media handheld, only screen and (min-width: 769px) {
         font-size: 250%;
@@ -31,6 +25,14 @@ h2 {
 h3 {
     font-weight: bold;
     font-size: 130%;
+}
+h4 {
+    font-weight: bold;
+    font-size: 120%;
+}
+h5 {
+    font-weight: normal;
+    font-size: 120%;
 }
 form {
     select {
@@ -74,17 +76,6 @@ img {
         display: none;
     }
 }
-.loading {
-    min-height: 64px;
-    min-width: 64px;
-    background-image: url('../../../images/cars.schmolck.de/template/loading.gif');
-    background-repeat: no-repeat;
-    background-position: top center;
-}
-.logo {
-    margin-top: 20px;
-    float: right;
-}
 #message{
     @media print {
         display: none;
@@ -102,10 +93,17 @@ img {
     }
 }
 #main {
-    padding-top: 40px;
+    padding-top: 70px;
     font-size: 0.9em;
     line-height: 1.5em;
 
+    .progress {
+        display: none;
+        height: 10px;
+        .progress-bar {
+            width: 100%;
+        }
+    }
     .menu {
         @media handheld, only screen and (max-width: 768px) {
             font-size: 85%;
@@ -122,6 +120,14 @@ img {
         }
         letter-spacing: 0.1em;
         margin-bottom: 20px;
+    }
+}
+#contact {
+    margin-top: 20px;
+    table {
+        tr {
+            vertical-align: bottom;
+        }
     }
 }
 #footer {
@@ -171,19 +177,15 @@ img {
 /* MODULES */
 /******************************************************************************/
 .contact.page {	
-   clear: both;
-   table {
-      margin: 30px 0;
-      td {
-        text-align: center;
+    clear: both;
+    table {
+        td {
+            text-align: center;
         }
-   }
-   img {
-      margin-bottom: 10px;
-   }
-   .form{
-      margin-top: 10px;
-   }
+    }
+    .form{
+        margin-top: 10px;
+    }
 }
 /******************************************************************************/
 .location.page {
@@ -310,7 +312,9 @@ img {
     }
     .buttons {
         margin-top: 20px;
-
+        .btn {
+            width: 100%;
+        }
         .btn-primary {
             margin-bottom: 10px;
         }

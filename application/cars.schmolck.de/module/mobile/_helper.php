@@ -420,7 +420,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		$arrMap['kraftstoff'] = $this->_getMappedRowKraftstoff($arrRow['DF_kraftstoffart']);
 		$arrMap['kw'] = $arrRow['F_leistung'];
 		$arrMap['ps'] = $this->_getMappedRowPs($arrRow);
-		$arrMap['getriebe'] = $this->_getMappedRowGetriebe($arrRow['DG_getriebeart']);
+		$arrMap['getriebe'] = $this->getMappedRowTransmission($arrRow['DG_getriebeart']);
 		$arrMap['ccm'] = $arrRow['BA_ccm'];
 		$arrMap['preis'] = $this->_getMappedRowPrice($arrRow);
 		$arrMap['mwst'] = $arrRow['L_mwst'];
@@ -550,7 +550,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		return $strLabel;
 	}
 	
-	protected function _getMappedRowGetriebe($strValue) {
+	public function getMappedRowTransmission($strValue) {
 		/*
 		 * INITIALISATION
 		 */

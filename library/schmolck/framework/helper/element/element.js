@@ -6,17 +6,20 @@
  * 
  * @param {array} parameter various parameters
  */
+var nProgressCounter = 0;
+
 function Schmolck_Framework_Helper_Element(parameter) {
     /*
      * INITIALISATION
      */
     var objElement = $('#' + parameter.id);
+    var objProgress = $('body').find('.progress');
 
     /*
-     * ANIMATION
+     * PROGRESS BAR
      */
-    objElement.addClass('loading');
-    objElement.fadeTo(1000, 0.5);
+    objProgress.slideDown();
+    nProgressCounter++;
 
     /*
      * AJAX
@@ -38,6 +41,14 @@ function Schmolck_Framework_Helper_Element(parameter) {
             if (parameter.success instanceof Function) {
                 parameter.success(data);
             }
+            
+            /*
+             * PROGRESS BAR
+             */
+            nProgressCounter--;
+            if (nProgressCounter === 0) {
+                objProgress.slideUp();
+            }            
         }
     });
 }

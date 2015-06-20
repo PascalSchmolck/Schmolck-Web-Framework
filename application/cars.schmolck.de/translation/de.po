@@ -52,15 +52,11 @@ msgstr "Abschicken"
 
 #: ../application/cars.schmolck.de/module/contact/page/emmendingen/output.phtml:6
 msgid "Contact"
-msgstr "Ansprechpartner"
+msgstr "Kontakt"
 
 #: ../application/cars.schmolck.de/module/contact/page/emmendingen/output.phtml:7
 msgid "Our sales consultants for Emmendingen and Vogtsburg"
 msgstr "Unsere Verkaufsberater für Emmendingen und Vogtsburg"
-
-#: ../application/cars.schmolck.de/module/contact/page/emmendingen/output.phtml:38
-msgid "Address"
-msgstr "Anschrift"
 
 #: ../application/cars.schmolck.de/module/contact/page/muellheim/output.phtml:7
 msgid "Our sales consultants for Müllheim"
@@ -98,7 +94,7 @@ msgstr "Sehr geehrte Damen und Herren,"
 
 #: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:20
 msgid "I am interested in a vehicle with the following criteria:"
-msgstr "ich interessiere mich für ein Fahrzeug mit folgenden Kriterien:"
+msgstr "Ich interessiere mich für ein Fahrzeug mit folgenden Kriterien:"
 
 #: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:21
 msgid "Brand"
@@ -162,31 +158,31 @@ msgstr "Automatik"
 msgid "Kilometer"
 msgstr "Kilometer"
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:48
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:47
 msgid "Filter"
 msgstr "Filter"
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:114
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:112
 msgid "Price (max.)"
 msgstr "Preis (max.)"
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:127
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:125
 msgid "Sorting"
 msgstr "Sortierung"
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:144
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:142
 msgid "Results"
 msgstr "Ergebnisse"
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:145
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:143
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:150
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:148
 msgid "No matches found."
 msgstr "Keine Übereinstimmungen gefunden."
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:151
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:149
 msgid "Try a new search."
 msgstr "Versuchen Sie es mit anderen Filterkriterien."
 
@@ -369,6 +365,14 @@ msgstr "Navigation"
 #: ../application/cars.schmolck.de/template/2015.06/html.phtml:37
 msgid "Website"
 msgstr "Webseite"
+
+#: ../application/cars.schmolck.de/template/2015.06/html.phtml:42
+#, fuzzy
+msgid "Used Cars"
+msgstr "Gebrauchtwagen"
+
+#~ msgid "Address"
+#~ msgstr "Anschrift"
 
 #~ msgid "Error"
 #~ msgstr "Fehler"

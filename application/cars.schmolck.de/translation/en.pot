@@ -48,10 +48,6 @@ msgstr ""
 msgid "Our sales consultants for Emmendingen and Vogtsburg" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/contact/page/emmendingen/output.phtml:38 
-msgid "Address" 
-msgstr "" 
-
 #: ../application/cars.schmolck.de/module/contact/page/muellheim/output.phtml:7 
 msgid "Our sales consultants for Müllheim" 
 msgstr "" 
@@ -148,31 +144,31 @@ msgstr ""
 msgid "Kilometer" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:48 
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:47 
 msgid "Filter" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:114 
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:112 
 msgid "Price (max.)" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:127 
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:125 
 msgid "Sorting" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:144 
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:142 
 msgid "Results" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:145 
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:143 
 msgid "Reset" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:150 
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:148 
 msgid "No matches found." 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:151 
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:149 
 msgid "Try a new search." 
 msgstr "" 
 
@@ -354,5 +350,9 @@ msgstr ""
 
 #: ../application/cars.schmolck.de/template/2015.06/html.phtml:37 
 msgid "Website" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/template/2015.06/html.phtml:42 
+msgid "Used Cars" 
 msgstr "" 
 

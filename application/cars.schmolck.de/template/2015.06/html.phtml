@@ -37,32 +37,30 @@
                                 <?= ($objCore->getHelperTranslator()->_("Website")) ?>
                             </a>
                         </li>
-                        <li>
+                        <li class="<?= $arrNavbarClass['mobile'] ?>">
                             <a href="mobile">
-                                <?= ($objCore->getHelperTranslator()->_("Vehicle Search")) ?>
+                                <?= ($objCore->getHelperTranslator()->_("Used Cars")) ?>
                             </a>
                         </li>                  
-                        <li>
+                        <li class="<?= $arrNavbarClass['location'] ?>">
+                            <a href="location/page/emmendingen">
+                                <?= ($objCore->getHelperTranslator()->_("Locations")) ?>
+                            </a>
+                        </li>                  
+                        <li class="<?= $arrNavbarClass['contact'] ?>">
                             <a href="contact/page/emmendingen">
                                 <?= ($objCore->getHelperTranslator()->_("Contact")) ?>
                             </a>
                         </li>
-                        <li>
-                            <a href="location/page/emmendingen">
-                                <?= ($objCore->getHelperTranslator()->_("Locations")) ?>
-                            </a>
-                        </li>                        
                     </ul>
                 </div>
             </div>
         </nav>
 
         <div id="main" class="container" role="main">
-            <div class="page-header">
-                <h1>
-                    <?= $objCore->strPageTitle ?>
-                </h1>
-            </div>         
+            <div class="progress progress-striped active modal">
+                <div class="progress-bar"></div>
+            </div>                
             <?php if ($objCore->getHelperMessage()->getMessage() != '') : ?>
                 <div class="alert alert-dismissible alert-warning">
                     <button type="button" class="close" data-dismiss="alert">×</button>
@@ -84,10 +82,6 @@
                             <p>
                                 Am Elzdamm 2 <br>
                                 79312 Emmendingen
-                            </p>
-                            <p>
-                                Bacchusstraße 19 <br>
-                                79235 Vogtsburg-Bischoffingen 
                             </p>
                             <p>
                                 Tel +49 7641 / 4602-0 <br>
@@ -132,6 +126,11 @@
                                 AGB
                             </a>								
                         </li>							
+                        <li>
+                            <a href="location/page/emmendingen">
+                                <?= ($objCore->getHelperTranslator()->_("Locations")) ?>
+                            </a>
+                        </li>  
                         <li>
                             <a href="static/page/imprint">
                                 Impressum
