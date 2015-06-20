@@ -58,7 +58,7 @@ msgstr "Ansprechpartner"
 msgid "Our sales consultants for Emmendingen and Vogtsburg"
 msgstr "Unsere Verkaufsberater für Emmendingen und Vogtsburg"
 
-#: ../application/cars.schmolck.de/module/contact/page/emmendingen/output.phtml:36
+#: ../application/cars.schmolck.de/module/contact/page/emmendingen/output.phtml:38
 msgid "Address"
 msgstr "Anschrift"
 
@@ -198,6 +198,10 @@ msgstr "Allgemeine Anfrage"
 msgid "Request for the vehicle %s"
 msgstr "Anfrage zum Fahrzeug %s"
 
+#: ../application/cars.schmolck.de/module/mobile/element/form/output.phtml:28
+msgid "Message"
+msgstr "Nachricht"
+
 #: ../application/cars.schmolck.de/module/mobile/element/gallery/output.phtml:6
 msgid "Cars"
 msgstr "Fahrzeuge"
@@ -210,11 +214,11 @@ msgstr "Lade..."
 msgid "%s Hits"
 msgstr "%s Treffer"
 
-#: ../application/cars.schmolck.de/module/mobile/element/gallery/output.phtml:48
+#: ../application/cars.schmolck.de/module/mobile/element/gallery/output.phtml:43
 msgid "VAT not deductable"
 msgstr "MwSt. nicht ausweisbar"
 
-#: ../application/cars.schmolck.de/module/mobile/element/list/output.phtml:55
+#: ../application/cars.schmolck.de/module/mobile/element/list/output.phtml:56
 msgid "VAT deductable"
 msgstr "MwSt. ausweisbar"
 
@@ -227,8 +231,12 @@ msgid "Gallery"
 msgstr "Galerie"
 
 #: ../application/cars.schmolck.de/module/mobile/page/detail/action.php:43
-msgid "Sorry, the selected vehicle is no longer available."
-msgstr "Verzeihung, das gewählte Fahrzeug ist nicht mehr vorhanden."
+msgid "Sorry, the selected vehicle %s is not available."
+msgstr "Verzeihung, das gewählte Fahrzeug ist nicht vorhanden."
+
+#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:6
+msgid "Vehicle Search"
+msgstr "Fahrzeugsuche"
 
 #: ../application/cars.schmolck.de/module/mobile/_helper.php:68
 msgid "Mercedes-Benz"
@@ -358,9 +366,12 @@ msgstr "Standort"
 msgid "Navigation"
 msgstr "Navigation"
 
-#: ../application/cars.schmolck.de/template/2015.05/html.phtml:37
-msgid "Vehicle Search"
-msgstr "Fahrzeugsuche"
+#: ../application/cars.schmolck.de/template/2015.06/html.phtml:37
+msgid "Website"
+msgstr "Webseite"
+
+#~ msgid "Error"
+#~ msgstr "Fehler"
 
 #~ msgid "Overview"
 #~ msgstr "Übersicht"

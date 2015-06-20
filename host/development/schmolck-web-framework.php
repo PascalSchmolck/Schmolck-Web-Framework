@@ -55,7 +55,7 @@ define('APPLICATION_LANGUAGE', 'de');
  * Define what template should be used. 
  * Depends on what template folders you have installed and running.
  */
-define('APPLICATION_TEMPLATE', '2015.05');
+define('APPLICATION_TEMPLATE', '2015.06');
 
 /*
  * EXCEPTION

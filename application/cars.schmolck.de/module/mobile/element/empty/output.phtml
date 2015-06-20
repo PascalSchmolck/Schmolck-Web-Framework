@@ -21,7 +21,7 @@ $strMessage .= $objCore->getHelperTranslator()->_("I am interested in a vehicle 
 $strMessage .= $objCore->getHelperTranslator()->_("Brand") . ': ' . $arrBrands[$strBrand] . PHP_EOL;
 $strMessage .= $objCore->getHelperTranslator()->_("Model") . ': ' . $arrOptions[$strModel] . PHP_EOL;
 //$strMessage .= $objCore->getHelperTranslator()->_("Transmission") . ': ' . $strTransmission. PHP_EOL;
-$strMessage .= $objCore->getHelperTranslator()->_("Price") . ': ' . number_format($strPrice, 0, "", ".") . ' EUR' . PHP_EOL . PHP_EOL;
+$strMessage .= $objCore->getHelperTranslator()->_("Price") . ': ' . number_format(doubleval($strPrice), 0, "", ".") . ' EUR' . PHP_EOL . PHP_EOL;
 $strMessage .= $objCore->getHelperTranslator()->_("With best regards") . PHP_EOL . PHP_EOL;
 
 /*

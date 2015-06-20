@@ -5,7 +5,6 @@
 $objCore = Schmolck_Framework_Core::getInstance($this);
 $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Cars"));
 $strBaseUrl = $objCore->getHelperApplication()->getBaseUrl();
-$nCounter = 0;
 
 /*
  * OUTPUT
@@ -13,17 +12,19 @@ $nCounter = 0;
 ?>
 <div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
     <? if ($objCore->nCars > 0) : ?>
-        <div class="loadingmessage">
-            <?= $objCore->getHelperTranslator()->_("Loading...") ?>
-        </div>	
-        <!--		<div class="amount">
-        <?= sprintf($objCore->getHelperTranslator()->_("%s Hits"), $objCore->nCars) ?>
-              </div>-->
-        <div class="list">
-            <? foreach ($objCore->arrCars as $arrCar) : ?>		
-                <? ($nCounter % 2 == 0) ? $strOdd = 'odd' : $strOdd = ''; ?> 
+    <div class="loadingmessage">
+        <?= $objCore->getHelperTranslator()->_("Loading...") ?>
+    </div>	
+    <!--		<div class="amount">
+    <?= sprintf($objCore->getHelperTranslator()->_("%s Hits"), $objCore->nCars) ?>
+          </div>-->
+    <table class="table table-striped list">
+
+        <? foreach ($objCore->arrCars as $arrCar) : ?>		
+        <tr>
+            <td>
                 <a name="<?= $arrCar['id'] ?>"></a>
-                <div class="item <?= $strOdd ?>" data-name="<?= $arrCar['id'] ?>" data-link="<?= $strBaseUrl ?>/mobile/page/detail/id/<?= $arrCar['id'] ?>">
+                <div class="item" data-name="<?= $arrCar['id'] ?>" data-link="<?= $strBaseUrl ?>/mobile/page/detail/id/<?= $arrCar['id'] ?>">
                     <div class="title">
                         <?= $arrCar['name'] ?>
                     </div>
@@ -50,9 +51,9 @@ $nCounter = 0;
                             <div class="pricenote">
                                 <?
                                 if ($arrCar['mwst'] == '1') {
-                                    echo $objCore->getHelperTranslator()->_("VAT not deductable");
+                                echo $objCore->getHelperTranslator()->_("VAT not deductable");
                                 } else {
-                                    echo $objCore->getHelperTranslator()->_("VAT deductable");
+                                echo $objCore->getHelperTranslator()->_("VAT deductable");
                                 }
                                 ?>								
                             </div>							
@@ -62,19 +63,12 @@ $nCounter = 0;
                         </div>
                     </div>
                 </div>
-                <? $nCounter++ ?>
-            <? endforeach; ?>
-        </div>
-        <? if (count($objCore->arrCars) >= 5) : ?>
-            <div class="amount">
-                <?= sprintf($objCore->getHelperTranslator()->_("%s Hits"), $objCore->nCars) ?>
-            </div>
-        <? endif; ?>	
+            </td>
+        </tr>
+        <? endforeach; ?>
+    </table>
     <? else: ?>	
-        <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_empty", 'mobile/element/empty') ?>				
+    <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_empty", 'mobile/element/empty') ?>				
     <? endif; ?>	
-    <div class="clearer">
-        &nbsp;
-    </div>
     <?= $objCore->getHelperScripts()->renderViewScripts() ?>
 </div>

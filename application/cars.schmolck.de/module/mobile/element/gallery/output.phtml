@@ -39,11 +39,6 @@ $strBaseUrl = $objCore->getHelperApplication()->getBaseUrl();
         <div class="clearer">
             &nbsp;
         </div>
-        <? if (count($objCore->arrCars) >= 25) : ?>
-            <div class="amount">
-                <?= sprintf($objCore->getHelperTranslator()->_("%s Hits"), $objCore->nCars) ?>
-            </div>
-        <? endif; ?>	
         <div>
             * <?= $objCore->getHelperTranslator()->_("VAT not deductable"); ?>
         </div>

@@ -10,6 +10,33 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 if ($objCore->bAutoSubject) {
     $strSubjectDisabled = 'disabled';
 }
+// - CSS classes for error display
+$arrElement = array(
+    'name' => array(
+        'label' => $objCore->getHelperTranslator()->_("Name") . '*',
+        'error' => $objCore->strErrorName
+    ),
+    'email' => array(
+        'label' => $objCore->getHelperTranslator()->_("E-Mail") . '*',
+        'error' => $objCore->strErrorEmail
+    ),
+    'subject' => array(
+        'label' => $objCore->getHelperTranslator()->_("Subject") . '*',
+        'error' => $objCore->strErrorSubject
+    ),
+    'message' => array(
+        'label' => $objCore->getHelperTranslator()->_("Message") . '*',
+        'error' => $objCore->strErrorMessage
+    )
+);
+foreach ($arrElement as $element => $value) {
+    if ($value['error'] != '') {
+        $arrElement[$element]['class'] = 'has-warning';
+        $arrElement[$element]['label'] = $value['error'];
+    } else {
+        $arrElement[$element]['label'] = $value['label'];
+    }
+}
 
 /*
  * OUTPUT
@@ -23,57 +50,39 @@ if ($objCore->bAutoSubject) {
         </div>
         <? } else { ?>
         <input type="hidden" name="send" value="1">
-        <p>
-            <label>
-                <?= $objCore->getHelperTranslator()->_("Name") ?>*
-                <span class="error">
-                    <?= $objCore->strErrorName ?>
-                </span>
-            </label>
-            <input id="<?= $objCore->strId ?>_name" type="text" name="name" value="<?= $objCore->strName ?>">	
-        </p>
 
-        <p>
-            <label>
-                <?= $objCore->getHelperTranslator()->_("E-Mail") ?>*		
-                <span class="error">
-                    <?= $objCore->strErrorEmail ?>
-                </span>
+        <div class="form-group <?= $arrElement['name']['class'] ?>">
+            <label for="name" class="control-label">
+                <?= $arrElement['name']['label'] ?>
             </label>
-            <input type="text" name="email" value="<?= $objCore->strEmail ?>">
-        </p>
+            <input id="<?= $objCore->strId ?>_name" class="form-control" type="text" name="name" value="<?= $objCore->strName ?>">	
+        </div>
 
-        <p>
-            <label>
-                <?= $objCore->getHelperTranslator()->_("Subject") ?>*		
-                <span class="error">
-                    <?= $objCore->strErrorSubject ?>
-                </span>
+        <div class="form-group <?= $arrElement['email']['class'] ?>">
+            <label for="email" class="control-label">
+                <?= $arrElement['email']['label'] ?>
             </label>
-            <input type="text" name="subject" value="<?= $objCore->strSubject ?>" <?= $strSubjectDisabled ?>>
-        </p>            
+            <input type="text" name="email" class="form-control" value="<?= $objCore->strEmail ?>">
+        </div>
 
-        <p>
-            <label>
-                <?= $objCore->getHelperTranslator()->_("Your message") ?>*
-                <span class="error">
-                    <?= $objCore->strErrorMessage ?>
-                </span>
+        <div class="form-group <?= $arrElement['subject']['class'] ?>">
+            <label for="subject" class="control-label">
+                <?= $arrElement['subject']['label'] ?>
             </label>
-            <textarea name="message" spellcheck="true"><?= $objCore->strMessage ?></textarea>
-        </p>
+            <input type="text" name="subject" class="form-control" value="<?= $objCore->strSubject ?>" <?= $strSubjectDisabled ?>>
+        </div>
 
-        <p class="buttons">
-            <div class="row">
-                <div class="col-md-3">
-                    <input class="btn btn-default" type="reset" value="<?= $objCore->getHelperTranslator()->_("Reset") ?>">
-                </div>
-                <div class="col-md-6">&nbsp;</div>
-                <div class="col-md-3">
-                    <input class="btn btn-primary" type="submit" value="<?= $objCore->getHelperTranslator()->_("Submit") ?>">
-                </div>
-            </div>
-        </p>
+        <div class="form-group <?= $arrElement['message']['class'] ?>">
+            <label for="message" class="control-label">
+                <?= $arrElement['message']['label'] ?>
+            </label>
+            <textarea name="message" spellcheck="true" class="form-control"><?= $objCore->strMessage ?></textarea>
+        </div>
+
+        <div class="form-group">
+            <input class="btn btn-default" type="reset" value="<?= $objCore->getHelperTranslator()->_("Reset") ?>">
+            <input class="btn btn-primary" type="submit" value="<?= $objCore->getHelperTranslator()->_("Submit") ?>">
+        </div>
 
         <?= $objCore->getHelperScripts()->renderViewScripts() ?>
 

@@ -28,7 +28,7 @@ QRcode::png($strBaseUrl.'/'.$strUri, $objCore->strQRImage);
  * PARAMETER
  */
 // - id
-$strParameterId = trim(strip_tags($_GET['id']));
+$strParameterId = intval(trim(strip_tags($_GET['id'])));
 
 /*
  * DATA
@@ -40,7 +40,8 @@ $objCore->arrCars = $objCars->queryCarsSingle($strParameterId);
  */
 // - check if database result empty
 if (count($objCore->arrCars) == 0) {
-	$objCore->getHelperMessage()->setMessage($objCore->getHelperTranslator()->_("Sorry, the selected vehicle is no longer available."));
+    $strMessage = sprintf($objCore->getHelperTranslator()->_("Sorry, the selected vehicle %s is not available."), $strParameterId);
+	$objCore->getHelperMessage()->setMessage($strMessage);
 	$objCore->getHelperRedirect()->local('mobile');
 }
 

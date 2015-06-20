@@ -1,5 +1,5 @@
 
-Notice: Undefined variable: result in U:\Dokumente\Arbeit\Webseiten\GitHub\Schmolck-Web-Framework\tools\xgettext.php on line 94
+Notice: Undefined variable: result in E:\Webseiten\GitHub\Schmolck-Web-Framework\tools\xgettext.php on line 94
 #: ../application/cars.schmolck.de/module/contact/api/form/action.php:25 
 msgid "Please enter your name name" 
 msgstr "" 
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Our sales consultants for Emmendingen and Vogtsburg" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/contact/page/emmendingen/output.phtml:36 
+#: ../application/cars.schmolck.de/module/contact/page/emmendingen/output.phtml:38 
 msgid "Address" 
 msgstr "" 
 
@@ -184,6 +184,10 @@ msgstr ""
 msgid "Request for the vehicle %s" 
 msgstr "" 
 
+#: ../application/cars.schmolck.de/module/mobile/element/form/output.phtml:28 
+msgid "Message" 
+msgstr "" 
+
 #: ../application/cars.schmolck.de/module/mobile/element/gallery/output.phtml:6 
 msgid "Cars" 
 msgstr "" 
@@ -196,11 +200,11 @@ msgstr ""
 msgid "%s Hits" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/mobile/element/gallery/output.phtml:48 
+#: ../application/cars.schmolck.de/module/mobile/element/gallery/output.phtml:43 
 msgid "VAT not deductable" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/mobile/element/list/output.phtml:55 
+#: ../application/cars.schmolck.de/module/mobile/element/list/output.phtml:56 
 msgid "VAT deductable" 
 msgstr "" 
 
@@ -213,7 +217,11 @@ msgid "Gallery"
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/mobile/page/detail/action.php:43 
-msgid "Sorry, the selected vehicle is no longer available." 
+msgid "Sorry, the selected vehicle %s is not available." 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:6 
+msgid "Vehicle Search" 
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/mobile/_helper.php:68 
@@ -344,7 +352,7 @@ msgstr ""
 msgid "Navigation" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/template/2015.05/html.phtml:37 
-msgid "Vehicle Search" 
+#: ../application/cars.schmolck.de/template/2015.06/html.phtml:37 
+msgid "Website" 
 msgstr "" 
 

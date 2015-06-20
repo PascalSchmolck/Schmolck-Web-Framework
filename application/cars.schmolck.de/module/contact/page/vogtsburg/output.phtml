@@ -18,14 +18,16 @@ $arrSeller = array(
         <div class="row">
             <div class="col-md-8">
                 <img src="apps/image/1024/90/images/cars.schmolck.de/contact/pkw-verkauf-emmendingen.jpg" class="img-thumbnail">
-                <table class="names" width="100%">
-                    <tr>
-                        <?php foreach ($arrSeller as $name => $email) : ?>	
-                            <td>
-                                <a href="<?= $objCore->getHelperLink()->get("mailto:{$email}?subject={$strMailInfo}") ?>"><?= $name ?></a>
-                            </td>
-                        <?php endforeach; ?>
-                    </tr>
+                <table class="table names" width="100%">
+                    <tbody>
+                        <tr>
+                            <?php foreach ($arrSeller as $name => $email) : ?>	
+                                <td>
+                                    <a href="<?= $objCore->getHelperLink()->get("mailto:{$email}?subject={$strMailInfo}") ?>"><?= $name ?></a>
+                                </td>
+                            <?php endforeach; ?>
+                        </tr>
+                    </tbody>                    
                 </table>                
             </div>
             <div class="col-sm-4">
