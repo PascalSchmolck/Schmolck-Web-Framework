@@ -1,6 +1,6 @@
 /nbproject/private/
 /backup/*
 /data/*
-/host/production/*
+/host/production/*.php
 /nbproject/*
 /tmp/*
