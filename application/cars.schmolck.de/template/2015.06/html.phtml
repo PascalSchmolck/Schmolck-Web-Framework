@@ -32,11 +32,6 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li>
-                            <a href="http://www.schmolck.de">
-                                <?= ($objCore->getHelperTranslator()->_("Website")) ?>
-                            </a>
-                        </li>
                         <li class="<?= $arrNavbarClass['mobile'] ?>">
                             <a href="mobile">
                                 <?= ($objCore->getHelperTranslator()->_("Used Cars")) ?>
@@ -50,6 +45,13 @@
                         <li class="<?= $arrNavbarClass['contact'] ?>">
                             <a href="contact/page/emmendingen">
                                 <?= ($objCore->getHelperTranslator()->_("Contact")) ?>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="http://www.schmolck.de" target="_blank">
+                                <?= ($objCore->getHelperTranslator()->_("Website")) ?>
                             </a>
                         </li>
                     </ul>
@@ -126,11 +128,6 @@
                                 AGB
                             </a>								
                         </li>							
-                        <li>
-                            <a href="location/page/emmendingen">
-                                <?= ($objCore->getHelperTranslator()->_("Locations")) ?>
-                            </a>
-                        </li>  
                         <li>
                             <a href="static/page/imprint">
                                 Impressum

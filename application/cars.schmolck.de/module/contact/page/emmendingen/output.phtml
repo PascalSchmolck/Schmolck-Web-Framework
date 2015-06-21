@@ -5,7 +5,12 @@
 $objCore = Schmolck_Framework_Core::getInstance($this);
 $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Contact") . " - Emmendingen");
 $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Our sales consultants for Emmendingen and Vogtsburg");
-$arrSeller = array(
+$arrPersonInfo = array(
+    'Sonja Fross' => 'info.emmendingen@schmolck.de',
+    'Anastasija Kopp' => 'info.emmendingen@schmolck.de',
+    'Carina Kusnezow' => 'info.emmendingen@schmolck.de',
+);
+$arrPersonSale = array(
     'Mike Mack' => 'mike.mack@schmolck.de',
     'Sebastian Heiny' => 'sebastian.heiny@schmolck.de',
     'Jürgen Rinkenauer' => 'juergen.rinkenauer@schmolck.de',
@@ -16,46 +21,79 @@ $arrSeller = array(
     <?= $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
     <div class="contact">
         <div class="row">
-            <div class="col-md-8">
-                <img src="apps/image/1024/90/images/cars.schmolck.de/contact/pkw-verkauf-emmendingen.jpg">
-                <table class="table names" width="100%">
-                    <tbody>
-                        <tr>
-                            <?php foreach ($arrSeller as $name => $email) : ?>	
-                                <td>
-                                    <a href="<?= $objCore->getHelperLink()->get("mailto:{$email}?subject={$strMailInfo}") ?>"><?= $name ?></a>
-                                </td>
-                            <?php endforeach; ?>
-                        </tr>
-                    </tbody>                    
-                </table>                
+            <div class="col-md-6">
+                <div>
+                    <h2>
+                        Information &amp; Terminvereinbarung
+                    </h2>        
+                    <img src="apps/image/1024/90/images/cars.schmolck.de/contact/pkw-zentrale-emmendingen.jpg">
+                    <table class="table names" width="100%">
+                        <tbody>
+                            <tr>
+                                <?php foreach ($arrPersonInfo as $name => $email) : ?>	
+                                    <td>
+                                        <a href="<?= $objCore->getHelperLink()->get("mailto:{$email}?subject={$strMailInfo}") ?>"><?= $name ?></a>
+                                    </td>
+                                <?php endforeach; ?>
+                            </tr>
+                        </tbody>                    
+                    </table>                
+
+                </div> 
             </div>
-            <div class="col-sm-4">
-
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <a href="location/page/emmendingen" class="screen">
-                            <img src="apps/image/1024/90/images/cars.schmolck.de/location/emmendingen.jpg">
-                        </a>
-                        <p>
-                        <h5>
-                            Schmolck GmbH & Co. KG
-                        </h5>
-                        <a href="location/page/emmendingen">
-                            Am Elzdamm 2 <br>
-                            79312 Emmendingen	<br>
-                        </a>
-                        <br>
-                        Tel +49 7641 / 4602-0 <br>
-                        Fax +49 7641 / 4602-80 <br>
-                        </p>
-                    </div>
+            <div class="col-md-6">
+                <div>
+                    <h2>
+                        Verkauf
+                    </h2>                     
+                    <img src="apps/image/1024/90/images/cars.schmolck.de/contact/pkw-verkauf-emmendingen.jpg">
+                    <table class="table names" width="100%">
+                        <tbody>
+                            <tr>
+                                <?php foreach ($arrPersonSale as $name => $email) : ?>	
+                                    <td>
+                                        <a href="<?= $objCore->getHelperLink()->get("mailto:{$email}?subject={$strMailInfo}") ?>"><?= $name ?></a>
+                                    </td>
+                                <?php endforeach; ?>
+                            </tr>
+                        </tbody>                    
+                    </table>                
                 </div>
-
+                </p>
             </div>
         </div>
+        <hr>
         <div class="row">
-            <div class="col-md-8">        
+            <div class="col-md-6">
+                <h2>
+                    Schmolck GmbH & Co. KG
+                </h2>
+                <p>
+                    <a href="location/page/emmendingen">
+                        Am Elzdamm 2 <br>
+                        79312 Emmendingen	<br>
+                    </a>
+                    <br>
+                    Tel +49 7641 / 4602-0 <br>
+                    Fax +49 7641 / 4602-80 <br>
+                </p>
+                <p>
+                    <?= $objCore->getHelperTranslator()->_("Mail") ?>
+                    <a href="<?= $objCore->getHelperLink()->get('mailto:info.emmendingen@schmolck.de') ?>">
+                        <span class="screen">
+                            Info Emmendingen
+                        </span>
+                        <span class="print">
+                            info.emmendingen@schmolck.de
+                        </span>
+                    </a>
+                    <br>
+                    <a href="http://www.schmolck.de" target="_blank">
+                        www.schmolck.de
+                    </a>
+                </p>
+            </div>
+            <div class="col-md-6">        
                 <div class="form screen">
                     <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_form", 'mobile/element/form') ?>		
                 </div>

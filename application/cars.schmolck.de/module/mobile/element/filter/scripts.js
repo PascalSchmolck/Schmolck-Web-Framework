@@ -34,6 +34,7 @@ $(document).ready(function () {
             data: strData,
             success: function () {
                 SchmolckID_checkCounter();
+                SchmolckID_reloadResult();
             }
         });
     };

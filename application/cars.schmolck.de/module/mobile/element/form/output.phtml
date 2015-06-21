@@ -45,7 +45,8 @@ foreach ($arrElement as $element => $value) {
 <div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
     <form method="post">
         <? if ($objCore->strMessageMail != '') { ?>
-        <div class="alert alert-info" role="alert">
+        <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">×</button>
             <?= $objCore->strMessageMail ?>
         </div>
         <? } else { ?>

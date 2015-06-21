@@ -48,6 +48,10 @@ msgstr ""
 msgid "Our sales consultants for Emmendingen and Vogtsburg" 
 msgstr "" 
 
+#: ../application/cars.schmolck.de/module/contact/page/emmendingen/output.phtml:81 
+msgid "Mail" 
+msgstr "" 
+
 #: ../application/cars.schmolck.de/module/contact/page/muellheim/output.phtml:7 
 msgid "Our sales consultants for Müllheim" 
 msgstr "" 
@@ -70,10 +74,6 @@ msgstr ""
 
 #: ../application/cars.schmolck.de/module/location/page/emmendingen/output.phtml:6 
 msgid "Locations" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/location/page/emmendingen/output.phtml:32 
-msgid "Mail" 
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:19 
@@ -144,31 +144,27 @@ msgstr ""
 msgid "Kilometer" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:47 
-msgid "Filter" 
-msgstr "" 
-
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:112 
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:109 
 msgid "Price (max.)" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:125 
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:122 
 msgid "Sorting" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:142 
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:139 
 msgid "Results" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:143 
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:140 
 msgid "Reset" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:148 
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:145 
 msgid "No matches found." 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:149 
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:146 
 msgid "Try a new search." 
 msgstr "" 
 
@@ -218,6 +214,14 @@ msgstr ""
 
 #: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:6 
 msgid "Vehicle Search" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:84 
+msgid "Print" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:85 
+msgid "Request" 
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/mobile/_helper.php:68 
@@ -349,10 +353,10 @@ msgid "Navigation"
 msgstr "" 
 
 #: ../application/cars.schmolck.de/template/2015.06/html.phtml:37 
-msgid "Website" 
+msgid "Used Cars" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/template/2015.06/html.phtml:42 
-msgid "Used Cars" 
+#: ../application/cars.schmolck.de/template/2015.06/html.phtml:54 
+msgid "Website" 
 msgstr "" 
 
