@@ -14,7 +14,7 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
     <?php foreach ($objCore->arrCars as $arrCar) : ?>		
         <div class="item" data-link="<?= $objCore->strParameterUrl ?>/id/<?= $arrCar['id'] ?>">
             <div class="title">
-                <? $objCore->getHelperHtml()->setPageTitle($arrCar['name']); ?>
+                <? $objCore->getHelperHtml()->setPageTitle($arrCar['name'] . ' (' . $arrCar['id'] . ')'); ?>
                 <? $strMailInfo = $_SERVER['HTTP_HOST'] . ' - ' . sprintf($objCore->getHelperTranslator()->_("Request for the vehicle %s"), $arrCar['id']); ?>
             </div>
             <div class="row">
@@ -41,7 +41,7 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
                             </tr>
                             <tr>
                                 <td>EZ <?= $arrCar['ez'] ?></td>
-                                <td><?= $arrCar['km'] ?> km </td>
+                                <td><?= $arrCar['km'] ?> km</td>
                             </tr>
                             <tr>
                                 <td>
