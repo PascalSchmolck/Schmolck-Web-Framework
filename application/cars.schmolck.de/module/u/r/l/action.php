@@ -23,7 +23,7 @@ $objCore->strUrl = strip_tags($_POST['url']);
 if ($objCore->strHash != '') {
     $objUrl = new Url_Helper($objCore);
     try {
-        $objCore->getHelperRedirect()->external($objUrl->decodeUrl($objCore->strHash));
+        $objCore->strUrlRedirect = $objUrl->decodeUrl($objCore->strHash);
     } catch (Exception $objException) {
         switch ($objException->getCode()) {
             default:
@@ -57,4 +57,5 @@ if ($objCore->strUrl != '') {
 $objCore->getHelperScripts()->registerViewScriptReplace(array(
     'SchmolckID' => $objCore->getHelperElement()->getId(),
     'SchmolckURL' => $objCore->getHelperApplication()->getRequestUrl(),
+    'SchmolckREDIRECT' => $objCore->strUrlRedirect
 ));

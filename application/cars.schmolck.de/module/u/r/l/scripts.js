@@ -1,5 +1,12 @@
 $(document).ready(function () {
     /*
+     * REDIRECT
+     */
+    if ('SchmolckREDIRECT' !== '') {
+        window.location.href = 'SchmolckREDIRECT';
+    }
+    
+    /*
      * ACTION
      */
     $('#SchmolckID input[type=submit]').click(function () {

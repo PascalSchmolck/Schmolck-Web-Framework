@@ -352,7 +352,11 @@ msgstr ""
 msgid "URL" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/u/r/l/output.phtml:43 
+#: ../application/cars.schmolck.de/module/u/r/l/output.phtml:40 
+msgid "Redirecting to..." 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/u/r/l/output.phtml:58 
 msgid "Shorten" 
 msgstr "" 
 

@@ -22,39 +22,54 @@ foreach ($arrElement as $element => $value) {
 }
 ?>
 <div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
-    <h1>
-        <?= $objCore->strPageTitle ?>
-    </h1>
+    <?php if ($objCore->strUrlRedirect == ''): ?>
+        <h1>
+            <?= $objCore->strPageTitle ?>
+        </h1>
+    <?php endif; ?>
     <?php if ($objCore->strErrorMessage != ''): ?>
         <div class="alert alert-dismissible alert-warning">
             <button type="button" class="close" data-dismiss="alert">×</button>
             <?= $objCore->strErrorMessage ?>
         </div>
     <?php endif; ?>
-    <form>
-        <div class="form-group <?= $arrElement['url']['class'] ?>">
-            <label for="url" class="control-label">
-                <?= $arrElement['url']['label'] ?>
-            </label>
-            <input type="text" name="url" class="form-control" value="<?= $objCore->strUrl ?>">
-        </div>
-
-        <div class="form-group">
-            <input class="btn btn-primary" type="submit" value="<?= $objCore->getHelperTranslator()->_("Shorten") ?>">
-        </div>
-
-        <?= $objCore->getHelperScripts()->renderViewScripts() ?>
-    </form>
-    <?php if ($objCore->strHash != '' && $objCore->strUrl != ''): ?>
+    <?php if ($objCore->strUrlRedirect != ''): ?>
         <div class="well">
-            <p class="wrap">
-                <a href="<?= $objCore->strHash ?>" target="_blank">
-                    <?= $objCore->strHash ?>
+            <h3>
+                <?= $objCore->getHelperTranslator()->_("Redirecting to...") ?>
+            </h3>
+            <h4 class="wrap">
+                <a href="<?= $objCore->strUrlRedirect ?>">
+                    <?= $objCore->strUrlRedirect ?>
                 </a>
-            </p>
-            <div class="qrcode">
-                <img src="<?= $objCore->strQRImage ?>">
-            </div>
+            </h4>
         </div>
+    <?php else: ?>
+        <form>
+            <div class="form-group <?= $arrElement['url']['class'] ?>">
+                <label for="url" class="control-label">
+                    <?= $arrElement['url']['label'] ?>
+                </label>
+                <input type="text" name="url" class="form-control" value="<?= $objCore->strUrl ?>">
+            </div>
+
+            <div class="form-group">
+                <input class="btn btn-primary" type="submit" value="<?= $objCore->getHelperTranslator()->_("Shorten") ?>">
+            </div>
+        </form>
+        <?php if ($objCore->strHash != '' && $objCore->strUrl != ''): ?>
+            <div class="well">
+                <h4 class="wrap">
+                    <a href="<?= $objCore->strHash ?>" target="_blank">
+                        <?= $objCore->strHash ?>
+                    </a>
+                </h4>
+                <div class="qrcode">
+                    <img src="<?= $objCore->strQRImage ?>">
+                </div>
+            </div>
+        <?php endif; ?>
+
     <?php endif; ?>
+    <?= $objCore->getHelperScripts()->renderViewScripts() ?>
 </div>
