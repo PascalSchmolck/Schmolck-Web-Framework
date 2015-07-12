@@ -36,10 +36,15 @@ if ($objCore->strHash != '') {
 }
 // - shorten
 if ($objCore->strUrl != '') {
+    // - add http if missing
+    if (!preg_match("/^http/", $objCore->strUrl)) {
+        $objCore->strUrl = 'http://' . $objCore->strUrl;
+    }
+    // - hash
     $objUrl = new Url_Helper($objCore);
     $objCore->strHash = $objUrl->encodeUrl($objCore->strUrl);
 
-    // - QR-Code
+    // - qr
     $strUri = $objCore->getHelperApplication()->getCurrentUri();
     $strBaseUrl = $objCore->getHelperApplication()->getBaseUrl();
     $objCore->strQRImage = $objCore->getHelperCache()->getFilePath(md5($strBaseUrl . '/' . $strUri));
