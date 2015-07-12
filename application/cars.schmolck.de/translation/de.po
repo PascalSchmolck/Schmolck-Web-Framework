@@ -354,6 +354,22 @@ msgstr "Sprache Auswahl"
 msgid "Language / Sprache"
 msgstr "Language / Sprache"
 
+#: ../application/cars.schmolck.de/module/u/r/l/action.php:32
+msgid "Sorry, the called URL is unknown"
+msgstr "Verzeihung, die aufgerufene URL ist unbekannt"
+
+#: ../application/cars.schmolck.de/module/u/r/l/output.phtml:6
+msgid "URL Shortener"
+msgstr "URL Kürzer"
+
+#: ../application/cars.schmolck.de/module/u/r/l/output.phtml:11
+msgid "URL"
+msgstr "URL"
+
+#: ../application/cars.schmolck.de/module/u/r/l/output.phtml:43
+msgid "Shorten"
+msgstr "Kürzen"
+
 #: ../application/cars.schmolck.de/template/2013.05/html.phtml:26
 msgid "Home"
 msgstr "Startseite"
@@ -366,11 +382,11 @@ msgstr "Standort"
 msgid "Navigation"
 msgstr "Navigation"
 
-#: ../application/cars.schmolck.de/template/2015.06/html.phtml:37
+#: ../application/cars.schmolck.de/template/2015.06/html.phtml:40
 msgid "Used Cars"
 msgstr "Gebrauchtfahrzeuge"
 
-#: ../application/cars.schmolck.de/template/2015.06/html.phtml:54
+#: ../application/cars.schmolck.de/template/2015.06/html.phtml:57
 msgid "Website"
 msgstr "Webseite"
 

@@ -107,3 +107,8 @@ define('MOBILE_SENDER_NAME', 'cars.schmolck.de');
 define('MOBILE_SENDER_ADDRESS', 'webmaster@schmolck.de');
 define('MOBILE_RECIPIENT_NAME', 'verkauf@schmolck.de');
 define('MOBILE_RECIPIENT_ADDRESS', 'verkauf@schmolck.de');
+
+/*
+ * URL
+ */
+define('URL_PATH', 'data/url');
