@@ -50,6 +50,8 @@ foreach ($arrElement as $element => $value) {
             <?= $objCore->strMessageMail ?>
         </div>
         <? } else { ?>
+
+        <input type="hidden" name="id" value="<?=$objCore->strId ?>">
         <input type="hidden" name="send" value="1">
 
         <div class="form-group <?= $arrElement['name']['class'] ?>">

@@ -144,7 +144,9 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
                         </tr>                                   
                     </table>
                     <p class="request">
-                        <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_form", "mobile/element/form/id/{$arrCar['id']}") ?>				
+                        <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_form", "mobile/element/form/", array(
+                            'id' => $arrCar['id']
+                        )) ?>				
                     </p>
 
                 </div>

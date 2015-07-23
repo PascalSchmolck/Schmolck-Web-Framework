@@ -4,16 +4,12 @@
  * INITIALISATION
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
-$objCore->strId = $objCore->getHelperElement()->getId();
-$objCore->strUrl = $objCore->getHelperApplication()->getRequestUrl();
-$objCore->strStyleClass = $objCore->getHelperElement()->getStyleClass();
-$objCore->strApi = $objCore->getHelperElement()->getIdentifier();
 $objCars = new Mobile_Helper($objCore);
 
 /*
  * PARAMETER
  */
-$strId = strip_tags($_GET['id']);
+$objCore->strId = strip_tags($_POST['id']);
 $objCore->strSend = strip_tags($_POST['send']);
 $objCore->strName = strip_tags($_POST['name']);
 $objCore->strEmail = strip_tags($_POST['email']);
@@ -24,13 +20,13 @@ $objCore->strMessage = strip_tags($_POST['message']);
  * CHECK (SUBJECT)
  */
 // - subject
-if ($strId == '') {
+if ($objCore->strId == '') {
     if ($objCore->strSubject == '') {
         $objCore->strSubject = $objCore->getHelperTranslator()->_("General request");
     }
     $objCore->bAutoSubject = false;
 } else {
-    $objCore->strSubject = sprintf($objCore->getHelperTranslator()->_("Request for the vehicle %s"), $strId);
+    $objCore->strSubject = sprintf($objCore->getHelperTranslator()->_("Request for the vehicle %s"), $objCore->strId);
     $objCore->bAutoSubject = true;
 }
 
@@ -65,11 +61,11 @@ if ($objCore->strSend != '') {
     if (!$bError) {
         try {
             // - get price
-            $arrCarResult = $objCars->queryCarsSingle($strId);
+            $arrCarResult = $objCars->queryCarsSingle($objCore->strId);
             $strPrice = number_format(doubleval(str_replace('.', '', strval($arrCarResult[0][preis]))), 2, '.', '');
             // - fill template with data
             $arrReplace = array(
-                '#id' => $strId,
+                '#id' => $objCore->strId,
                 '#price' => $strPrice,
                 '#name' => $objCore->strName,
                 '#email' => $objCore->strEmail,
@@ -101,6 +97,6 @@ if ($objCore->strSend != '') {
  * SCRIPT
  */
 $objCore->getHelperScripts()->registerViewScriptReplace(array(
-    'SchmolckID' => $objCore->strId,
-    'SchmolckURL' => $objCore->strUrl,
+    'SchmolckID' => $objCore->getHelperElement()->getId(),
+    'SchmolckURL' => $objCore->getHelperApplication()->getRequestUrl(),
 ));
