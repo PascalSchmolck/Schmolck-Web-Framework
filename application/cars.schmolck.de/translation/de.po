@@ -359,20 +359,28 @@ msgid "Sorry, the called URL is unknown"
 msgstr "Verzeihung, die aufgerufene URL ist unbekannt"
 
 #: ../application/cars.schmolck.de/module/u/r/l/output.phtml:6
-msgid "URL Shortener"
-msgstr "URL Kürzer"
+msgid "URL Hash"
+msgstr "URL Hash"
 
 #: ../application/cars.schmolck.de/module/u/r/l/output.phtml:11
 msgid "URL"
 msgstr "URL"
 
-#: ../application/cars.schmolck.de/module/u/r/l/output.phtml:40
+#: ../application/cars.schmolck.de/module/u/r/l/output.phtml:39
 msgid "Redirecting to..."
 msgstr "Weiterleitung zu..."
 
-#: ../application/cars.schmolck.de/module/u/r/l/output.phtml:58
+#: ../application/cars.schmolck.de/module/u/r/l/output.phtml:57
 msgid "Shorten"
 msgstr "Kürzen"
+
+#: ../application/cars.schmolck.de/module/u/r/s/output.phtml:6
+msgid "URL Hash Statistics"
+msgstr "URL Hash Statistik"
+
+#: ../application/cars.schmolck.de/module/u/r/s/output.phtml:20
+msgid "Calls"
+msgstr "Aufrufe"
 
 #: ../application/cars.schmolck.de/template/2013.05/html.phtml:26
 msgid "Home"
@@ -393,6 +401,9 @@ msgstr "Gebrauchtfahrzeuge"
 #: ../application/cars.schmolck.de/template/2015.06/html.phtml:57
 msgid "Website"
 msgstr "Webseite"
+
+#~ msgid "URL Shortener"
+#~ msgstr "URL Kürzer"
 
 #~ msgid "Filter"
 #~ msgstr "Filter"

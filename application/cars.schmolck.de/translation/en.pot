@@ -345,19 +345,27 @@ msgid "Sorry, the called URL is unknown"
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/u/r/l/output.phtml:6 
-msgid "URL Shortener" 
+msgid "URL Hash" 
 msgstr "" 
 
 #: ../application/cars.schmolck.de/module/u/r/l/output.phtml:11 
 msgid "URL" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/u/r/l/output.phtml:40 
+#: ../application/cars.schmolck.de/module/u/r/l/output.phtml:39 
 msgid "Redirecting to..." 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/u/r/l/output.phtml:58 
+#: ../application/cars.schmolck.de/module/u/r/l/output.phtml:57 
 msgid "Shorten" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/u/r/s/output.phtml:6 
+msgid "URL Hash Statistics" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/u/r/s/output.phtml:20 
+msgid "Calls" 
 msgstr "" 
 
 #: ../application/cars.schmolck.de/template/2013.05/html.phtml:26 

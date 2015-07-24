@@ -111,4 +111,5 @@ define('MOBILE_RECIPIENT_ADDRESS', 'verkauf@schmolck.de');
 /*
  * URL
  */
-define('URL_PATH', 'data/url');
+define('HASH_PATH', 'data/url/hash');
+define('URL_PATH', 'data/url/url');

@@ -1,0 +1,39 @@
+<?php
+/*
+ * INITIALISATION
+ */
+$objCore = Schmolck_Framework_Core::getInstance($this);
+$objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("URL Hash Statistics"));
+$objCore->strPageTitle = $objCore->getHelperTranslator()->_("URL Hash Statistics");
+?>
+<div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
+    <h1>
+        <?= $objCore->strPageTitle ?>
+    </h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    <?= $objCore->getHelperTranslator()->_("URL") ?>
+                </th>
+                <th>
+                    <?= $objCore->getHelperTranslator()->_("Calls") ?>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($objCore->arrUrls as $arrUrl): ?>
+                <tr>
+                    <td>
+                        <a href="<?= $arrUrl['url'] ?>" target="_blank" class="wrap">
+                            <?= $arrUrl['url'] ?>
+                        </a>
+                    </td>
+                    <td>
+                        <?= $arrUrl['counter'] ?>                    
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
