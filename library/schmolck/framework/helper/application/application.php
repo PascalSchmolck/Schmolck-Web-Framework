@@ -108,13 +108,24 @@ class Schmolck_Framework_Helper_Application extends Schmolck_Framework_Helper {
 	}
 	
 	/**
+	 * Get current parameter
+	 * 
+	 * @return string
+	 */
+	public function getCurrentParameter() {
+		// - module/controller/action
+		return substr($_SERVER['REQUEST_URI'], 1, strlen($_SERVER['REQUEST_URI']));
+	}
+    
+	/**
 	 * Get current uri
+     * 
+     * e.g. http://server.domain/module/controller/action
 	 * 
 	 * @return string
 	 */
 	public function getCurrentUri() {
-		// - module/controller/action
-		return substr($_SERVER['REQUEST_URI'], 1, strlen($_SERVER['REQUEST_URI']));
-	}	
+		return $this->getBaseUrl() . '/' . $this->getCurrentParameter();
+	}	    
 
 }

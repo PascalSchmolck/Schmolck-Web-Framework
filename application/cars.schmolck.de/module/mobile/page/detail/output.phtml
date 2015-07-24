@@ -14,7 +14,8 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
     <?php foreach ($objCore->arrCars as $arrCar) : ?>		
         <div class="item" data-link="<?= $objCore->strParameterUrl ?>/id/<?= $arrCar['id'] ?>">
             <div class="title">
-                <? $objCore->getHelperHtml()->setPageTitle($arrCar['name'] . ' (' . $arrCar['id'] . ')'); ?>
+                <? $strPageTitle = $arrCar['name'] . ' (' . $arrCar['id'] . ')'; ?>
+                <? $objCore->getHelperHtml()->setPageTitle($strPageTitle); ?>
                 <? $strMailInfo = $_SERVER['HTTP_HOST'] . ' - ' . sprintf($objCore->getHelperTranslator()->_("Request for the vehicle %s"), $arrCar['id']); ?>
             </div>
             <div class="row">
@@ -70,9 +71,9 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
                                     <div class="pricenote">
                                         <?
                                         if ($arrCar['mwst'] == '1') {
-                                        echo $objCore->getHelperTranslator()->_("VAT not deductable");
+                                            echo $objCore->getHelperTranslator()->_("VAT not deductable");
                                         } else {
-                                        echo $objCore->getHelperTranslator()->_("VAT deductable");
+                                            echo $objCore->getHelperTranslator()->_("VAT deductable");
                                         }
                                         ?>		
                                     </div>		
@@ -82,6 +83,7 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
                     </table>
                     <div class="buttons screen">
                         <input type="button" name="print" value="<?= $objCore->getHelperTranslator()->_("Print") ?>" class="btn btn-default btn-sm">                        
+                        <input type="button" name="recommend" value="<?= $objCore->getHelperTranslator()->_("Forward") ?>" class="btn btn-default btn-sm">                        
                         <input type="button" name="request" value="<?= $objCore->getHelperTranslator()->_("Request") ?>" class="btn btn-primary btn-sm">                        
                     </div>
                 </div>
@@ -144,9 +146,11 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
                         </tr>                                   
                     </table>
                     <p class="request">
-                        <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_form", "mobile/element/form/", array(
+                        <?=
+                        $objCore->getHelperElement()->getElement("{$objCore->strId}_form", "mobile/element/form/", array(
                             'id' => $arrCar['id']
-                        )) ?>				
+                        ))
+                        ?>				
                     </p>
 
                 </div>
@@ -155,5 +159,18 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
 
     <?php endforeach; ?>
 
+    <?php
+    /*
+     * SCRIPT
+     */
+    $objCore->getHelperScripts()->registerViewScriptReplace(array(
+        'SchmolckID' => $objCore->getHelperElement()->getId(),
+        'SchmolckURL' => $objCore->getHelperApplication()->getRequestUrl(),
+        'JavaScriptEMAIL' => '',
+        'JavaScriptSUBJECT' => 'Schmolck - ' . $strPageTitle,
+        'JavaScriptBODY' => $objCore->getHelperApplication()->getCurrentUri(),        
+    ));
+    ?>
+    
     <?= $objCore->getHelperScripts()->renderViewScripts() ?>
 </div>

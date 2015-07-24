@@ -19,7 +19,7 @@ $objCars = new Mobile_Helper($objCore);
 /*
  * QR-CODE
  */
-$strUri = $objCore->getHelperApplication()->getCurrentUri();
+$strUri = $objCore->getHelperApplication()->getCurrentParameter();
 $strBaseUrl = $objCore->getHelperApplication()->getBaseUrl();
 $objCore->strQRImage = $objCore->getHelperCache()->getFilePath(md5($strBaseUrl.'/'.$strUri));
 QRcode::png($strBaseUrl.'/'.$strUri, $objCore->strQRImage);
@@ -44,11 +44,3 @@ if (count($objCore->arrCars) == 0) {
 	$objCore->getHelperMessage()->setMessage($strMessage);
 	$objCore->getHelperRedirect()->local('mobile');
 }
-
-/*
- * SCRIPT
- */
-$objCore->getHelperScripts()->registerViewScriptReplace(array(
-	'SchmolckID' => $objCore->strId,
-	'SchmolckURL' => $objCore->strUrl,
-));

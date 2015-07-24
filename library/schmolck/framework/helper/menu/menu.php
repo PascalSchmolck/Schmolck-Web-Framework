@@ -20,7 +20,7 @@ class Schmolck_Framework_Helper_Menu extends Schmolck_Framework_Helper {
 		 * INITIALISATION
 		 */
 		$objCore = Schmolck_Framework_Core::getInstance($this->_objCore);
-		$strCurrentUri = $objCore->getHelperApplication()->getCurrentUri();
+		$strCurrentUri = $objCore->getHelperApplication()->getCurrentParameter();
 		
 		/*
 		 * CHECK
