@@ -9,4 +9,8 @@ $(document).ready(function () {
     $('#SchmolckID input[name=print]').click(function () {
         window.print();
     });
+    
+    $('#SchmolckID input[name=recommend]').click(function () {
+        parent.location = 'mailto:JavaScriptEMAIL?subject=JavaScriptSUBJECT&body=JavaScriptBODY';
+    });
 });

@@ -45,7 +45,7 @@ if ($objCore->strUrl != '') {
     $objCore->strHash = $objUrl->encodeUrl($objCore->strUrl);
 
     // - qr
-    $strUri = $objCore->getHelperApplication()->getCurrentUri();
+    $strUri = $objCore->getHelperApplication()->getCurrentParameter();
     $strBaseUrl = $objCore->getHelperApplication()->getBaseUrl();
     $objCore->strQRImage = $objCore->getHelperCache()->getFilePath(md5($strBaseUrl . '/' . $strUri));
     QRcode::png($objCore->strHash, $objCore->strQRImage);

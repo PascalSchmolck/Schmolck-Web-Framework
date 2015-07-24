@@ -1,5 +1,5 @@
 
-Notice: Undefined variable: result in E:\Webseiten\GitHub\Schmolck-Web-Framework\tools\xgettext.php on line 94
+Notice: Undefined variable: result in U:\Dokumente\Arbeit\Webseiten\GitHub\Schmolck-Web-Framework\tools\xgettext.php on line 94
 #: ../application/cars.schmolck.de/module/contact/api/form/action.php:25 
 msgid "Please enter your name name" 
 msgstr "" 
@@ -168,11 +168,11 @@ msgstr ""
 msgid "Try a new search." 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/mobile/element/form/action.php:29 
+#: ../application/cars.schmolck.de/module/mobile/element/form/action.php:25 
 msgid "General request" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/mobile/element/form/action.php:33 
+#: ../application/cars.schmolck.de/module/mobile/element/form/action.php:29 
 msgid "Request for the vehicle %s" 
 msgstr "" 
 
@@ -216,11 +216,15 @@ msgstr ""
 msgid "Vehicle Search" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:84 
+#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:85 
 msgid "Print" 
 msgstr "" 
 
-#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:85 
+#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:86 
+msgid "Forward" 
+msgstr "" 
+
+#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:87 
 msgid "Request" 
 msgstr "" 
 
