@@ -65,8 +65,9 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
        */
       return array(
          'all' => $objCore->getHelperTranslator()->_("All"),
-         'mercedes-benz' => $objCore->getHelperTranslator()->_("Mercedes-Benz"),
-         'smart' => $objCore->getHelperTranslator()->_("smart"),
+         'mercedes-benz' => 'Mercedes-Benz',
+         'smart' => 'smart',
+         'skoda' => 'ŠKODA',
          'others' => $objCore->getHelperTranslator()->_("Others"),
       );
    }
@@ -100,7 +101,6 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
               "offroad" => $objCore->getHelperTranslator()->_("Offroad"),
               "others-mercedes" => $objCore->getHelperTranslator()->_("Others"),
             );
-            break;
          case 'smart':
             return array(
                "all" => $objCore->getHelperTranslator()->_("All"),
@@ -109,12 +109,20 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
                "roadster" => $objCore->getHelperTranslator()->_("Roadster"),
                "others-smart" => $objCore->getHelperTranslator()->_("Others"),
             );                    
-            break;
+         case 'skoda':
+            return array(
+               "all" => $objCore->getHelperTranslator()->_("All"),
+               "citigo" => 'Citigo',
+               "fabia" => 'Fabia',
+               "rapid" => 'Rapid',
+               "octavia" => 'Octavia',
+               "yeti" => 'Yeti',
+               "superb" => 'Superb'
+            );                    
          case 'others':
             return array(
                "all" => $objCore->getHelperTranslator()->_("All"),
             );        
-            break;
      }
             
       /*
@@ -155,6 +163,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 				$strWhereBrand = "
 					AND D_marke COLLATE UTF8_GENERAL_CI NOT LIKE 'Mercedes-Benz'
 					AND D_marke COLLATE UTF8_GENERAL_CI NOT LIKE 'Smart'
+					AND D_marke COLLATE UTF8_GENERAL_CI NOT LIKE 'Skoda'
 				";
 				break;
 		}
@@ -249,6 +258,37 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 					AND E_modell COLLATE UTF8_GENERAL_CI NOT LIKE '%ROADSTER%'
 				";
 				break;	
+            // - ŠKODA
+			case "citigo":
+				$strWhereModel = "
+					AND E_modell COLLATE UTF8_GENERAL_CI LIKE '%Citigo%'
+				";
+				break;
+			case "fabia":
+				$strWhereModel = "
+					AND E_modell COLLATE UTF8_GENERAL_CI LIKE '%Fabia%'
+				";
+				break;
+			case "rapid":
+				$strWhereModel = "
+					AND E_modell COLLATE UTF8_GENERAL_CI LIKE '%Rapid%'
+				";
+				break;
+			case "octavia":
+				$strWhereModel = "
+					AND E_modell COLLATE UTF8_GENERAL_CI LIKE '%Octavia%'
+				";
+				break;
+            case "yeti":
+				$strWhereModel = "
+					AND E_modell COLLATE UTF8_GENERAL_CI LIKE '%Yeti%'
+				";
+				break;
+            case "superb":
+				$strWhereModel = "
+					AND E_modell COLLATE UTF8_GENERAL_CI LIKE '%Superb%'
+				";
+				break;
 		}
 		// - type
 		switch ($this->getFilter('transmission')) {
@@ -412,6 +452,8 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 	 */
 	protected function _getMappedRow($arrRow) {
 		$arrMap['id'] = $arrRow['A_satz_nummer'];
+		$arrMap['marke'] = strtolower($arrRow['D_marke']);
+		$arrMap['modell'] = utf8_encode($arrRow['E_modell']);
 		$arrMap['name'] = $this->_getMappedRowName($arrRow['D_marke'], utf8_encode($arrRow['E_modell']));
 		$arrMap['kategorie'] = $arrRow['C_kategorie'];
 		$arrMap['fahrzeug'] = $this->_getMappedRowFahrzeug($arrRow);
@@ -437,6 +479,10 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 
 		if (preg_match("/smart/i", $strMarke)) {
 			return 'smart ' . $strModell;
+		}
+        
+        if (preg_match("/skoda/i", $strMarke)) {
+			return 'ŠKODA ' . $strModell;
 		}
 
 		if (preg_match("/Volkswagen/i", $strMarke)) {

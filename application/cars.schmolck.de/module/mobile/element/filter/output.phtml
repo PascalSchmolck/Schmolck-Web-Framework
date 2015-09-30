@@ -15,8 +15,9 @@ $strButtonLabel = sprintf($objCore->getHelperTranslator()->_("Display %s hits"),
 // - brands
 $arrBrands = $objCars->getFilterOptionsBrands();
 // - models
-$arrModelsMercedes = $objCars->getFilterOptionsModels('mercedes-benz');
-$arrModelsSmart = $objCars->getFilterOptionsModels('smart');
+$arrModels['mercedes-benz'] = $objCars->getFilterOptionsModels('mercedes-benz');
+$arrModels['smart'] = $objCars->getFilterOptionsModels('smart');
+$arrModels['skoda'] = $objCars->getFilterOptionsModels('skoda');
 // - transmission
 // ’0-3’ (0=keine Angabe, 1=Schaltgetriebe, 2=Halbautomatik, 3=Automatik) 
 $arrTransmissions['all'] = $objCore->getHelperTranslator()->_("All");
@@ -60,13 +61,13 @@ $arrSorting = array(
                     </select>
                 </div>
 
-                <? if ($objCore->strParameterBrand == 'mercedes-benz'): ?>
+                <? if ($objCore->strParameterBrand == 'mercedes-benz' or $objCore->strParameterBrand == 'smart' or $objCore->strParameterBrand == 'skoda'): ?>
                 <div class="box">
                     <label for="model">
                         <?= $objCore->getHelperTranslator()->_("Model") ?>
                     </label>
                     <select name="model">
-                        <? foreach ($arrModelsMercedes as $strValue => $strLabel) : ?>
+                        <? foreach ($arrModels[$objCore->strParameterBrand] as $strValue => $strLabel) : ?>
                         <? ($objCore->strParameterModel == $strValue) ? $strSelected = 'selected' : $strSelected = ''; ?>
                         <option value="<?= $strValue ?>" <?= $strSelected ?>>
                             <?= $strLabel ?>
@@ -75,22 +76,7 @@ $arrSorting = array(
                     </select>
                 </div>
                 <? endif; ?>
-
-                <? if ($objCore->strParameterBrand == 'smart'): ?>
-                <div class="box">
-                    <label for="model">
-                        <?= $objCore->getHelperTranslator()->_("Model") ?>
-                    </label>
-                    <select name="model">
-                        <? foreach ($arrModelsSmart as $strValue => $strLabel) : ?>
-                        <? ($objCore->strParameterModel == $strValue) ? $strSelected = 'selected' : $strSelected = ''; ?>
-                        <option value="<?= $strValue ?>" <?= $strSelected ?>>
-                            <?= $strLabel ?>
-                        </option>
-                        <? endforeach; ?>
-                    </select>
-                </div>
-                <? endif; ?>		
+                
                 <div class="box">
                     <label for="transmission">
                         <?= $objCore->getHelperTranslator()->_("Transmission") ?>

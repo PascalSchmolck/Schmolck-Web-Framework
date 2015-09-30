@@ -58,10 +58,6 @@ msgstr "Kontakt"
 msgid "Our sales consultants for Emmendingen and Vogtsburg"
 msgstr "Unsere Verkaufsberater für Emmendingen und Vogtsburg"
 
-#: ../application/cars.schmolck.de/module/contact/page/emmendingen/output.phtml:81
-msgid "Mail"
-msgstr "Mail"
-
 #: ../application/cars.schmolck.de/module/contact/page/muellheim/output.phtml:7
 msgid "Our sales consultants for Müllheim"
 msgstr "Unsere Verkaufsberater für Müllheim"
@@ -84,9 +80,13 @@ msgstr ""
 "Sollte dieser Fehler mehrmals auftreten, würden wir uns über eine kurze "
 "Benachrichtigung freuen"
 
-#: ../application/cars.schmolck.de/module/location/page/emmendingen/output.phtml:6
+#: ../application/cars.schmolck.de/module/location-DELETE/page/emmendingen/output.phtml:6
 msgid "Locations"
 msgstr "Anfahrt"
+
+#: ../application/cars.schmolck.de/module/location-DELETE/page/emmendingen/output.phtml:32
+msgid "Mail"
+msgstr "Mail"
 
 #: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:19
 msgid "Dear Sirs,"
@@ -138,47 +138,47 @@ msgstr "Suchanfrage"
 msgid "Display %s hits"
 msgstr "%s Treffer anzeigen"
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:22
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:23
 msgid "All"
 msgstr "Alle"
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:23
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:24
 msgid "Manual"
 msgstr "Schaltgetriebe"
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:24
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:25
 msgid "Semi-Automatic"
 msgstr "Halb-Automatik"
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:25
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:26
 msgid "Automatic"
 msgstr "Automatik"
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:37
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:38
 msgid "Kilometer"
 msgstr "Kilometer"
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:109
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:95
 msgid "Price (max.)"
 msgstr "Preis (max.)"
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:122
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:108
 msgid "Sorting"
 msgstr "Sortierung"
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:139
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:125
 msgid "Results"
-msgstr "Ergebnisse"
+msgstr "Treffer"
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:140
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:126
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:145
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:131
 msgid "No matches found."
 msgstr "Keine Übereinstimmungen gefunden."
 
-#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:146
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:132
 msgid "Try a new search."
 msgstr "Versuchen Sie es mit anderen Filterkriterien."
 
@@ -230,55 +230,47 @@ msgstr "Verzeihung, das gewählte Fahrzeug ist nicht vorhanden."
 msgid "Vehicle Search"
 msgstr "Fahrzeugsuche"
 
-#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:85
+#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:91
 msgid "Print"
 msgstr "Drucken"
 
-#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:86
+#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:92
 msgid "Forward"
 msgstr "Weiterleiten"
 
-#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:87
+#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:93
 msgid "Request"
 msgstr "Anfrage"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:68
-msgid "Mercedes-Benz"
-msgstr "Mercedes-Benz"
-
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:69
-msgid "smart"
-msgstr "smart"
-
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:70
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:71
 msgid "Others"
 msgstr "Sonstige"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:94
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:95
 msgid "A-Class"
 msgstr "A-Klasse"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:95
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:96
 msgid "B-Class"
 msgstr "B-Klasse"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:96
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:97
 msgid "C-Class"
 msgstr "C-Klasse"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:97
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:98
 msgid "E-Class"
 msgstr "E-Klasse"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:98
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:99
 msgid "CLK"
 msgstr "CLK"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:99
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:100
 msgid "SLK"
 msgstr "SLK"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:100
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:101
 msgid "Offroad"
 msgstr "Offroad"
 
@@ -294,55 +286,55 @@ msgstr "Forfour"
 msgid "Roadster"
 msgstr "Roadster"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:460
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:506
 msgid "Brand New Car"
 msgstr "Neufahrzeug"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:464
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:510
 msgid "Jahreswagen"
 msgstr "Jahreswagen"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:470
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:516
 msgid "Junger Stern"
 msgstr "Junger Stern"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:475
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:521
 msgid "jung@smart"
 msgstr "jung@smart"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:481
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:527
 msgid "Used Car"
 msgstr "Gebrauchtwagen"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:519
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:565
 msgid "Petrol"
 msgstr "Benzin"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:522
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:568
 msgid "Diesel"
 msgstr "Diesel"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:525
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:571
 msgid "LPG"
 msgstr "Autogas"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:528
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:574
 msgid "Natural Gas"
 msgstr "Erdgas"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:534
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:580
 msgid "Electric"
 msgstr "Elektro"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:537
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:583
 msgid "Hybrid"
 msgstr "Hybrid"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:540
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:586
 msgid "Hydrogen"
 msgstr "Wasserstoff"
 
-#: ../application/cars.schmolck.de/module/mobile/_helper.php:543
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:589
 msgid "Ethanol"
 msgstr "Ethanol"
 
@@ -402,9 +394,18 @@ msgstr "Navigation"
 msgid "Used Cars"
 msgstr "Gebrauchtfahrzeuge"
 
-#: ../application/cars.schmolck.de/template/2015.06/html.phtml:57
+#: ../application/cars.schmolck.de/template/2015.06/html.phtml:52
 msgid "Website"
 msgstr "Webseite"
+
+#~ msgid "Mercedes-Benz"
+#~ msgstr "Mercedes-Benz"
+
+#~ msgid "smart"
+#~ msgstr "smart"
+
+#~ msgid "ŠKODA"
+#~ msgstr "ŠKODA"
 
 #~ msgid "URL Shortener"
 #~ msgstr "URL Kürzer"

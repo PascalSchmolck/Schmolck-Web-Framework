@@ -12,6 +12,12 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
 <div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
 
     <?php foreach ($objCore->arrCars as $arrCar) : ?>		
+        <!--
+        <pre>
+        <?php print_r($arrCar); ?>    
+        </pre>    
+        -->
+
         <div class="item" data-link="<?= $objCore->strParameterUrl ?>/id/<?= $arrCar['id'] ?>">
             <div class="title">
                 <? $strPageTitle = $arrCar['name'] . ' (' . $arrCar['id'] . ')'; ?>
@@ -30,7 +36,7 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
                             <tr>
                                 <th colspan="2">
                         <h4>
-                            <?= $arrCar['name'] ?>
+                            <?= $arrCar['name'] ?> (<?= $arrCar['id']?>)
                         </h4>
                         </th>
                         </tr>
@@ -71,9 +77,9 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
                                     <div class="pricenote">
                                         <?
                                         if ($arrCar['mwst'] == '1') {
-                                            echo $objCore->getHelperTranslator()->_("VAT not deductable");
+                                        echo $objCore->getHelperTranslator()->_("VAT not deductable");
                                         } else {
-                                            echo $objCore->getHelperTranslator()->_("VAT deductable");
+                                        echo $objCore->getHelperTranslator()->_("VAT deductable");
                                         }
                                         ?>		
                                     </div>		
@@ -94,57 +100,69 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
                 </div>
                 <div class="col-md-6 contact screen">
 
-                    <table width="100%">
-                        <tr>
-                            <td>
-                                <a href="contact/page/emmendingen">
-                                    <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-emmendingen.jpg" title="<?= $objCore->getHelperTranslator()->_("Our sales consultants for Emmendingen and Vogtsburg") ?>" width="100%">
-                                </a>
-                                <div class="address">
-                                    <p>
-                                        <strong>
-                                            Schmolck GmbH &amp; Co. KG
-                                        </strong>
-                                    </p>                                
-                                    <p>
-                                        <a href="location/page/emmendingen">
+                    <?php if ($arrCar['marke'] != 'skoda' and $arrCar['marke'] != 'vw'): ?>
+                        <table width="100%">
+                            <tr>
+                                <td>
+                                    <a href="contact/page/emmendingen">
+                                        <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-emmendingen.jpg" title="<?= $objCore->getHelperTranslator()->_("Our sales consultants for Emmendingen and Vogtsburg") ?>" width="100%">
+                                    </a>
+                                    <div class="address">
+                                        <p>
+                                            <strong>
+                                                Schmolck GmbH &amp; Co. KG <br>
+                                            </strong>
                                             Am Elzdamm 2 <br>
                                             79312 Emmendingen	
-                                        </a>
-                                    </p>
-                                    <p>
-                                        Tel +49 7641 / 4602-0 <br>
-                                        Fax +49 7641 / 4602-80 <br>
-                                    </p>
-                                </div>
-                            </td>
-                            <td class="spacing">
-                                &nbsp;
-                            </td>
-                            <td>
-                                <a href="contact/page/muellheim">
-                                    <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-muellheim.jpg" title="<?= $objCore->getHelperTranslator()->_("Our sales consultants for Müllheim") ?>" width="100%">
-                                </a>
-                                <div class="address">
-                                    <p>
-                                        <strong>
-                                            Autohaus Schmolck GmbH &amp; Co. KG
-                                        </strong>
-                                    </p>
-                                    <p>
-                                        <a href="location/page/muellheim">
+                                        </p>
+                                        <p>
+                                            Tel +49 7641 / 4602-0 <br>
+                                            Fax +49 7641 / 4602-80 <br>
+                                        </p>
+                                    </div>
+                                </td>
+                                <td class="spacing">
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <a href="contact/page/muellheim">
+                                        <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-muellheim.jpg" title="<?= $objCore->getHelperTranslator()->_("Our sales consultants for Müllheim") ?>" width="100%">
+                                    </a>
+                                    <div class="address">
+                                        <p>
+                                            <strong>
+                                                Autohaus Schmolck GmbH &amp; Co. KG <br>                                                
+                                            </strong>
                                             Kinzigstraße 5 <br>
                                             79379 Müllheim			
-                                        </a>
-                                    </p>
-                                    <p>
-                                        Tel +49 7631 / 3672-0 <br>
-                                        Fax +49 7631 / 3672-80 <br>
-                                    </p> 
-                                </div>
-                            </td>
-                        </tr>                                   
-                    </table>
+                                        </p>
+                                        <p>
+                                            Tel +49 7631 / 3672-0 <br>
+                                            Fax +49 7631 / 3672-80 <br>
+                                        </p> 
+                                    </div>
+                                </td>
+                            </tr>                                   
+                        </table>
+                    <?php else: ?>
+                        <a href="contact/page/emmendingen">
+                            <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-emmendingen-skoda.jpg" width="100%">
+                        </a>
+                        <div class="address">
+                            <h3>
+                                Emil Schmolck GmbH <br>
+                            </h3>
+                            <p>
+                                Am Elzdamm 2 <br>
+                                79312 Emmendingen	
+                            </p>
+                            <p>
+                                Tel +49 7641 / 4602-500 <br>
+                                Fax +49 7641 / 4602-8500 <br>
+                            </p>
+                        </div>
+                    <?php endif; ?>
+
                     <p class="request">
                         <?=
                         $objCore->getHelperElement()->getElement("{$objCore->strId}_form", "mobile/element/form/", array(
@@ -168,9 +186,9 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
         'SchmolckURL' => $objCore->getHelperApplication()->getRequestUrl(),
         'JavaScriptEMAIL' => '',
         'JavaScriptSUBJECT' => 'Schmolck - ' . $strPageTitle,
-        'JavaScriptBODY' => $objCore->getHelperApplication()->getCurrentUri(),        
+        'JavaScriptBODY' => $objCore->getHelperApplication()->getCurrentUri(),
     ));
     ?>
-    
+
     <?= $objCore->getHelperScripts()->renderViewScripts() ?>
 </div>
