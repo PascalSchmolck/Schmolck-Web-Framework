@@ -565,7 +565,8 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 
 	protected function _getMappedRowKm($strKm) {
         // - minimum of 10 km
-        return max(10, number_format($strKm, 0, ',', ".")) . ' km';
+//        return number_format($strKm, 0, ',', ".");
+        return number_format(max(10, $strKm), 0, ',', ".") . ' km';
 	}
 	
 	protected function _getMappedRowKraftstoff($strValue) {
