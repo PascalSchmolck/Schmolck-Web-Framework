@@ -455,10 +455,10 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		$arrMap['marke'] = strtolower($arrRow['D_marke']);
 		$arrMap['modell'] = utf8_encode($arrRow['E_modell']);
 		$arrMap['name'] = $this->_getMappedRowName($arrRow['D_marke'], utf8_encode($arrRow['E_modell']));
-		$arrMap['kategorie'] = $arrRow['C_kategorie'];
+		$arrMap['kategorie'] = $this->_getMappedRowKategorie($arrRow);
 		$arrMap['fahrzeug'] = $this->_getMappedRowFahrzeug($arrRow);
-		$arrMap['ez'] = $this->_getMappedRowEz($arrRow);
-		$arrMap['km'] = $this->_getMappedRowKm($arrRow);
+		$arrMap['ez'] = $this->_getMappedRowEz($arrRow["I_ez"]);
+		$arrMap['km'] = $this->_getMappedRowKm($arrRow['J_kilometer']);
 		$arrMap['kraftstoff'] = $this->_getMappedRowKraftstoff($arrRow['DF_kraftstoffart']);
 		$arrMap['kw'] = $arrRow['F_leistung'];
 		$arrMap['ps'] = $this->_getMappedRowPs($arrRow);
@@ -466,7 +466,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		$arrMap['ccm'] = $arrRow['BA_ccm'];
 		$arrMap['preis'] = $this->_getMappedRowPrice($arrRow);
 		$arrMap['mwst'] = $arrRow['L_mwst'];
-		$arrMap['color'] = $arrRow['Q_farbe'];
+		$arrMap['color'] = utf8_encode($arrRow['Q_farbe']);
 		$arrMap['images'] = $this->getImages($arrMap['id']);
 		$arrMap['bemerkung'] = $this->_getMappedRowBemerkung(utf8_encode($arrRow['Z_bemerkung']));
 		return $arrMap;
@@ -491,6 +491,25 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		
 		return $strMarke.' '.$strModell;
 	}
+    
+    protected function _getMappedRowKategorie($arrRow) {
+		/*
+		 * INITIALISATION
+		 */
+        $strKategorie = $arrRow['C_kategorie'];
+                
+        /*
+         * SWITCH
+         */
+        switch ($strKategorie) {
+            default:
+                return $strKategorie;
+                break;
+            case 'andere PKW':
+                return 'PKW';
+                break;
+        }
+    }
 	
 	protected function _getMappedRowFahrzeug($arrRow) {
 		/*
@@ -540,12 +559,13 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		return $strLabel;
 	}	
 
-	protected function _getMappedRowEz($arrRow) {
-		return str_replace('.', '/', $arrRow["I_ez"]);
+	protected function _getMappedRowEz($strEZ) {
+        return str_replace('.', '/', $strEZ);
 	}
 
-	protected function _getMappedRowKm($arrRow) {
-		return number_format($arrRow['J_kilometer'], 0, ',', ".");
+	protected function _getMappedRowKm($strKm) {
+        // - minimum of 10 km
+        return max(10, number_format($strKm, 0, ',', ".")) . ' km';
 	}
 	
 	protected function _getMappedRowKraftstoff($strValue) {
@@ -707,9 +727,9 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		 */
 		// - merge into string again
 		return implode('', $arrLines);
-	}	
-	
-	/**
+	}
+
+    /**
 	 * Get all available images for one car with given id
 	 * 
 	 * @param string $strId car id
@@ -879,6 +899,11 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 	 * Update database table and images from ZIP file
 	 */
 	public function updateFromZip() {
+        /*
+         * DEBUG
+         */
+        Schmolck_Tool_Debug::info('METHOD:' . __METHOD__);
+        
 		/*
 		 * CHECK 
 		 */
@@ -923,6 +948,11 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 	 * Clean up after import process
 	 */
 	protected function _updateFromZipCleaning() {
+        /*
+         * DEBUG
+         */
+        Schmolck_Tool_Debug::info('METHOD:' . __METHOD__);
+        
 		/*
 		 * BACKUP
 		 */			
@@ -960,6 +990,14 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 	 * Unpack ZIP file
 	 */
 	protected function _updateFromZipUnpack() {
+        /*
+         * DEBUG
+         */
+        Schmolck_Tool_Debug::info('METHOD:' . __METHOD__);
+        
+        /*
+         * PROCESSING
+         */
 		$objFile = new Schmolck_Tool_File_Zip();
 		$objFile->file = self::ZIP_FILE;
 		$objFile->unzip();
@@ -971,7 +1009,12 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 	 * @throws Exception
 	 */
 	protected function _updateFromZipImages() {		
-		/*
+        /*
+         * DEBUG
+         */
+        Schmolck_Tool_Debug::info('METHOD:' . __METHOD__);
+        
+        /*
 		 * PREPARATION
 		 */
 		$strDir = dirname(self::ZIP_FILE);
@@ -1019,10 +1062,13 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 		$strFile = self::CSV_FILE_NAME;
 		if (($resHandler = fopen($strPath . '/' . $strFile, "r")) !== FALSE) {
 			while (($strLine = fgets($resHandler)) !== FALSE) {		
+                Schmolck_Tool_Debug::info('CSV line: ' . trim($strLine));
 				// - explode into value array
-				$arrValues = explode(self::CSV_DELIMITER, $strLine);
+				$arrValues = explode(self::CSV_DELIMITER, html_entity_decode($strLine));
 				$nOffset = 0;
 				foreach ($arrLimits as $strLimit) {
+                        Schmolck_Tool_Debug::info('Limit value: ' . $strLimit);
+                        Schmolck_Tool_Debug::info('Offset value: ' . $arrValues[$nOffset]);                        
 					// - throw exception if CSV does not fit every configured parameter
 					if ($this->_getEnclosureFreeValue($arrValues[$nOffset]) != $strLimit) {
 						throw new Exception('Database import file does not fit to the limit parameter: '.$strLimit);
@@ -1042,7 +1088,7 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 
 			// ...line by line
 			$strLine = fgets($handle);
-			$arrData = explode(self::CSV_DELIMITER, $strLine);
+			$arrData = explode(self::CSV_DELIMITER, html_entity_decode($strLine));
 			$nCounter++;
 
 			/*
@@ -1092,15 +1138,12 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 		/*
 		 * PROCESSING
 		 */
-		// - if string longer than 2 characters
-		if (mb_strlen($strValue) > 2) {
-			// - remove first and last enclosure
-			$strValue1 = ltrim($strValue, self::CSV_ENCLOSURE);
-			$strValue2 = rtrim($strValue1, self::CSV_ENCLOSURE);
-			$strValue3 = mysql_real_escape_string($strValue2);
-		}
-		
-		/*
+        // - remove first and last enclosure
+        $strValue1 = ltrim($strValue, self::CSV_ENCLOSURE);
+        $strValue2 = rtrim($strValue1, self::CSV_ENCLOSURE);
+        $strValue3 = mysql_real_escape_string($strValue2);
+
+        /*
 		 * RETURN
 		 */
 		return $strValue3;

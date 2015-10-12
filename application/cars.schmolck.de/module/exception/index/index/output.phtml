@@ -4,6 +4,7 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Ups, sorry...");
 
 $strSubject = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 $strBody = $objCore->getHelperTranslator()->_("Error message") . ': ' . $Exception->getMessage();
+Schmolck_Tool_Debug::error($Exception->getMessage());
 
 ?>
 <div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
