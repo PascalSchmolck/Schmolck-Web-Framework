@@ -38,8 +38,14 @@ session_start();
 /*
  * PARAMETERS
  */
-// - preparation
-$strUrlQuery = utf8_decode(rawurldecode(str_replace(dirname($_SERVER["PHP_SELF"]) . "/", "", strip_tags($_SERVER["REQUEST_URI"]))));
+// - detect ? parameters
+$nQueryPosition = strpos($_SERVER["REQUEST_URI"], '?');
+$strUrlParameter = strip_tags($_SERVER["REQUEST_URI"], '?');
+if ($nQueryPosition > 0) {
+    $strUrlParameter = substr($strUrlParameter, 0, $nQueryPosition);
+} 
+// - processing
+$strUrlQuery = utf8_decode(rawurldecode(str_replace(dirname($_SERVER["PHP_SELF"]) . "/", "", $strUrlParameter)));
 (substr($strUrlQuery, 0, 1) == "/") ? $strUrlQuery = substr($strUrlQuery, 1, strlen($strUrlQuery)) : null;
 $arrQueryParameter = explode("/", $strUrlQuery);
 // - parsing
