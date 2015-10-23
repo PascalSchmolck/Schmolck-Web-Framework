@@ -1025,12 +1025,18 @@ class Mobile_Import_Helper extends Schmolck_Framework_Helper {
 		// - get array of all source files
 		$arrFiles = scandir($strDir);
 		// - cycle through all source files
-		foreach ($arrFiles as $strFile) {
-			// - do not handle dirs
-			if (in_array($strFile, array(".",".."))) continue;
+		foreach ($arrFiles as $strFileName) {
+            // - do not handle dirs
+			if (in_array($strFileName, array(".",".."))) {
+                continue;
+            }
+            // - URI
+            $strFile = $strDir.'/'.$strFileName;
 			// - do not handle other files than *.JPG and *.jpg
 			if (preg_match('/\.JPG$/i', $strFile)) {
-				unlink($strDir.'/'.$strFile);
+				if ((time() - filectime($strFile)) > 2629800) { // older than 1 month in s
+					unlink($strFile);
+				}
 			}
 		}	
 	}
