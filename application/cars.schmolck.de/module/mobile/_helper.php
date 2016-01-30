@@ -460,6 +460,11 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		$arrMap['ez'] = $this->_getMappedRowEz($arrRow["I_ez"]);
 		$arrMap['km'] = $this->_getMappedRowKm($arrRow['J_kilometer']);
 		$arrMap['kraftstoff'] = $this->_getMappedRowKraftstoff($arrRow['DF_kraftstoffart']);
+		$arrMap['emission'] = $arrRow['CV_emission'];
+		$arrMap['effizienz'] = $arrRow['FN_energieeffizienzklasse'];
+		$arrMap['verbrauch_innerorts'] = str_replace('.', ',', $arrRow['CS_verbrauch_innerorts']);
+		$arrMap['verbrauch_ausserorts'] = str_replace('.', ',', $arrRow['CT_verbrauch_ausserorts']);
+		$arrMap['verbrauch_kombiniert'] = str_replace('.', ',', $arrRow['CU_verbrauch_kombiniert']);
 		$arrMap['kw'] = $arrRow['F_leistung'];
 		$arrMap['ps'] = $this->_getMappedRowPs($arrRow);
 		$arrMap['getriebe'] = $this->getMappedRowTransmission($arrRow['DG_getriebeart']);
