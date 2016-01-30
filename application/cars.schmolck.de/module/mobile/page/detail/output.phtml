@@ -40,7 +40,7 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
                         <tbody>
                             <tr>
                                 <td>
-                                    <div class="qrcode hide">
+                                    <div class="qrcode print">
                                         <img src="<?= $objCore->strQRImage ?>">
                                     </div>
                                 </td>
@@ -117,15 +117,18 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
                 <div class="col-md-6 description">
                     <?= $arrCar['bemerkung'] ?>
                 </div>
-                <div class="col-md-6 contact screen">
+                <div class="col-md-6 contact">
 
                     <?php if ($arrCar['marke'] != 'skoda' and $arrCar['marke'] != 'vw'): ?>
                         <table width="100%">
                             <tr>
                                 <td>
-                                    <a href="contact/page/emmendingen">
-                                        <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-emmendingen.jpg" title="<?= $objCore->getHelperTranslator()->_("Our sales consultants for Emmendingen and Vogtsburg") ?>" width="100%">
-                                    </a>
+                                    <div class="screen">
+                                        <a href="contact/page/emmendingen">
+                                            <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-emmendingen.jpg" title="<?= $objCore->getHelperTranslator()->_("Our sales consultants for Emmendingen and Vogtsburg") ?>" width="100%">
+                                        </a>
+                                    </div>
+
                                     <div class="address">
                                         <p>
                                             <strong>
@@ -144,9 +147,11 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
                                     &nbsp;
                                 </td>
                                 <td>
-                                    <a href="contact/page/muellheim">
-                                        <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-muellheim.jpg" title="<?= $objCore->getHelperTranslator()->_("Our sales consultants for Müllheim") ?>" width="100%">
-                                    </a>
+                                    <div class="screen">
+                                        <a href="contact/page/muellheim">
+                                            <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-muellheim.jpg" title="<?= $objCore->getHelperTranslator()->_("Our sales consultants for Müllheim") ?>" width="100%">
+                                        </a>
+                                    </div>
                                     <div class="address">
                                         <p>
                                             <strong>
@@ -164,9 +169,11 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
                             </tr>                                   
                         </table>
                     <?php else: ?>
-                        <a href="contact/page/emmendingen">
-                            <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-emmendingen-skoda.jpg" width="100%">
-                        </a>
+                        <div class="screen">
+                            <a href="contact/page/emmendingen">
+                                <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-emmendingen-skoda.jpg" width="100%">
+                            </a>
+                        </div>
                         <div class="address">
                             <h3>
                                 Emil Schmolck GmbH <br>
@@ -182,14 +189,15 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
                         </div>
                     <?php endif; ?>
 
-                    <p class="request">
-                        <?=
-                        $objCore->getHelperElement()->getElement("{$objCore->strId}_form", "mobile/element/form/", array(
-                            'id' => $arrCar['id']
-                        ))
-                        ?>				
-                    </p>
-
+                    <div class="screen">
+                        <p class="request">
+                            <?=
+                            $objCore->getHelperElement()->getElement("{$objCore->strId}_form", "mobile/element/form/", array(
+                                'id' => $arrCar['id']
+                            ))
+                            ?>				
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -70,53 +70,6 @@
             <?= $this->renderViewHtml() ?>
         </div>
 
-        <? if (!in_array($objCore->getModule(), array('contact', 'location'))) : ?>
-        <div id="contact" class="print">
-            <div class="container">
-                <table width="100%">
-                    <tr>
-                        <td>
-                            <strong>
-                                Schmolck GmbH &amp; Co. KG
-                            </strong>
-                            <p>
-                                Am Elzdamm 2 <br>
-                                79312 Emmendingen
-                            </p>
-                            <p>
-                                Tel +49 7641 / 4602-0 <br>
-                                Fax +49 7641 / 4602-80 <br>
-                            </p>
-                            <p>
-                                <a href="<?= $objCore->getHelperLink()->get('mailto:info.emmendingen@schmolck.de') ?>">
-                                    info.emmendingen@schmolck.de
-                                </a>
-                            </p>	
-                        </td>
-                        <td style="text-align: right;">
-                            <strong>
-                                Autohaus Schmolck GmbH & Co. KG 
-                            </strong>
-                            <p>
-                                Kinzigstraße 5 <br>
-                                79379 Müllheim 
-                            </p>
-                            <p>
-                                Tel +49 7631 / 3672-0 <br>
-                                Fax +49 7631 / 3672-80 <br>
-                            </p>
-                            <p>
-                                <a href="<?= $objCore->getHelperLink()->get('mailto:info.muellheim@schmolck.de') ?>">
-                                    info.muellheim@schmolck.de
-                                </a>
-                            </p>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <? endif; ?>
-
         <div id="footer">
             <div class="container">				
                 <div class="links">
@@ -140,25 +93,25 @@
         </div>
 
         <? if (PIWIK_TRACKING_ID != '') : ?>
-        <!-- Piwik -->
-        <script type="text/javascript">
-            var _paq = _paq || [];
-            _paq.push(["trackPageView"]);
-            _paq.push(["enableLinkTracking"]);
+            <!-- Piwik -->
+            <script type="text/javascript">
+                var _paq = _paq || [];
+                _paq.push(["trackPageView"]);
+                _paq.push(["enableLinkTracking"]);
 
-            (function () {
-                var u = (("https:" == document.location.protocol) ? "https" : "http") + "://piwik.schmolck.de/piwik/";
-                _paq.push(["setTrackerUrl", u + "piwik.php"]);
-                _paq.push(["setSiteId", "<?= PIWIK_TRACKING_ID ?>"]);
-                var d = document, g = d.createElement("script"), s = d.getElementsByTagName("script")[0];
-                g.type = "text/javascript";
-                g.defer = true;
-                g.async = true;
-                g.src = u + "piwik.js";
-                s.parentNode.insertBefore(g, s);
-            })();
-        </script>
-        <!-- End Piwik Code -->		
+                (function () {
+                    var u = (("https:" == document.location.protocol) ? "https" : "http") + "://piwik.schmolck.de/piwik/";
+                    _paq.push(["setTrackerUrl", u + "piwik.php"]);
+                    _paq.push(["setSiteId", "<?= PIWIK_TRACKING_ID ?>"]);
+                    var d = document, g = d.createElement("script"), s = d.getElementsByTagName("script")[0];
+                    g.type = "text/javascript";
+                    g.defer = true;
+                    g.async = true;
+                    g.src = u + "piwik.js";
+                    s.parentNode.insertBefore(g, s);
+                })();
+            </script>
+            <!-- End Piwik Code -->		
         <? endif; ?>
     </body>	
 </html>
