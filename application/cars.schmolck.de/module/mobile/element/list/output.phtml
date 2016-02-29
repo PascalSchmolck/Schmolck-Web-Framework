@@ -12,63 +12,67 @@ $strBaseUrl = $objCore->getHelperApplication()->getBaseUrl();
 ?>
 <div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
     <? if ($objCore->nCars > 0) : ?>
-    <div class="loadingmessage">
-        <?= $objCore->getHelperTranslator()->_("Loading...") ?>
-    </div>	
-    <!--		<div class="amount">
-    <?= sprintf($objCore->getHelperTranslator()->_("%s Hits"), $objCore->nCars) ?>
-          </div>-->
-    <table class="table table-striped list">
+        <div class="loadingmessage">
+            <?= $objCore->getHelperTranslator()->_("Loading...") ?>
+        </div>	
+        <!--		<div class="amount">
+        <?= sprintf($objCore->getHelperTranslator()->_("%s Hits"), $objCore->nCars) ?>
+              </div>-->
+        <table class="table table-striped list">
 
-        <? foreach ($objCore->arrCars as $arrCar) : ?>		
-        <tr>
-            <td>
-                <a name="<?= $arrCar['id'] ?>"></a>
-                <div class="item" data-name="<?= $arrCar['id'] ?>" data-link="<?= $strBaseUrl ?>/mobile/page/detail/id/<?= $arrCar['id'] ?>?pk_campaign=<?= strtoupper($arrCar['marke']) ?>&pk_kwd=<?= $arrCar['name'] ?> (<?= $arrCar['id'] ?>)">
-                    <div class="title">
-                        <?= $arrCar['name'] ?>
-                    </div>
-                    <div class="data">
-                        <div class="image">
-                            <img src="apps/image/200/90/<?= $arrCar['images'][0] ?>" class="img-thumbnail">
+            <? foreach ($objCore->arrCars as $arrCar) : ?>		
+                <tr>
+                    <td>
+                        <a name="<?= $arrCar['id'] ?>"></a>
+                        <div class="item" data-name="<?= $arrCar['id'] ?>" data-link="<?= $strBaseUrl ?>/mobile/page/detail/id/<?= $arrCar['id'] ?>?pk_campaign=<?= strtoupper($arrCar['marke']) ?>&pk_kwd=<?= $arrCar['name'] ?> (<?= $arrCar['id'] ?>)">
+                            <div class="title">
+                                <?= $arrCar['name'] ?>
+                            </div>
+                            <div class="data">
+                                <div class="image">
+                                    <img src="apps/image/200/90/<?= $arrCar['images'][0] ?>" class="img-thumbnail">
+                                </div>
+                                <div class="infos1">
+                                    <?= $arrCar['fahrzeug'] ?> <br>
+                                    <?= $arrCar['kategorie'] ?> <br>							
+                                    <?= $arrCar['getriebe'] ?> <br>
+                                    <?= $arrCar['id'] ?> <br>					
+                                </div>
+                                <div class="infos2">
+                                    <?= $arrCar['kw'] ?> kW (<?= $arrCar['ps'] ?> PS) <br>     
+                                    <?= $arrCar['kraftstoff'] ?> <br>
+                                    EZ <?= $arrCar['ez'] ?> <br>
+                                    <?= $arrCar['km'] ?> <br>
+                                </div>
+                                <div class="infos3">
+                                    <? if ($arrCar['emission'] > 0) : ?>
+                                        &#126;<?= $arrCar['emission'] ?> g CO<sub>2</sub>/km (komb.) <br>
+                                        &#126;<?= $arrCar['verbrauch_kombiniert'] ?> l/100 km (komb.) <br>
+                                    <? endif; ?>                            
+                                </div>
+                                <div class="price">
+                                    <?= $arrCar['preis'] ?> EUR <br>
+                                    <div class="pricenote">
+                                        <?
+                                        if ($arrCar['mwst'] == '1') {
+                                            echo $objCore->getHelperTranslator()->_("VAT not deductable");
+                                        } else {
+                                            echo $objCore->getHelperTranslator()->_("VAT deductable");
+                                        }
+                                        ?>								
+                                    </div>							
+                                </div>
+                                <div class="clearer">
+                                    &nbsp;
+                                </div>
+                            </div>
                         </div>
-                        <div class="infos1">
-                            <?= $arrCar['fahrzeug'] ?> <br>
-                            <?= $arrCar['kategorie'] ?> <br>							
-                            <?= $arrCar['id'] ?> <br>					
-                        </div>
-                        <div class="infos2">
-                            EZ <?= $arrCar['ez'] ?> <br>
-                            <?= $arrCar['km'] ?> <br>
-                        </div>
-                        <div class="infos3">
-                            <?= $arrCar['kraftstoff'] ?> <br>
-                            <?= $arrCar['kw'] ?> kW (<?= $arrCar['ps'] ?> PS) <br>
-                            <?= $arrCar['getriebe'] ?> <br>
-                        </div>
-                        <div class="price">
-                            <?= $arrCar['preis'] ?> EUR <br>
-                            <div class="pricenote">
-                                <?
-                                if ($arrCar['mwst'] == '1') {
-                                echo $objCore->getHelperTranslator()->_("VAT not deductable");
-                                } else {
-                                echo $objCore->getHelperTranslator()->_("VAT deductable");
-                                }
-                                ?>								
-                            </div>							
-                        </div>
-                        <div class="clearer">
-                            &nbsp;
-                        </div>
-                    </div>
-                </div>
-            </td>
-        </tr>
-        <? endforeach; ?>
-    </table>
+                    </td>
+                </tr>
+            <? endforeach; ?>
+        </table>
     <? else: ?>	
-    <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_empty", 'mobile/element/empty') ?>				
+        <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_empty", 'mobile/element/empty') ?>				
     <? endif; ?>	
     <?= $objCore->getHelperScripts()->renderViewScripts() ?>
 </div>
