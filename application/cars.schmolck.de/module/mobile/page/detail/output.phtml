@@ -40,6 +40,7 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
                         <tbody>
                             <tr>
                                 <td>
+                                    <img class="co2" src="images/cars.schmolck.de/mobile/co2/<?= $arrCar['effizienz'] ?>.png">
                                     <div class="qrcode print">
                                         <img src="<?= $objCore->strQRImage ?>">
                                     </div>
@@ -58,16 +59,16 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
                                 </td>
                             </tr>                            
                             <tr>
+
                                 <td><?= $arrCar['fahrzeug'] ?></td>
-                                <td><?= $arrCar['kategorie'] ?></td>
-                            </tr>
-                            <tr>
-                                <td><? if ($arrCar['ez'] != ''): ?>EZ<? endif; ?> <?= $arrCar['ez'] ?></td>
-                                <td><?= $arrCar['km'] ?></td>
+                                <td>
+                                    <?= $arrCar['kw'] ?> kW (<?= $arrCar['ps'] ?> PS)
+                                </td>
+
                             </tr>
                             <tr>
                                 <td>
-                                    <?= $arrCar['kw'] ?> kW (<?= $arrCar['ps'] ?> PS)
+                                    <?= $arrCar['kategorie'] ?>
                                 </td>
                                 <td>
                                     <?= $arrCar['kraftstoff'] ?>
@@ -78,7 +79,16 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
                                     <?= $arrCar['getriebe'] ?> 
                                 </td>
                                 <td>
+                                    <? if ($arrCar['ez'] != ''): ?>EZ<? endif; ?> <?= $arrCar['ez'] ?>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
                                     <?= $arrCar['color'] ?> 
+                                </td>
+                                <td>
+                                    <?= $arrCar['km'] ?>
                                 </td>
                             </tr>
                             <? if ($arrCar['emission'] > 0) : ?>

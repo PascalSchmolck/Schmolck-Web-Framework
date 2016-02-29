@@ -471,7 +471,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 		$arrMap['ccm'] = $arrRow['BA_ccm'];
 		$arrMap['preis'] = $this->_getMappedRowPrice($arrRow);
 		$arrMap['mwst'] = $arrRow['L_mwst'];
-		$arrMap['color'] = utf8_encode($arrRow['Q_farbe']);
+		$arrMap['color'] = ucfirst(utf8_encode($arrRow['Q_farbe']));
 		$arrMap['images'] = $this->getImages($arrMap['id']);
 		$arrMap['bemerkung'] = $this->_getMappedRowBemerkung(utf8_encode($arrRow['Z_bemerkung']));
 		return $arrMap;
