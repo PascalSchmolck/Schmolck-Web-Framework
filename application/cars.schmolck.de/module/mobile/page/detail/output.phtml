@@ -94,7 +94,7 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
                             <? if ($arrCar['emission'] > 0) : ?>
                                 <tr>
                                     <td>
-                                        CO<sub>2</sub>-Emissionen komb. <?= $arrCar['emission'] ?> g/km
+                                        CO<sub>2</sub>-Emissionen komb. * <?= $arrCar['emission'] ?> g/km
                                     </td>
                                     <td>
                                         Energieeffizienzklasse <?= $arrCar['effizienz'] ?>
@@ -104,7 +104,7 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
                             <? if ($arrCar['verbrauch_kombiniert'] != '') : ?>
                                 <tr>
                                     <td>
-                                        Kraftstoffverbrauch <br>
+                                        Kraftstoffverbrauch *<br>
                                         <?= $arrCar['verbrauch_kombiniert'] ?> l/100 km kombiniert <br>
                                         <?= $arrCar['verbrauch_innerorts'] ?> l/100 km innerorts <br>
                                         <?= $arrCar['verbrauch_ausserorts'] ?> l/100 km außerorts <br>
@@ -213,6 +213,8 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
         </div>
 
     <?php endforeach; ?>
+
+    <?= $objCore->getHelperElement()->getElementCaller("{$objCore->strId}_disclaimer", 'mobile/element/disclaimer') ?>				
 
     <?php
     /*

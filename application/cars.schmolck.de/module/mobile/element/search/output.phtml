@@ -9,17 +9,19 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
  */
 ?>
 <div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
-
-   <div class="row">
-      <div class="col-md-2">
-         <?=
-         $objCore->getHelperElement()->getElementCaller("{$objCore->strId}_filter", 'mobile/element/filter', array(
-             'resultID' => "{$objCore->strId}_result"
-         ));
-         ?>				
-      </div>
-      <div class="col-md-10">
-         <?= $objCore->getHelperElement()->getElementCaller("{$objCore->strId}_result", 'mobile/element/result') ?>				
-      </div>
-   </div>
+    <div class="row">
+        <div class="col-md-2">
+            <?=
+            $objCore->getHelperElement()->getElementCaller("{$objCore->strId}_filter", 'mobile/element/filter', array(
+                'resultID' => "{$objCore->strId}_result"
+            ));
+            ?>				
+        </div>
+        <div class="col-md-10">
+            <?= $objCore->getHelperElement()->getElementCaller("{$objCore->strId}_result", 'mobile/element/result') ?>				
+        </div>
+    </div>
+    <div class="row">
+        <?= $objCore->getHelperElement()->getElementCaller("{$objCore->strId}_disclaimer", 'mobile/element/disclaimer') ?>				
+    </div>         
 </div>
