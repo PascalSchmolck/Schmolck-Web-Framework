@@ -21,7 +21,9 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
             <?= $objCore->getHelperElement()->getElementCaller("{$objCore->strId}_result", 'mobile/element/result') ?>				
         </div>
     </div>
-    <div class="row">
-        <?= $objCore->getHelperElement()->getElementCaller("{$objCore->strId}_disclaimer", 'mobile/element/disclaimer') ?>				
-    </div>         
+    <div class="rows">
+        <div class="col-md-12">
+            <?= $objCore->getHelperElement()->getElementCaller("{$objCore->strId}_disclaimer", 'mobile/element/disclaimer') ?>				
+        </div>
+    </div>
 </div>
