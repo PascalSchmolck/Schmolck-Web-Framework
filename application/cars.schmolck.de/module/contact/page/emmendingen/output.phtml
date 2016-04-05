@@ -11,12 +11,13 @@ $arrPersonInfo = array(
     'Carina Kusnezow' => 'info.emmendingen@schmolck.de',
 );
 $arrPersonSale = array(
-    'Mike Mack' => 'mike.mack@schmolck.de',
-    'Sebastian Heiny' => 'sebastian.heiny@schmolck.de',
-    'Jürgen Rinkenauer' => 'juergen.rinkenauer@schmolck.de',
-    'Andreas Blakowski' => 'andreas.blakowski@schmolck.de'
+    'Sebastian Heiny' => 'sebastian_heiny.jpg',
+    'Mike Mack' => 'mike_mack.jpg',
+    'Benedikt Pohl' => 'benedikt_pohl.jpg',
+    'Jürgen Rinkenauer' => 'juergen_rinkenauer.jpg',
 );
 $arrPersonSkoda = array(
+    'Roland Henecka' => 'roland.henecka@schmolck.de',
     'Stefan Klopfer' => 'stefan.klopfer@schmolck.de',
     'Lidija Schmal' => 'lidija.schmal@schmolck.de',
     'Alexander Fliegauf' => 'alexander.fliegauf@schmolck.de'
@@ -27,39 +28,16 @@ $arrPersonSkoda = array(
     <div class="contact">
         <div class="row">
             <div class="col-md-6">
-                <!--                <div>
-                                    <h2>
-                                        Information &amp; Terminvereinbarung
-                                    </h2>        
-                                    <img src="apps/image/1024/90/images/cars.schmolck.de/contact/pkw-zentrale-emmendingen.jpg">
-                                    <table class="table names" width="100%">
-                                        <tbody>
-                                            <tr>
-                <?php foreach ($arrPersonInfo as $name => $email) : ?>	
-                                                                    <td>
-                    <?php /*
-                      <a href="<?= $objCore->getHelperLink()->get("mailto:{$email}?subject={$strMailInfo}") ?>"><?= $name ?></a>
-                     */ ?>
-                    <?= $name ?>
-                                                                    </td>
-                <?php endforeach; ?>
-                                            </tr>
-                                        </tbody>                    
-                                    </table>                
-                                </div> -->
                 <div>
                     <h2>
                         Unser Mercedes-Benz Verkaufs-Team
-                    </h2>                     
+                    </h2>               
                     <img src="apps/image/1024/90/images/cars.schmolck.de/contact/pkw-verkauf-emmendingen.jpg">
                     <table class="table names" width="100%">
                         <tbody>
                             <tr>
-                                <?php foreach ($arrPersonSale as $name => $email) : ?>	
-                                    <td>
-                                        <?php /*
-                                          <a href="<?= $objCore->getHelperLink()->get("mailto:{$email}?subject={$strMailInfo}") ?>"><?= $name ?></a>
-                                         */ ?>
+                                <?php foreach ($arrPersonSale as $name => $file) : ?>	
+                                    <td>                                     
                                         <?= $name ?>
                                     </td>
                                 <?php endforeach; ?>

@@ -9,65 +9,37 @@ $arrPersonInfo = array(
     'Sarah Kirstein' => 'info.bischoffingen@schmolck.de',
 );
 $arrPersonSale = array(
-    'Mike Mack' => 'mike.mack@schmolck.de',
-    'Sebastian Heiny' => 'sebastian.heiny@schmolck.de',
-    'Jürgen Rinkenauer' => 'juergen.rinkenauer@schmolck.de',
-    'Andreas Blakowski' => 'andreas.blakowski@schmolck.de'
+    'Sebastian Heiny' => 'sebastian_heiny.jpg',
+    'Mike Mack' => 'mike_mack.jpg',
+    'Benedikt Pohl' => 'benedikt_pohl.jpg',
+    'Jürgen Rinkenauer' => 'juergen_rinkenauer.jpg',
 );
 ?>
 <div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
     <?= $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
     <div class="contact">
         <div class="row">
-            <div class="col-md-4">
-                <div>
-                    <h2>
-                        Information
-                    </h2>        
-                    <img src="apps/image/1024/90/images/cars.schmolck.de/contact/pkw-zentrale-bischoffingen.jpg">
-                    <table class="table names" width="100%">
-                        <tbody>
-                            <tr>
-                                <?php foreach ($arrPersonInfo as $name => $email) : ?>	
-                                    <td>
-                                        <?php /*
-                                          <a href="<?= $objCore->getHelperLink()->get("mailto:{$email}?subject={$strMailInfo}") ?>"><?= $name ?></a>
-                                         */ ?>
-                                        <?= $name ?>
-                                    </td>
-                                <?php endforeach; ?>
-                            </tr>
-                        </tbody>                    
-                    </table>                
-                </div>                 
+            <div class="col-md-12">
+                <h2>
+                    Unser Junge Sterne Verkaufsberater für Emmendingen und Vogtsburg
+                </h2>                     
             </div>
-            <div class="col-md-8">
-                <div>
-                    <h2>
-                        Verkauf
-                    </h2>                     
-                    <img src="apps/image/1024/90/images/cars.schmolck.de/contact/pkw-verkauf-emmendingen.jpg">
-                    <table class="table names" width="100%">
-                        <tbody>
-                            <tr>
-                                <?php foreach ($arrPersonSale as $name => $email) : ?>	
-                                    <td>
-                                        <?php /*
-                                          <a href="<?= $objCore->getHelperLink()->get("mailto:{$email}?subject={$strMailInfo}") ?>"><?= $name ?></a>
-                                         */ ?>
-                                        <?= $name ?>
-                                    </td>
-                                <?php endforeach; ?>
-                            </tr>
-                        </tbody>                    
-                    </table>                
-                </div>
-
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-8">                
+                <img src="apps/image/1024/98/images/cars.schmolck.de/contact/pkw-verkauf-emmendingen.jpg">
+                <table class="table names" width="100%">
+                    <tbody>
+                        <tr>
+                            <?php foreach ($arrPersonSale as $name => $email) : ?>	
+                                <td>
+                                    <?php /*
+                                      <a href="<?= $objCore->getHelperLink()->get("mailto:{$email}?subject={$strMailInfo}") ?>"><?= $name ?></a>
+                                     */ ?>
+                                    <?= $name ?>
+                                </td>
+                            <?php endforeach; ?>
+                        </tr>
+                    </tbody>                    
+                </table>     
                 <h3>
                     Schmolck GmbH & Co. KG
                 </h3>
@@ -80,8 +52,6 @@ $arrPersonSale = array(
                     Tel +49 7641 / 4602-0 <br>
                     Fax +49 7641 / 4602-80 <br>
                 </p>
-            </div>
-            <div class="col-md-6">        
                 <div class="form screen">
                     <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_form", 'mobile/element/form') ?>		
                 </div>
