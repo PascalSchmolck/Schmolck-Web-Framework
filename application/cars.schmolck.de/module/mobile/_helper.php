@@ -659,9 +659,7 @@ class Mobile_Helper extends Schmolck_Framework_Helper {
 	 */
 	protected function _getMappedRowPrice($arrRow) {
 		if ($arrRow['L_mwst'] == 0) {
-			$nPrice = ceil($arrRow['K_preis'] * (1 + self::PRICE_MWST/100));
-			$nPrice = intval($nPrice / 10);
-			$nPrice = $nPrice * 10;	
+			$nPrice = floor($arrRow['K_preis'] * (1 + self::PRICE_MWST/100));
 		} else {
 			$nPrice = intval($arrRow['K_preis']);
 		}
