@@ -18,6 +18,10 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
         </pre>    
         -->
 
+        <!-- Piwik Image Tracker-->
+        <img src="http://piwik.schmolck.de/piwik/piwik.php?idsite=<?= PIWIK_TRACKING_ID ?>&rec=1&pk_campaign=<?= strtoupper($arrCar['marke']) ?>&pk_kwd=<?= $arrCar['name'] ?> (<?= $arrCar['id'] ?>)" style="border:0" alt="" />
+        <!-- End Piwik -->
+
         <div class="item" data-link="<?= $objCore->strParameterUrl ?>/id/<?= $arrCar['id'] ?>">
             <div class="title">
                 <? $strPageTitle = $arrCar['name'] . ' (' . $arrCar['id'] . ')'; ?>
