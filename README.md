@@ -2,4 +2,4 @@
 
 Web framework based on PHP, HTML, JS and LESS.
 
-Version 2016.01.30
+Version 2016.04.05
