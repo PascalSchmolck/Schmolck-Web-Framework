@@ -62,7 +62,7 @@ if ($objCore->strSend != '') {
         try {
             // - get price
             $arrCarResult = $objCars->queryCarsSingle($objCore->strId);
-            $strPrice = number_format(doubleval(str_replace('.', '', strval($arrCarResult[0][preis]))), 2, '', '');
+            $strPrice = str_replace('.', '', $arrCarResult[0][preis]);
             // - fill template with data
             $arrReplace = array(
                 '#id' => $objCore->strId,
