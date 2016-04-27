@@ -4,9 +4,4 @@ $(document).ready(function() {
      */
     $('.alert').fadeIn('slow');
 
-    // - progress bar on link clicks
-    $('a').click(function() {
-        var objProgress = $('body').find('.progress');        
-        objProgress.slideDown();
-    });
 });
