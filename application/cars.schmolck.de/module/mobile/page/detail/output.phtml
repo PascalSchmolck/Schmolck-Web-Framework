@@ -44,7 +44,9 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
                         <tbody>
                             <tr>
                                 <td>
-                                    <img class="co2" src="images/cars.schmolck.de/mobile/co2/<?= $arrCar['effizienz'] ?>.png">
+                                    <? if (file_exists("images/cars.schmolck.de/mobile/co2/{$arrCar['effizienz']}.png")): ?>
+                                        <img class="co2" src="images/cars.schmolck.de/mobile/co2/<?= $arrCar['effizienz'] ?>.png">
+                                    <? endif; ?>
                                     <div class="qrcode print">
                                         <img src="<?= $objCore->strQRImage ?>">
                                     </div>
