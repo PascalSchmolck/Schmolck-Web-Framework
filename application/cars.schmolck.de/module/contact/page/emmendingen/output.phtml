@@ -16,9 +16,9 @@ $arrPersonSale = array(
     'Jürgen Rinkenauer' => 'juergen_rinkenauer.jpg',
 );
 $arrPersonSkoda = array(
+    'Alexander Fliegauf' => 'alexander.fliegauf@schmolck.de',
     'Roland Henecka' => 'roland.henecka@schmolck.de',
-    'Stefan Klopfer' => 'stefan.klopfer@schmolck.de',
-    'Alexander Fliegauf' => 'alexander.fliegauf@schmolck.de'
+    'Dirk Winkler' => 'dirk.winkler@schmolck.de',
 );
 ?>
 <div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
@@ -35,7 +35,7 @@ $arrPersonSkoda = array(
                         <tbody>
                             <tr>
                                 <?php foreach ($arrPersonSale as $name => $file) : ?>	
-                                    <td>                                     
+                                    <td style="width: 33%;">                                  
                                         <?= $name ?>
                                     </td>
                                 <?php endforeach; ?>
@@ -71,7 +71,7 @@ $arrPersonSkoda = array(
                         <tbody>
                             <tr>
                                 <?php foreach ($arrPersonSkoda as $name => $email) : ?>	
-                                    <td>
+                                    <td style="width: 33%;">
                                         <?php /*
                                           <a href="<?= $objCore->getHelperLink()->get("mailto:{$email}?subject={$strMailInfo}") ?>"><?= $name ?></a>
                                          */ ?>
