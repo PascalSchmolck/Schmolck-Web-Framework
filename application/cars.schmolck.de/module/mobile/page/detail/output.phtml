@@ -5,6 +5,12 @@
 $objCore = Schmolck_Framework_Core::getInstance($this);
 $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
 
+$arrPersonSkoda = array(
+    'Alexander Fliegauf' => 'alexander.fliegauf@schmolck.de',
+    'Roland Henecka' => 'roland.henecka@schmolck.de',
+    'Dirk Winkler' => 'dirk.winkler@schmolck.de',
+);
+
 /*
  * OUTPUT
  */
@@ -172,6 +178,17 @@ $objCore->strPageTitle = $objCore->getHelperTranslator()->_("Vehicle Search");
                         <a href="contact/page/emmendingen">
                             <img src="apps/image/1024/100/images/cars.schmolck.de/contact/pkw-verkauf-emmendingen-skoda.jpg" width="100%">
                         </a>
+                        <table class="table names" width="100%">
+                            <tbody>
+                                <tr>
+                                    <?php foreach ($arrPersonSkoda as $name => $file) : ?>	
+                                        <td style="width: 33%;">                                  
+                                            <?= $name ?>
+                                        </td>
+                                    <?php endforeach; ?>
+                                </tr>
+                            </tbody>                    
+                        </table>   
 
                         <div class="address">
                             <h3>
