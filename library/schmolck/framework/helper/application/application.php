@@ -79,17 +79,7 @@ class Schmolck_Framework_Helper_Application extends Schmolck_Framework_Helper {
      * @return string
      */
     public function getRequestUrl() {
-        /*
-         * PREPARATION
-         */
-        // - http://host/module/controller/action		
-        $strHost = $_SERVER['HTTP_HOST'];
-        $strUri = $this->getRequestUri();
-
-        /*
-         * OUTPUT
-         */
-        return 'http://' . $strHost . '/' . $strUri;
+        return $this->getBaseUrl() . '/' . $this->getRequestUri();
     }
 
     /**
