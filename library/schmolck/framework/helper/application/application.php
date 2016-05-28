@@ -105,8 +105,10 @@ class Schmolck_Framework_Helper_Application extends Schmolck_Framework_Helper {
      * @return string
      */
     public function getCurrentParameter() {
-        // - module/controller/action
-        return substr($_SERVER['REQUEST_URI'], 1, strlen($_SERVER['REQUEST_URI']));
+        // /GitHub/Schmolck-Web-Framework/index.php >> /GitHub/Schmolck-Web-Framework/
+        $strTmpUrl = substr($_SERVER['PHP_SELF'], 0, strlen($_SERVER['PHP_SELF']) - strlen('index.php'));
+        // /GitHub/Schmolck-Web-Framework/contact/page/muellheim - /GitHub... >> contact/page/muellheim
+        return substr($_SERVER['REQUEST_URI'], strlen($strTmpUrl));
     }
 
     /**
