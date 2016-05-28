@@ -1,0 +1,31 @@
+<?php
+/*
+ * INITIALISATION
+ */
+$objCore = Schmolck_Framework_Core::getInstance($this);
+
+/*
+ * OUTPUT
+ */
+?>
+<div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
+    <?= $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
+    <div class="row">
+        <div class="col-md-2">
+            <?=
+            $objCore->getHelperElement()->getElementCaller("{$objCore->strId}_filter", 'mobile/element/filter', array(
+                'resultID' => "{$objCore->strId}_list",
+                'resultURL' => "mobile/element/list"
+            ));
+            ?>				
+        </div>
+        <div class="col-md-10">
+            <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_list", 'mobile/element/list') ?>							
+        </div>
+    </div>
+    <div class="rows">
+        <div class="col-md-12">
+            <?= $objCore->getHelperElement()->getElementCaller("{$objCore->strId}_disclaimer", 'mobile/element/disclaimer') ?>				
+        </div>
+    </div>
+</div>

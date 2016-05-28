@@ -16,6 +16,7 @@ $objCars = new Mobile_Helper($objCore);
  */
 // - GET
 $objCore->strParameterResultID = Schmolck_Tool_Memory::auto($objCore->getModule(), 'resultID', strip_tags($_POST['resultID']));
+$objCore->strParameterResultURL = Schmolck_Tool_Memory::auto($objCore->getModule(), 'resultURL', strip_tags($_POST['resultURL']));
 // - POST
 $objCore->strParameterSend = strip_tags($_POST['send']);
 $objCore->strParameterReset = strip_tags($_POST['reset']);
@@ -79,4 +80,5 @@ $objCore->getHelperScripts()->registerViewScriptReplace(array(
     'SchmolckID' => $objCore->strId,
     'SchmolckURL' => $objCore->strUrl,
     'SchmolckRESULTID' => $objCore->strParameterResultID,
+    'SchmolckRESULTURL' => $objCore->strParameterResultURL,
 ));

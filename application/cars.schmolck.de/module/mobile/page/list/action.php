@@ -3,9 +3,6 @@
 /*
  * INITIALISATION
  */
+// - core
 $objCore = Schmolck_Framework_Core::getInstance($this);
-
-/*
- * REDIRECT
- */
-$objCore->getHelperRedirect()->local('mobile/page/list');
+$objCore->strId = $objCore->getHelperElement()->getId();

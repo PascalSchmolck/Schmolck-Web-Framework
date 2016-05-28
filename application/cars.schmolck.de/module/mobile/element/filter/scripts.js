@@ -61,7 +61,7 @@ $(document).ready(function () {
         var objResult = $('#SchmolckRESULTID');
         if (objResult) {
             Schmolck_Framework_Helper_Element({
-                url: 'mobile/element/result',
+                url: 'SchmolckRESULTURL',
                 id: 'SchmolckRESULTID'
             });
         }

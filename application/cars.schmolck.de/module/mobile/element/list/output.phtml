@@ -12,9 +12,6 @@ $strBaseUrl = $objCore->getHelperApplication()->getBaseUrl();
 ?>
 <div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
     <? if ($objCore->nCars > 0) : ?>
-        <div class="loadingmessage">
-            <?= $objCore->getHelperTranslator()->_("Loading...") ?>
-        </div>	
         <!--		<div class="amount">
         <?= sprintf($objCore->getHelperTranslator()->_("%s Hits"), $objCore->nCars) ?>
               </div>-->
