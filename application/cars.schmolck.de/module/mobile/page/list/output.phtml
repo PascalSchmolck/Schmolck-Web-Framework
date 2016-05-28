@@ -20,12 +20,12 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
             ?>				
         </div>
         <div class="col-md-10">
-            <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_list", 'mobile/element/list') ?>							
+            <?= $objCore->getHelperElement()->getElementCaller("{$objCore->strId}_list", 'mobile/element/list') ?>							
         </div>
     </div>
     <div class="rows">
         <div class="col-md-12">
-            <?= $objCore->getHelperElement()->getElementCaller("{$objCore->strId}_disclaimer", 'mobile/element/disclaimer') ?>				
+            <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_disclaimer", 'mobile/element/disclaimer') ?>				
         </div>
     </div>
 </div>
