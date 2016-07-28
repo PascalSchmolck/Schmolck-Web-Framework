@@ -4,3 +4,4 @@
 /host/production/*
 /nbproject/*
 /tmp/*
+/apps/care/config.php
