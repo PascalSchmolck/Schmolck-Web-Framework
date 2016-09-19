@@ -40,7 +40,7 @@ define('DEBUG_LEVEL', 7);
  * 
  * Corresponding to whatever 'application' inside the application folder
  */
-define('APPLICATION_NAME', 'cars.schmolck.de');
+define('APPLICATION_NAME', 'framework.schmolck.de');
 
 /*
  * APPLICATION LANGUAGE
@@ -77,39 +77,7 @@ define('DATABASE_USERNAME', 'pascal');
 define('DATABASE_PASSWORD', 'test');
 
 /*
- * PIWIK
- * 
- * Leave empty if tracking should not be activated
- */
-define('PIWIK_TRACKING_ID', '');
-
-/*
  * MAIL
  */
 define('MAIL_RECIPIENT_NAME', 'cars.schmolck.de');
 define('MAIL_RECIPIENT_ADDRESS', 'verkauf@schmolck.de');
-
-/*
- * MOBILE
- */
-// - database & import & images
-define('MOBILE_ZIP_FILE', 'data/mobile/files/sync/media.zip');
-define('MOBILE_CSV_FILE_NAME', 'media.csv');
-define('MOBILE_CSV_DELIMITER', ';');
-define('MOBILE_CSV_ENCLOSURE', '"');
-define('MOBILE_CSV_LIMITS', '203,5,16');
-define('MOBILE_IMAGES_PATH', 'data/mobile/files/sync');
-define('MOBILE_DATABASE_FILE', 'data/mobile/files/sync/media.csv');
-define('MOBILE_DATABASE_TABLE', 'mod_mobile_claris_20160130');
-define('MOBILE_PRICE_MWST', 19);
-// - contact form
-define('MOBILE_SENDER_NAME', 'cars.schmolck.de');
-define('MOBILE_SENDER_ADDRESS', 'webmaster@schmolck.de');
-define('MOBILE_RECIPIENT_NAME', 'verkauf@schmolck.de');
-define('MOBILE_RECIPIENT_ADDRESS', 'verkauf@schmolck.de');
-
-/*
- * URL
- */
-define('HASH_PATH', 'data/url/hash');
-define('URL_PATH', 'data/url/url');

@@ -1,0 +1,26 @@
+<?php
+/*
+ * INITIALISATION
+ */
+$objCore = Schmolck_Framework_Core::getInstance($this);
+$objCore->strLanguage = $objCore->getHelperTranslator()->getLanguage();
+$objCore->arrLanguages = $objCore->getHelperTranslator()->getLanguages();
+$objCore->strTooltip = $objCore->getHelperTranslator()->_("Language / Sprache")
+
+/*
+ * OUTPUT
+ */
+?>
+<form id="<?= $objCore->strId ?>" method="post" title="<?= $objCore->strTooltip ?>">
+	<select name="language">
+		<? foreach ($objCore->arrLanguages as $strLanguage) { ?>
+			<?php
+			($objCore->strLanguage == $strLanguage) ? $strSelected = 'selected' : $strSelected = '';
+			?>
+			<option <?= $strSelected ?>>
+				<?= $strLanguage ?>
+			</option>
+		<? } ?>
+	</select>
+	<?= $objCore->getHelperScripts()->renderViewScripts() ?>
+</form>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--
+        Memory Peak Usage: <?= Schmolck_Tool_File::convertBytes(memory_get_peak_usage()) ?>
+        -->		
+        <base href="<?= $objCore->getHelperApplication()->getBaseUrl() ?>/">
+        <meta charset="utf-8"/>
+        <title>
+            <?= ucfirst($objCore->getHelperTranslator()->_($objCore->getModule())) ?> - <?= $strPageTitle ?> | Schmolck Framework
+        </title>
+        <meta name="author" content="Pascal Schmolck">
+        <meta name="publisher" content="Schmolck GmbH & Co. KG">
+        <meta name="copyright" content="Schmolck GmbH & Co. KG">
+        <meta http-equiv="content-language" content="de">
+        <meta name="robots" content="index, follow">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="apps/style/<?= $objCore->getLayoutStyleFile() ?>" media="all">
+        <script type="text/javascript" src="apps/script/<?= $objCore->getLayoutScriptFile() ?>"></script>		
+    </head>
+    <body role="document">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="">
+                        <img src="images/cars.schmolck.de/template/logo/white.png" width="100"/>
+                    </a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="<?= $arrNavbarClass['marketing'] ?>">
+                            <a href="marketing">
+                                <?= ($objCore->getHelperTranslator()->_("Marketing")) ?>
+                            </a>
+                        </li>
+                        <li class="<?= $arrNavbarClass['controling'] ?>">
+                            <a href="controling">
+                                <?= ($objCore->getHelperTranslator()->_("Controling")) ?>
+                            </a>
+                        </li>                                  
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="main" class="container" role="main">
+            <div class="progress progress-striped active modal">
+                <div class="progress-bar"></div>
+            </div>                
+            <?php if ($objCore->getHelperMessage()->getMessage() != '') : ?>
+                <div class="alert alert-dismissible alert-warning">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <?= $objCore->getHelperMessage()->popMessage() ?>
+                </div>
+            <?php endif; ?>
+            <?= $this->renderViewHtml() ?>
+        </div>
+
+        <div id="footer">
+            <div class="container">				
+                <div class="links">
+                    <ul>
+                        <li>
+                            <?= date('Y') ?> &copy; Schmolck GmbH & Co. KG
+                        </li>
+                    </ul>
+                </div>											
+            </div>
+        </div>
+    </body>	
+</html>

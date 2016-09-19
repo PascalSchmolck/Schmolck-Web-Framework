@@ -1,0 +1,34 @@
+<?php
+$objCore = Schmolck_Framework_Core::getInstance($this);
+$objCore->strPageTitle = $objCore->getHelperTranslator()->_("Ups, sorry...");
+
+$strSubject = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+$strBody = $objCore->getHelperTranslator()->_("Error message") . ': ' . $Exception->getMessage();
+Schmolck_Tool_Debug::error($Exception->getMessage());
+
+?>
+<div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
+    <h2>
+        <?= $objCore->getHelperTranslator()->_("...an error occured!"); ?>
+    </h2>
+    <p>
+        <?= $objCore->getHelperTranslator()->_("If this error occurs repeatedly, we would appreciate a short message"); ?>:
+        <a href="mailto:webmaster@schmolck.de?subject=<?= $strSubject ?>&body=<?= $strBody ?>">
+            <?= EXCEPTION_ADDRESS ?>
+        </a>
+    </p>
+    <p class="alert alert-danger">
+        <strong>
+            <?= $objCore->getHelperTranslator()->_("Error message"); ?>
+        </strong>:
+        <?= $Exception->getMessage(); ?>
+    </p>
+
+    <? if (APPLICATION_ENVIRONMENT != 'production') : ?>
+        <p style="font-style: italic;">
+            <?= $Exception->getLine(); ?>: <?= $Exception->getFile(); ?>
+        </p>
+        <pre class="infos" style="overflow: auto;"><?= $Exception->getTraceAsString() ?></pre>
+    <? endif; ?>
+</div>
+   

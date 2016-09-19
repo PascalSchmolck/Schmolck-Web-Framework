@@ -1,0 +1,528 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Pascal Schmolck <mail@pascalschmolck.de>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+
+#: ../application/cars.schmolck.de/module/contact/api/form/action.php:25
+msgid "Please enter your name name"
+msgstr "Bitte geben Sie Ihren Namen ein"
+
+#: ../application/cars.schmolck.de/module/contact/api/form/action.php:30
+msgid "Please enter a valid e-mail address"
+msgstr "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+
+#: ../application/cars.schmolck.de/module/contact/api/form/action.php:35
+msgid "Please enter a subject"
+msgstr "Bitte geben Sie einen Betreff an"
+
+#: ../application/cars.schmolck.de/module/contact/api/form/action.php:40
+msgid "Please enter your message here"
+msgstr "Bitte geben Sie Ihre Nachricht ein"
+
+#: ../application/cars.schmolck.de/module/contact/api/form/action.php:50
+msgid "Message has been sent. Thank you."
+msgstr "Die Nachricht wurde verschickt. Dankeschön."
+
+#: ../application/cars.schmolck.de/module/contact/api/form/output.phtml:26
+msgid "Name"
+msgstr "Name"
+
+#: ../application/cars.schmolck.de/module/contact/api/form/output.phtml:36
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#: ../application/cars.schmolck.de/module/contact/api/form/output.phtml:46
+msgid "Subject"
+msgstr "Betreff"
+
+#: ../application/cars.schmolck.de/module/contact/api/form/output.phtml:56
+msgid "Your message"
+msgstr "Ihre Nachricht"
+
+#: ../application/cars.schmolck.de/module/contact/api/form/output.phtml:65
+msgid "Submit"
+msgstr "Abschicken"
+
+#: ../application/cars.schmolck.de/module/contact/page/emmendingen/output.phtml:6
+msgid "Contact"
+msgstr "Kontakt"
+
+#: ../application/cars.schmolck.de/module/contact/page/emmendingen/output.phtml:7
+msgid "Our sales consultants for Emmendingen and Vogtsburg"
+msgstr "Unsere Verkaufsberater für Emmendingen und Vogtsburg"
+
+#: ../application/cars.schmolck.de/module/contact/page/muellheim/output.phtml:7
+msgid "Our sales consultants for Müllheim"
+msgstr "Unsere Verkaufsberater für Müllheim"
+
+#: ../application/cars.schmolck.de/module/exception/index/index/output.phtml:3
+msgid "Ups, sorry..."
+msgstr "Verzeihung..."
+
+#: ../application/cars.schmolck.de/module/exception/index/index/output.phtml:6
+msgid "Error message"
+msgstr "Fehlermeldung"
+
+#: ../application/cars.schmolck.de/module/exception/index/index/output.phtml:12
+msgid "...an error occured!"
+msgstr "...es hat sich ein Fehler eingeschlichen!"
+
+#: ../application/cars.schmolck.de/module/exception/index/index/output.phtml:15
+msgid "If this error occurs repeatedly, we would appreciate a short message"
+msgstr ""
+"Sollte dieser Fehler mehrmals auftreten, würden wir uns über eine kurze "
+"Benachrichtigung freuen"
+
+#: ../application/cars.schmolck.de/module/location-DELETE/page/emmendingen/output.phtml:6
+msgid "Locations"
+msgstr "Anfahrt"
+
+#: ../application/cars.schmolck.de/module/location-DELETE/page/emmendingen/output.phtml:32
+msgid "Mail"
+msgstr "Mail"
+
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:19
+msgid "Dear Sirs,"
+msgstr "Sehr geehrte Damen und Herren,"
+
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:20
+msgid "I am interested in a vehicle with the following criteria:"
+msgstr "Ich interessiere mich für ein Fahrzeug mit folgenden Kriterien:"
+
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:21
+msgid "Brand"
+msgstr "Marke"
+
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:22
+msgid "Model"
+msgstr "Modell"
+
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:23
+msgid "Transmission"
+msgstr "Getriebe"
+
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:24
+msgid "Price"
+msgstr "Preis"
+
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:25
+msgid "With best regards"
+msgstr "Mit freundlichen Grüßen"
+
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:34
+msgid "Your dream car is not listed?"
+msgstr "Ihr Wunschfahrzeug ist nicht dabei?"
+
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:37
+msgid "It would be a pleasure for us to find your dream car."
+msgstr ""
+"Gerne suchen wir Ihnen das passende aus unserem Herstellerbestand mit über "
+"5.000 Fahrzeugen heraus."
+
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:40
+msgid "Please, contact us!"
+msgstr "Kontaktieren Sie uns!"
+
+#: ../application/cars.schmolck.de/module/mobile/element/empty/output.phtml:45
+msgid "Search request"
+msgstr "Suchanfrage"
+
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:10
+msgid "Display %s hits"
+msgstr "%s Treffer anzeigen"
+
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:23
+msgid "All"
+msgstr "Alle"
+
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:24
+msgid "Manual"
+msgstr "Schaltgetriebe"
+
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:25
+msgid "Semi-Automatic"
+msgstr "Halb-Automatik"
+
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:26
+msgid "Automatic"
+msgstr "Automatik"
+
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:38
+msgid "Kilometer"
+msgstr "Kilometer"
+
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:95
+msgid "Price (max.)"
+msgstr "Preis (max.)"
+
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:108
+msgid "Sorting"
+msgstr "Sortierung"
+
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:125
+msgid "Results"
+msgstr "Treffer"
+
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:126
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:131
+msgid "No matches found."
+msgstr "Keine Übereinstimmungen gefunden."
+
+#: ../application/cars.schmolck.de/module/mobile/element/filter/output.phtml:132
+msgid "Try a new search."
+msgstr "Versuchen Sie es mit anderen Filterkriterien."
+
+#: ../application/cars.schmolck.de/module/mobile/element/form/action.php:25
+msgid "General request"
+msgstr "Allgemeine Anfrage"
+
+#: ../application/cars.schmolck.de/module/mobile/element/form/action.php:29
+msgid "Request for the vehicle %s"
+msgstr "Anfrage zum Fahrzeug %s"
+
+#: ../application/cars.schmolck.de/module/mobile/element/form/output.phtml:28
+msgid "Message"
+msgstr "Nachricht"
+
+#: ../application/cars.schmolck.de/module/mobile/element/gallery/output.phtml:6
+msgid "Cars"
+msgstr "Fahrzeuge"
+
+#: ../application/cars.schmolck.de/module/mobile/element/gallery/output.phtml:16
+msgid "%s Hits"
+msgstr "%s Treffer"
+
+#: ../application/cars.schmolck.de/module/mobile/element/gallery/output.phtml:40
+msgid "VAT not deductable"
+msgstr "MwSt. nicht ausweisbar"
+
+#: ../application/cars.schmolck.de/module/mobile/element/list/output.phtml:57
+msgid "VAT deductable"
+msgstr "MwSt. ausweisbar"
+
+#: ../application/cars.schmolck.de/module/mobile/page/detail/action.php:43
+msgid "Sorry, the selected vehicle %s is not available."
+msgstr "Verzeihung, das gewählte Fahrzeug ist nicht vorhanden."
+
+#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:6
+msgid "Vehicle Search"
+msgstr "Fahrzeugsuche"
+
+#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:132
+msgid "Print"
+msgstr "Drucken"
+
+#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:133
+msgid "Forward"
+msgstr "Weiterleiten"
+
+#: ../application/cars.schmolck.de/module/mobile/page/detail/output.phtml:134
+msgid "Request"
+msgstr "Anfrage"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:71
+msgid "Others"
+msgstr "Sonstige"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:95
+msgid "A-Class"
+msgstr "A-Klasse"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:96
+msgid "B-Class"
+msgstr "B-Klasse"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:97
+msgid "C-Class"
+msgstr "C-Klasse"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:98
+msgid "E-Class"
+msgstr "E-Klasse"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:99
+msgid "CLK"
+msgstr "CLK"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:100
+msgid "SLK"
+msgstr "SLK"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:101
+msgid "Offroad"
+msgstr "Offroad"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:107
+msgid "Fortwo"
+msgstr "Fortwo"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:108
+msgid "Forfour"
+msgstr "Forfour"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:109
+msgid "Roadster"
+msgstr "Roadster"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:530
+msgid "Brand New Car"
+msgstr "Neufahrzeug"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:534
+msgid "Jahreswagen"
+msgstr "Jahreswagen"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:540
+msgid "Junger Stern"
+msgstr "Junger Stern"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:545
+msgid "jung@smart"
+msgstr "jung@smart"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:551
+msgid "Used Car"
+msgstr "Gebrauchtwagen"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:590
+msgid "Petrol"
+msgstr "Benzin"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:593
+msgid "Diesel"
+msgstr "Diesel"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:596
+msgid "LPG"
+msgstr "Autogas"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:599
+msgid "Natural Gas"
+msgstr "Erdgas"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:605
+msgid "Electric"
+msgstr "Elektro"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:608
+msgid "Hybrid"
+msgstr "Hybrid"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:611
+msgid "Hydrogen"
+msgstr "Wasserstoff"
+
+#: ../application/cars.schmolck.de/module/mobile/_helper.php:614
+msgid "Ethanol"
+msgstr "Ethanol"
+
+#: ../application/cars.schmolck.de/module/mobile/_init.php:11
+msgid "List"
+msgstr "Liste"
+
+#: ../application/cars.schmolck.de/module/mobile/_init.php:15
+msgid "Gallery"
+msgstr "Galerie"
+
+#: ../application/cars.schmolck.de/module/static/page/imprint/output.phtml:6
+msgid "Imprint"
+msgstr "Impressum"
+
+#: ../application/cars.schmolck.de/module/translation/element/switcher/action.php:8
+msgid "Language Selector"
+msgstr "Sprache Auswahl"
+
+#: ../application/cars.schmolck.de/module/translation/element/switcher/output.phtml:8
+msgid "Language / Sprache"
+msgstr "Language / Sprache"
+
+#: ../application/cars.schmolck.de/module/u/r/l/action.php:32
+msgid "Sorry, the called URL is unknown"
+msgstr "Verzeihung, die aufgerufene URL ist unbekannt"
+
+#: ../application/cars.schmolck.de/module/u/r/l/output.phtml:6
+msgid "URL Hash"
+msgstr "URL Hash"
+
+#: ../application/cars.schmolck.de/module/u/r/l/output.phtml:11
+msgid "URL"
+msgstr "URL"
+
+#: ../application/cars.schmolck.de/module/u/r/l/output.phtml:39
+msgid "Redirecting to..."
+msgstr "Weiterleitung zu..."
+
+#: ../application/cars.schmolck.de/module/u/r/l/output.phtml:57
+msgid "Shorten"
+msgstr "Kürzen"
+
+#: ../application/cars.schmolck.de/module/u/r/s/output.phtml:6
+msgid "URL Hash Statistics"
+msgstr "URL Hash Statistik"
+
+#: ../application/cars.schmolck.de/module/u/r/s/output.phtml:20
+msgid "Calls"
+msgstr "Aufrufe"
+
+#: ../application/cars.schmolck.de/template/2013.05/html.phtml:26
+msgid "Home"
+msgstr "Startseite"
+
+#: ../application/cars.schmolck.de/template/2013.05/html.phtml:36
+msgid "Location"
+msgstr "Standort"
+
+#: ../application/cars.schmolck.de/template/2013.06/html.phtml:37
+msgid "Navigation"
+msgstr "Navigation"
+
+#: ../application/cars.schmolck.de/template/2015.06/html.phtml:40
+msgid "Used Cars"
+msgstr "Gebrauchtfahrzeuge"
+
+#: ../application/cars.schmolck.de/template/2015.06/html.phtml:52
+msgid "Website"
+msgstr "Webseite"
+
+#~ msgid "Loading..."
+#~ msgstr "Lade..."
+
+#~ msgid "Mercedes-Benz"
+#~ msgstr "Mercedes-Benz"
+
+#~ msgid "smart"
+#~ msgstr "smart"
+
+#~ msgid "ŠKODA"
+#~ msgstr "ŠKODA"
+
+#~ msgid "URL Shortener"
+#~ msgstr "URL Kürzer"
+
+#~ msgid "Filter"
+#~ msgstr "Filter"
+
+#~ msgid "Address"
+#~ msgstr "Anschrift"
+
+#~ msgid "Error"
+#~ msgstr "Fehler"
+
+#~ msgid "Overview"
+#~ msgstr "Übersicht"
+
+#~ msgid "Paint"
+#~ msgstr "Lack"
+
+#~ msgid "Upholstery"
+#~ msgstr "Polster"
+
+#~ msgid "Reset all filter values"
+#~ msgstr "Alle Filterwerte zurücksetzen"
+
+#~ msgid "Request for a vehicle"
+#~ msgstr "Anfrage zu den Fahrzeugen"
+
+#~ msgid "Contact Person"
+#~ msgstr "Ansprechpartner"
+
+#~ msgid "Company Cars"
+#~ msgstr "Geschäftswagen"
+
+#~ msgid "Secondhand Cars"
+#~ msgstr "Gebrauchtwagen"
+
+#~ msgid "Or get in %s contact %s with us and we will find a car for you."
+#~ msgstr ""
+#~ "Oder nehmen Sie %s Kontakt %s mit uns auf und wir finden das passende "
+#~ "Fahrzeug."
+
+#~ msgid "Enter your address here"
+#~ msgstr "Geben Sie hier Ihre Adresse ein"
+
+#~ msgid "Schmolck Group"
+#~ msgstr "Unternehmensgruppe Schmolck"
+
+#~ msgid "open in a larger map"
+#~ msgstr "in großer Ansicht öffnen"
+
+#~ msgid "cars"
+#~ msgstr "cars"
+
+#~ msgid "Menu"
+#~ msgstr "Menü"
+
+#~ msgid "You can post your questions to our team in the following languages​​"
+#~ msgstr "Sie können Ihre Fragen an unser Team in folgenden Sprachen stellen"
+
+#~ msgid "Car"
+#~ msgstr "Fahrzeug"
+
+#~ msgid "Type"
+#~ msgstr "Art"
+
+#~ msgid "Initial Registration"
+#~ msgstr "Erstzulassung"
+
+#~ msgid "Kilometer (max.)"
+#~ msgstr "Kilometer (max.)"
+
+#~ msgid "Back"
+#~ msgstr "Zurück"
+
+#~ msgid "Tel +49 7641 / 4602-0"
+#~ msgstr "Tel +49 7641 / 4602-0"
+
+#~ msgid "Fax +49 7641 / 4602-80"
+#~ msgstr "Fax +49 7641 / 4602-80"
+
+#~ msgid "Volkswagen"
+#~ msgstr "Volkswagen"
+
+#~ msgid "Km (max.)"
+#~ msgstr "Km (max.)"
+
+#~ msgid "Switch to 'Schmolck news'"
+#~ msgstr "Zu 'Schmolck news' wechseln"
+
+#~ msgid "news"
+#~ msgstr "news"
+
+#~ msgid "You are already here"
+#~ msgstr "Sie befinden sich bereits hier"
+
+#~ msgid "Sorry, message could not be sent."
+#~ msgstr "Verzeihung, die Nachricht konnte nicht verschickt werden."
+
+#~ msgid "brand_all"
+#~ msgstr "Alle"
+
+#, fuzzy
+#~ msgid "brand_mercedes-benz"
+#~ msgstr "Mercedes-Benz"
+
+#, fuzzy
+#~ msgid "brand_smart"
+#~ msgstr "smart"
+
+#~ msgid "Load next 10 hits"
+#~ msgstr "Lade die nächsten 10 Treffer"
+
+#~ msgid "Route Planner"
+#~ msgstr "Routenplaner"
+
+#~ msgid "Tel"
+#~ msgstr "Tel"
+
+#~ msgid "Fax"
+#~ msgstr "Fax"
