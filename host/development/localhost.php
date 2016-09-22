@@ -40,7 +40,7 @@ define('DEBUG_LEVEL', 7);
  * 
  * Corresponding to whatever 'application' inside the application folder
  */
-define('APPLICATION_NAME', 'framework.schmolck.de');
+define('APPLICATION_NAME', 'cars.schmolck.de');
 
 /*
  * APPLICATION LANGUAGE
