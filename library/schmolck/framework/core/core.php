@@ -137,6 +137,7 @@ class Schmolck_Framework_Core {
     protected function _initHelpers() {
         $this->_arrHelpers['host'] = new Schmolck_Framework_Helper_Host($this);
         $this->_arrHelpers['application'] = new Schmolck_Framework_Helper_Application($this);
+        $this->_arrHelpers['db2'] = new Schmolck_Framework_Helper_Db2($this);
         $this->_arrHelpers['database'] = new Schmolck_Framework_Helper_Database($this);
         $this->_arrHelpers['optimizer'] = new Schmolck_Framework_Helper_Optimizer($this);
         $this->_arrHelpers['translator'] = new Schmolck_Framework_Helper_Translator($this);
@@ -168,6 +169,15 @@ class Schmolck_Framework_Core {
     public function &getHelperApplication() {
         return $this->_arrHelpers['application'];
     }
+    
+    /**
+     * Get db2 helper
+     * 
+     * @return \Schmolck_Framework_Helper_Db2
+     */
+    public function &getHelperDb2() {
+        return $this->_arrHelpers['db2'];
+    }    
 
     /**
      * Get database helper

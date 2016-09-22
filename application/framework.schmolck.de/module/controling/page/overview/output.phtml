@@ -10,7 +10,55 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Over
     <div class="contact">
         <div class="row">
             <div class="col-md-6">
-                <img src="apps/image/1024/90/images/framework.schmolck.de/diagram.jpg">
+                <table class="table table-striped">
+                    <thead>
+
+                        <tr>
+                            <th>
+                                Filiale
+                            </th>
+                            <th>
+                                2016
+                            </th>
+                            <th>
+                                2015
+                            </th>
+                            <th>
+                                2014
+                            </th>
+                            <th>
+                                2013
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <?php
+                        foreach ($objCore->arrBusiness as $arrColumns) {
+                            ?>
+                            <tr>
+                                <td>
+                                    <?= $arrColumns['Filiale'] ?>
+                                </td>
+                                <td>
+                                    <?= $arrColumns['2016'] ?>
+                                </td>
+                                <td>
+                                    <?= $arrColumns['2015'] ?>
+                                </td>
+                                <td>
+                                    <?= $arrColumns['2014'] ?>
+                                </td>
+                                <td>
+                                    <?= $arrColumns['2013'] ?>
+                                </td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
+
+                    </tbody>
+                </table>
             </div>
         </div>        
     </div>

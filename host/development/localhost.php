@@ -40,7 +40,7 @@ define('DEBUG_LEVEL', 7);
  * 
  * Corresponding to whatever 'application' inside the application folder
  */
-define('APPLICATION_NAME', 'cars.schmolck.de');
+define('APPLICATION_NAME', 'framework.schmolck.de');
 
 /*
  * APPLICATION LANGUAGE
@@ -75,6 +75,15 @@ define('DATABASE_HOST', 'localhost');
 define('DATABASE_NAME', 'pascal_cars.schmolck.de');
 define('DATABASE_USERNAME', 'pascal');
 define('DATABASE_PASSWORD', 'test');
+
+/*
+ * DB2 CONNECTION
+ * 
+ * Define the db2 connection settings here.
+ */
+define('DB2_DSN', 'REPDBF');
+define('DB2_USER', 'ASPSCPS');
+define('DB2_PASSWORD', 'Care1254');
 
 /*
  * MAIL
