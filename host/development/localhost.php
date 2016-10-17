@@ -71,10 +71,10 @@ define('EXCEPTION_ADDRESS', 'webmaster@schmolck.de');
  * 
  * Define the database connection settings here.
  */
-define('DATABASE_HOST', 'localhost');
-define('DATABASE_NAME', 'pascal_cars.schmolck.de');
-define('DATABASE_USERNAME', 'pascal');
-define('DATABASE_PASSWORD', 'test');
+//define('DATABASE_HOST', 'localhost');
+//define('DATABASE_NAME', 'pascal_cars.schmolck.de');
+//define('DATABASE_USERNAME', 'pascal');
+//define('DATABASE_PASSWORD', 'test');
 
 /*
  * DB2 CONNECTION
