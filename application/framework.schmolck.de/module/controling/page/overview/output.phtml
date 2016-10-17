@@ -7,59 +7,59 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Over
 ?>
 <div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
     <?= $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
-    <div class="contact">
-        <div class="row">
-            <div class="col-md-6">
-                <table class="table table-striped">
-                    <thead>
 
-                        <tr>
-                            <th>
-                                Filiale
-                            </th>
-                            <th>
-                                2016
-                            </th>
-                            <th>
-                                2015
-                            </th>
-                            <th>
-                                2014
-                            </th>
-                            <th>
-                                2013
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
+    <div class="row">
+        <div class="col-md-6">
 
-                        <?php
-                        foreach ($objCore->arrBusiness as $arrColumns) {
-                            ?>
-                            <tr>
-                                <td>
-                                    <?= $arrColumns['Filiale'] ?>
-                                </td>
-                                <td>
-                                    <?= $arrColumns['2016'] ?>
-                                </td>
-                                <td>
-                                    <?= $arrColumns['2015'] ?>
-                                </td>
-                                <td>
-                                    <?= $arrColumns['2014'] ?>
-                                </td>
-                                <td>
-                                    <?= $arrColumns['2013'] ?>
-                                </td>
-                            </tr>
-                            <?php
-                        }
+            <h4>
+                Aufträge pro Filiale
+            </h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Filiale
+                        </th>
+                        <th>
+                            2016
+                        </th>
+                        <th>
+                            2015
+                        </th>
+                        <th>
+                            2014
+                        </th>
+                        <th>
+                            2013
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    foreach ($objCore->arrBusiness as $arrColumns) {
                         ?>
-
-                    </tbody>
-                </table>
-            </div>
-        </div>        
-    </div>
+                        <tr>
+                            <td>
+                                <?= $arrColumns['Filiale'] ?>
+                            </td>
+                            <td>
+                                <?= number_format($arrColumns['2016'], 0, ',', '.') ?>
+                            </td>
+                            <td>
+                                <?= number_format($arrColumns['2015'], 0, ',', '.') ?>
+                            </td>
+                            <td>
+                                <?= number_format($arrColumns['2014'], 0, ',', '.') ?>
+                            </td>
+                            <td>
+                                <?= number_format($arrColumns['2013'], 0, ',', '.') ?>
+                            </td>
+                        </tr>
+                        <?php
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+    </div>        
 </div>
