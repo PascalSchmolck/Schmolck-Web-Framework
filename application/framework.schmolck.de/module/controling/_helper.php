@@ -10,7 +10,6 @@ class Controling_Helper extends Schmolck_Framework_Helper {
 
     public function getBusiness() {
 
-//        $arrResult = $this->restore('getBusiness');
         $strCacheKey = __CLASS__ . __METHOD__ . date('Y.m.d');
         $objCache = $this->_objCore->getHelperCache();
 
@@ -76,7 +75,6 @@ ORDER BY t1.Filiale
                 $arrResult[] = $arrColumns;
             }
 
-//            $this->store('getBusiness', $arrResult);
             $this->_objCore->getHelperCache()->setData($strCacheKey, serialize($arrResult));
         }
 

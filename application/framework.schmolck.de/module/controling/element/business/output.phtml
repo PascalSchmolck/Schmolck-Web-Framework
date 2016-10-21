@@ -1,0 +1,58 @@
+<?php
+/*
+ * INITIALISATION
+ */
+$objCore = Schmolck_Framework_Core::getInstance($this);
+$objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Overview"));
+?>
+<div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
+    <h4>
+        Aufträge pro Filiale
+    </h4>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Filiale
+                </th>
+                <th>
+                    2016
+                </th>
+                <th>
+                    2015
+                </th>
+                <th>
+                    2014
+                </th>
+                <th>
+                    2013
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            foreach ($objCore->arrBusiness as $arrColumns) {
+                ?>
+                <tr>
+                    <td>
+                        <?= $arrColumns['Filiale'] ?>
+                    </td>
+                    <td>
+                        <?= number_format($arrColumns['2016'], 0, ',', '.') ?>
+                    </td>
+                    <td>
+                        <?= number_format($arrColumns['2015'], 0, ',', '.') ?>
+                    </td>
+                    <td>
+                        <?= number_format($arrColumns['2014'], 0, ',', '.') ?>
+                    </td>
+                    <td>
+                        <?= number_format($arrColumns['2013'], 0, ',', '.') ?>
+                    </td>
+                </tr>
+                <?php
+            }
+            ?>
+        </tbody>
+    </table>
+</div>

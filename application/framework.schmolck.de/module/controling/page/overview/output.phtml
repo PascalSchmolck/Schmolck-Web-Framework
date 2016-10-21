@@ -11,55 +11,10 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Over
     <div class="row">
         <div class="col-md-6">
 
-            <h4>
-                Aufträge pro Filiale
-            </h4>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>
-                            Filiale
-                        </th>
-                        <th>
-                            2016
-                        </th>
-                        <th>
-                            2015
-                        </th>
-                        <th>
-                            2014
-                        </th>
-                        <th>
-                            2013
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    foreach ($objCore->arrBusiness as $arrColumns) {
-                        ?>
-                        <tr>
-                            <td>
-                                <?= $arrColumns['Filiale'] ?>
-                            </td>
-                            <td>
-                                <?= number_format($arrColumns['2016'], 0, ',', '.') ?>
-                            </td>
-                            <td>
-                                <?= number_format($arrColumns['2015'], 0, ',', '.') ?>
-                            </td>
-                            <td>
-                                <?= number_format($arrColumns['2014'], 0, ',', '.') ?>
-                            </td>
-                            <td>
-                                <?= number_format($arrColumns['2013'], 0, ',', '.') ?>
-                            </td>
-                        </tr>
-                        <?php
-                    }
-                    ?>
-                </tbody>
-            </table>
+            <div class="business">
+                <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_business", 'controling/element/business') ?>				
+            </div>
+
         </div>
     </div>        
 </div>
