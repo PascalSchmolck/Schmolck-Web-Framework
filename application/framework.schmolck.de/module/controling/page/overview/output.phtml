@@ -10,11 +10,14 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Over
 
     <div class="row">
         <div class="col-md-6">
-
             <div class="business">
                 <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_business", 'controling/element/business') ?>				
             </div>
-
         </div>
-    </div>        
+        <div class="col-md-6">
+            <div class="businessPlot">
+                <img src="controling/element/businessPlot" width="100%"/>
+            </div>           
+        </div>
+    </div>            
 </div>

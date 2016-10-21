@@ -90,3 +90,12 @@ define('DB2_PASSWORD', 'Care1254');
  */
 define('MAIL_RECIPIENT_NAME', 'cars.schmolck.de');
 define('MAIL_RECIPIENT_ADDRESS', 'verkauf@schmolck.de');
+
+/*
+ * FILIALEN
+ */
+define('FILIALE_COLOR_01', '#0000FF');
+define('FILIALE_COLOR_02', '#FF0000');
+define('FILIALE_COLOR_03', '#00FF00');
+define('FILIALE_COLOR_04', '#333333');
+define('FILIALE_COLOR_05', '#FF88FF');

@@ -31,27 +31,25 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Over
         </thead>
         <tbody>
             <?php
-            foreach ($objCore->arrBusiness as $arrColumns) {
+            foreach ($objCore->arrBusiness as $arrColumns) :
+                $nCounter++;
                 ?>
                 <tr>
                     <td>
-                        <?= $arrColumns['Filiale'] ?>
+                        0<?= $nCounter ?>
                     </td>
-                    <td>
-                        <?= number_format($arrColumns['2016'], 0, ',', '.') ?>
-                    </td>
-                    <td>
-                        <?= number_format($arrColumns['2015'], 0, ',', '.') ?>
-                    </td>
-                    <td>
-                        <?= number_format($arrColumns['2014'], 0, ',', '.') ?>
-                    </td>
-                    <td>
-                        <?= number_format($arrColumns['2013'], 0, ',', '.') ?>
-                    </td>
+                    <?php
+                    foreach ($arrColumns as $strColumn):
+                        ?>
+                        <td>
+                            <?= number_format($strColumn, 0, ',', '.') ?>
+                        </td>
+                        <?php
+                    endforeach;
+                    ?>
                 </tr>
                 <?php
-            }
+            endforeach;
             ?>
         </tbody>
     </table>
