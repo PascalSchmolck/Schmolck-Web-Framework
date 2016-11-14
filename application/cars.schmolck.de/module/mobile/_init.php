@@ -15,3 +15,16 @@ $objCore->menu = array(
         'label' => $objCore->getHelperTranslator()->_("Gallery")
     )
 );
+
+// ********
+// REDIRECT
+// ********
+// - to new module on TYPO3 website 
+$strParameterId = intval(trim(strip_tags($_GET['id'])));
+if ($strParameterId != 0) {
+    $objCore->getHelperRedirect()->external("http://www.schmolck.de/suche/fahrzeugsuche/fahrzeug-details/$strParameterId/");
+  
+} else {
+    $objCore->getHelperRedirect()->external("http://www.schmolck.de/suche/fahrzeugsuche/");
+}
+exit();
