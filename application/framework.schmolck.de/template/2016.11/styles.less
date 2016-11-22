@@ -1,0 +1,41 @@
+/******************************************************************************/
+/* TEMPLATE */
+/******************************************************************************/
+.clearer {
+    clear: both;
+    height: 0;
+}
+.print {
+    @media only screen {
+        visibility:hidden;
+        display: none;
+    }
+}
+.screen {
+    @media only print {
+        visibility:hidden;
+        display: none;
+    }
+}
+#message{
+    @media print {
+        display: none;
+        visibility: hidden;
+    } 
+    display: none;
+    /*background-color: #fff;*/
+    .text {
+        /*background-color: #CCDFFF;*/
+        color: #000000;
+        padding: 20px;
+        margin: 20px 0;
+        margin-bottom: 0;
+        font-size: 85%;
+    }
+}
+#page-wrapper {
+    padding: 20px;
+}
+/******************************************************************************/
+/* MODULES */
+/******************************************************************************/
