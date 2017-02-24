@@ -1,0 +1,19 @@
+<?php
+/*
+ * INITIALISATION
+ */
+$objCore = Schmolck_Framework_Core::getInstance($this);
+$objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Login"));
+?>
+<div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>
+                Login
+            </h1>
+            <div class="form">
+                <?= $objCore->getHelperElement()->getElement("{$objCore->strId}_form", 'administration/api/loginform') ?>		
+            </div>
+        </div>
+    </div>
+</div>

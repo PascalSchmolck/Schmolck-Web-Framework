@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Schmolck 
+ * Schmolck DB2 Framework Helper
  * 
  * @package Schmolck Web Framework
  * @author Pascal Schmolck

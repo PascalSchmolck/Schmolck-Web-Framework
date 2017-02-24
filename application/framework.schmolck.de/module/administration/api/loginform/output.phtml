@@ -1,0 +1,30 @@
+<?php
+/*
+ * INITIALISATION
+ */
+$objCore = Schmolck_Framework_Core::getInstance($this);
+
+/*
+ * OUTPUT
+ */
+?>
+<div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
+    <h2>
+        <?= $objCore->strUser ?>
+    </h2>
+    <form id="<?= $objCore->getHelperElement()->getId() ?>" method="post">
+        <input type="hidden" name="send" value="1">
+        <div class="form-group">
+            <label><?= $objCore->getHelperTranslator()->_("Name") ?>*</label>
+            <input id="<?= $objCore->strId ?>_name" type="text" class="form-control" name="name" value="<?= $objCore->strName ?>">	
+        </div>
+        <div class="form-group">
+            <label><?= $objCore->getHelperTranslator()->_("Password") ?>*</label>
+            <input type="password" name="password" class="form-control" value="<?= $objCore->strPassword ?>">
+        </div>
+        <div class="form-group">
+            <input onclick="javascript:<?= $objCore->getHelperElement()->getId() ?>_send();" class="button submit" type="button" value="<?= $objCore->getHelperTranslator()->_("Submit") ?>">
+        </div>
+        <?= $objCore->getHelperScripts()->renderViewScripts() ?>
+    </form>
+</div>
