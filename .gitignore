@@ -1,8 +1,8 @@
 /nbproject/private/
 /backup/*
 /data/*
+/host/development/*
 /host/production/*
 /nbproject/*
 /tmp/*
 /apps/care/config.php
-host/development/localhost.php
