@@ -35,6 +35,11 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
+                        <li class="<?= $arrNavbarClass['carrental'] ?>">
+                            <a href="carrental">
+                                <?= ($objCore->getHelperTranslator()->_("Car Rental")) ?>
+                            </a>
+                        </li>
                         <li class="<?= $arrNavbarClass['marketing'] ?>">
                             <a href="marketing">
                                 <?= ($objCore->getHelperTranslator()->_("Marketing")) ?>

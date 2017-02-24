@@ -1,0 +1,41 @@
+<?php
+/*
+ * INITIALISATION
+ */
+$objCore = Schmolck_Framework_Core::getInstance($this);
+$objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Quality"));
+?>
+<div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
+    <?= $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
+    <div class="row">
+        <div class="col-md-6">
+            <form enctype="multipart/form-data" method="post">
+                <input type="hidden" name="send" value="1">
+                <p>
+                    <label>
+                        <?= $objCore->getHelperTranslator()->_("Name") ?>*
+                        <span class="error">
+                            <?= $objCore->strErrorName ?>
+                        </span>
+                    </label>
+                    <input id="<?= $objCore->strId ?>_name" type="text" name="name" value="<?= $objCore->strName ?>">	
+                </p>
+                <p>
+                    <input type="file" name="file[]" accept="image/*" multiple>
+                </p>
+                <p>
+                    <input type="submit" class="button submit" value="<?= $objCore->getHelperTranslator()->_("Submit") ?>">
+                </p>                
+            </form>
+            <pre>
+                <?php
+                echo "FILES:<br>";
+                var_dump($_FILES);
+
+                echo "POST:<br>";
+                var_dump($_POST);
+                ?>
+            </pre>
+        </div>            
+    </div>
+</div>
