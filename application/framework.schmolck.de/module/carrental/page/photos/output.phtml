@@ -12,15 +12,6 @@ $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Qual
             <form enctype="multipart/form-data" method="post">
                 <input type="hidden" name="send" value="1">
                 <p>
-                    <label>
-                        <?= $objCore->getHelperTranslator()->_("Name") ?>*
-                        <span class="error">
-                            <?= $objCore->strErrorName ?>
-                        </span>
-                    </label>
-                    <input id="<?= $objCore->strId ?>_name" type="text" name="name" value="<?= $objCore->strName ?>">	
-                </p>
-                <p>
                     <input type="file" name="file[]" accept="image/*" multiple>
                 </p>
                 <p>
