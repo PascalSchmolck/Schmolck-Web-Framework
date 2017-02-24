@@ -1,5 +1,5 @@
 
-Notice: Undefined variable: result in E:\Webseiten\GitHub\Schmolck-Web-Framework\tools\xgettext.php on line 94
+Notice: Undefined variable: result in C:\Users\sps\Webseiten\GitHub\Schmolck-Web-Framework\tools\xgettext.php on line 94
 #: ../application/cars.schmolck.de/module/contact/api/form/action.php:25 
 msgid "Please enter your name name" 
 msgstr "" 
