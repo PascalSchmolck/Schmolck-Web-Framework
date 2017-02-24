@@ -16,7 +16,9 @@
         <meta name="robots" content="index, follow">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="apps/style/<?= $objCore->getLayoutStyleFile() ?>" media="all">
+
         <script type="text/javascript" src="apps/script/<?= $objCore->getLayoutScriptFile() ?>"></script>		
     </head>
     <body role="document">
@@ -50,6 +52,9 @@
                                 <?= ($objCore->getHelperTranslator()->_("Controling")) ?>
                             </a>
                         </li>                                  
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     </ul>
                 </div>
             </div>
