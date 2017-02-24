@@ -65,6 +65,11 @@
                     <?= $objCore->getHelperMessage()->popMessage() ?>
                 </div>
             <?php endif; ?>
+
+            <?php if (count($objCore->menu) > 0) : ?>
+                <?= $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
+            <?php endif; ?>
+
             <?= $this->renderViewHtml() ?>
         </div>
 

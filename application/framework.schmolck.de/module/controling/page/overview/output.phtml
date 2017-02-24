@@ -6,8 +6,6 @@ $objCore = Schmolck_Framework_Core::getInstance($this);
 $objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Overview"));
 ?>
 <div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
-    <?= $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
-
     <div class="row">
         <div class="col-md-6">
             <div class="business">
