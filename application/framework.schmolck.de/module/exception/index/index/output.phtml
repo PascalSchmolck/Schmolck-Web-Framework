@@ -1,11 +1,24 @@
 <?php
+/*
+ * INIT
+ */
 $objCore = Schmolck_Framework_Core::getInstance($this);
-$objCore->strPageTitle = $objCore->getHelperTranslator()->_("Ups, sorry...");
+$objCore->getHelperHtml()->setPageTitle("Ups, sorry...");
 
-$strSubject = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-$strBody = $objCore->getHelperTranslator()->_("Error message") . ': ' . $Exception->getMessage();
+/*
+ * PREP
+ */
+$strSubject = $_SERVER['HTTP_HOST'] . " - " . $Exception->getMessage();
+$strBody = $Exception->getMessage() . "%0D%0A%0D%0A" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+
+/*
+ * LOG
+ */
 Schmolck_Tool_Debug::error($Exception->getMessage());
 
+/*
+ * OUTPUT
+ */
 ?>
 <div id="<?= $objCore->getHelperElement()->getStyleId() ?>" class="<?= $objCore->getHelperElement()->getStyleClass() ?>">
     <h2>
@@ -13,7 +26,7 @@ Schmolck_Tool_Debug::error($Exception->getMessage());
     </h2>
     <p>
         <?= $objCore->getHelperTranslator()->_("If this error occurs repeatedly, we would appreciate a short message"); ?>:
-        <a href="mailto:webmaster@schmolck.de?subject=<?= $strSubject ?>&body=<?= $strBody ?>">
+        <a href="mailto:<?= EXCEPTION_ADDRESS ?>?subject=<?= $strSubject ?>&body=<?= $strBody ?>">
             <?= EXCEPTION_ADDRESS ?>
         </a>
     </p>
@@ -31,4 +44,3 @@ Schmolck_Tool_Debug::error($Exception->getMessage());
         <pre class="infos" style="overflow: auto;"><?= $Exception->getTraceAsString() ?></pre>
     <? endif; ?>
 </div>
-   
