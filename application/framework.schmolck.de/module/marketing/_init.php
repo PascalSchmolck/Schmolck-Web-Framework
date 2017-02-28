@@ -4,7 +4,7 @@
  * INITIALISATION
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
-// - menu
+$objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Marketing"));
 $objCore->menu = array(
     array(
         'link' => 'marketing/page/overview',

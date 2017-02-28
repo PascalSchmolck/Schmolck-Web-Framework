@@ -1,13 +1,10 @@
 <?php
 
 /*
- * INITIALISATION
+ * INIT
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
-
-/*
- * MENU
- */
+$objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Car Rental"));
 $objCore->menu = array(
     array(
         'link' => 'carrental/page/overview',

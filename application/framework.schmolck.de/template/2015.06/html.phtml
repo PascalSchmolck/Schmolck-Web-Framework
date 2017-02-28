@@ -7,7 +7,7 @@
         <base href="<?= $objCore->getHelperApplication()->getBaseUrl() ?>/">
         <meta charset="utf-8"/>
         <title>
-            <?= ucfirst($objCore->getHelperTranslator()->_($objCore->getModule())) ?> - <?= $strPageTitle ?> | Schmolck Framework
+            <?= $strPageTitle ?> | Schmolck Web Framework
         </title>
         <meta name="author" content="Pascal Schmolck">
         <meta name="publisher" content="Schmolck GmbH & Co. KG">
@@ -22,7 +22,7 @@
         <script type="text/javascript" src="apps/script/<?= $objCore->getLayoutScriptFile() ?>"></script>		
     </head>
     <body role="document">
-        <nav class="navbar navbar-inverse navbar-fixed-top">
+        <nav id="navigation" class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -31,12 +31,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="">
-                        <img src="images/cars.schmolck.de/template/logo/white.png" width="100"/>
+                    <a class="navbar-brand" href="#">
+                        Schmolck <span class="navbar-brand-title"> - <?= $strPageTitle ?> </span>
                     </a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav navbar-right">
                         <li class="<?= $arrNavbarClass['carrental'] ?>">
                             <a href="carrental">
                                 <?= ($objCore->getHelperTranslator()->_("Car Rental")) ?>
@@ -53,41 +53,42 @@
                             </a>
                         </li>                                  
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    </ul>
                 </div>
             </div>
         </nav>
 
         <div id="main" class="container" role="main">
-            <div class="progress progress-striped active modal">
+            <div id="progress" class="progress progress-striped active modal">
                 <div class="progress-bar"></div>
-            </div>                
+            </div>       
+
             <?php if ($objCore->getHelperMessage()->getMessage() != '') : ?>
-                <div class="alert alert-dismissible alert-warning">
+                <div id="message" class="alert alert-dismissible alert-warning">
                     <button type="button" class="close" data-dismiss="alert">×</button>
                     <?= $objCore->getHelperMessage()->popMessage() ?>
                 </div>
             <?php endif; ?>
 
             <?php if (count($objCore->menu) > 0) : ?>
-                <?= $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
+                <div id="menu">
+                    <?= $objCore->getHelperMenu()->getHtml('menu', $objCore->menu) ?>
+                </div>
             <?php endif; ?>
 
-            <?= $this->renderViewHtml() ?>
+            <div id="view">
+                <?= $this->renderViewHtml() ?>
+            </div>
         </div>
 
         <div id="footer">
-            <div class="container">				
-                <div class="links">
-                    <ul>
-                        <li>
-                            <?= date('Y') ?> &copy; Schmolck GmbH & Co. KG
-                        </li>
-                    </ul>
-                </div>											
-            </div>
+            <div class="links">
+                <ul>
+                    <li>
+                        <?= date('Y') ?> &copy; Schmolck GmbH & Co. KG
+                    </li>
+                </ul>
+            </div>											
+
         </div>
     </body>	
 </html>

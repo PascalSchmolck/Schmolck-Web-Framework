@@ -33,12 +33,40 @@ h1 {
         display: none;
     }
 }
-.nav {
+#navigation {
     .active {
         font-weight: bold;
     }    
+    .navbar-brand-title {
+        @media screen and (max-width: 768px) {
+            display: inline;
+        }
+        display: none;
+    }   
+    .navbar-right {
+        li {
+         text-align: right;
+        }
+    }
 }
-.menu {
+#main {
+    @media print {
+        padding: 10px;
+        margin: 10px;
+        width: 100%;
+    }         
+    padding-top: 70px;
+    font-size: 0.9em;
+    line-height: 1.5em;
+}
+#progress {
+    display: none;
+    height: 10px;
+    .progress-bar {
+        width: 100%;
+    }
+}
+#menu {
     margin-bottom: 20px;
     font-size: 8pt;
     .active {
@@ -61,27 +89,12 @@ h1 {
         font-size: 85%;
     }
 }
-#main {
-    @media print {
-        padding-top: 0;
-        font-size: 80%;
-    }         
-    padding-top: 70px;
-    font-size: 0.9em;
-    line-height: 1.5em;
-
-    .progress {
-        display: none;
-        height: 10px;
-        .progress-bar {
-            width: 100%;
-        }
-    }
-}
 #footer {
-    @media only print {
-        display: none;
-    } 
+    @media print {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }   
     clear: both;
     font-size: 8pt;
     line-height: 1.25em;
