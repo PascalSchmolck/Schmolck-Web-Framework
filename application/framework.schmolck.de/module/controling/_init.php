@@ -4,7 +4,7 @@
  * INITIALISATION
  */
 $objCore = Schmolck_Framework_Core::getInstance($this);
-// - menu
+$objCore->getHelperHtml()->setPageTitle($objCore->getHelperTranslator()->_("Controling"));
 $objCore->menu = array(
     array(
         'link' => 'controling/page/overview',
