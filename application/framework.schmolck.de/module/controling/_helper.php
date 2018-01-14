@@ -8,7 +8,7 @@
  */
 class Controling_Helper extends Schmolck_Framework_Helper {
 
-    public function getBusiness() {
+    public function getBusinessOverview() {
 
         $strCacheKey = __CLASS__ . __METHOD__ . date('Y.m.d');
         $objCache = $this->_objCore->getHelperCache();
@@ -22,7 +22,7 @@ class Controling_Helper extends Schmolck_Framework_Helper {
             $objDb2 = $this->_objCore->getHelperDb2();
 
             $strSQL = "
-SELECT t1.Filiale, t1.Anzahl AS \"2013\", t2.Anzahl AS \"2014\", t3.Anzahl AS \"2015\", t4.Anzahl AS \"2016\"
+SELECT t1.Filiale, t1.Anzahl AS \"2013\", t2.Anzahl AS \"2014\", t3.Anzahl AS \"2015\", t4.Anzahl AS \"2016\", t5.Anzahl AS \"2017\"
 FROM
 	(SELECT eeavcd AS Filiale, SUBSTRING(eeeodt, 2, 2) AS Jahr, count(*) AS Anzahl 
 	FROM repdbfsc.rpeecpp
@@ -55,6 +55,16 @@ LEFT JOIN
 	AND (EEJ9CD = 'PME' OR EEJ9CD = 'NME' OR EEJ9CD = 'N10' OR EEJ9CD = 'N20' OR EEJ9CD = 'N30' OR EEJ9CD = 'S10' OR EEJ9CD = 'S20')
 	GROUP BY eeavcd, SUBSTRING(eeeodt, 2, 2)
 	ORDER BY eeavcd) t4
+LEFT JOIN
+	(SELECT eeavcd AS Filiale, SUBSTRING(eeeodt, 2, 2) AS Jahr, count(*) AS Anzahl 
+	FROM repdbfsc.rpeecpp
+	WHERE eefacd = '20'
+	AND SUBSTRING(eeeodt, 1, 3) = '117'
+	AND (EEJ9CD = 'PME' OR EEJ9CD = 'NME' OR EEJ9CD = 'N10' OR EEJ9CD = 'N20' OR EEJ9CD = 'N30' OR EEJ9CD = 'S10' OR EEJ9CD = 'S20')
+	GROUP BY eeavcd, SUBSTRING(eeeodt, 2, 2)
+	ORDER BY eeavcd) t5
+ON
+	t5.Filiale = t4.Filiale
 ON
 	t4.Filiale = t3.Filiale
 ON 
@@ -71,6 +81,7 @@ ORDER BY t1.Filiale
                 $arrColumns[] = $objDb2->getResult($nResult, '2014');
                 $arrColumns[] = $objDb2->getResult($nResult, '2015');
                 $arrColumns[] = $objDb2->getResult($nResult, '2016');
+                $arrColumns[] = $objDb2->getResult($nResult, '2017');
                 $arrResult[] = $arrColumns;
             }
             $this->_objCore->getHelperCache()->setData($strCacheKey, serialize($arrResult));

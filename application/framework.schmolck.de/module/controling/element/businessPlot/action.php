@@ -7,7 +7,7 @@ require_once 'library/jpgraph/src/jpgraph_line.php';
 // - core
 $objCore = Schmolck_Framework_Core::getInstance($this);
 $objHelper = new Controling_Helper($objCore);
-$arrBusiness = $objHelper->getBusiness();
+$arrBusiness = $objHelper->getBusinessOverview();
 
 //print_r($objCore->arrBusiness[0]);
 //exit();
